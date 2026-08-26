@@ -1,6 +1,46 @@
-import { Link } from 'react-router-dom'
-import { awardDesigns, jury, newsArticles } from '../data'
-import { PageHero } from '../components/Layout'
+import { Link, useParams } from 'react-router-dom'
+import {
+  awardDesigns,
+  bestDesignCategories,
+  bestDesignLinks,
+  jury,
+  newsArticles,
+} from '../data'
+import { PageHero, SubNav } from '../components/Layout'
+
+const awardSubnav = bestDesignLinks.slice(0, 9).map((l) => ({ label: l.label, to: l.to }))
+
+function AwardGrid({ items }: { items: typeof awardDesigns }) {
+  if (!items.length) return <div className="empty">No designs in this category yet.</div>
+  return (
+    <div className="award-grid">
+      {items.map((d) => (
+        <article className="award-card" key={d.title}>
+          <div className="award-media">
+            <span className={`badge ${d.badge === 'Winner' ? 'winner' : ''}`}>{d.badge}</span>
+          </div>
+          <div className="award-body">
+            <div className="meta">{d.category}</div>
+            <h3>{d.title}</h3>
+            <div className="meta">by {d.agency}</div>
+            {d.score != null && (
+              <>
+                <div className="score">★ {d.score}/10</div>
+                <div className="chip-row" style={{ marginTop: '0.5rem' }}>
+                  {d.judges.map((j) => (
+                    <span className="chip" key={j.initials}>
+                      {j.initials} {j.score}
+                    </span>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  )
+}
 
 export function BestDesignsPage() {
   return (
@@ -10,15 +50,16 @@ export function BestDesignsPage() {
         subtitle="The best design work of 2026, across websites, logos, apps, packaging, print, and video — curated by DesignsWorkLife."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Best Designs' }]}
       />
+      <SubNav items={awardSubnav} active="/best-designs" />
       <section className="section">
         <div className="container">
           <div className="section-head">
             <div>
               <h2>Best Designs August 2026</h2>
-              <p>4,200+ submitted designs · monthly winners announced on the 10th</p>
+              <p>4,200+ submitted designs · winners announced on the 10th</p>
             </div>
             <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
-              <Link className="btn btn-primary" to="/best-designs/how-it-works">
+              <Link className="btn btn-primary" to="/best-designs/submit">
                 Submit Your Design
               </Link>
               <Link className="btn btn-outline" to="/best-designs/how-it-works">
@@ -26,50 +67,20 @@ export function BestDesignsPage() {
               </Link>
             </div>
           </div>
-          <div className="award-grid">
-            {awardDesigns.map((d) => (
-              <article className="award-card" key={d.title}>
-                <div className="award-media">
-                  <span className={`badge ${d.badge === 'Winner' ? 'winner' : ''}`}>{d.badge}</span>
-                </div>
-                <div className="award-body">
-                  <div className="meta">{d.category}</div>
-                  <h3>{d.title}</h3>
-                  <div className="meta">by {d.agency}</div>
-                  {d.score != null && (
-                    <>
-                      <div className="score">★ {d.score}/10</div>
-                      <div className="chip-row" style={{ marginTop: '0.5rem' }}>
-                        {d.judges.map((j) => (
-                          <span className="chip" key={j.initials}>
-                            {j.initials} {j.score}
-                          </span>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
+          <AwardGrid items={awardDesigns} />
         </div>
       </section>
 
       <section className="section alt">
         <div className="container">
-          <div className="hire-panel">
-            <div>
-              <h2>Get Connected With The Right Agency Partner & Receive Proposals For FREE</h2>
-              <Link className="btn btn-ghost" to="/marketplace/project-brief">
-                Get Connected
+          <h2>Browse by Category</h2>
+          <div className="card-grid" style={{ marginTop: '1rem' }}>
+            {bestDesignCategories.map((c) => (
+              <Link key={c.slug} to={`/best-designs/${c.slug}`} className="card">
+                <h3>{c.label}</h3>
+                <p className="meta">Award-winning {c.singular.toLowerCase()} designs</p>
               </Link>
-            </div>
-            <div>
-              <p>Ready to elevate your designs?</p>
-              <Link className="btn btn-ghost" to="/best-designs/how-it-works">
-                Submit Your Design
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -78,9 +89,8 @@ export function BestDesignsPage() {
         <div className="container">
           <h2>2026 Awards Jury</h2>
           <p className="meta" style={{ marginBottom: '1.5rem' }}>
-            DesignsWorkLife Jury is a group of 81 seasoned professionals who bring years of
-            experience and a deep understanding of creative excellence. Our Jury has worked with
-            Prada, Nike, Chanel, Google, and Apple.
+            A panel of 81 seasoned professionals. Our Jury has worked with Prada, Nike, Chanel,
+            Google, and Apple.
           </p>
           <div className="card-grid">
             {jury.map((j) => (
@@ -89,9 +99,14 @@ export function BestDesignsPage() {
                   {j.name.slice(0, 1)}
                 </div>
                 <h3>{j.name}</h3>
-                <div className="meta">{j.location} · Remote, On Site</div>
+                <div className="meta">{j.location}</div>
               </div>
             ))}
+          </div>
+          <div style={{ marginTop: '1.25rem' }}>
+            <Link className="btn btn-outline" to="/best-designs/jury">
+              Meet the full jury
+            </Link>
           </div>
         </div>
       </section>
@@ -116,6 +131,59 @@ export function BestDesignsPage() {
   )
 }
 
+export function BestDesignCategoryPage() {
+  const { category = '' } = useParams()
+  const meta = bestDesignCategories.find((c) => c.slug === category)
+  const label = meta?.label ?? category
+  const singular = meta?.singular ?? label
+  const items = awardDesigns.filter(
+    (d) => d.category.toLowerCase() === singular.toLowerCase() || d.category.toLowerCase() === label.toLowerCase(),
+  )
+
+  return (
+    <>
+      <PageHero
+        title={`Best ${label} Designs`}
+        subtitle={`Great ${singular.toLowerCase()} work from the DesignsWorkLife awards gallery.`}
+        crumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Best Designs', to: '/best-designs' },
+          { label },
+        ]}
+      />
+      <SubNav items={awardSubnav} active={`/best-designs/${category}`} />
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <h2>{label} · August 2026</h2>
+              <p>Filters · Industries · Tags · Sort By</p>
+            </div>
+            <Link className="btn btn-primary" to="/best-designs/submit">
+              Submit Your Design
+            </Link>
+          </div>
+          <AwardGrid items={items.length ? items : awardDesigns} />
+          <div className="hire-panel" style={{ marginTop: '2rem' }}>
+            <div>
+              <h2>Get Connected With The Right Agency Partner & Receive Proposals For FREE</h2>
+              <Link className="btn btn-ghost" to="/marketplace/project-brief">
+                Get Connected
+              </Link>
+            </div>
+            <div>
+              <p>Ready to elevate your designs?</p>
+              <Link className="btn btn-ghost" to="/best-designs/how-it-works">
+                See How It Works
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
 export function HowItWorksPage() {
   return (
     <>
@@ -128,6 +196,7 @@ export function HowItWorksPage() {
           { label: 'How It Works' },
         ]}
       />
+      <SubNav items={awardSubnav} active="/best-designs/how-it-works" />
       <section className="section">
         <div className="container prose">
           <h2>Monthly Competition Cycle</h2>
@@ -149,7 +218,6 @@ export function HowItWorksPage() {
               Design of the Year.
             </li>
           </ol>
-
           <h2>Evaluation Criteria</h2>
           <div className="kv">
             <div>
@@ -165,40 +233,176 @@ export function HowItWorksPage() {
               <strong>Content</strong>10%
             </div>
           </div>
-
-          <h2>What Do Winners Get?</h2>
-          <ul>
-            <li>Best Designs Winner Badge</li>
-            <li>Article on DesignsWorkLife</li>
-            <li>Newsletter, PR & Social Media promotion</li>
-          </ul>
-
           <h2>Submission Fees</h2>
           <p>
-            Submissions cost <strong>$250 per project</strong> or <strong>$95/month</strong> for
-            annual membership, which includes unlimited submissions at $25 per design.
+            <strong>$250 per project</strong> or <strong>$95/month</strong> annual membership with
+            unlimited submissions at $25 per design.
           </p>
-
-          <div className="faq">
-            <details open>
-              <summary>Who can submit?</summary>
-              <p>
-                Anyone who created the work — agencies, in-house teams, and freelancers are all
-                welcome.
-              </p>
-            </details>
-            <details>
-              <summary>How are winners promoted?</summary>
-              <p>
-                Six winners receive featured placement on the Best Designs homepage every month,
-                plus a shareable badge and PR/newsletter promotion.
-              </p>
-            </details>
-          </div>
-
-          <Link className="btn btn-primary" to="/contact-us">
-            Ready to elevate your designs?
+          <Link className="btn btn-primary" to="/best-designs/submit">
+            Submit Your Design
           </Link>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export function JuryPage() {
+  return (
+    <>
+      <PageHero
+        title="2026 Awards Jury"
+        subtitle="81 seasoned professionals across design, branding, and product."
+        crumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Best Designs', to: '/best-designs' },
+          { label: 'Jury' },
+        ]}
+      />
+      <SubNav items={awardSubnav} active="/best-designs/jury" />
+      <section className="section">
+        <div className="container">
+          <div className="card-grid">
+            {jury.map((j) => (
+              <div className="card" key={j.name}>
+                <div className="agency-logo" style={{ marginBottom: '0.75rem' }}>
+                  {j.name.slice(0, 1)}
+                </div>
+                <h3>{j.name}</h3>
+                <div className="meta">{j.location} · Remote, On Site</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: '1.5rem' }}>
+            <Link className="btn btn-outline" to="/best-designs/jury/become-a-judge">
+              Become a Judge
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export function BecomeJudgePage() {
+  return (
+    <>
+      <PageHero
+        title="Become a Judge"
+        subtitle="Join the DesignsWorkLife awards jury and score outstanding creative work."
+        crumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Best Designs', to: '/best-designs' },
+          { label: 'Jury', to: '/best-designs/jury' },
+          { label: 'Become a Judge' },
+        ]}
+      />
+      <section className="section">
+        <div className="container" style={{ maxWidth: 720 }}>
+          <div className="card">
+            <form
+              className="form"
+              onSubmit={(e) => {
+                e.preventDefault()
+                alert('Thanks — our awards team will review your application.')
+              }}
+            >
+              <label>
+                Full Name*
+                <input required />
+              </label>
+              <label>
+                Email*
+                <input type="email" required />
+              </label>
+              <label>
+                Company / Affiliation*
+                <input required />
+              </label>
+              <label>
+                Expertise*
+                <select required defaultValue="">
+                  <option value="" disabled>
+                    Select
+                  </option>
+                  <option>Website Design</option>
+                  <option>Brand / Logo</option>
+                  <option>App / Product</option>
+                  <option>Packaging</option>
+                  <option>Print</option>
+                  <option>Video / Motion</option>
+                </select>
+              </label>
+              <label>
+                Why do you want to judge?*
+                <textarea required />
+              </label>
+              <button className="btn btn-primary" type="submit">
+                Apply
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export function SubmitDesignPage() {
+  return (
+    <>
+      <PageHero
+        title="Submit Your Design"
+        subtitle="$250 per project · or $95/month membership at $25 per design"
+        crumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Best Designs', to: '/best-designs' },
+          { label: 'Submit' },
+        ]}
+      />
+      <SubNav items={awardSubnav} active="/best-designs/submit" />
+      <section className="section">
+        <div className="container" style={{ maxWidth: 720 }}>
+          <div className="card">
+            <form
+              className="form"
+              onSubmit={(e) => {
+                e.preventDefault()
+                alert('Submission received (demo).')
+              }}
+            >
+              <label>
+                Project Title*
+                <input required />
+              </label>
+              <label>
+                Category*
+                <select required defaultValue="">
+                  <option value="" disabled>
+                    Select category
+                  </option>
+                  {bestDesignCategories.map((c) => (
+                    <option key={c.slug}>{c.label}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Agency / Creator*
+                <input required />
+              </label>
+              <label>
+                Live URL*
+                <input required type="url" placeholder="https://" />
+              </label>
+              <label>
+                Project Description*
+                <textarea required />
+              </label>
+              <button className="btn btn-primary" type="submit">
+                Submit Design
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </>

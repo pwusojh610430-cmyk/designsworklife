@@ -1,7 +1,133 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { PageHero } from '../components/Layout'
+import { agencies, marketplaceProjects } from '../data'
+import { PageHero, Stars } from '../components/Layout'
+
+export function MarketplaceHomePage() {
+  return (
+    <>
+      <PageHero
+        title="Marketplace"
+        subtitle="Get Connected With The Right Agency Partner & Receive Proposals for FREE"
+        crumbs={[{ label: 'Home', to: '/' }, { label: 'Marketplace' }]}
+      />
+      <section className="section">
+        <div className="container">
+          <div className="hire-panel" style={{ marginBottom: '2rem' }}>
+            <div>
+              <h2>Are you a Client?</h2>
+              <p>Tell us about your project and get matched with up to 5 verified agencies.</p>
+              <Link className="btn btn-ghost" to="/marketplace/project-brief">
+                Submit Project Brief
+              </Link>
+            </div>
+            <div>
+              <h2>Are you an Agency?</h2>
+              <p>Gain access to qualified leads by becoming a Marketplace Member.</p>
+              <Link className="btn btn-ghost" to="/marketplace/membership">
+                View Membership
+              </Link>
+            </div>
+          </div>
+
+          <h2>Exclusively Recommended</h2>
+          <div className="agency-grid" style={{ margin: '1rem 0 2rem' }}>
+            {agencies.slice(0, 3).map((a) => (
+              <Link key={a.id} to={`/agency/profile/${a.slug}`} className="agency-card">
+                <div className="agency-logo">{a.name.slice(0, 2).toUpperCase()}</div>
+                <h3>{a.name}</h3>
+                <p>{a.tagline}</p>
+                <div className="meta">
+                  <Stars value={a.rating} /> {a.city}
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="section-head">
+            <div>
+              <h2>Explore the Latest Projects</h2>
+            </div>
+            <Link className="btn btn-outline" to="/marketplace/faqs">
+              Marketplace FAQs
+            </Link>
+          </div>
+          <table className="project-table">
+            <thead>
+              <tr>
+                <th>Project type</th>
+                <th>Industry</th>
+                <th>Description</th>
+                <th>Budget</th>
+              </tr>
+            </thead>
+            <tbody>
+              {marketplaceProjects.map((p) => (
+                <tr key={p.id}>
+                  <td>
+                    <strong>{p.type}</strong>
+                    <div className="meta">ID {p.id}</div>
+                  </td>
+                  <td>{p.industry}</td>
+                  <td>{p.description}</td>
+                  <td>
+                    <strong>{p.budget}</strong>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export function MarketplaceFaqsPage() {
+  return (
+    <>
+      <PageHero
+        title="Marketplace FAQs"
+        subtitle="How DesignsWorkLife Marketplace connects brands with verified agencies."
+        crumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Marketplace', to: '/marketplace' },
+          { label: 'FAQs' },
+        ]}
+      />
+      <section className="section">
+        <div className="container prose">
+          <div className="faq">
+            <details open>
+              <summary>Who can post a project?</summary>
+              <p>Any business looking for an agency partner. Matching is free for brands.</p>
+            </details>
+            <details>
+              <summary>Who can bid on projects?</summary>
+              <p>Only verified agencies with an active Marketplace Membership.</p>
+            </details>
+            <details>
+              <summary>How long until I meet agencies?</summary>
+              <p>Typically 7–10 business days after the advisor call and Agreement Form.</p>
+            </details>
+            <details>
+              <summary>Must I hire one of the shortlisted agencies?</summary>
+              <p>
+                No. You must take an introductory call with each shortlisted agency, but you are not
+                obliged to hire.
+              </p>
+            </details>
+          </div>
+          <Link className="btn btn-primary" to="/marketplace/project-brief">
+            Submit a Project Brief
+          </Link>
+        </div>
+      </section>
+    </>
+  )
+}
+
 
 export function ProjectBriefPage() {
   const [sent, setSent] = useState(false)

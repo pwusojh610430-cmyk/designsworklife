@@ -398,6 +398,18 @@ export const marketplaceProjects = [
 
 export const awardDesigns = [
   {
+    title: 'Council of Architecture and Urbanism of Brazil Logo Design',
+    category: 'Logo',
+    score: 8.5,
+    badge: 'Winner',
+    judges: [
+      { initials: 'SB', score: 8.0 },
+      { initials: 'AO', score: 8.5 },
+      { initials: 'LS', score: 9.0 },
+    ],
+    agency: 'Sato Mateus',
+  },
+  {
     title: 'ANML Studio Website Design',
     category: 'Website',
     score: 8.5,
@@ -504,6 +516,39 @@ export const team = [
   { name: 'Karen Sosoban', role: 'Content Director' },
   { name: 'Robin Fishley', role: 'SEO Director' },
   { name: 'Mirjana Stevuljevic', role: 'Head of Marketplace' },
+]
+
+export const newsTopics = [
+  { label: 'Branding News', slug: 'branding' },
+  { label: 'Advertising News', slug: 'advertising' },
+  { label: 'Design News', slug: 'design' },
+  { label: 'Creative News', slug: 'creative' },
+  { label: 'Marketing News', slug: 'marketing' },
+  { label: 'Tech News', slug: 'tech' },
+  { label: 'eCommerce News', slug: 'ecommerce' },
+  { label: 'Business News', slug: 'business' },
+  { label: 'Agency News', slug: 'agencies' },
+  { label: 'Expert Interviews', slug: 'interviews' },
+  { label: 'Latest News & Insights', slug: 'latest-news' },
+  { label: 'B2B Podcast', slug: 'podcast' },
+]
+
+export const bestDesignCategories = [
+  { label: 'Websites', slug: 'websites', singular: 'Website' },
+  { label: 'Logos', slug: 'logo', singular: 'Logo' },
+  { label: 'Apps', slug: 'apps', singular: 'App' },
+  { label: 'Packaging', slug: 'packaging', singular: 'Packaging' },
+  { label: 'Print', slug: 'print', singular: 'Print' },
+  { label: 'Video', slug: 'video', singular: 'Video' },
+]
+
+export const bestDesignLinks = [
+  { label: 'All Best Designs', to: '/best-designs' },
+  ...bestDesignCategories.map((c) => ({ label: c.label, to: `/best-designs/${c.slug}` })),
+  { label: 'How It Works', to: '/best-designs/how-it-works' },
+  { label: 'Awards Jury', to: '/best-designs/jury' },
+  { label: 'Submit Your Design', to: '/best-designs/submit' },
+  { label: 'Become a Judge', to: '/best-designs/jury/become-a-judge' },
 ]
 
 export function getAgency(slug: string) {

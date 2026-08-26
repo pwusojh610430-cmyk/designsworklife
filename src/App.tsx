@@ -3,9 +3,22 @@ import { Footer, Header, Newsletter } from './components/Layout'
 import { HomePage } from './pages/HomePage'
 import { AgencyCategoryPage, AgencyIndexPage } from './pages/AgencyPages'
 import { AgencyProfilePage } from './pages/ProfilePage'
-import { BestDesignsPage, HowItWorksPage } from './pages/AwardsPages'
-import { NewsArticlePage, NewsIndexPage } from './pages/NewsPages'
-import { BenefitsPage, MembershipPage, ProjectBriefPage } from './pages/MarketplacePages'
+import {
+  BecomeJudgePage,
+  BestDesignCategoryPage,
+  BestDesignsPage,
+  HowItWorksPage,
+  JuryPage,
+  SubmitDesignPage,
+} from './pages/AwardsPages'
+import { NewsArticlePage, NewsIndexPage, NewsTopicPage } from './pages/NewsPages'
+import {
+  BenefitsPage,
+  MarketplaceFaqsPage,
+  MarketplaceHomePage,
+  MembershipPage,
+  ProjectBriefPage,
+} from './pages/MarketplacePages'
 import { AboutPage, ContactPage, LoginPage, MethodologyPage } from './pages/InfoPages'
 
 export default function App() {
@@ -20,10 +33,17 @@ export default function App() {
           <Route path="/agency/*" element={<AgencyCategoryPage />} />
           <Route path="/best-designs" element={<BestDesignsPage />} />
           <Route path="/best-designs/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/best-designs/jury" element={<JuryPage />} />
+          <Route path="/best-designs/jury/become-a-judge" element={<BecomeJudgePage />} />
+          <Route path="/best-designs/submit" element={<SubmitDesignPage />} />
+          <Route path="/best-designs/:category" element={<BestDesignCategoryPage />} />
           <Route path="/news" element={<NewsIndexPage />} />
+          <Route path="/news/topic/:topic" element={<NewsTopicPage />} />
           <Route path="/news/:slug" element={<NewsArticlePage />} />
+          <Route path="/marketplace" element={<MarketplaceHomePage />} />
           <Route path="/marketplace/project-brief" element={<ProjectBriefPage />} />
           <Route path="/marketplace/membership" element={<MembershipPage />} />
+          <Route path="/marketplace/faqs" element={<MarketplaceFaqsPage />} />
           <Route path="/benefits" element={<BenefitsPage />} />
           <Route path="/about-us" element={<AboutPage />} />
           <Route path="/methodology" element={<MethodologyPage />} />
