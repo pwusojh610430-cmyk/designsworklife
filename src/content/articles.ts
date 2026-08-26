@@ -111,7 +111,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Fanta Builds Its Own Halloween Cast After Years of Rented Scares',
     excerpt:
       'After seasons of licensed spooky IP, Fanta builds its own monster mythology — keeping Halloween equity without renting someone else’s characters.',
-    read: '4 min read',
+    read: '7 min read',
     ago: '14 hours ago',
     published: 'Aug 26, 2026',
     author: 'Coral Cripps',
@@ -124,48 +124,89 @@ export const newsArticles: NewsArticle[] = [
     body: [
       {
         type: 'p',
-        text: 'For two Halloween cycles, Fanta borrowed horror. Licensed characters delivered instant recognition, but they also meant Fanta was renting attention. This year the brand introduces four original monsters built around flavor and personality — a shift from “featured in” to “owned by.”',
+        text: 'Fanta wants October the way its parent company already has December. For two Halloween cycles the brand got there by renting: licensed slasher icons on limited-edition cans delivered instant recognition, and none of it belonged to Fanta once the season closed. This year it is arriving with a cast it paid to build.',
+      },
+      {
+        type: 'p',
+        text: 'The Haunted Universe opened with a cinematic trailer ahead of the full campaign, which rolls out across roughly 50 markets. Four original monsters anchor it, each with a name, a backstory, and a role in a shared world the brand controls outright. A licensed horror cameo is still held in reserve for the same season — the one detail that muddies an otherwise clean creator story.',
       },
       {
         type: 'image',
         src: 'https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg',
         alt: 'Chilled citrus soft drink with ice and orange slices',
-        caption: 'Owned characters let packaging, OOH, and social share one cast. Image: Pixabay',
+        caption: 'Owned characters let packaging, retail, and social share a single cast. Image: Pixabay',
+      },
+      {
+        type: 'quote',
+        text: 'This is the move from collaborator to creator. The trailer is only the first glimpse of what is coming.',
+        cite: 'Global marketing lead, Fanta, via campaign announcement',
       },
       {
         type: 'h2',
-        text: 'Why original IP is a better seasonal asset',
+        text: 'The Cast Is Really a Content Pipeline',
       },
       {
         type: 'p',
-        text: 'Licensed horror sells the first scroll. Original monsters sell the next three years. Fanta can extend the cast across cans, AR filters, retail displays, and creator challenges without renegotiating every season. The creative risk is higher on day one; the brand equity compounds afterward.',
+        text: 'The trailer runs a familiar horror setup — an ancient power that can only be claimed on Halloween night — and uses it to introduce the roster rather than tell a self-contained story. A castle, a dungeon, a glowing elixir, then the characters surface one by one.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'A jack-o-lantern scarecrow that pulls itself out of the ground.',
+          'A vampire with a taste for vintage American muscle cars.',
+          'A bionic take on Frankenstein’s monster, surfacing from water.',
+          'A werewolf who moonlights as a DJ.',
+        ],
       },
       {
         type: 'p',
-        text: 'The campaign keeps Fanta’s orange-forward color system while pushing illustration and motion into a more cinematic, slightly uncanny tone — closer to modern kids’ horror than slapstick mascots. Retail endcaps become “monster dens,” and social asks fans to declare which creature matches their flavor habit.',
+        text: 'Each has its own abilities and personality, which matters less as storytelling than as inventory. Four characters with defined traits give the brand years of packaging variants, retail displays, AR filters, and creator prompts without a new licensing negotiation each spring. The studio behind the work describes a human-led process supported by an AI production pipeline, and the same creative leadership has worked on the parent company’s holiday output before.',
       },
       {
         type: 'image',
         src: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1280&q=80',
         alt: 'Dark night sky with stars suggesting spooky seasonal mood',
-        caption: 'Seasonal soft drinks win when the mood is atmospheric, not just orange. Image: Pixabay',
+        caption: 'The visual system stays orange-led but shifts toward cinematic, slightly uncanny horror. Image: Unsplash',
+      },
+      {
+        type: 'h2',
+        text: 'A Record Halloween Makes the Spend Defensible',
+      },
+      {
+        type: 'p',
+        text: 'US Halloween spending hit roughly $13.1 billion last year, up from about $11.6 billion the year before, with candy alone near $3.9 billion and per-person spend at an all-time high. A season expanding at that pace is what justifies building characters instead of licensing them.',
+      },
+      {
+        type: 'p',
+        text: 'The economics are straightforward. A licensed icon costs the same or more every time it runs and delivers recognition that belongs to someone else. An owned character costs the most in year one and less in every year after, while the recognition accrues to the brand. The benchmark Fanta is implicitly citing took decades: its parent company began holiday advertising in the 1920s and commissioned the Santa illustration that fixed the association in 1931.',
+      },
+      {
+        type: 'h2',
+        text: 'What Marketers Can Take From It',
       },
       {
         type: 'ul',
         items: [
-          'Treat Halloween as a franchise chapter, not a one-month costume.',
-          'Design characters that map cleanly to SKUs and flavors.',
-          'Keep licensed cameos as guest stars once you own the world.',
+          'Anchor owned IP to demand that already exists — proven occasions carry the investment.',
+          'Design characters that map cleanly to SKUs, flavors, and shelf formats.',
+          'Plan for repetition; brand assets only compound if they run again unchanged.',
+          'Keep licensed cameos as guest stars once you actually own the world.',
         ],
+      },
+      {
+        type: 'p',
+        text: 'The opportunity is not inventing a new occasion. It is taking one consumers already understand and staying consistent long enough that the association becomes specific to you.',
       },
     ],
     keyFindings: [
-      'Fanta is replacing borrowed Halloween IP with four proprietary monsters.',
-      'Owned characters unlock multi-year packaging and retail storytelling.',
-      'The creative system stays orange-led but moves toward cinematic horror tone.',
+      'Fanta is replacing two seasons of borrowed Halloween IP with four proprietary monsters, launched across about 50 markets.',
+      'Owned characters convert a recurring licensing cost into an asset that gets cheaper and more recognizable each October.',
+      'A record $13.1 billion US Halloween market is the demand signal underwriting the investment.',
+      'The creative system stays orange-led but moves from slapstick mascot toward cinematic horror.',
+      'A licensed cameo still running this season undercuts the "collaborator to creator" narrative.',
     ],
     ourTake:
-      'Renting scares is easy. Building a cast is harder — and that is exactly why it becomes a moat. Soft-drink Halloween needs characters you can put on a fridge magnet in March.',
+      'Four monsters will not make Fanta synonymous with Halloween on their own. The real test lands next year, when the same cast has to run again and be recognized without the packaging explaining who they are. Renting scares is easy; building a cast is harder, which is exactly why it becomes a moat — and why the parallel licensing deal this season reads like hedging. Owned characters only pay off when they earn merchandise, games, and licensing lines of their own.',
     agencyCta: { label: 'Find creative agencies', to: '/agency/creative-agencies' },
   },
   {

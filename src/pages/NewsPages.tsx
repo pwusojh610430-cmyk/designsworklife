@@ -13,7 +13,12 @@ function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
     <>
       {blocks.map((block, i) => {
         if (block.type === 'p') return <p key={i}>{block.text}</p>
-        if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>
+        if (block.type === 'h2')
+          return (
+            <h2 key={i} id={slugifyHeading(block.text)}>
+              {block.text}
+            </h2>
+          )
         if (block.type === 'quote')
           return (
             <blockquote className="article-quote" key={i}>
@@ -164,9 +169,23 @@ export function NewsTopicPage() {
   )
 }
 
+function slugifyHeading(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
 export function NewsArticlePage() {
   const { slug = '' } = useParams()
   const article = newsArticles.find((n) => n.slug === slug) ?? newsArticles[0]
+
+  const sections = article.body.filter((b) => b.type === 'h2') as { type: 'h2'; text: string }[]
+  const others = newsArticles.filter((n) => n.slug !== article.slug)
+  const related = others
+    .filter((n) => n.topics.some((t) => article.topics.includes(t)))
+    .slice(0, 3)
+  const relatedReads = (related.length ? related : others.slice(0, 3))
 
   return (
     <>
@@ -183,61 +202,184 @@ export function NewsArticlePage() {
       <article className="section">
         <div className="container article-layout">
           <div className="prose article-prose">
-            <p className="meta">
-              {article.category} · Share · {article.heroCredit}
-            </p>
+            <div className="article-topline">
+              <Link className="article-eyebrow" to="/news">
+                {article.category}
+              </Link>
+              <span className="meta">
+                {article.published} · {article.read}
+              </span>
+            </div>
+
             <figure className="article-hero">
               <img src={article.hero} alt={article.heroAlt} />
-              <figcaption>{article.heroAlt}. {article.heroCredit}</figcaption>
+              <figcaption>
+                {article.heroAlt}. {article.heroCredit}
+              </figcaption>
             </figure>
+
             <p className="article-deck">{article.excerpt}</p>
-            <ArticleBody blocks={article.body} />
-            <h2>Key Findings</h2>
-            <ul>
-              {article.keyFindings.map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-            <h2>Our Take</h2>
-            <p>{article.ourTake}</p>
-            <p>
-              <Link to={article.agencyCta.to}>{article.agencyCta.label}</Link> in our directory.
-            </p>
-            <div className="author-card">
-              <strong>{article.author}</strong>
-              <p className="meta">{article.authorBio}</p>
+
+            <div className="article-byline">
+              <span className="article-avatar" aria-hidden="true">
+                {article.author
+                  .split(' ')
+                  .map((p) => p[0])
+                  .join('')}
+              </span>
+              <div>
+                <strong>{article.author}</strong>
+                <p className="meta">
+                  Published {article.published} · Updated {article.ago}
+                </p>
+              </div>
+              <div className="article-share">
+                <span className="meta">Share</span>
+                <button className="icon-btn" type="button" aria-label="Share on LinkedIn">
+                  in
+                </button>
+                <button className="icon-btn" type="button" aria-label="Share on X">
+                  X
+                </button>
+                <button className="icon-btn" type="button" aria-label="Copy link">
+                  ↗
+                </button>
+              </div>
             </div>
-            <div style={{ display: 'flex', gap: '0.5rem', fontSize: '1.25rem' }}>
-              <button className="icon-btn" type="button">
+
+            {sections.length > 1 && (
+              <nav className="article-toc" aria-label="In this article">
+                <p className="article-toc-title">In this article</p>
+                <ol>
+                  {sections.map((s) => (
+                    <li key={s.text}>
+                      <a href={`#${slugifyHeading(s.text)}`}>{s.text}</a>
+                    </li>
+                  ))}
+                  <li>
+                    <a href="#key-findings">Key Findings</a>
+                  </li>
+                  <li>
+                    <a href="#our-take">Our Take</a>
+                  </li>
+                </ol>
+              </nav>
+            )}
+
+            <ArticleBody blocks={article.body} />
+
+            <div className="article-callout" id="key-findings">
+              <h2>Key Findings</h2>
+              <ul>
+                {article.keyFindings.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+            </div>
+
+            <h2 id="our-take">Our Take</h2>
+            <p>{article.ourTake}</p>
+
+            <div className="article-cta">
+              <div>
+                <strong>Looking for a partner on work like this?</strong>
+                <p className="meta">
+                  Compare vetted teams by budget, industry, and proven results.
+                </p>
+              </div>
+              <Link className="btn btn-primary" to={article.agencyCta.to}>
+                {article.agencyCta.label}
+              </Link>
+            </div>
+
+            <div className="article-tags">
+              {article.topics.map((t) => (
+                <Link key={t} to={`/news/topic/${t}`} className="tag-chip">
+                  #{t}
+                </Link>
+              ))}
+            </div>
+
+            <div className="article-reactions">
+              <span className="meta">Was this useful?</span>
+              <button className="icon-btn" type="button" aria-label="Helpful">
                 👍
               </button>
-              <button className="icon-btn" type="button">
+              <button className="icon-btn" type="button" aria-label="Not helpful">
                 👎
               </button>
-              <button className="icon-btn" type="button">
+              <button className="icon-btn" type="button" aria-label="Love it">
                 💗
               </button>
-              <button className="icon-btn" type="button">
+              <button className="icon-btn" type="button" aria-label="Mind blown">
                 🤯
               </button>
             </div>
-            <h3 style={{ marginTop: '2rem' }}>Latest Brands News</h3>
+
+            <div className="author-card author-card-rich">
+              <span className="article-avatar" aria-hidden="true">
+                {article.author
+                  .split(' ')
+                  .map((p) => p[0])
+                  .join('')}
+              </span>
+              <div>
+                <strong>{article.author}</strong>
+                <p className="meta">{article.authorBio}</p>
+                <p className="meta">Covers {article.topics.join(', ')}.</p>
+              </div>
+            </div>
+
+            <h2>Related Reads</h2>
             <div className="news-ticker">
-              {newsArticles
-                .filter((n) => n.slug !== article.slug)
-                .slice(0, 4)
-                .map((n) => (
-                  <NewsCard
-                    key={n.slug}
-                    slug={n.slug}
-                    title={n.title}
-                    meta={`${n.ago} · ${n.read}`}
-                    image={n.hero}
-                    imageAlt={n.heroAlt}
-                  />
-                ))}
+              {relatedReads.map((n) => (
+                <NewsCard
+                  key={n.slug}
+                  slug={n.slug}
+                  title={n.title}
+                  excerpt={n.excerpt}
+                  meta={`${n.category} · ${n.ago} · ${n.read}`}
+                  image={n.hero}
+                  imageAlt={n.heroAlt}
+                />
+              ))}
             </div>
           </div>
+
+          <aside className="article-side">
+            <div className="side-card">
+              <h3>Latest Brand Stories</h3>
+              <ul className="side-list">
+                {others.slice(0, 6).map((n) => (
+                  <li key={n.slug}>
+                    <Link to={`/news/${n.slug}`}>{n.title}</Link>
+                    <span className="meta">{n.ago}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="side-card">
+              <h3>Browse Topics</h3>
+              <div className="side-chips">
+                {newsTopics.slice(0, 8).map((t) => (
+                  <Link key={t.slug} to={`/news/topic/${t.slug}`} className="tag-chip">
+                    {t.label.replace(' News', '')}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="side-card side-card-accent">
+              <h3>Get the Newsletter</h3>
+              <p className="meta">
+                Weekly brand and agency intelligence, read by 68,000+ B2B decision-makers.
+              </p>
+              <Link className="btn btn-primary" to="/contact-us">
+                Subscribe
+              </Link>
+            </div>
+          </aside>
         </div>
       </article>
     </>
