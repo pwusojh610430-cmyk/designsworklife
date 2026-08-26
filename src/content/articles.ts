@@ -118,9 +118,9 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Advertising',
     topics: ['advertising', 'creative', 'branding'],
-    hero: 'https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_1280.jpg',
-    heroAlt: 'Bright oranges representing Fanta’s signature color world',
-    heroCredit: 'Photo via Pixabay',
+    hero: 'https://cdn.stocksnap.io/img-thumbs/960w/2659B518FA.jpg',
+    heroAlt: 'A carved jack-o-lantern glowing next to an old lantern at night',
+    heroCredit: 'Photo via StockSnap',
     body: [
       {
         type: 'p',
@@ -132,9 +132,9 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg',
-        alt: 'Chilled citrus soft drink with ice and orange slices',
-        caption: 'Owned characters let packaging, retail, and social share a single cast. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/365A62JPZG.jpg',
+        alt: 'An assortment of pumpkins and gourds in different shapes and colors',
+        caption: 'Four distinct characters give packaging, retail, and social a single cast to share. Image: StockSnap',
       },
       {
         type: 'quote',
@@ -164,9 +164,9 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Dark night sky with stars suggesting spooky seasonal mood',
-        caption: 'The visual system stays orange-led but shifts toward cinematic, slightly uncanny horror. Image: Unsplash',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/BYUZOL58JC.jpg',
+        alt: 'A carved pumpkin on a log with the word Halloween spelled out beneath it',
+        caption: 'Owning a season means the same cast has to come back every October. Image: StockSnap',
       },
       {
         type: 'h2',
@@ -471,9 +471,9 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Starry night sky suggesting unicorn-weekend fantasy energy',
-        caption: 'Fantasy drops need visual escape — not another brown spice flat lay. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/PAO8SL0NJE.jpg',
+        alt: 'Autumn flat lay with a coffee cup, felt hat, and fallen leaves',
+        caption: 'The PSL trades on autumn ritual; the unicorn drop trades on novelty. Image: StockSnap',
       },
       {
         type: 'ul',
@@ -555,9 +555,9 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Product still life suggesting designed objects and packaging care',
-        caption: 'Collabs land when the object improves a daily ritual, not when it prints a logo louder. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/EDD56D3A69.jpg',
+        alt: 'A game controller lit in the dark with its D-pad in view',
+        caption: 'Collabs land when the object improves a daily ritual, not when it prints a logo louder. Image: StockSnap',
       },
       {
         type: 'p',

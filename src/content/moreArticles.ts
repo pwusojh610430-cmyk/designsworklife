@@ -76,9 +76,9 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Starry sky suggesting personal music universes',
-        caption: 'Personalization theater still needs scarcity. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/UXKE7VWPCY.jpg',
+        alt: 'A listener outdoors with headphones resting around her neck',
+        caption: 'Personalization theater still needs scarcity. Image: StockSnap',
       },
       {
         type: 'p',
@@ -166,9 +166,9 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Roberto covers brand launches and QSR marketing; also follows outdoor retail.',
     category: 'Creative',
     topics: ['creative', 'branding', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg',
-    heroAlt: 'Ocean landscape aligning with outdoor brand values',
-    heroCredit: 'Photo via Pixabay',
+    hero: 'https://cdn.stocksnap.io/img-thumbs/960w/3HY6QI9UFT.jpg',
+    heroAlt: 'A threaded sewing machine set up for garment repairs',
+    heroCredit: 'Photo via StockSnap',
     body: [
       {
         type: 'p',
@@ -417,9 +417,9 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Packaged consumer goods style meal context',
-        caption: 'Attention is worthless if the shelf journey breaks. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/I93PW8NE0F.jpg',
+        alt: 'An open sign hanging in a shop window',
+        caption: 'Attention is worthless if the shelf journey breaks. Image: StockSnap',
       },
       {
         type: 'p',
@@ -537,9 +537,9 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Vast night sky suggesting uncertain new media frontiers',
-        caption: 'New media risks need new review rituals. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/IVY2VG1MAD.jpg',
+        alt: 'Someone typing a query into a search engine on a laptop',
+        caption: 'New surfaces for discovery need new review rituals. Image: StockSnap',
       },
       {
         type: 'ul',

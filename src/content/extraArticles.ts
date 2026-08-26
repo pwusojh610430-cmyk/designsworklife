@@ -217,9 +217,9 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Books and cultural artifacts aesthetic',
-        caption: 'Culture brands are learning product roadmaps. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/7B52AC0C5F.jpg',
+        alt: 'A visitor standing alone in front of framed paintings in a gallery',
+        caption: 'Culture brands are learning product roadmaps. Image: StockSnap',
       },
       {
         type: 'ul',
@@ -353,9 +353,9 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Tactile printed materials',
-        caption: 'Touch still sells when the story is circular. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/0BZ1W3NNQK.jpg',
+        alt: 'A faceted glass fragrance bottle on a soft pink surface',
+        caption: 'The vessel has to survive being refilled and still read as luxury. Image: StockSnap',
       },
       {
         type: 'ul',
@@ -529,9 +529,9 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1280&q=80',
-        alt: 'Audio equipment for brand sound',
-        caption: 'Sound and motion are brand assets now. Image: Pixabay',
+        src: 'https://cdn.stocksnap.io/img-thumbs/960w/OQT16Q7SG7.jpg',
+        alt: 'A camera operator framing a shot on location',
+        caption: 'Motion is a brand asset now, and it needs written rules. Image: StockSnap',
       },
       {
         type: 'ul',
