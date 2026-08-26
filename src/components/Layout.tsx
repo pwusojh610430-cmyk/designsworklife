@@ -349,14 +349,6 @@ export function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <address className="footer-address">
-            18117 Biscayne Blvd
-            <br />
-            Miami, FL 33160
-            <br />
-            United States
-          </address>
-
           <div className="footer-legal">
             <div className="footer-legal-links">
               <Link to="/">Sitemap</Link>
