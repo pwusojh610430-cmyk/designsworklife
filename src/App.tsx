@@ -24,8 +24,11 @@ import { AboutPage, ContactPage, MethodologyPage } from './pages/InfoPages'
 export default function App() {
   return (
     <HashRouter>
+      <a className="skip-link" href="#main">
+        Skip to main content
+      </a>
       <Header />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/agency" element={<AgencyIndexPage />} />

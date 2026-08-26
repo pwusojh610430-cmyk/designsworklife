@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { agencies, awardDesigns, marketplaceProjects, newsArticles } from '../data'
 import { Stars, openNewsletter } from '../components/Layout'
@@ -40,12 +40,27 @@ export function HomePage() {
   const fillers = rest.filter((n) => !pinSlugs.includes(n.slug))
   const side = [...pinned, ...fillers].slice(0, 4)
 
+  function onTabKeyDown(e: KeyboardEvent<HTMLDivElement>) {
+    const idx = newsTabs.findIndex((t) => t.id === tab)
+    if (idx < 0) return
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault()
+      const next =
+        e.key === 'ArrowRight'
+          ? newsTabs[(idx + 1) % newsTabs.length]
+          : newsTabs[(idx - 1 + newsTabs.length) % newsTabs.length]
+      setTab(next.id)
+      const btn = e.currentTarget.querySelector<HTMLButtonElement>(`#news-tab-${next.id}`)
+      btn?.focus()
+    }
+  }
+
   return (
     <>
-      <section className="hero hero-home">
+      <section className="hero hero-home" aria-labelledby="home-hero-title">
         <div className="container hero-home-inner">
           <p className="hero-kicker">B2B Media Platform for Brands & Agency Directory</p>
-          <h1>Driving Brand Discovery & Growth</h1>
+          <h1 id="home-hero-title">Driving Brand Discovery & Growth</h1>
           <ul className="hero-pill">
             <li>Showcase Your Work</li>
             <li>Build Awareness</li>
@@ -54,12 +69,12 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="home-news">
+      <section className="home-news" aria-labelledby="trending-news-heading">
         <div className="container">
           <div className="news-toolbar">
-            <div className="news-toolbar-brand">
+            <div className="news-toolbar-brand" id="trending-news-heading">
               <span className="news-flame" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18">
+                <svg viewBox="0 0 24 24" width="18" height="18" focusable="false">
                   <path
                     fill="currentColor"
                     d="M12 2c1.8 2.8 5.5 4.8 5.5 9 0 4.2-2.7 7.5-5.5 9-2.8-1.5-5.5-4.8-5.5-9C6.5 6.8 10.2 4.8 12 2z"
@@ -68,13 +83,21 @@ export function HomePage() {
               </span>
               <span>Trending Brand News</span>
             </div>
-            <div className="news-tabs" role="tablist">
+            <div
+              className="news-tabs"
+              role="tablist"
+              aria-label="News topics"
+              onKeyDown={onTabKeyDown}
+            >
               {newsTabs.map((t) => (
                 <button
                   key={t.id}
+                  id={`news-tab-${t.id}`}
                   type="button"
                   role="tab"
                   aria-selected={tab === t.id}
+                  aria-controls="news-panel"
+                  tabIndex={tab === t.id ? 0 : -1}
                   className={tab === t.id ? 'active' : ''}
                   onClick={() => setTab(t.id)}
                 >
@@ -87,10 +110,12 @@ export function HomePage() {
             </button>
           </div>
 
-          <div className="news-home-grid">
+          <div className="news-home-grid" id="news-panel" role="tabpanel" aria-labelledby={`news-tab-${tab}`}>
             <article className="news-featured">
               <Link to={`/news/${featured.slug}`} className="news-featured-link">
-                <img src={featured.hero} alt={featured.heroAlt} />
+                <div className="news-media">
+                  <img src={featured.hero} alt={featured.heroAlt} width={800} height={500} decoding="async" />
+                </div>
                 <h2>{featured.title}</h2>
               </Link>
               <Link to="/news" className="news-more-link">
@@ -101,7 +126,16 @@ export function HomePage() {
             <div className="news-home-side">
               {side.map((n) => (
                 <Link key={n.slug} to={`/news/${n.slug}`} className="news-side-card">
-                  <img src={n.hero} alt={n.heroAlt} loading="lazy" />
+                  <div className="news-media">
+                    <img
+                      src={n.hero}
+                      alt={n.heroAlt}
+                      width={480}
+                      height={270}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                   <h3>{n.title}</h3>
                 </Link>
               ))}

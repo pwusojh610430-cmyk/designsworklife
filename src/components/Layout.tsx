@@ -63,6 +63,17 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        setOpenMenu(null)
+        setMobileOpen(false)
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
   function clearCloseTimer() {
     if (closeTimer.current != null) {
       window.clearTimeout(closeTimer.current)
@@ -90,7 +101,11 @@ export function Header() {
   }
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} ref={headerRef}>
+    <header
+      className={`site-header${scrolled ? ' is-scrolled' : ''}`}
+      ref={headerRef}
+      aria-label="Site"
+    >
       <div className="header-top">
         <div className="container header-top-inner">
           <Logo />
@@ -112,7 +127,7 @@ export function Header() {
 
       <div className="header-main">
         <div className="container header-main-inner">
-          <nav className={`main-nav ${mobileOpen ? 'open' : ''}`}>
+          <nav className={`main-nav ${mobileOpen ? 'open' : ''}`} aria-label="Primary">
             <div
               className={`nav-item ${openMenu === 'news' ? 'open' : ''}`}
               onMouseEnter={() => openMenuSoon('news')}
@@ -125,14 +140,15 @@ export function Header() {
                 <button
                   type="button"
                   className="nav-caret"
-                  aria-label="Trending Brand News menu"
+                  aria-label="Open Trending Brand News menu"
                   aria-expanded={openMenu === 'news'}
+                  aria-controls="mega-news"
                   onClick={() => toggleMenu('news')}
                 >
                   <Chevron />
                 </button>
               </div>
-              <div className="mega-panel mega-panel-news">
+              <div className="mega-panel mega-panel-news" id="mega-news" role="region" aria-label="Trending Brand News menu">
                 <div className="mega-inner">
                   <div className="mega-col">
                     <h4>News Topics</h4>
@@ -169,14 +185,15 @@ export function Header() {
                 <button
                   type="button"
                   className="nav-caret"
-                  aria-label="Agency Directory menu"
+                  aria-label="Open Agency Directory menu"
                   aria-expanded={openMenu === 'agency'}
+                  aria-controls="mega-agency"
                   onClick={() => toggleMenu('agency')}
                 >
                   <Chevron />
                 </button>
               </div>
-              <div className="mega-panel mega-panel-agency">
+              <div className="mega-panel mega-panel-agency" id="mega-agency" role="region" aria-label="Agency Directory menu">
                 <div className="mega-inner mega-agency-grid">
                   {categories.map((group) => (
                     <div className="mega-col" key={group.name}>
@@ -216,14 +233,15 @@ export function Header() {
                 <button
                   type="button"
                   className="nav-caret"
-                  aria-label="Best Designs menu"
+                  aria-label="Open Best Designs menu"
                   aria-expanded={openMenu === 'awards'}
+                  aria-controls="mega-awards"
                   onClick={() => toggleMenu('awards')}
                 >
                   <Chevron />
                 </button>
               </div>
-              <div className="mega-panel mega-panel-awards">
+              <div className="mega-panel mega-panel-awards" id="mega-awards" role="region" aria-label="Best Designs menu">
                 <div className="mega-inner">
                   <div className="mega-col">
                     <h4>Award Categories</h4>
