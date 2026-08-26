@@ -2052,7 +2052,83 @@ p {
 .awards-showcase-head {
   text-align: center;
   max-width: 40rem;
-  margin: 0 auto 2.25rem;
+  margin: 0 auto 1.75rem;
+}
+
+.awards-cats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 0 auto 2rem;
+  max-width: 920px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.awards-cat {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  padding: 0.85rem 0.4rem 0.95rem;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  position: relative;
+  min-height: 88px;
+  transition: color 0.15s ease;
+}
+
+.awards-cat:hover,
+.awards-cat:focus-visible {
+  color: #fff;
+  outline: none;
+}
+
+.awards-cat.is-active {
+  color: #fff;
+}
+
+.awards-cat.is-active::after {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -1px;
+  height: 3px;
+  background: #ffd24a;
+  border-radius: 2px 2px 0 0;
+}
+
+.awards-cat-icon {
+  width: 28px;
+  height: 28px;
+  color: #ffd24a;
+  display: grid;
+  place-items: center;
+}
+
+.awards-cat-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.awards-cat-label {
+  display: grid;
+  gap: 0.05rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.awards-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-bottom: 2rem;
+  animation: rise 0.35s ease;
 }
 
 .awards-mark {
@@ -2095,13 +2171,6 @@ p {
   font-size: 1rem;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.92);
-}
-
-.awards-showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 2.5vw, 1.75rem);
-  margin-bottom: 2rem;
 }
 
 .awards-showcase-card {
@@ -3423,6 +3492,20 @@ textarea {
 
   .awards-showcase-grid {
     grid-template-columns: 1fr;
+  }
+
+  .awards-cats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .awards-cat {
+    min-height: 78px;
+    padding: 0.7rem 0.25rem 0.85rem;
+  }
+
+  .awards-cat-label {
+    font-size: 0.62rem;
   }
 
   .awards-showcase-cta {
