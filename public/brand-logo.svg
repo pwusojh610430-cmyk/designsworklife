@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174 148" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="dwlRibbon" x1="70" y1="8" x2="155" y2="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6AD2FF" />
+      <stop offset="26%" stop-color="#4E78FF" />
+      <stop offset="55%" stop-color="#7B3BFF" />
+      <stop offset="78%" stop-color="#C22BFF" />
+      <stop offset="100%" stop-color="#E01898" />
+    </linearGradient>
+    <linearGradient id="dwlFold" x1="100" y1="100" x2="145" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B024D6" />
+      <stop offset="100%" stop-color="#4E0A78" />
+    </linearGradient>
+  </defs>
+
+  <!-- Three squares forming the D spine -->
+  <rect x="28" y="24" width="32" height="32" rx="3.5" fill="#6F6CFF" />
+  <rect x="22" y="68" width="16" height="16" rx="2.5" fill="#E03AA8" />
+  <rect x="42" y="72" width="28" height="28" rx="3.5" fill="#8B45FF" />
+
+  <!-- Ribbon band: outer arc minus inner arc -->
+  <path
+    fill="url(#dwlRibbon)"
+    fill-rule="evenodd"
+    d="
+      M 82 16
+      C 128 12, 164 42, 162 86
+      C 160 122, 132 144, 88 146
+      C 80 147, 76 140, 80 134
+      L 92 118
+      C 120 116, 136 100, 138 80
+      C 140 54, 118 36, 88 38
+      C 80 38, 76 30, 80 24
+      Z
+    "
+  />
+
+  <!-- Bottom ribbon fold / tip for depth -->
+  <path
+    fill="url(#dwlFold)"
+    d="
+      M 88 118
+      C 104 122, 120 130, 130 142
+      C 134 147, 128 150, 122 146
+      C 110 138, 98 130, 86 126
+      C 80 124, 82 118, 88 118
+      Z
+    "
+  />
+</svg>
