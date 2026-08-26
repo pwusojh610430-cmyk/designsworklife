@@ -180,39 +180,45 @@ export function HomePage() {
 
       <ReviewsBanner />
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <h2>Latest Marketplace Projects</h2>
-              <p>Our Verified Agencies are Trusted by Top Brands</p>
-            </div>
-          </div>
-          <table className="project-table">
-            <thead>
-              <tr>
-                <th>Project type</th>
-                <th>Industry</th>
-                <th>Project Description</th>
-                <th>Budget</th>
-              </tr>
-            </thead>
-            <tbody>
-              {marketplaceProjects.map((p) => (
-                <tr key={p.id}>
-                  <td>
-                    <strong>{p.type}</strong>
-                    <div className="meta">ID {p.id}</div>
-                  </td>
-                  <td>{p.industry}</td>
-                  <td>{p.description}</td>
-                  <td>
-                    <strong>{p.budget}</strong>
-                  </td>
+      <section className="marketplace-section" aria-labelledby="marketplace-projects-title">
+        <div className="container marketplace-section-inner">
+          <h2 id="marketplace-projects-title" className="marketplace-section-title">
+            Latest Marketplace Projects
+          </h2>
+          <div className="project-table-wrap">
+            <table className="project-table">
+              <thead>
+                <tr>
+                  <th scope="col">Project type</th>
+                  <th scope="col">Industry</th>
+                  <th scope="col">Project Description</th>
+                  <th scope="col">Budget</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {marketplaceProjects.slice(0, 4).map((p) => (
+                  <tr key={p.id}>
+                    <td>
+                      <Link to="/marketplace" className="project-type-link">
+                        <strong>{p.type}</strong>
+                        <span className="project-id">ID {p.id}</span>
+                      </Link>
+                    </td>
+                    <td>{p.industry}</td>
+                    <td>{p.description}</td>
+                    <td className="project-budget">{p.budget}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="marketplace-section-cta">
+            <Link className="btn-skew" to="/marketplace/project-brief">
+              <span className="btn-skew-inner">
+                Post Your Project <span aria-hidden="true">›</span>
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 

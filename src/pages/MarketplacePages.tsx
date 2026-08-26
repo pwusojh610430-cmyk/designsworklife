@@ -67,13 +67,11 @@ export function MarketplaceHomePage() {
                 <tr key={p.id}>
                   <td>
                     <strong>{p.type}</strong>
-                    <div className="meta">ID {p.id}</div>
+                    <span className="project-id">ID {p.id}</span>
                   </td>
                   <td>{p.industry}</td>
                   <td>{p.description}</td>
-                  <td>
-                    <strong>{p.budget}</strong>
-                  </td>
+                  <td className="project-budget">{p.budget}</td>
                 </tr>
               ))}
             </tbody>
