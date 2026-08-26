@@ -101,7 +101,7 @@ export function PreFooterBlock() {
                 className={`prefooter-logo prefooter-logo-slot-${i + 1} prefooter-float-${(i % 4) + 1}`}
               >
                 <span className="prefooter-logo-chip">
-                  <img src={logo.src} alt={logo.name} width={34} height={34} loading="lazy" />
+                  <img src={logo.src} alt={logo.name} width={44} height={44} loading="lazy" />
                   <span className="prefooter-logo-name">{logo.name}</span>
                 </span>
               </li>
