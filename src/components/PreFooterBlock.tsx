@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom'
 import { BrandMark } from './BrandMark'
 
 const partnerLogos = [
-  { name: 'BIGHORN', accent: '#1a2748' },
-  { name: 'smartsites', accent: '#3d5a80', italic: true },
-  { name: 'GojiLabs', accent: '#e85d04' },
-  { name: 'Bilberrry', accent: '#1a2748' },
-  { name: 'Unico Connect', accent: '#2b4c7e' },
-  { name: 'DESIGNLI', accent: '#4b01ff' },
-  { name: 'The Bureau', accent: '#1a2748' },
-  { name: 'DIGITAL SILK', accent: '#1a2748' },
-  { name: 'Design in DC', accent: '#2563eb' },
-  { name: 'INFINUM', accent: '#1a2748' },
-  { name: 'kanda', accent: '#0f766e' },
-  { name: 'intero DIGITAL', accent: '#1a2748' },
+  { name: 'Shopify', src: `${import.meta.env.BASE_URL}partners/shopify.svg` },
+  { name: 'Webflow', src: `${import.meta.env.BASE_URL}partners/webflow.svg` },
+  { name: 'Figma', src: `${import.meta.env.BASE_URL}partners/figma.svg` },
+  { name: 'Adobe', src: `${import.meta.env.BASE_URL}partners/adobe.svg` },
+  { name: 'Notion', src: `${import.meta.env.BASE_URL}partners/notion.svg` },
+  { name: 'Slack', src: `${import.meta.env.BASE_URL}partners/slack.svg` },
+  { name: 'HubSpot', src: `${import.meta.env.BASE_URL}partners/hubspot.svg` },
+  { name: 'Squarespace', src: `${import.meta.env.BASE_URL}partners/squarespace.svg` },
+  { name: 'Canva', src: `${import.meta.env.BASE_URL}partners/canva.svg` },
+  { name: 'Stripe', src: `${import.meta.env.BASE_URL}partners/stripe.svg` },
+  { name: 'WordPress', src: `${import.meta.env.BASE_URL}partners/wordpress.svg` },
+  { name: 'Framer', src: `${import.meta.env.BASE_URL}partners/framer.svg` },
 ] as const
 
 export function PreFooterBlock() {
@@ -124,11 +124,9 @@ export function PreFooterBlock() {
                 key={logo.name}
                 className={`prefooter-logo prefooter-logo-slot-${i + 1} prefooter-float-${(i % 4) + 1}`}
               >
-                <span
-                  className={`prefooter-logo-chip${'italic' in logo && logo.italic ? ' is-italic' : ''}`}
-                  style={{ color: logo.accent }}
-                >
-                  {logo.name}
+                <span className="prefooter-logo-chip">
+                  <img src={logo.src} alt={logo.name} width={28} height={28} loading="lazy" />
+                  <span className="prefooter-logo-name">{logo.name}</span>
                 </span>
               </li>
             ))}
