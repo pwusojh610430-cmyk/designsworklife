@@ -5,8 +5,18 @@ import { bestDesignLinks, categories, newsTopics } from '../data'
 export function Logo() {
   return (
     <Link to="/" className="logo">
-      <span className="logo-mark">DR</span>
-      DesignsWorkLife
+      <span className="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <path
+            fill="currentColor"
+            d="M16 2c2.8 4.2 8.5 7.2 8.5 13.2C24.5 21.8 20.8 26 16 28c-4.8-2-8.5-6.2-8.5-12.8C7.5 9.2 13.2 6.2 16 2z"
+          />
+          <circle fill="#fff" cx="13.2" cy="14" r="1.3" />
+          <circle fill="#fff" cx="16.5" cy="11.2" r="1.1" />
+          <circle fill="#fff" cx="19.2" cy="14.4" r="1.15" />
+        </svg>
+      </span>
+      <span className="logo-text">DesignsWorkLife</span>
     </Link>
   )
 }
@@ -38,16 +48,26 @@ export function Header() {
 
   return (
     <header className="site-header" ref={headerRef}>
-      <div className="container header-inner">
-        <Logo />
-        <button
-          className="menu-toggle"
-          aria-label="Menu"
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          ☰
-        </button>
+      <div className="header-top">
+        <div className="container header-top-inner">
+          <Logo />
+          <div className="header-utility">
+            <Link to="/benefits" className="util-link">
+              List Your Agency
+            </Link>
+            <button
+              className="menu-toggle"
+              aria-label="Menu"
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              ☰
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <div className="header-main">
+        <div className="container header-main-inner">
         <nav className={`main-nav ${mobileOpen ? 'open' : ''}`}>
           {/* TRENDING BRAND NEWS */}
           <div className={`nav-item ${openMenu === 'news' ? 'open' : ''}`}>
@@ -224,15 +244,22 @@ export function Header() {
               </div>
             </div>
           </div>
+
+          <Link
+            to="/marketplace/project-brief"
+            className="btn btn-green nav-mobile-find"
+            onClick={() => {
+              setOpenMenu(null)
+              setMobileOpen(false)
+            }}
+          >
+            Find an Agency
+          </Link>
         </nav>
 
-        <div className="header-actions">
-          <Link to="/marketplace/project-brief" className="btn btn-primary">
-            Hire an Agency
-          </Link>
-          <Link to="/benefits" className="btn btn-outline">
-            List Your Agency
-          </Link>
+        <Link to="/marketplace/project-brief" className="btn btn-green header-find">
+          Find an Agency
+        </Link>
         </div>
       </div>
     </header>
@@ -298,9 +325,23 @@ export function Footer() {
   )
 }
 
+export function openNewsletter() {
+  window.dispatchEvent(new CustomEvent('dwl:open-newsletter'))
+}
+
 export function Newsletter() {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [done, setDone] = useState(false)
+
+  useEffect(() => {
+    function onOpen() {
+      setOpen(true)
+      setDone(false)
+    }
+    window.addEventListener('dwl:open-newsletter', onOpen)
+    return () => window.removeEventListener('dwl:open-newsletter', onOpen)
+  }, [])
+
   if (!open) return null
 
   return (

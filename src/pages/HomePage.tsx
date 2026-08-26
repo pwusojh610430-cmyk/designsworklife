@@ -1,60 +1,126 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { agencies, awardDesigns, marketplaceProjects, newsArticles } from '../data'
-import { Stars } from '../components/Layout'
+import { Stars, openNewsletter } from '../components/Layout'
+
+const newsTabs = [
+  { id: 'latest', label: 'Latest' },
+  { id: 'ai', label: 'AI' },
+  { id: 'creative', label: 'Creative' },
+  { id: 'marketing', label: 'Marketing' },
+  { id: 'ecommerce', label: 'Ecommerce' },
+  { id: 'technology', label: 'Technology' },
+] as const
+
+function filterNews(tab: string) {
+  if (tab === 'latest') return newsArticles
+  if (tab === 'ai') {
+    return newsArticles.filter(
+      (n) =>
+        n.topics.includes('tech') ||
+        /ai|automation|model/i.test(`${n.title} ${n.excerpt}`),
+    )
+  }
+  if (tab === 'technology') return newsArticles.filter((n) => n.topics.includes('tech'))
+  if (tab === 'ecommerce') return newsArticles.filter((n) => n.topics.includes('ecommerce'))
+  return newsArticles.filter((n) => n.topics.includes(tab))
+}
 
 export function HomePage() {
+  const [tab, setTab] = useState<string>('latest')
+  const filtered = filterNews(tab)
+  const featured = filtered[0] ?? newsArticles[0]
+  const side = (filtered.length > 1 ? filtered.slice(1) : newsArticles.slice(1)).slice(0, 6)
+
   return (
     <>
-      <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <div className="eyebrow">B2B Media Platform for Brands & Agencies</div>
-            <h1>Agency Directory</h1>
-            <p className="hero-lead">Driving Brand Discovery & Growth</p>
-            <ul className="hero-points">
-              <li>Showcase Your Work</li>
-              <li>Build Awareness</li>
-              <li>Generate Leads</li>
-            </ul>
-            <div className="hero-cta">
-              <Link className="btn btn-primary" to="/marketplace/project-brief">
-                Looking to Hire an Agency?
-              </Link>
-              <Link className="btn btn-outline" to="/benefits">
-                List Your Agency
-              </Link>
+      <section className="hero hero-home">
+        <div className="container hero-home-inner">
+          <p className="hero-kicker">B2B Media Platform for Brands & Agency Directory</p>
+          <h1>Driving Brand Discovery & Growth</h1>
+          <ul className="hero-pill">
+            <li>Showcase Your Work</li>
+            <li>Build Awareness</li>
+            <li>Generate Leads</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="home-news">
+        <div className="container">
+          <div className="news-toolbar">
+            <div className="news-toolbar-brand">
+              <span className="news-flame" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18">
+                  <path
+                    fill="currentColor"
+                    d="M12 2c1.8 2.8 5.5 4.8 5.5 9 0 4.2-2.7 7.5-5.5 9-2.8-1.5-5.5-4.8-5.5-9C6.5 6.8 10.2 4.8 12 2z"
+                  />
+                </svg>
+              </span>
+              <span>Trending Brand News</span>
             </div>
-            <div className="stat-row">
-              <div className="stat">
-                <strong>1,000,000+</strong>
-                <span>Monthly B2B Visitors</span>
-              </div>
-              <div className="stat">
-                <strong>150,000+</strong>
-                <span>Followers on Social</span>
-              </div>
-              <div className="stat">
-                <strong>70,000+</strong>
-                <span>B2B Newsletter Subscribers</span>
-              </div>
+            <div className="news-tabs" role="tablist">
+              {newsTabs.map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={tab === t.id}
+                  className={tab === t.id ? 'active' : ''}
+                  onClick={() => setTab(t.id)}
+                >
+                  {t.label}
+                </button>
+              ))}
             </div>
+            <button type="button" className="btn btn-subscribe" onClick={openNewsletter}>
+              Subscribe <span aria-hidden="true">›</span>
+            </button>
           </div>
-          <div className="hero-card">
-            <div className="eyebrow">Trending Brand News</div>
-            <div className="news-ticker">
-              {newsArticles.slice(0, 5).map((n) => (
-                <Link key={n.slug} to={`/news/${n.slug}`} className="news-card news-card-rich">
-                  <img className="news-thumb-img" src={n.hero} alt={n.heroAlt} loading="lazy" />
-                  <div>
-                    <h3>{n.title}</h3>
-                    <div className="meta">
-                      {n.ago} · {n.read}
-                    </div>
-                  </div>
+
+          <div className="news-home-grid">
+            <article className="news-featured">
+              <Link to={`/news/${featured.slug}`} className="news-featured-link">
+                <img src={featured.hero} alt={featured.heroAlt} />
+                <h2>{featured.title}</h2>
+              </Link>
+              <Link to="/news" className="news-more-link">
+                View more latest news <span aria-hidden="true">›</span>
+              </Link>
+            </article>
+
+            <div className="news-home-side">
+              {side.map((n) => (
+                <Link key={n.slug} to={`/news/${n.slug}`} className="news-side-card">
+                  <img src={n.hero} alt={n.heroAlt} loading="lazy" />
+                  <h3>{n.title}</h3>
                 </Link>
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="stats-banner">
+        <div className="container stats-banner-inner">
+          <div className="stats-banner-items">
+            <div className="stats-banner-item">
+              <strong>1,000,000+</strong>
+              <span>Monthly B2B Visitors</span>
+            </div>
+            <div className="stats-banner-item">
+              <strong>150,000+</strong>
+              <span>Followers on Social</span>
+            </div>
+            <div className="stats-banner-item">
+              <strong>70,000+</strong>
+              <span>B2B Newsletter Subscribers</span>
+            </div>
+          </div>
+          <Link to="/benefits" className="btn btn-green">
+            Get Featured <span aria-hidden="true">›</span>
+          </Link>
         </div>
       </section>
 
@@ -185,7 +251,11 @@ export function HomePage() {
               <Link key={d.title} to="/best-designs" className="award-card">
                 <div
                   className="award-media"
-                  style={{ backgroundImage: `url(${d.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                  style={{
+                    backgroundImage: `url(${d.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
                 >
                   <span className={`badge ${d.badge === 'Winner' ? 'winner' : ''}`}>{d.badge}</span>
                 </div>
