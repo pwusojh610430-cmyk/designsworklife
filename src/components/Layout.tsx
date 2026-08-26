@@ -128,12 +128,12 @@ export function Header() {
             >
               <div className="nav-trigger-row">
                 <Link to="/news" className="nav-trigger" onClick={closeAll}>
-                  Trending Brand News
+                  Trending Brand Stories
                 </Link>
                 <button
                   type="button"
                   className="nav-caret"
-                  aria-label="Open Trending Brand News menu"
+                  aria-label="Open Trending Brand Stories menu"
                   aria-expanded={openMenu === 'news'}
                   aria-controls="mega-news"
                   onClick={() => toggleMenu('news')}
@@ -141,7 +141,7 @@ export function Header() {
                   <Chevron />
                 </button>
               </div>
-              <div className="mega-panel mega-panel-news" id="mega-news" role="region" aria-label="Trending Brand News menu">
+              <div className="mega-panel mega-panel-news" id="mega-news" role="region" aria-label="Trending Brand Stories menu">
                 <div className="mega-inner">
                   <div className="mega-col">
                     <h4>News Topics</h4>
@@ -291,14 +291,14 @@ export function Footer() {
               <span>DESIGNSWORKLIFE</span>
             </Link>
             <p>
-              DesignsWorkLife is the premier{' '}
-              <span className="footer-accent">agency directory</span>,{' '}
-              <span className="footer-accent">awards platform</span>, and media hub connecting brands
-              with top agencies in <span className="footer-accent">software</span>,{' '}
-              <span className="footer-accent">app development</span>,{' '}
-              <span className="footer-accent">design</span>, and{' '}
-              <span className="footer-accent">marketing</span>. We deliver vetted reviews, insights,
-              and trends to drive business growth.
+              DesignsWorkLife is a trusted{' '}
+              <span className="footer-accent">agency marketplace</span>,{' '}
+              <span className="footer-accent">awards showcase</span>, and media hub helping brands
+              find partners in <span className="footer-accent">software</span>,{' '}
+              <span className="footer-accent">product design</span>,{' '}
+              <span className="footer-accent">creative</span>, and{' '}
+              <span className="footer-accent">growth marketing</span>. We publish vetted reviews,
+              practical insights, and industry trends that support smarter hiring decisions.
             </p>
           </div>
 
@@ -423,8 +423,8 @@ export function Newsletter() {
       <button className="newsletter-close" onClick={() => setOpen(false)} aria-label="Close">
         ×
       </button>
-      <h3>Receive our Newsletter</h3>
-      <p className="meta">Join over 70,000 B2B decision-makers growing their brands</p>
+      <h3>Get the DesignsWorkLife Newsletter</h3>
+      <p className="meta">Join over 68,000 B2B marketers growing their brands</p>
       {done ? (
         <p style={{ color: 'var(--ok)', fontWeight: 600 }}>Thanks — you&apos;re on the list.</p>
       ) : (

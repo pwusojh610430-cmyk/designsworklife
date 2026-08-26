@@ -4,7 +4,7 @@ import type { NewsArticle } from './articles'
 export const moreNewsArticles: NewsArticle[] = [
   {
     slug: 'nike-running-club-city-edition',
-    title: 'Nike Turns City Running Clubs Into a Media Network',
+    title: 'Nike Transforms City Running Clubs Into a Local Media Network',
     excerpt:
       'Local run clubs become owned distribution: product drops, coaching content, and retail nights without buying more social reach.',
     read: '5 min read',
@@ -14,7 +14,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'Branding',
     topics: ['branding', 'marketing', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Runner on an open road at sunrise',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -24,7 +24,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&w=1280&q=80',
         alt: 'Team huddle representing club culture',
         caption: 'Clubs are distribution with sweat equity. Image: Pixabay',
       },
@@ -56,7 +56,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'spotify-wrapped-midyear-brand-play',
-    title: 'Spotify Tests a Mid-Year Wrapped to Keep Cultural Ownership',
+    title: 'Spotify Trials a Mid-Year Wrapped to Hold Onto Cultural Ownership',
     excerpt:
       'Annual Wrapped made Spotify a December verb. A mid-year version asks whether nostalgia can ship twice without feeling like spam.',
     read: '4 min read',
@@ -66,7 +66,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Advertising',
     topics: ['advertising', 'creative', 'tech'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1626785774573-4b7993143465?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'People enjoying music together',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -76,7 +76,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1609921212029-bb5a28e410df?auto=format&fit=crop&w=1280&q=80',
         alt: 'Starry sky suggesting personal music universes',
         caption: 'Personalization theater still needs scarcity. Image: Pixabay',
       },
@@ -104,7 +104,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'figma-ai-design-system-guardrails',
-    title: 'Figma’s AI Features Force Design Systems to Grow Guardrails',
+    title: 'Figma AI Features Push Design Systems to Add Stronger Guardrails',
     excerpt:
       'As generative tools draft components faster, mature teams invest in tokens, naming, and review gates — not in deleting AI from the toolbar.',
     read: '5 min read',
@@ -114,7 +114,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Katherine reports on retail partnerships and loyalty programs; also covers design tooling.',
     category: 'Design',
     topics: ['design', 'tech', 'agencies'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Code on screen representing design-system tooling',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -124,7 +124,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1611162617474-5b21e11e55d0?auto=format&fit=crop&w=1280&q=80',
         alt: 'Laptop on a desk for product design work',
         caption: 'Speed without systems just ships inconsistency faster. Image: Pixabay',
       },
@@ -156,7 +156,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'patagonia-repair-tour-storytelling',
-    title: 'Patagonia’s Repair Tours Make Sustainability a Stage Show',
+    title: 'Patagonia Repair Tours Turn Sustainability Into a Road Show',
     excerpt:
       'Instead of another impact PDF, Patagonia puts technicians on the road — turning mending into brand theater customers can watch.',
     read: '4 min read',
@@ -176,7 +176,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fdf1?auto=format&fit=crop&w=1280&q=80',
         alt: 'People gathered in a collaborative setting',
         caption: 'Public repair becomes a community event, not a warranty FAQ. Image: Pixabay',
       },
@@ -196,7 +196,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'shopify-sidekick-merchant-copilot',
-    title: 'Shopify Sidekick Pushes Merchants Toward Copilot Commerce',
+    title: 'Shopify Sidekick Nudges Merchants Toward Copilot-Style Commerce',
     excerpt:
       'AI assistants inside admin dashboards change what “marketing agency” means for mid-market eCommerce brands.',
     read: '5 min read',
@@ -206,7 +206,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'eCommerce',
     topics: ['ecommerce', 'tech', 'marketing', 'business'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Product still life suggesting commerce merchandising',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -216,7 +216,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=1280&q=80',
         alt: 'Abstract AI visualization',
         caption: 'Copilot commerce automates chores, not brand strategy. Image: Pixabay',
       },
@@ -248,7 +248,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'agency-pitch-decks-get-shorter',
-    title: 'Why Top Agencies Are Cutting Pitch Decks in Half',
+    title: 'Why Leading Agencies Are Cutting Pitch Decks Nearly in Half',
     excerpt:
       'Procurement still wants process, but buyers increasingly reward clarity, case proof, and a point of view — not 80 slides of capability wallpaper.',
     read: '4 min read',
@@ -258,7 +258,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Katherine reports on partnerships, loyalty, and agency go-to-market trends.',
     category: 'Agencies',
     topics: ['agencies', 'business', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Business meeting around a table',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -268,7 +268,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1280&q=80',
         alt: 'Team collaborating closely',
         caption: 'Buyers remember the conversation, not slide 47. Image: Pixabay',
       },
@@ -288,7 +288,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'interview-jkr-rebrands-that-stick',
-    title: 'Interview: What Makes a Rebrand Stick After the Launch Party',
+    title: 'Interview: What Makes a Rebrand Stick Once the Launch Party Ends',
     excerpt:
       'A creative director walkthrough on systems, franchise training, and why the hardest week is month six — not launch week.',
     read: '7 min read',
@@ -298,7 +298,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Managing editor covering expert interviews and long-form brand strategy.',
     category: 'Interviews',
     topics: ['interviews', 'branding', 'creative', 'agencies'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Modern architecture symbolizing structural brand systems',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -313,7 +313,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1280&q=80',
         alt: 'Books representing brand guidelines and documentation',
         caption: 'Guidelines are only useful if operators actually open them. Image: Pixabay',
       },
@@ -345,7 +345,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'podcast-marketplace-leads-vs-inbound',
-    title: 'Podcast: Marketplace Leads vs Inbound — What Agencies Should Buy',
+    title: 'Podcast: Marketplace Leads vs Inbound — What Agencies Should Prioritize',
     excerpt:
       'A 28-minute conversation on bid floors, sales capacity, and when directory sponsorship beats content SEO.',
     read: '6 min read',
@@ -355,7 +355,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Marketing & Sales Director covering marketplace dynamics and agency growth.',
     category: 'Podcast',
     topics: ['podcast', 'agencies', 'business', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Professional recording or speaking context',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -365,7 +365,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1280&q=80',
         alt: 'Team discussing growth strategy',
         caption: 'Lead quality only matters if your sales team can absorb it. Image: Pixabay',
       },
@@ -397,7 +397,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'target-owned-media-retail-networks',
-    title: 'Target Expands Retail Media Without Looking Like a Billboard Store',
+    title: 'Target Grows Retail Media Without Turning Stores Into Billboard Walls',
     excerpt:
       'Retail media revenue is easy to chase and easy to ruin. Target’s latest kit tries to keep the aisle shoppable while brands buy attention.',
     read: '5 min read',
@@ -407,7 +407,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'Marketing',
     topics: ['marketing', 'advertising', 'business', 'ecommerce'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Clean retail-like interior space',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -417,7 +417,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1280&q=80',
         alt: 'Packaged consumer goods style meal context',
         caption: 'Attention is worthless if the shelf journey breaks. Image: Pixabay',
       },
@@ -437,7 +437,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'notion-enterprise-design-ops',
-    title: 'Notion’s Enterprise Push Is Really a Design Ops Story',
+    title: "Notion's Enterprise Push Reads More Like a Design Ops Story",
     excerpt:
       'Templates, permissions, and wiki hygiene — not another feature launch — decide whether knowledge tools survive company scale.',
     read: '4 min read',
@@ -447,7 +447,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Katherine reports on tooling, loyalty, and go-to-market systems.',
     category: 'Tech',
     topics: ['tech', 'design', 'business'],
-    hero: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Laptop workspace for knowledge work',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -457,7 +457,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1280&q=80',
         alt: 'Structured digital work on a screen',
         caption: 'Information architecture is a product feature at enterprise scale. Image: Pixabay',
       },
@@ -477,7 +477,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'canva-print-renaissance-smb',
-    title: 'Canva’s Print Push Reminds SMBs That Physical Still Converts',
+    title: "Canva's Print Push Shows SMBs That Physical Still Converts",
     excerpt:
       'Menus, packaging inserts, and event signage are back in the funnel — and design platforms are chasing that spend.',
     read: '4 min read',
@@ -487,7 +487,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Roberto covers brand launches and retail marketing.',
     category: 'Design',
     topics: ['design', 'creative', 'business', 'ecommerce'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Printed materials and books on a table',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -497,7 +497,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1280&q=80',
         alt: 'Designed product objects',
         caption: 'Print is UX for the real world. Image: Pixabay',
       },
@@ -517,7 +517,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'openai-brand-safety-playbook',
-    title: 'OpenAI-Era Brand Safety Playbooks Get a 2026 Rewrite',
+    title: 'Brand Safety Playbooks Get a Fresh 2026 Rewrite for the OpenAI Era',
     excerpt:
       'Hallucinations, deepfakes, and scraped style concerns push brand safety beyond keyword blocklists into model governance.',
     read: '5 min read',
@@ -527,7 +527,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Business',
     topics: ['business', 'tech', 'advertising', 'agencies'],
-    hero: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1456513080800-b6a7b1e3e9d0?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'AI abstract visual for brand safety governance',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -537,7 +537,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1280&q=80',
         alt: 'Vast night sky suggesting uncertain new media frontiers',
         caption: 'New media risks need new review rituals. Image: Pixabay',
       },
@@ -561,7 +561,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'airbnb-photo-standards-hosts',
-    title: 'Airbnb Tightens Photo Standards — and Accidentally Writes a Design Brief',
+    title: 'Airbnb Tightens Photo Standards and Accidentally Drafts a Design Brief',
     excerpt:
       'Hosting photography rules are becoming a taste curriculum: light, angles, and honesty as conversion features.',
     read: '4 min read',
@@ -571,7 +571,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'Design',
     topics: ['design', 'ecommerce', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Bright living room interior suitable for listing photography',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -581,7 +581,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1280&q=80',
         alt: 'Travel destination scenery',
         caption: 'Travel decisions start with belief in the picture. Image: Pixabay',
       },
@@ -601,7 +601,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'duolingo-vs-babbel-brand-voice',
-    title: 'Babbel Bets on Adult Seriousness While Duolingo Owns Chaos',
+    title: 'Babbel Doubles Down on Adult Seriousness While Duolingo Owns Chaos',
     excerpt:
       'Two language apps, two brand voices — a case study in choosing a lane and refusing to borrow the competitor’s jokes.',
     read: '4 min read',
@@ -611,7 +611,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Roberto covers brand launches and consumer marketing.',
     category: 'Branding',
     topics: ['branding', 'marketing', 'tech'],
-    hero: 'https://cdn.pixabay.com/photo/2012/06/19/10/32/owl-50267_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Owl representing language-learning brand mascots',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -621,7 +621,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1280&q=80',
         alt: 'Books for language learning context',
         caption: 'Category leaders often win by sounding unlike each other. Image: Pixabay',
       },
@@ -641,7 +641,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'meta-advantage-plus-creative-fatigue',
-    title: 'Meta Advantage+ Fatigue Is Pushing Brands Back to Creative Testing',
+    title: 'Meta Advantage+ Fatigue Pushes Brands Back Toward Creative Testing',
     excerpt:
       'Automation promised less busywork. Creative teams are rediscovering that machine allocation still needs human variation.',
     read: '5 min read',
@@ -651,7 +651,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Advertising',
     topics: ['advertising', 'marketing', 'tech'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1500000000000-1787757006349-80?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Person with phone representing social ad creative',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -661,7 +661,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1500000000000-1787757006349-81?auto=format&fit=crop&w=1280&q=80',
         alt: 'Creative team collaborating',
         caption: 'Automation needs a pipeline of difference. Image: Pixabay',
       },

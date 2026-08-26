@@ -177,7 +177,7 @@ export const agencies: Agency[] = [
     cover: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
     portfolio: [
       { title: 'BioAstra', type: 'Web Design', year: 2026, image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_640.jpg' },
-      { title: 'Civic Portal Redesign', type: 'UI/UX Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg' },
+      { title: 'Civic Portal Redesign', type: 'UI/UX Design', year: 2025, image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1280&q=80' },
     ],
     team: [
       { name: 'Alex Rivera', role: 'Creative Director' },
@@ -212,7 +212,7 @@ export const agencies: Agency[] = [
     cover: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
     portfolio: [
       { title: 'Retail Flagship Site', type: 'Web Development', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_640.jpg' },
-      { title: 'Hospitality Rebrand', type: 'Branding', year: 2024, image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_640.jpg' },
+      { title: 'Hospitality Rebrand', type: 'Branding', year: 2024, image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1280&q=80' },
     ],
     team: [
       { name: 'Jordan Blake', role: 'Managing Partner' },
@@ -311,7 +311,7 @@ export const marketplaceProjects = [
     type: 'Website Design & Branding',
     industry: 'Health, Wellness and Fitness',
     description:
-      'Seeking a web partner to build a patient-facing website for a longevity wellness practice, with clear care pathways, accessibility, healthcare integrations, and ongoing support.',
+      'Looking for a web partner to design a patient-facing site for a longevity clinic, with clear care pathways, accessibility, healthcare integrations, and ongoing support.',
     budget: '$15,000',
   },
   {
@@ -319,7 +319,7 @@ export const marketplaceProjects = [
     type: 'Digital Marketing',
     industry: 'Marketing and Advertising',
     description:
-      'The company is launching 70+ lead generation techniques and seeks a long-term agency partner to support the launch, ongoing marketing, creative work, and future growth.',
+      'A growth-stage firm is rolling out 70+ lead-gen plays and wants a long-term agency for launch support, ongoing marketing, creative, and scale.',
     budget: '$116,000',
   },
   {
@@ -327,7 +327,7 @@ export const marketplaceProjects = [
     type: 'Sales & Marketing Services',
     industry: 'Recreational Facilities and Services',
     description:
-      'The company seeks a sales and marketing partner to grow visibility, traffic, engagement, and customers, driving sustainable revenue growth and a scalable acquisition strategy.',
+      'Needs a sales and marketing partner to lift visibility, traffic, engagement, and memberships with a durable acquisition plan.',
     budget: '$48,000',
   },
   {
@@ -335,7 +335,7 @@ export const marketplaceProjects = [
     type: 'Website Design & Development',
     industry: 'Financial Services',
     description:
-      'The company needs a modern corporate website with a user-friendly design, SEO, CMS, and ongoing support to showcase its services, leadership, careers, and local brand presence.',
+      'Needs a modern corporate website — approachable UX, SEO, CMS, and ongoing support — to present services, leadership, careers, and local presence.',
     budget: '$15,000',
   },
   {
@@ -400,7 +400,7 @@ export const awardDesigns = [
       { initials: 'LS', score: 9.0 },
     ],
     agency: 'Sato Mateus',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'ANML Studio Website Design',
@@ -413,7 +413,7 @@ export const awardDesigns = [
       { initials: 'JP', score: 8.0 },
     ],
     agency: 'ANML Studio',
-    image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Kitchen Stage App Design',
@@ -439,7 +439,7 @@ export const awardDesigns = [
       { initials: 'LS', score: 8.4 },
     ],
     agency: 'Toby Ng Design',
-    image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Hummey Honey Packaging Design',
@@ -474,7 +474,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Studio',
-    image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Athena App Design',
@@ -505,7 +505,7 @@ export const awardDesigns = [
       { initials: 'KL', score: 8.9 },
     ],
     agency: 'Marka Network',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1542744173-8e2bd585f2fc?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Lumen Health Patient Portal Website',
@@ -518,7 +518,7 @@ export const awardDesigns = [
       { initials: 'IS', score: 8.2 },
     ],
     agency: 'GoingClear',
-    image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Orbit Transit Wayfinding App',
@@ -531,7 +531,7 @@ export const awardDesigns = [
       { initials: 'JP', score: 8.7 },
     ],
     agency: 'ANML Studio',
-    image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Cedar & Co Seasonal Catalog Print',
@@ -544,7 +544,7 @@ export const awardDesigns = [
       { initials: 'LS', score: 8.1 },
     ],
     agency: 'Toby Ng Design',
-    image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Solara Skincare Refill Packaging',
@@ -557,7 +557,7 @@ export const awardDesigns = [
       { initials: 'CH', score: 9.1 },
     ],
     agency: 'Studio Forma',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Echo Bank Brand Film Video',
@@ -570,7 +570,7 @@ export const awardDesigns = [
       { initials: 'KL', score: 8.9 },
     ],
     agency: 'Frame & Field',
-    image: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Harbor Museums Membership Website',
@@ -579,7 +579,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Public Works Studio',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Kinetic Type Specimen Print',
@@ -588,7 +588,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Type Foundry Lab',
-    image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Nova Grocery Private Label Packaging',
@@ -597,7 +597,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Shelf Studio',
-    image: 'https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1280&q=80',
   },
 ]
 
@@ -613,9 +613,9 @@ export const jury = [
 ]
 
 export const team = [
-  { name: 'Gianluca Ferruggia', role: 'General Manager' },
+  { name: 'Avery Lang', role: 'General Manager' },
   { name: 'Mariana Delgado', role: 'Marketing Director' },
-  { name: 'Nikola Djuric', role: 'Marketing & Sales Director, Trending Brand News' },
+  { name: 'Nikola Djuric', role: 'Marketing & Sales Director, Brand Stories' },
   { name: 'Lana Beciragic', role: 'Director of Global Operations' },
   { name: 'Andrija Savic', role: 'Director of Client Relationships' },
   { name: 'Sergio Oliviera', role: 'Director of Development' },

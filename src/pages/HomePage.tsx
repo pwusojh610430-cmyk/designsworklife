@@ -89,12 +89,12 @@ export function HomePage() {
     <>
       <section className="hero hero-home" aria-labelledby="home-hero-title">
         <div className="container hero-home-inner">
-          <p className="hero-kicker">B2B Media Platform for Brands & Agency Directory</p>
-          <h1 id="home-hero-title">Driving Brand Discovery & Growth</h1>
+          <p className="hero-kicker">B2B Discovery Platform for Brands & Agencies</p>
+          <h1 id="home-hero-title">Helping Brands Find the Right Creative Partners</h1>
           <ul className="hero-pill">
-            <li>Showcase Your Work</li>
-            <li>Build Awareness</li>
-            <li>Generate Leads</li>
+            <li>Showcase Strong Work</li>
+            <li>Grow Visibility</li>
+            <li>Win Better Leads</li>
           </ul>
         </div>
       </section>
@@ -106,7 +106,7 @@ export function HomePage() {
               <span className="news-flame" aria-hidden="true">
                 <BrandMark size={20} />
               </span>
-              <span>Trending Brand News</span>
+              <span>Trending Brand Stories</span>
             </div>
             <div
               className="news-tabs"
@@ -185,15 +185,15 @@ export function HomePage() {
         <div className="container stats-banner-inner">
           <div className="stats-banner-items">
             <div className="stats-banner-item">
-              <strong>1,000,000+</strong>
+              <strong>950,000+</strong>
               <span>Monthly B2B Visitors</span>
             </div>
             <div className="stats-banner-item">
-              <strong>150,000+</strong>
+              <strong>140,000+</strong>
               <span>Followers on Social</span>
             </div>
             <div className="stats-banner-item">
-              <strong>70,000+</strong>
+              <strong>68,000+</strong>
               <span>B2B Newsletter Subscribers</span>
             </div>
           </div>

@@ -50,7 +50,7 @@ export function BestDesignsPage() {
     <>
       <PageHero
         title="Best Designs"
-        subtitle="The best design work of 2026, across websites, logos, apps, packaging, print, and video — curated by DesignsWorkLife."
+        subtitle="Standout creative work from 2026 — websites, logos, apps, packaging, print, and video — curated by DesignsWorkLife."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Best Designs' }]}
       />
       <SubNav items={awardSubnav} active="/best-designs" />
@@ -147,7 +147,7 @@ export function BestDesignCategoryPage() {
     <>
       <PageHero
         title={`Best ${label} Designs`}
-        subtitle={`Great ${singular.toLowerCase()} work from the DesignsWorkLife awards gallery.`}
+        subtitle={`Selected ${singular.toLowerCase()} work from the DesignsWorkLife awards gallery.`}
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'Best Designs', to: '/best-designs' },
@@ -192,7 +192,7 @@ export function HowItWorksPage() {
     <>
       <PageHero
         title="Best Designs Evaluation System"
-        subtitle="Scored independently by a panel of creative directors from TOP global BRANDS & agencies."
+        subtitle="Independently scored by creative directors from leading brands and agencies."
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'Best Designs', to: '/best-designs' },

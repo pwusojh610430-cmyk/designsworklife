@@ -9,23 +9,23 @@ export function AboutPage() {
     <>
       <PageHero
         title="Team & Story"
-        subtitle="A B2B marketplace connecting businesses with agencies across software, design, and marketing."
+        subtitle="A B2B marketplace helping brands discover agencies across software, design, and marketing."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Team & Story' }]}
       />
       <section className="section">
         <div className="container prose">
           <h2>What is DesignsWorkLife?</h2>
           <p>
-            DesignsWorkLife analyzes and ranks thousands of service providers so brands can discover,
-            compare, and connect with the right agencies — spanning digital marketing, web design,
-            branding, software, and tech.
+            DesignsWorkLife researches and ranks service providers so brands can discover, compare,
+            and shortlist the right agencies — covering digital marketing, web design, branding,
+            software, and tech.
           </p>
           <h2>Our story</h2>
           <p>
-            Since launching in 2017, DesignsWorkLife — directed by digital agency expert Gianluca
-            Ferruggia — has grown into a global network of over 30,000 professional agencies across
-            50+ countries. We combine directory rankings, Marketplace matching, Best Designs awards,
-            and daily B2B news into one discovery platform.
+            Since launching in 2018, DesignsWorkLife — led by marketplace operator Avery Lang — has
+            grown into a network of more than 28,500 professional agencies across 45+ countries. We
+            combine directory rankings, Marketplace matching, Best Designs awards, and daily B2B
+            coverage into one discovery platform.
           </p>
           <h2>What we run</h2>
           <ul>

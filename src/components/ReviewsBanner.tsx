@@ -4,7 +4,7 @@ import { BrandMark } from './BrandMark'
 const reviews = [
   {
     quote:
-      'The quality of developers that were recommended by them [was] by far the best ones.',
+      'The developers they recommended were clearly a cut above what we had seen elsewhere.',
     name: 'Sakshi Sodhi',
     role: 'EduFinance Senior Technical Assistance Advisor',
     avatar:
@@ -49,7 +49,7 @@ export function ReviewsBanner() {
             <BrandMark size={44} />
           </div>
           <div>
-            <h2 id="reviews-banner-title">DesignsWorkLife Reviews</h2>
+            <h2 id="reviews-banner-title">What Brands Say About DesignsWorkLife</h2>
             <p>This is why our clients trust us</p>
           </div>
         </div>

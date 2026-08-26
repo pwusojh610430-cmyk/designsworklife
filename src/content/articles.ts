@@ -32,7 +32,7 @@ export type NewsArticle = {
 export const newsArticles: NewsArticle[] = [
   {
     slug: 'kfc-hot-ranch-big-dip-ishowspeed-campaign',
-    title: "KFC Casts Superfan IShowSpeed for Post-Rebrand Sauce Push",
+    title: "KFC Brings Superfan IShowSpeed Into Its Post-Rebrand Sauce Push",
     excerpt:
       'The chain converted years of unpaid shoutouts into a 60-second spot and a 4-ounce Hot Ranch Big Dip — a product-led proof point for its global refresh.',
     read: '5 min read',
@@ -80,7 +80,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1280&q=80',
         alt: 'Creamy dressing being poured over a fresh salad',
         caption: 'Hot Ranch Big Dip sells abundance — more sauce, less rationing. Image: Pixabay',
       },
@@ -108,7 +108,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'fanta-original-monsters-horror-campaign',
-    title: 'Fanta Answers 2 Years of Borrowed Horror With 4 Original Monsters',
+    title: 'Fanta Retires Borrowed Horror Tropes for Four Homegrown Monsters',
     excerpt:
       'After seasons of licensed spooky IP, Fanta builds its own monster mythology — keeping Halloween equity without renting someone else’s characters.',
     read: '4 min read',
@@ -146,7 +146,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1280&q=80',
         alt: 'Dark night sky with stars suggesting spooky seasonal mood',
         caption: 'Seasonal soft drinks win when the mood is atmospheric, not just orange. Image: Pixabay',
       },
@@ -170,7 +170,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'duolingo-owl-sick-boy-streak',
-    title: "Duolingo's Owl Drops the Sass to Save Sick Boy's 301-Day Streak",
+    title: "Duolingo Softens the Owl's Sass to Protect a Sick Boy's 301-Day Streak",
     excerpt:
       'The brand pauses its famous menace for a softer story about learning continuity — proving the owl can still surprise when the tone flips.',
     read: '4 min read',
@@ -190,7 +190,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1280&q=80',
         alt: 'Stack of books suggesting learning and study streaks',
         caption: 'Streaks are product features. Stories make them human. Image: Pixabay',
       },
@@ -226,7 +226,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'pizza-hut-yum-brands-name-change',
-    title: 'Pizza Hut Spends Its Last Week With Yum Brands on a Name Change',
+    title: 'Pizza Hut Marks Its Final Week Under Yum Brands With a Name Refresh',
     excerpt:
       'A corporate restructuring story told through brand identity, franchise optics, and what customers actually notice on the door.',
     read: '4 min read',
@@ -282,7 +282,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'dunkin-bark-drive-thru-dogs',
-    title: "Dunkin' Gives Dogs Their Own Drive-Thru in Year 7 of BARK Partnership",
+    title: "Dunkin's Year-7 BARK Partnership Adds a Dedicated Drive-Thru for Dogs",
     excerpt:
       'Pet treats meet QSR loyalty as Dunkin extends its longest-running collab — turning the passenger seat into a second customer.',
     read: '4 min read',
@@ -340,7 +340,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'ipsy-beauty-product-testers',
-    title: 'IPSY Sells Brands Access to 16 Million Beauty Product Testers',
+    title: 'IPSY Opens Its 16-Million Tester Network to Beauty Brand Partners',
     excerpt:
       'A beauty marketplace productizes its subscriber base as a testing network — turning community into a B2B research product.',
     read: '4 min read',
@@ -360,7 +360,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1280&q=80',
         alt: 'People collaborating, suggesting community-powered product feedback',
         caption: 'Community data becomes a product when feedback loops are operationalized. Image: Pixabay',
       },
@@ -396,7 +396,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'starbucks-psl-martha-stewart-unicorn',
-    title: "Starbucks Stacks PSL Return With Martha Stewart On Unicorn Weekend",
+    title: "Starbucks Pairs the PSL Comeback With Martha Stewart for Unicorn Weekend",
     excerpt:
       'Seasonal nostalgia meets celebrity partnership in one launch window — maximizing calendar density without muddying the Pumpkin Spice Latte myth.',
     read: '4 min read',
@@ -430,7 +430,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1280&q=80',
         alt: 'Starry night sky suggesting unicorn-weekend fantasy energy',
         caption: 'Fantasy drops need visual escape — not another brown spice flat lay. Image: Pixabay',
       },
@@ -454,7 +454,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'claude-watermark-ai-disclosure',
-    title: "Claude's Watermark Gives AI Disclosure Clauses Sharper Teeth",
+    title: "Claude Watermarking Puts Real Pressure on AI Disclosure Clauses",
     excerpt:
       'As AI disclosure language spreads through contracts, visible watermarks turn vague policy into something agencies and brands can actually audit.',
     read: '5 min read',
@@ -464,7 +464,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Tech',
     topics: ['tech', 'business', 'agencies'],
-    hero: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Abstract artificial intelligence visualization',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -474,7 +474,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1507679799987-4e7b3f1b0b0b?auto=format&fit=crop&w=1280&q=80',
         alt: 'Code on a screen representing AI tooling in creative workflows',
         caption: 'Disclosure without detection is policy theater. Image: Pixabay',
       },
@@ -494,7 +494,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'ikea-xbox-anniversary-furniture',
-    title: "IKEA Presses Xbox's D-Pad Into a 25th Anniversary Furniture Line",
+    title: "IKEA Turns Xbox's D-Pad Into a 25th-Anniversary Furniture Capsule",
     excerpt:
       'A furniture × gaming collab that treats controllers as material culture — and living rooms as the real console war.',
     read: '4 min read',
@@ -514,7 +514,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1280&q=80',
         alt: 'Product still life suggesting designed objects and packaging care',
         caption: 'Collabs land when the object improves a daily ritual, not when it prints a logo louder. Image: Pixabay',
       },
@@ -539,50 +539,50 @@ export const newsArticles: NewsArticle[] = [
 export const partnerArticles = [
   {
     slug: 'campari-live-experiences',
-    title: '3 Ways Campari America Builds Brand Loyalty With Live Experiences',
-    excerpt: 'How hosted events turn tasting into belonging for a heritage spirits brand.',
+    title: 'How Campari America Uses Live Experiences to Deepen Brand Loyalty',
+    excerpt: 'Hosted events that turn tasting moments into belonging for a heritage spirits brand.',
     category: 'Partner Content',
-    image: 'https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1280&q=80',
     imageAlt: 'Refreshing drink in a glass with citrus',
   },
   {
     slug: 'b2b-bounce-rates-infrastructure',
-    title: '3% Bounce Rates and Broken Technical Infrastructure Are Killing B2B Sales Pipelines',
-    excerpt: 'Why site reliability is now a revenue problem, not an IT footnote.',
+    title: 'Why Tiny Bounce Rates Still Hide Infrastructure Problems That Stall B2B Pipelines',
+    excerpt: 'Site reliability is now a pipeline problem — not just an IT footnote.',
     category: 'Partner Content',
-    image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1280&q=80',
     imageAlt: 'Laptop workspace representing B2B web infrastructure',
   },
   {
     slug: 'live-nation-local-venues',
-    title: 'How Live Nation Designed Its New Venues for Local Music Culture',
-    excerpt: 'Architecture and programming choices that keep arenas feeling hometown.',
+    title: 'Live Nation Designs New Venues Around Local Music Culture',
+    excerpt: 'Design and programming choices that keep arenas feeling local.',
     category: 'Partner Content',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1432888498266-38ffec0f9d7a?auto=format&fit=crop&w=1280&q=80',
     imageAlt: 'Architectural exterior of a large public venue',
   },
   {
     slug: 'hubspot-lifecycle-orchestration',
-    title: 'How HubSpot Partners Orchestrate Lifecycle Without Tool Sprawl',
-    excerpt: 'A partner playbook for keeping CRM, CMS, and ads in one measurement spine.',
+    title: 'HubSpot Partners Keep Lifecycle Orchestration Without Tool Sprawl',
+    excerpt: 'A partner playbook for keeping CRM, CMS, and ads on one measurement spine.',
     category: 'Partner Content',
     image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
     imageAlt: 'Team meeting about lifecycle marketing',
   },
   {
     slug: 'webflow-enterprise-design-systems',
-    title: 'Webflow Enterprises Are Finally Taking Design Systems Seriously',
-    excerpt: 'Component libraries and CMS models that survive marketing reorgs.',
+    title: 'Enterprise Webflow Teams Are Betting Harder on Design Systems',
+    excerpt: 'Component libraries and CMS models built to survive marketing reorgs.',
     category: 'Partner Content',
-    image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1280&q=80',
     imageAlt: 'Code and design system work on screen',
   },
   {
     slug: 'stripe-checkout-conversion-lessons',
-    title: 'Stripe Checkout Patterns Brands Keep Getting Wrong',
-    excerpt: 'Friction, trust marks, and mobile keyboards — conversion lessons from payment UX.',
+    title: 'Checkout Patterns Brands Still Misread on Stripe',
+    excerpt: 'Friction, trust marks, and mobile keyboards: conversion lessons from payment UX.',
     category: 'Partner Content',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1280&q=80',
     imageAlt: 'Product and checkout still life',
   },
 ]

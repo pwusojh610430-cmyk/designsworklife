@@ -102,10 +102,10 @@ export function AwardsShowcaseBlock() {
             <strong>AWARDS</strong>
             <span>★★★</span>
           </div>
-          <h2 id="awards-showcase-title">Discover Award-Winning Designs</h2>
+          <h2 id="awards-showcase-title">Explore Award-Winning Creative Work</h2>
           <p>
-            We help businesses elevate their value through great design showcases, meaningful
-            connections and great work.
+            We spotlight exceptional design so brands can learn from standout work and connect with
+            the teams behind it.
           </p>
         </div>
 

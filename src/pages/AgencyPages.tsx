@@ -10,15 +10,15 @@ export function AgencyIndexPage() {
         <div className="container stats-banner-inner">
           <div className="stats-banner-items">
             <div className="stats-banner-item">
-              <strong>1,000,000+</strong>
+              <strong>950,000+</strong>
               <span>Monthly B2B Visitors</span>
             </div>
             <div className="stats-banner-item">
-              <strong>150,000+</strong>
+              <strong>140,000+</strong>
               <span>Followers on Social</span>
             </div>
             <div className="stats-banner-item">
-              <strong>70,000+</strong>
+              <strong>68,000+</strong>
               <span>B2B Newsletter Subscribers</span>
             </div>
           </div>

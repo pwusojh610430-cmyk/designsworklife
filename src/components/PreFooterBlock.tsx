@@ -212,7 +212,7 @@ export function PreFooterBlock() {
                 Receive our <span>Newsletter</span>
               </h2>
               <p>
-                Join over <strong>70,000 B2B</strong> decision-makers growing their brands
+                Join over <strong>68,000 B2B</strong> marketers growing their brands
               </p>
             </div>
           </div>
@@ -250,7 +250,7 @@ export function PreFooterBlock() {
 
         <div className="prefooter-agency">
           <h3>
-            Do You Represent a <span>Professional Agency?</span>
+            Do You Represent a <span>Creative Agency?</span>
           </h3>
           <Link className="btn-skew prefooter-agency-btn" to="/submit-agency">
             <span className="btn-skew-inner">

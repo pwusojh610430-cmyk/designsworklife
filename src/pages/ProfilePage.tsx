@@ -42,7 +42,7 @@ export function AgencyProfilePage() {
               ))}
             </div>
             <div className="meta">
-              <Stars value={agency.rating} /> DesignRush {agency.rating} ({agency.reviews}) · Google{' '}
+              <Stars value={agency.rating} /> DesignsWorkLife {agency.rating} ({agency.reviews}) · Google{' '}
               {agency.googleRating} ({agency.googleReviews})
             </div>
             <p style={{ marginTop: '0.75rem' }}>

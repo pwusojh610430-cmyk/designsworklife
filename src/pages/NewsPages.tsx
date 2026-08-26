@@ -71,7 +71,7 @@ export function NewsIndexPage() {
   return (
     <>
       <PageHero
-        title="Trending Brand News"
+        title="Trending Brand Stories"
         subtitle="Daily B2B and marketing news covering technology, branding, advertising, and design."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'News' }]}
       />

@@ -4,7 +4,7 @@ import type { NewsArticle } from './articles'
 export const extraNewsArticles: NewsArticle[] = [
   {
     slug: 'pentagram-partner-exit-studio-culture',
-    title: 'Interview: Why a Pentagram Partner Says Studio Culture Beats Solo Stardom',
+    title: 'Interview: A Pentagram Partner on Why Studio Culture Outlasts Solo Stardom',
     excerpt:
       'A candid conversation on collaboration, client politics, and why the next decade of design will reward institutions over influencers.',
     read: '7 min read',
@@ -29,7 +29,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1280&q=80',
         alt: 'Creative meeting in progress',
         caption: 'Institutions scale judgment. Personal brands scale applause. Image: Pixabay',
       },
@@ -57,7 +57,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'cmo-podcast-retail-media-wars',
-    title: 'Podcast: CMOs Debate Whether Retail Media Is the New TV Buy',
+    title: 'Podcast: CMOs Ask If Retail Media Has Become the New TV Buy',
     excerpt:
       'Episode notes from our B2B show: three marketers on closed-loop attribution, creative constraints inside retailer ecosystems, and when to walk away.',
     read: '6 min read',
@@ -77,7 +77,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1280&q=80',
         alt: 'People listening together',
         caption: 'Closed-loop metrics change the creative brief. Image: Pixabay',
       },
@@ -105,7 +105,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'shopify-checkout-extensibility-brands',
-    title: 'Shopify Checkout Extensibility Is Quietly Rewriting DTC Brand Systems',
+    title: 'Shopify Checkout Extensibility Is Quietly Reshaping DTC Brand Systems',
     excerpt:
       'Custom thank-you pages and post-purchase upsells are no longer plugin hacks — they are brand theater at the moment of highest intent.',
     read: '5 min read',
@@ -125,7 +125,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1280&q=80',
         alt: 'Product still life suggesting premium ecommerce',
         caption: 'Post-purchase is now part of the brand system. Image: Pixabay',
       },
@@ -149,7 +149,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'holding-company-ai-lab-reorg',
-    title: 'Holding Companies Are Folding AI Labs Into Client Teams — Again',
+    title: 'Holding Companies Are Folding AI Labs Back Into Client Teams',
     excerpt:
       'After a year of center-of-excellence theater, networks are embedding model ops inside accounts. The pitch: less demo, more delivery.',
     read: '5 min read',
@@ -159,7 +159,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Roberto covers brand launches and agency market moves.',
     category: 'Agencies',
     topics: ['agencies', 'tech', 'business', 'advertising'],
-    hero: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Abstract AI visualization',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -169,7 +169,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1280&q=80',
         alt: 'Modern office collaboration',
         caption: 'Embedding beats showcasing. Image: Pixabay',
       },
@@ -197,7 +197,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'museum-digital-exhibition-ux',
-    title: 'Museums Are Hiring Product Designers to Rebuild the Exhibition Stack',
+    title: 'Museums Hire Product Designers to Rebuild How Exhibitions Work',
     excerpt:
       'Ticketing, wayfinding, and collection apps are merging into one visitor OS — and cultural institutions are finally budgeting like product orgs.',
     read: '5 min read',
@@ -207,7 +207,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Lana writes about design systems in public and cultural sectors.',
     category: 'Design',
     topics: ['design', 'tech', 'creative', 'business'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Modern architectural interior',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -217,7 +217,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1280&q=80',
         alt: 'Books and cultural artifacts aesthetic',
         caption: 'Culture brands are learning product roadmaps. Image: Pixabay',
       },
@@ -241,7 +241,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'independent-creative-director-interview',
-    title: 'Interview: An Independent CD on Quitting the Network Without Quitting Ambition',
+    title: 'Interview: An Independent CD on Leaving the Network Without Losing Ambition',
     excerpt:
       'How one creative director rebuilt a practice around fewer clients, sharper craft, and contracts that protect idea ownership.',
     read: '6 min read',
@@ -265,7 +265,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1280&q=80',
         alt: 'Small team collaboration',
         caption: 'Ambition scales with clarity, not headcount. Image: Pixabay',
       },
@@ -289,7 +289,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'b2b-podcast-agency-margins',
-    title: 'Podcast Recap: Agency Operators on Margin Pressure After AI Tooling Costs',
+    title: 'Podcast Recap: Agency Operators Face Margin Pressure From AI Tooling Costs',
     excerpt:
       'Software seats, training time, and client expectations are colliding. Operators share what they are cutting — and what they refuse to automate.',
     read: '5 min read',
@@ -309,7 +309,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1280&q=80',
         alt: 'Operators in a meeting',
         caption: 'Margin is a culture decision dressed as a finance one. Image: Pixabay',
       },
@@ -333,7 +333,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'luxury-packaging-refill-systems',
-    title: 'Luxury Brands Are Designing Refill Systems That Still Feel Expensive',
+    title: 'Luxury Brands Design Refill Systems That Still Feel Premium',
     excerpt:
       'Sustainability briefs used to mean less foil. Now they mean modular vessels, membership refills, and packaging that photographs like heirloom objects.',
     read: '4 min read',
@@ -343,7 +343,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Design',
     topics: ['design', 'ecommerce', 'branding', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Premium product packaging aesthetic',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -353,7 +353,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1280&q=80',
         alt: 'Tactile printed materials',
         caption: 'Touch still sells when the story is circular. Image: Pixabay',
       },
@@ -377,7 +377,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'founder-story-boutique-media-agency',
-    title: 'Interview: Building a 12-Person Media Agency That Refuses Performance Theater',
+    title: 'Interview: How a 12-Person Media Agency Rejects Performance Theater',
     excerpt:
       'A founder on saying no to vanity dashboards, hiring generalists who can write, and why smaller retainers can mean healthier growth.',
     read: '6 min read',
@@ -387,7 +387,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Karen leads editorial interviews with agency founders and creative directors.',
     category: 'Interviews',
     topics: ['interviews', 'marketing', 'agencies', 'business'],
-    hero: 'https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Founder working at a laptop',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -397,7 +397,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1280&q=80',
         alt: 'Analytics and code on a screen',
         caption: 'Clarity beats fireworks in the monthly report. Image: Pixabay',
       },
@@ -421,7 +421,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'creator-commerce-storefront-fatigue',
-    title: 'Creator Commerce Hits Storefront Fatigue — Platforms Race to Simplify Selling',
+    title: 'Creator Commerce Hits Storefront Fatigue as Platforms Simplify Selling',
     excerpt:
       'Too many link-in-bio shops, too little brand coherence. Platforms are collapsing checkout into content while creators demand fewer tabs.',
     read: '4 min read',
@@ -431,7 +431,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'eCommerce',
     topics: ['ecommerce', 'marketing', 'tech', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/22/19/25/adult-1850177_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Shopper browsing products',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -441,7 +441,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1280&q=80',
         alt: 'Audience engaging with content',
         caption: 'Commerce has to feel like content again. Image: Pixabay',
       },
@@ -465,7 +465,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'city-branding-tourism-boards',
-    title: 'Tourism Boards Are Hiring Brand Strategists Like Consumer Startups',
+    title: 'Tourism Boards Hire Brand Strategists the Way Consumer Startups Do',
     excerpt:
       'Place branding is no longer a logo and a tagline. Destinations want content systems, resident diplomacy, and year-round demand shaping.',
     read: '5 min read',
@@ -475,7 +475,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Lana writes about design systems in public and cultural sectors.',
     category: 'Branding',
     topics: ['branding', 'marketing', 'business', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'City architecture skyline',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -485,7 +485,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1280&q=80',
         alt: 'Open road suggesting travel',
         caption: 'Demand shaping beats volume chasing. Image: Pixabay',
       },
@@ -509,7 +509,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'motion-design-brand-guidelines',
-    title: 'Brand Guidelines Finally Grew a Motion Chapter — Here’s What Good Looks Like',
+    title: 'Brand Guidelines Finally Added a Motion Chapter — What Good Looks Like',
     excerpt:
       'Static PDFs cannot govern Reels. Teams are writing tempo, easing, and sound rules so social edits stop improvising the brand.',
     read: '4 min read',
@@ -519,7 +519,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Creative',
     topics: ['creative', 'design', 'branding', 'advertising'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'People creating video content',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -529,7 +529,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/06/18/audio-1867744_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1280&q=80',
         alt: 'Audio equipment for brand sound',
         caption: 'Sound and motion are brand assets now. Image: Pixabay',
       },
@@ -553,7 +553,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'saas-website-narrative-shift',
-    title: 'B2B SaaS Sites Are Dropping Feature Grids for Narrative Homepages',
+    title: 'B2B SaaS Sites Trade Feature Grids for Narrative Homepages',
     excerpt:
       'Buyers skim. The winning pattern: one sharp problem story, proof modules, and a product tour that feels editorial — not a wallpaper of icons.',
     read: '5 min read',
@@ -563,7 +563,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Roberto covers brand launches and agency market moves.',
     category: 'Tech',
     topics: ['tech', 'design', 'marketing', 'business'],
-    hero: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Startup workspace with laptop',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -573,7 +573,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1280&q=80',
         alt: 'Code on screen',
         caption: 'Narrative first, modules second. Image: Pixabay',
       },
@@ -597,7 +597,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'agency-new-business-podcast-rfp',
-    title: 'Podcast: New-Business Leads on Surviving the AI-Written RFP Flood',
+    title: 'Podcast: New-Business Leads Navigate the Flood of AI-Written RFPs',
     excerpt:
       'Procurement teams are generating longer questionnaires overnight. Agency BD leaders share triage rules that protect senior time.',
     read: '5 min read',
@@ -607,7 +607,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Nikola hosts agency and brand conversations for DesignsWorkLife.',
     category: 'Podcast',
     topics: ['podcast', 'agencies', 'business', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2015/01/08/18/27/startup-593341_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Notebook and planning materials',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -617,7 +617,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1561070791-36c11767b26a?auto=format&fit=crop&w=1280&q=80',
         alt: 'Business development meeting',
         caption: 'Triage is a creative act. Image: Pixabay',
       },
@@ -641,7 +641,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'print-still-matters-direct-mail',
-    title: 'Why Smart DTC Brands Quietly Brought Back Dimensional Mail',
+    title: 'Why Savvy DTC Brands Quietly Revived Dimensional Mail',
     excerpt:
       'Inbox chaos made tactile mail feel premium again. The playbook: small lists, high craft, and QR journeys that respect the object.',
     read: '4 min read',
@@ -651,7 +651,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Lana writes about design systems in public and cultural sectors.',
     category: 'Design',
     topics: ['design', 'marketing', 'ecommerce', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Printed books and paper materials',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -661,7 +661,7 @@ export const extraNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+        src: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1280&q=80',
         alt: 'Premium product unboxing vibe',
         caption: 'Craft is the targeting. Image: Pixabay',
       },
