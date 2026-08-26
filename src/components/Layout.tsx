@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { bestDesignLinks, categories, newsTopics } from '../data'
 import brandLogo from '../assets/brand-logo.png'
