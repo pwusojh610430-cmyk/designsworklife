@@ -88,16 +88,12 @@ export function PreFooterBlock() {
           </Link>
         </div>
 
-        <div className="prefooter-cloud">
-          <img
-            className="prefooter-globe"
-            src={`${import.meta.env.BASE_URL}prefooter/representation-bg.webp`}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-          />
-
+        <div
+          className="prefooter-cloud"
+          style={{
+            backgroundImage: `url(${import.meta.env.BASE_URL}prefooter/representation-bg.webp)`,
+          }}
+        >
           <ul className="prefooter-logos">
             {partnerLogos.map((logo, i) => (
               <li
