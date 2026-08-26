@@ -2,18 +2,18 @@ import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 
 const partnerLogos = [
-  { name: 'BIGHORN', sub: 'Web Solutions', style: 'bighorn' },
-  { name: 'smartsites', style: 'smartsites' },
-  { name: 'GojiLabs', style: 'goji' },
-  { name: 'Bilberrry', style: 'bilberrry' },
-  { name: 'Unico Connect', style: 'unico' },
-  { name: 'DESIGNLI', style: 'designli' },
-  { name: 'The Bureau', sub: 'of Projects', style: 'bureau' },
-  { name: 'DIGITAL SILK', style: 'silk' },
-  { name: 'Design in DC', style: 'dc' },
-  { name: 'INFINUM', style: 'infinum' },
-  { name: 'kanda', sub: 'SOFTWARE', style: 'kanda' },
-  { name: 'intero', sub: 'DIGITAL', style: 'intero' },
+  { name: 'BIGHORN', accent: '#1a2748' },
+  { name: 'smartsites', accent: '#3d5a80', italic: true },
+  { name: 'GojiLabs', accent: '#e85d04' },
+  { name: 'Bilberrry', accent: '#1a2748' },
+  { name: 'Unico Connect', accent: '#2b4c7e' },
+  { name: 'DESIGNLI', accent: '#4b01ff' },
+  { name: 'The Bureau', accent: '#1a2748' },
+  { name: 'DIGITAL SILK', accent: '#1a2748' },
+  { name: 'Design in DC', accent: '#2563eb' },
+  { name: 'INFINUM', accent: '#1a2748' },
+  { name: 'kanda', accent: '#0f766e' },
+  { name: 'intero DIGITAL', accent: '#1a2748' },
 ] as const
 
 export function PreFooterBlock() {
@@ -96,27 +96,32 @@ export function PreFooterBlock() {
         </div>
 
         <div className="prefooter-cloud">
+          <div className="prefooter-glow" aria-hidden="true" />
           <div className="prefooter-globe" aria-hidden="true">
-            <svg viewBox="0 0 640 360" fill="none">
-              <ellipse cx="320" cy="200" rx="220" ry="140" stroke="#b9d4f5" strokeWidth="1.5" />
-              <ellipse cx="320" cy="200" rx="150" ry="140" stroke="#c7ddf8" strokeWidth="1.2" />
-              <ellipse cx="320" cy="200" rx="70" ry="140" stroke="#c7ddf8" strokeWidth="1.2" />
+            <svg viewBox="0 0 480 480" fill="none">
+              <circle cx="240" cy="240" r="168" stroke="#c5daf5" strokeWidth="1.25" />
+              <ellipse cx="240" cy="240" rx="118" ry="168" stroke="#d0e2f8" strokeWidth="1.1" />
+              <ellipse cx="240" cy="240" rx="55" ry="168" stroke="#d0e2f8" strokeWidth="1.1" />
+              <ellipse cx="240" cy="240" rx="168" ry="55" stroke="#d0e2f8" strokeWidth="1.1" />
+              <ellipse cx="240" cy="240" rx="168" ry="118" stroke="#d0e2f8" strokeWidth="1.1" />
               <path
-                d="M100 200h440M115 140h410M115 260h410M145 95h350M145 305h350"
-                stroke="#c7ddf8"
-                strokeWidth="1.2"
-              />
-              <circle cx="250" cy="150" r="3.5" fill="#9ec4ef" />
-              <circle cx="380" cy="170" r="3" fill="#9ec4ef" />
-              <circle cx="300" cy="240" r="3.5" fill="#9ec4ef" />
-              <circle cx="420" cy="230" r="2.5" fill="#9ec4ef" />
-              <circle cx="220" cy="220" r="2.5" fill="#9ec4ef" />
-              <path
-                d="M250 150l130 20M380 170l-80 70M300 240l120-10M220 220l30-70"
-                stroke="#a8caf0"
+                d="M72 240h336M92 175h296M92 305h296M130 120h220M130 360h220"
+                stroke="#d7e7fa"
                 strokeWidth="1"
-                opacity="0.7"
               />
+              <g className="prefooter-globe-nodes">
+                <circle cx="180" cy="165" r="3.5" fill="#8eb6e8" />
+                <circle cx="295" cy="150" r="3" fill="#8eb6e8" />
+                <circle cx="320" cy="250" r="3.5" fill="#8eb6e8" />
+                <circle cx="210" cy="310" r="3" fill="#8eb6e8" />
+                <circle cx="155" cy="250" r="2.5" fill="#8eb6e8" />
+                <path
+                  d="M180 165l115-15M295 150l25 100M320 250l-110 60M210 310l-55-60"
+                  stroke="#a9c8ef"
+                  strokeWidth="1"
+                  opacity="0.65"
+                />
+              </g>
             </svg>
           </div>
 
@@ -124,11 +129,13 @@ export function PreFooterBlock() {
             {partnerLogos.map((logo, i) => (
               <li
                 key={logo.name}
-                className={`prefooter-logo prefooter-logo-${logo.style} prefooter-float-${(i % 6) + 1}`}
+                className={`prefooter-logo prefooter-logo-slot-${i + 1} prefooter-float-${(i % 4) + 1}`}
               >
-                <span className="prefooter-logo-mark">
-                  <strong>{logo.name}</strong>
-                  {'sub' in logo && logo.sub ? <small>{logo.sub}</small> : null}
+                <span
+                  className={`prefooter-logo-chip${'italic' in logo && logo.italic ? ' is-italic' : ''}`}
+                  style={{ color: logo.accent }}
+                >
+                  {logo.name}
                 </span>
               </li>
             ))}
