@@ -28,7 +28,7 @@ export function AgencyIndexPage() {
         </div>
       </section>
 
-      <AgencyDirectoryBlock agencyLimit={3} showViewAll={false} />
+      <AgencyDirectoryBlock agencyLimit={3} />
 
       <section className="section alt">
         <div className="container">
