@@ -39,6 +39,7 @@ function Chevron() {
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const closeTimer = useRef<number | null>(null)
 
@@ -51,6 +52,15 @@ export function Header() {
     }
     document.addEventListener('click', onDocClick)
     return () => document.removeEventListener('click', onDocClick)
+  }, [])
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 12)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   function clearCloseTimer() {
@@ -80,7 +90,7 @@ export function Header() {
   }
 
   return (
-    <header className="site-header" ref={headerRef}>
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} ref={headerRef}>
       <div className="header-top">
         <div className="container header-top-inner">
           <Logo />
@@ -240,12 +250,12 @@ export function Header() {
               className="btn btn-green nav-mobile-find"
               onClick={closeAll}
             >
-              Find an Agency
+              <span>Find an Agency</span>
             </Link>
           </nav>
 
           <Link to="/marketplace/project-brief" className="btn btn-green header-find">
-            Find an Agency
+            <span>Find an Agency</span>
           </Link>
         </div>
       </div>

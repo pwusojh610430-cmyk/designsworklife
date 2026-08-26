@@ -116,8 +116,10 @@ p {
 
 .btn-green:hover {
   filter: brightness(1.04);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 180, 110, 0.28);
+}
+
+.btn-green span {
+  display: inline-block;
 }
 
 .btn-subscribe {
@@ -182,24 +184,27 @@ p {
   letter-spacing: 0.05em;
 }
 
-/* Header */
+/* Header — top state vs scrolled state (DesignRush) */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #fff;
+  background: transparent;
+  transition: box-shadow 0.22s ease;
 }
 
 .header-top {
   background: #fff;
-  border-bottom: 1px solid #ececf1;
+  border-bottom: 1px solid #e8e8ee;
+  transition: background 0.22s ease, min-height 0.22s ease;
 }
 
 .header-top-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 58px;
+  min-height: 56px;
+  transition: min-height 0.22s ease;
 }
 
 .header-utility {
@@ -221,9 +226,11 @@ p {
   color: var(--purple);
 }
 
+/* Unscrolled: light-gray nav bar */
 .header-main {
-  background: #fff;
-  border-bottom: 1px solid #ececf1;
+  background: #f4f5f7;
+  border-bottom: 1px solid #e8e8ee;
+  transition: background 0.22s ease, border-color 0.22s ease;
 }
 
 .header-main-inner {
@@ -231,7 +238,8 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-height: 54px;
+  min-height: 58px;
+  transition: min-height 0.22s ease;
 }
 
 .logo {
@@ -253,6 +261,7 @@ p {
   font-size: 1.05rem;
   letter-spacing: 0.01em;
   line-height: 1;
+  transition: font-size 0.22s ease;
 }
 
 .logo-mark {
@@ -264,6 +273,7 @@ p {
   place-items: center;
   color: var(--purple);
   padding: 0;
+  transition: transform 0.22s ease;
 }
 
 .logo-mark svg {
@@ -273,7 +283,7 @@ p {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.1rem;
   flex: 1;
   justify-content: flex-start;
 }
@@ -286,7 +296,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.85rem 0.85rem;
+  padding: 0.95rem 0.9rem;
+  transition: padding 0.22s ease;
 }
 
 .nav-trigger,
@@ -301,7 +312,7 @@ p {
 }
 
 .nav-link-plain {
-  padding: 0.85rem 0.95rem;
+  padding: 0.95rem 0.95rem;
 }
 
 .nav-caret {
@@ -466,16 +477,86 @@ p {
   gap: 0.75rem;
 }
 
+/* Unscrolled CTA: parallelogram / skewed */
 .header-find {
   flex-shrink: 0;
-  padding: 0.62rem 1.2rem;
+  padding: 0.72rem 1.35rem;
   font-size: 0.75rem;
   font-weight: 700;
-  border-radius: 999px;
+  border-radius: 4px;
+  transform: skewX(-14deg);
+  transition:
+    transform 0.22s ease,
+    border-radius 0.22s ease,
+    padding 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.header-find span {
+  transform: skewX(14deg);
+  transition: transform 0.22s ease;
 }
 
 .nav-mobile-find {
   display: none;
+}
+
+.nav-mobile-find span {
+  display: inline-block;
+}
+
+/* Scrolled sticky state */
+.site-header.is-scrolled {
+  box-shadow: 0 8px 24px rgba(20, 24, 50, 0.08);
+}
+
+.site-header.is-scrolled .header-top {
+  background: #f4f5f7;
+  border-bottom-color: #e4e5eb;
+}
+
+.site-header.is-scrolled .header-top-inner {
+  min-height: 48px;
+}
+
+.site-header.is-scrolled .header-main {
+  background: #fff;
+  border-bottom-color: transparent;
+}
+
+.site-header.is-scrolled .header-main-inner {
+  min-height: 50px;
+}
+
+.site-header.is-scrolled .logo-text {
+  font-size: 0.98rem;
+}
+
+.site-header.is-scrolled .logo-mark {
+  transform: scale(0.92);
+}
+
+.site-header.is-scrolled .nav-trigger-row,
+.site-header.is-scrolled .nav-link-plain {
+  padding-top: 0.72rem;
+  padding-bottom: 0.72rem;
+}
+
+/* Scrolled CTA: pill */
+.site-header.is-scrolled .header-find {
+  transform: none;
+  border-radius: 999px;
+  padding: 0.58rem 1.2rem;
+  box-shadow: 0 6px 16px rgba(0, 180, 110, 0.22);
+}
+
+.site-header.is-scrolled .header-find span {
+  transform: none;
+}
+
+.site-header.is-scrolled .header-find:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
 }
 
 .icon-btn {
