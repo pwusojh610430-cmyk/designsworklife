@@ -125,7 +125,11 @@ export function AgencyProfilePage() {
           <div className="portfolio-grid" style={{ paddingBottom: '3rem' }}>
             {agency.portfolio.map((p) => (
               <div className="portfolio-item" key={p.title}>
-                <div className="portfolio-thumb" />
+                {p.image ? (
+                  <img className="portfolio-thumb-img" src={p.image} alt={p.title} loading="lazy" />
+                ) : (
+                  <div className="portfolio-thumb" />
+                )}
                 <div>
                   <div className="meta">{p.type}</div>
                   <h3>{p.title}</h3>

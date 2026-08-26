@@ -1,0 +1,559 @@
+export type ArticleBlock =
+  | { type: 'p'; text: string }
+  | { type: 'h2'; text: string }
+  | { type: 'quote'; text: string; cite?: string }
+  | { type: 'image'; src: string; alt: string; caption: string }
+  | { type: 'ul'; items: string[] }
+
+export type NewsArticle = {
+  slug: string
+  title: string
+  excerpt: string
+  read: string
+  ago: string
+  published: string
+  author: string
+  authorBio: string
+  category: string
+  topics: string[]
+  hero: string
+  heroAlt: string
+  heroCredit: string
+  body: ArticleBlock[]
+  keyFindings: string[]
+  ourTake: string
+  agencyCta: { label: string; to: string }
+}
+
+/** All images: Pixabay CDN, free under Pixabay Content License */
+export const newsArticles: NewsArticle[] = [
+  {
+    slug: 'kfc-hot-ranch-big-dip-ishowspeed-campaign',
+    title: "KFC Casts Superfan IShowSpeed for Post-Rebrand Sauce Push",
+    excerpt:
+      'The chain converted years of unpaid shoutouts into a 60-second spot and a 4-ounce Hot Ranch Big Dip — a product-led proof point for its global refresh.',
+    read: '5 min read',
+    ago: '12 hours ago',
+    published: 'Aug 26, 2026',
+    author: 'Roberto Orosa',
+    authorBio:
+      'Roberto covers brand launches and QSR marketing. He previously wrote for trade titles on retail media and franchise growth.',
+    category: 'Brands',
+    topics: ['branding', 'marketing', 'advertising'],
+    hero: 'https://cdn.pixabay.com/photo/2014/01/16/01/48/chicken-nuggets-246180_1280.jpg',
+    heroAlt: 'Crispy fried chicken pieces with dipping sauce',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'KFC is mid-rebrand — new sauces, beverage platform KWENCH, refreshed restaurants — and it needed a product story that could travel faster than construction crews. Enter Hot Ranch Big Dip: a four-ounce cup built for people who treat ranch as a side dish, not a garnish.',
+      },
+      {
+        type: 'p',
+        text: 'The launch pairs with Double Crispy Hot Wings and a paid partnership with streamer IShowSpeed, who has filmed KFC runs across countries for years without a brand deal. The 60-second spot “KFC Hot Ranch” sends him to a literal ranch in red-and-white cowboy gear, then pivots into the sauce reveal — a joke that only works because audiences already believe he eats the food.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
+        alt: 'Fast-food burger meal with fries on a tray',
+        caption: 'QSR launches still win when the product is the punchline, not the fine print. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'Why a sauce cup beats a logo deck',
+      },
+      {
+        type: 'p',
+        text: 'KFC’s visual reset with JKR is rolling out across more than 34,000 restaurants. That timeline is measured in years. A nationwide sauce SKU ships in weeks and gives fans something to talk about before they ever walk into a redesigned store. CMO Melissa Cash framed Hot Ranch as creamy-tangy with heat, sized “twice” a normal cup so ranch stops feeling rationed.',
+      },
+      {
+        type: 'quote',
+        text: 'Everybody knows I love KFC. Getting to make it official feels like everything came full circle.',
+        cite: 'IShowSpeed, via brand release',
+      },
+      {
+        type: 'p',
+        text: 'Creator budgets in QSR keep climbing. Influencer Marketing Hub’s 2026 benchmark found most marketers expect influencer spend to jump by at least 50% this year. Speed’s YouTube reach gives KFC access to a younger male audience traditional spot buys struggle to hold. More Speed × KFC activity is planned for fall, stretching one SKU into months of content.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg',
+        alt: 'Creamy dressing being poured over a fresh salad',
+        caption: 'Hot Ranch Big Dip sells abundance — more sauce, less rationing. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'What marketers can copy',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Hire creators who already perform unpaid loyalty — casting becomes ratification, not invention.',
+          'Attach every rebrand to a tangible SKU so customers can “feel” the change before stores finish remodeling.',
+          'Build the joke into the product name when the humor is honest (Hot Ranch → real ranch).',
+        ],
+      },
+    ],
+    keyFindings: [
+      'KFC is using a sauce launch as a cultural proof point while a multi-year restaurant rebrand continues globally.',
+      'IShowSpeed’s deal formalizes years of organic fandom rather than grafting a celebrity onto a brief.',
+      'Creator-led QSR campaigns are expanding budgets and timelines beyond one-off limited offers.',
+    ],
+    ourTake:
+      'Loyalty beat casting here because Speed already did the hard work. The lesson is not “find a famous eater,” it is “notice who has been eating you on camera for free.”',
+    agencyCta: { label: 'Explore top branding agencies', to: '/agency/logo-branding' },
+  },
+  {
+    slug: 'fanta-original-monsters-horror-campaign',
+    title: 'Fanta Answers 2 Years of Borrowed Horror With 4 Original Monsters',
+    excerpt:
+      'After seasons of licensed spooky IP, Fanta builds its own monster mythology — keeping Halloween equity without renting someone else’s characters.',
+    read: '4 min read',
+    ago: '14 hours ago',
+    published: 'Aug 26, 2026',
+    author: 'Coral Cripps',
+    authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
+    category: 'Advertising',
+    topics: ['advertising', 'creative', 'branding'],
+    hero: 'https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_1280.jpg',
+    heroAlt: 'Bright oranges representing Fanta’s signature color world',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'For two Halloween cycles, Fanta borrowed horror. Licensed characters delivered instant recognition, but they also meant Fanta was renting attention. This year the brand introduces four original monsters built around flavor and personality — a shift from “featured in” to “owned by.”',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg',
+        alt: 'Chilled citrus soft drink with ice and orange slices',
+        caption: 'Owned characters let packaging, OOH, and social share one cast. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'Why original IP is a better seasonal asset',
+      },
+      {
+        type: 'p',
+        text: 'Licensed horror sells the first scroll. Original monsters sell the next three years. Fanta can extend the cast across cans, AR filters, retail displays, and creator challenges without renegotiating every season. The creative risk is higher on day one; the brand equity compounds afterward.',
+      },
+      {
+        type: 'p',
+        text: 'The campaign keeps Fanta’s orange-forward color system while pushing illustration and motion into a more cinematic, slightly uncanny tone — closer to modern kids’ horror than slapstick mascots. Retail endcaps become “monster dens,” and social asks fans to declare which creature matches their flavor habit.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+        alt: 'Dark night sky with stars suggesting spooky seasonal mood',
+        caption: 'Seasonal soft drinks win when the mood is atmospheric, not just orange. Image: Pixabay',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Treat Halloween as a franchise chapter, not a one-month costume.',
+          'Design characters that map cleanly to SKUs and flavors.',
+          'Keep licensed cameos as guest stars once you own the world.',
+        ],
+      },
+    ],
+    keyFindings: [
+      'Fanta is replacing borrowed Halloween IP with four proprietary monsters.',
+      'Owned characters unlock multi-year packaging and retail storytelling.',
+      'The creative system stays orange-led but moves toward cinematic horror tone.',
+    ],
+    ourTake:
+      'Renting scares is easy. Building a cast is harder — and that is exactly why it becomes a moat. Soft-drink Halloween needs characters you can put on a fridge magnet in March.',
+    agencyCta: { label: 'Find creative agencies', to: '/agency/creative-agencies' },
+  },
+  {
+    slug: 'duolingo-owl-sick-boy-streak',
+    title: "Duolingo's Owl Drops the Sass to Save Sick Boy's 301-Day Streak",
+    excerpt:
+      'The brand pauses its famous menace for a softer story about learning continuity — proving the owl can still surprise when the tone flips.',
+    read: '4 min read',
+    ago: '16 hours ago',
+    published: 'Aug 25, 2026',
+    author: 'Ru Reid',
+    authorBio: 'Ru covers consumer tech brands and product-led marketing.',
+    category: 'Brands',
+    topics: ['branding', 'tech', 'marketing'],
+    hero: 'https://cdn.pixabay.com/photo/2012/06/19/10/32/owl-50267_1280.jpg',
+    heroAlt: 'Close-up of an owl, echoing Duolingo’s mascot energy',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'Duolingo’s owl built a personality empire on guilt, memes, and late-night push notifications. That voice works until the cultural room goes quiet. In a recent storyline, the brand softens the sass to help a sick boy protect a 301-day streak — turning a retention mechanic into an empathy narrative.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+        alt: 'Stack of books suggesting learning and study streaks',
+        caption: 'Streaks are product features. Stories make them human. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'When menace becomes a liability',
+      },
+      {
+        type: 'p',
+        text: 'Brand voice guides are often treated as permanent. Duolingo shows the opposite: a strong voice is a range. The owl can threaten your streak on Tuesday and advocate for recovery on Thursday, because audiences already trust the character. Softness only works because the menace was earned first.',
+      },
+      {
+        type: 'p',
+        text: 'Operationally, the story also reframes streak freezes and grace windows as brand theater. Instead of a buried FAQ, continuity becomes the plot. That is useful for any habit product — fitness, finance, language — where churn often starts with one missed day and a spiral of shame.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Build a voice with enough range to pivot without feeling fake.',
+          'Turn retention tools into public stories, not silent settings.',
+          'Use empathy moments sparingly so they stay surprising.',
+        ],
+      },
+    ],
+    keyFindings: [
+      'Duolingo temporarily dialed down its menacing owl persona for a streak-protection story.',
+      'The campaign reframes product retention as care rather than guilt.',
+      'A strong brand voice needs dynamic range, not a single setting.',
+    ],
+    ourTake:
+      'The owl is famous for being annoying. Making it kind for one chapter is not dilution — it is proof the character is three-dimensional. Most brands never earn that permission.',
+    agencyCta: { label: 'Browse digital agencies', to: '/agency/digital-agencies' },
+  },
+  {
+    slug: 'pizza-hut-yum-brands-name-change',
+    title: 'Pizza Hut Spends Its Last Week With Yum Brands on a Name Change',
+    excerpt:
+      'A corporate restructuring story told through brand identity, franchise optics, and what customers actually notice on the door.',
+    read: '4 min read',
+    ago: '16 hours ago',
+    published: 'Aug 25, 2026',
+    author: 'Roberto Orosa',
+    authorBio: 'Roberto covers brand launches and QSR marketing.',
+    category: 'Brands',
+    topics: ['branding', 'business', 'marketing'],
+    hero: 'https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg',
+    heroAlt: 'Fresh pizza with melted cheese and toppings',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'Pizza Hut’s parent-company chapter is closing with paperwork most customers will never read — and a naming conversation they will feel at the storefront. When ownership structures shift, marketers inherit a delicate brief: reassure franchisees, protect nostalgia, and avoid a rename that looks like a reboot nobody asked for.',
+      },
+      {
+        type: 'p',
+        text: 'The brand’s red-roof memory is stronger than any holding-company logo. That is both an asset and a constraint. Identity systems can modernize menus, delivery apps, and loyalty programs without pretending the pizza is new. The risk is over-communicating corporate language in consumer channels.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg',
+        alt: 'Casual dining meal representing QSR brand familiarity',
+        caption: 'Franchise brands survive ownership changes when the meal stays recognizable. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'What to say — and what to keep quiet',
+      },
+      {
+        type: 'p',
+        text: 'Franchise communications should lead with continuity of recipes, suppliers, and local operators. Customer communications should lead with product and service. Investor communications can carry the restructuring narrative. Mixing those audiences is how brands accidentally announce a “new era” that sounds like a crisis.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Separate corporate rename stories from consumer creative calendars.',
+          'Audit every touchpoint for holding-company language that does not help a hungry guest.',
+          'Give franchisees a visual kit that feels like an upgrade, not a rebrand tax.',
+        ],
+      },
+    ],
+    keyFindings: [
+      'Ownership changes force Pizza Hut to manage identity across franchise, consumer, and investor audiences.',
+      'Consumer equity sits in the product and red-roof memory, not the parent-company name.',
+      'Clear audience separation prevents a corporate story from sounding like a crisis rebrand.',
+    ],
+    ourTake:
+      'Customers do not buy holding companies. They buy pizza. The smartest “name change” work often happens backstage — legal, ops, franchise kits — while the storefront stays deliciously familiar.',
+    agencyCta: { label: 'See branding agencies', to: '/agency/logo-branding' },
+  },
+  {
+    slug: 'dunkin-bark-drive-thru-dogs',
+    title: "Dunkin' Gives Dogs Their Own Drive-Thru in Year 7 of BARK Partnership",
+    excerpt:
+      'Pet treats meet QSR loyalty as Dunkin extends its longest-running collab — turning the passenger seat into a second customer.',
+    read: '4 min read',
+    ago: '19 hours ago',
+    published: 'Aug 25, 2026',
+    author: 'Katherine Maclang',
+    authorBio: 'Katherine reports on retail partnerships and loyalty programs.',
+    category: 'Marketing',
+    topics: ['marketing', 'branding', 'advertising'],
+    hero: 'https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277414_1280.jpg',
+    heroAlt: 'Happy dog looking toward the camera',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'Year seven is usually when brand partnerships get stale. Dunkin and BARK are doing the opposite: adding a dog-specific drive-thru moment that treats pets as passengers with purchasing power — or at least with persuasive eyes.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2019/11/11/15/32/coffee-4618705_1280.jpg',
+        alt: 'Coffee cup on a cafe table',
+        caption: 'Coffee runs already include a silent second customer in the back seat. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'Why long partnerships still invent new rituals',
+      },
+      {
+        type: 'p',
+        text: 'Most collabs launch with packaging and die with a sell-through chart. Dunkin’s BARK relationship survives because it keeps inventing rituals: seasonal treats, social challenges, and now a drive-thru behavior change. Rituals train customers to expect the brand in a life context — morning coffee with the dog — not just in an endcap.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg',
+        alt: 'Puppy outdoors, representing pet-focused retail moments',
+        caption: 'Pet retail works when it feels like hospitality, not a gimmick aisle. Image: Pixabay',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Extend partnerships with new behaviors, not only new SKUs.',
+          'Design for the companion customer who influences the trip.',
+          'Measure shareability: dogs in drive-thrus are content engines.',
+        ],
+      },
+    ],
+    keyFindings: [
+      'Dunkin is expanding its multi-year BARK partnership with dog-focused drive-thru experiences.',
+      'Long collabs stay fresh by inventing rituals, not repeating packaging drops.',
+      'Pets function as influence in QSR trips and as organic social content.',
+    ],
+    ourTake:
+      'The clever part is not “Dunkin likes dogs.” It is recognizing that the drive-thru already had two beings in the car — and only one was on the menu.',
+    agencyCta: { label: 'Find marketing agencies', to: '/agency/digital-marketing' },
+  },
+  {
+    slug: 'ipsy-beauty-product-testers',
+    title: 'IPSY Sells Brands Access to 16 Million Beauty Product Testers',
+    excerpt:
+      'A beauty marketplace productizes its subscriber base as a testing network — turning community into a B2B research product.',
+    read: '4 min read',
+    ago: '20 hours ago',
+    published: 'Aug 25, 2026',
+    author: 'Coral Cripps',
+    authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
+    category: 'Brands',
+    topics: ['business', 'ecommerce', 'marketing'],
+    hero: 'https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383_1280.jpg',
+    heroAlt: 'Woman applying makeup, representing beauty product testing',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'IPSY spent years assembling beauty subscribers who open boxes, try products, and talk online. The next move is obvious in hindsight: sell brands structured access to that testing behavior. Sixteen million potential testers is not a mailing list — it is a living panel.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+        alt: 'People collaborating, suggesting community-powered product feedback',
+        caption: 'Community data becomes a product when feedback loops are operationalized. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'From subscription box to research infrastructure',
+      },
+      {
+        type: 'p',
+        text: 'Beauty brands already buy panels, influencers, and retail media. IPSY’s advantage is context: testers encounter products the way real customers do — in a curated assortment, at home, with routine friction. That produces different insight than a sterile focus room.',
+      },
+      {
+        type: 'p',
+        text: 'The commercial risk is trust. Members joined for discovery, not to become unpaid lab technicians. Positioning has to stay reciprocal: early access, honest reviews, and clear consent. Brands that treat the panel like cheap impressions will burn the asset IPSY is trying to productize.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Productize community only where members still get clear value.',
+          'Sell insight quality (in-context use), not just panel size.',
+          'Keep review authenticity non-negotiable or the B2B pitch collapses.',
+        ],
+      },
+    ],
+    keyFindings: [
+      'IPSY is packaging its subscriber base as a beauty product-testing network for brands.',
+      'In-home, assortment-based testing differs from traditional research panels.',
+      'Member trust is the constraint that makes the model durable — or fragile.',
+    ],
+    ourTake:
+      'The smartest marketplace move of the decade might be selling the audience twice: once as consumers, once as researchers. It only works if the second sale still feels like a gift to the first.',
+    agencyCta: { label: 'Explore eCommerce agencies', to: '/agency/ecommerce' },
+  },
+  {
+    slug: 'starbucks-psl-martha-stewart-unicorn',
+    title: "Starbucks Stacks PSL Return With Martha Stewart On Unicorn Weekend",
+    excerpt:
+      'Seasonal nostalgia meets celebrity partnership in one launch window — maximizing calendar density without muddying the Pumpkin Spice Latte myth.',
+    read: '4 min read',
+    ago: '21 hours ago',
+    published: 'Aug 24, 2026',
+    author: 'Ru Reid',
+    authorBio: 'Ru covers consumer tech brands and product-led marketing.',
+    category: 'Advertising',
+    topics: ['advertising', 'branding', 'marketing'],
+    hero: 'https://cdn.pixabay.com/photo/2018/01/31/09/57/coffee-3120750_1280.jpg',
+    heroAlt: 'Latte art coffee in a ceramic cup',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'Pumpkin Spice Latte season is a national holiday with better PR. Starbucks knows the return cannot be subtle — and it also knows one SKU cannot carry an entire weekend of media. Stacking Martha Stewart with a Unicorn Weekend activation densifies the calendar: nostalgia for one audience, playful spectacle for another.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2015/07/02/20/37/cup-829527_1280.jpg',
+        alt: 'Coffee cup with warm drink, seasonal cafe mood',
+        caption: 'PSL works because it is ritual first, beverage second. Image: Pixabay',
+      },
+      {
+        type: 'h2',
+        text: 'How to stack without blur',
+      },
+      {
+        type: 'p',
+        text: 'The danger of stacked launches is sameness: everything becomes “Starbucks fall.” The craft is separation. PSL owns the core menu story. Martha Stewart owns homemaking credibility and older millennial / Gen X affinity. Unicorn Weekend owns color, scarcity, and youth social. Same week, different jobs.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+        alt: 'Starry night sky suggesting unicorn-weekend fantasy energy',
+        caption: 'Fantasy drops need visual escape — not another brown spice flat lay. Image: Pixabay',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Give each activation a distinct job-to-be-done.',
+          'Protect sacred icons (PSL) from novelty noise.',
+          'Use celebrity for trust transfer, not just reach.',
+        ],
+      },
+    ],
+    keyFindings: [
+      'Starbucks is pairing the PSL return with celebrity and fantasy activations in one window.',
+      'Stacked launches work when each beat serves a different audience job.',
+      'Seasonal icons need protection from being diluted by side drops.',
+    ],
+    ourTake:
+      'PSL is religion. Unicorn Weekend is carnival. Martha is the trusted neighbor who brought pie. Starbucks is throwing all three parties on the same street — and somehow that is the point.',
+    agencyCta: { label: 'Hire advertising agencies', to: '/agency/ad-agencies' },
+  },
+  {
+    slug: 'claude-watermark-ai-disclosure',
+    title: "Claude's Watermark Gives AI Disclosure Clauses Sharper Teeth",
+    excerpt:
+      'As AI disclosure language spreads through contracts, visible watermarks turn vague policy into something agencies and brands can actually audit.',
+    read: '5 min read',
+    ago: '1 day ago',
+    published: 'Aug 24, 2026',
+    author: 'Coral Cripps',
+    authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
+    category: 'Tech',
+    topics: ['tech', 'business', 'agencies'],
+    hero: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+    heroAlt: 'Abstract artificial intelligence visualization',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'Brand contracts increasingly demand AI disclosure. The problem is enforcement: if outputs look human, disclosure becomes a pinky swear. Watermarking — technical or visible — gives legal and creative ops a handle. Claude’s watermark push is one more signal that provenance will become table stakes in agency workflows.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+        alt: 'Code on a screen representing AI tooling in creative workflows',
+        caption: 'Disclosure without detection is policy theater. Image: Pixabay',
+      },
+      {
+        type: 'p',
+        text: 'For agencies, the practical shift is documentation. Prompt libraries, model logs, and delivery notes join the brand guidelines binder. Clients will not only ask “did you use AI?” — they will ask “show me where.” Teams that treat this as compliance busywork will lose pitches to teams that treat it as a trust product.',
+      },
+    ],
+    keyFindings: [
+      'AI disclosure clauses are spreading faster than verification tools.',
+      'Watermarks and provenance logs make disclosure auditable.',
+      'Agencies need workflow documentation, not just policy statements.',
+    ],
+    ourTake:
+      'The winners will not be the agencies that swear they never used AI. They will be the ones who can prove exactly how they did — and why the work still feels authored.',
+    agencyCta: { label: 'Find AI companies', to: '/agency/ai-companies' },
+  },
+  {
+    slug: 'ikea-xbox-anniversary-furniture',
+    title: "IKEA Presses Xbox's D-Pad Into a 25th Anniversary Furniture Line",
+    excerpt:
+      'A furniture × gaming collab that treats controllers as material culture — and living rooms as the real console war.',
+    read: '4 min read',
+    ago: '2 days ago',
+    published: 'Aug 23, 2026',
+    author: 'Ru Reid',
+    authorBio: 'Ru covers consumer tech brands and product-led marketing.',
+    category: 'Design',
+    topics: ['design', 'creative', 'branding'],
+    hero: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg',
+    heroAlt: 'Modern living room interior ready for gaming furniture',
+    heroCredit: 'Photo via Pixabay',
+    body: [
+      {
+        type: 'p',
+        text: 'Xbox turns 25 and IKEA answers with furniture that borrows D-pad geometry and console-era nostalgia. The insight is spatial: gaming won the living room years ago, but furniture catalogs still treat controllers as clutter. This line designs storage, seating, and lighting as if play sessions were a household routine — because they are.',
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+        alt: 'Product still life suggesting designed objects and packaging care',
+        caption: 'Collabs land when the object improves a daily ritual, not when it prints a logo louder. Image: Pixabay',
+      },
+      {
+        type: 'p',
+        text: 'For brand teams, the lesson is adjacency. Gaming × furniture works because both fight for the same square meters. Random logo mashups fail when the use cases never meet. Map physical overlap first, then design.',
+      },
+    ],
+    keyFindings: [
+      'IKEA and Xbox are meeting in the living room — where gaming already lives.',
+      'Successful collabs solve spatial or ritual friction, not just fandom.',
+      'Product design becomes marketing when the object changes a daily habit.',
+    ],
+    ourTake:
+      'The console war was never only about hardware. It was about who owns the couch. IKEA just made that literal.',
+    agencyCta: { label: 'Browse product design companies', to: '/agency/product-design' },
+  },
+]
+
+export const partnerArticles = [
+  {
+    slug: 'campari-live-experiences',
+    title: '3 Ways Campari America Builds Brand Loyalty With Live Experiences',
+    excerpt: 'How hosted events turn tasting into belonging for a heritage spirits brand.',
+    category: 'Partner Content',
+    image: 'https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg',
+    imageAlt: 'Refreshing drink in a glass with citrus',
+  },
+  {
+    slug: 'b2b-bounce-rates-infrastructure',
+    title: '3% Bounce Rates and Broken Technical Infrastructure Are Killing B2B Sales Pipelines',
+    excerpt: 'Why site reliability is now a revenue problem, not an IT footnote.',
+    category: 'Partner Content',
+    image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    imageAlt: 'Laptop workspace representing B2B web infrastructure',
+  },
+  {
+    slug: 'live-nation-local-venues',
+    title: 'How Live Nation Designed Its New Venues for Local Music Culture',
+    excerpt: 'Architecture and programming choices that keep arenas feeling hometown.',
+    category: 'Partner Content',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    imageAlt: 'Architectural exterior of a large public venue',
+  },
+]

@@ -533,6 +533,94 @@ p {
   min-height: 70px;
 }
 
+.news-thumb-img {
+  width: 100%;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--bg-alt);
+}
+
+.news-card-rich {
+  align-items: stretch;
+}
+
+.article-hero,
+.article-figure {
+  margin: 1.25rem 0 1.5rem;
+}
+
+.article-hero img,
+.article-figure img,
+.partner-card img,
+.portfolio-thumb-img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.article-hero img {
+  max-height: 420px;
+}
+
+.article-figure img {
+  max-height: 360px;
+}
+
+.article-hero figcaption,
+.article-figure figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.article-quote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--purple);
+  background: var(--purple-soft);
+  border-radius: 0 12px 12px 0;
+}
+
+.article-quote p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.article-quote cite {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.88rem;
+}
+
+.article-deck {
+  font-size: 1.15rem;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.author-card {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-alt);
+}
+
+.partner-card img {
+  height: 160px;
+  margin-bottom: 0.85rem;
+}
+
+.portfolio-thumb-img {
+  aspect-ratio: 16/10;
+  height: auto;
+}
+
 .news-card h3 {
   font-size: 1.05rem;
   margin-bottom: 0.25rem;
@@ -678,10 +766,18 @@ p {
 
 .award-media {
   aspect-ratio: 4/3;
-  background:
-    linear-gradient(160deg, rgba(75, 1, 255, 0.75), rgba(0, 83, 255, 0.55)),
-    radial-gradient(circle at 30% 20%, #fff8, transparent 40%);
+  background-color: #d9ceff;
+  background-size: cover;
+  background-position: center;
   position: relative;
+}
+
+.award-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(20, 10, 60, 0.15), rgba(20, 10, 60, 0.35));
+  pointer-events: none;
 }
 
 .award-media span {

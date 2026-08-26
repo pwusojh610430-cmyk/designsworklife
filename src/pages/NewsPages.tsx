@@ -1,11 +1,71 @@
 import { Link, useParams } from 'react-router-dom'
-import { newsArticles, newsTopics } from '../data'
+import { newsArticles, newsTopics, partnerArticles } from '../data'
 import { PageHero, SubNav } from '../components/Layout'
+import type { ArticleBlock } from '../content/articles'
 
 const newsSubnav = [
   { label: 'All News', to: '/news' },
   ...newsTopics.map((t) => ({ label: t.label.replace(' News', ''), to: `/news/topic/${t.slug}` })),
 ]
+
+function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
+  return (
+    <>
+      {blocks.map((block, i) => {
+        if (block.type === 'p') return <p key={i}>{block.text}</p>
+        if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>
+        if (block.type === 'quote')
+          return (
+            <blockquote className="article-quote" key={i}>
+              <p>“{block.text}”</p>
+              {block.cite && <cite>— {block.cite}</cite>}
+            </blockquote>
+          )
+        if (block.type === 'ul')
+          return (
+            <ul key={i}>
+              {block.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )
+        return (
+          <figure className="article-figure" key={i}>
+            <img src={block.src} alt={block.alt} loading="lazy" />
+            <figcaption>{block.caption}</figcaption>
+          </figure>
+        )
+      })}
+    </>
+  )
+}
+
+function NewsCard({
+  slug,
+  title,
+  excerpt,
+  meta,
+  image,
+  imageAlt,
+}: {
+  slug: string
+  title: string
+  excerpt?: string
+  meta: string
+  image: string
+  imageAlt: string
+}) {
+  return (
+    <Link to={`/news/${slug}`} className="news-card news-card-rich">
+      <img className="news-thumb-img" src={image} alt={imageAlt} loading="lazy" />
+      <div>
+        <div className="meta">{meta}</div>
+        <h3>{title}</h3>
+        {excerpt && <p>{excerpt}</p>}
+      </div>
+    </Link>
+  )
+}
 
 export function NewsIndexPage() {
   return (
@@ -31,33 +91,28 @@ export function NewsIndexPage() {
           <h2>Latest News & Trends</h2>
           <div className="news-ticker" style={{ marginTop: '1rem' }}>
             {newsArticles.map((n) => (
-              <Link key={n.slug} to={`/news/${n.slug}`} className="news-card">
-                <div className="news-thumb" />
-                <div>
-                  <div className="meta">
-                    {n.category} · {n.ago} · {n.read}
-                  </div>
-                  <h3>{n.title}</h3>
-                  <p>{n.excerpt}</p>
-                </div>
-              </Link>
+              <NewsCard
+                key={n.slug}
+                slug={n.slug}
+                title={n.title}
+                excerpt={n.excerpt}
+                meta={`${n.category} · ${n.ago} · ${n.read}`}
+                image={n.hero}
+                imageAlt={n.heroAlt}
+              />
             ))}
           </div>
 
           <h2 style={{ marginTop: '2.5rem' }}>Partner Content</h2>
           <div className="card-grid" style={{ marginTop: '1rem' }}>
-            <div className="card">
-              <h3>3 Ways Campari America Builds Brand Loyalty With Live Experiences</h3>
-              <p className="meta">Partner Content</p>
-            </div>
-            <div className="card">
-              <h3>3% Bounce Rates and Broken Technical Infrastructure Are Killing B2B Sales Pipelines</h3>
-              <p className="meta">Partner Content</p>
-            </div>
-            <div className="card">
-              <h3>How Live Nation Designed Its New Venues for Local Music Culture</h3>
-              <p className="meta">Partner Content</p>
-            </div>
+            {partnerArticles.map((p) => (
+              <article className="card partner-card" key={p.slug}>
+                <img src={p.image} alt={p.imageAlt} loading="lazy" />
+                <div className="meta">{p.category}</div>
+                <h3>{p.title}</h3>
+                <p>{p.excerpt}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -71,8 +126,8 @@ export function NewsTopicPage() {
   const label = meta?.label ?? topic
   const filtered = newsArticles.filter(
     (n) =>
-      n.category.toLowerCase().includes(topic.replace(/-/g, ' ')) ||
-      label.toLowerCase().includes(n.category.toLowerCase()) ||
+      n.topics.includes(topic) ||
+      n.category.toLowerCase().includes(topic) ||
       topic === 'latest-news' ||
       topic === 'podcast' ||
       topic === 'interviews',
@@ -94,16 +149,15 @@ export function NewsTopicPage() {
         <div className="container">
           <div className="news-ticker">
             {(filtered.length ? filtered : newsArticles).map((n) => (
-              <Link key={n.slug} to={`/news/${n.slug}`} className="news-card">
-                <div className="news-thumb" />
-                <div>
-                  <div className="meta">
-                    {n.category} · {n.ago} · {n.read}
-                  </div>
-                  <h3>{n.title}</h3>
-                  <p>{n.excerpt}</p>
-                </div>
-              </Link>
+              <NewsCard
+                key={n.slug}
+                slug={n.slug}
+                title={n.title}
+                excerpt={n.excerpt}
+                meta={`${n.category} · ${n.ago} · ${n.read}`}
+                image={n.hero}
+                imageAlt={n.heroAlt}
+              />
             ))}
           </div>
         </div>
@@ -120,7 +174,7 @@ export function NewsArticlePage() {
     <>
       <PageHero
         title={article.title}
-        subtitle={`${article.read} · by ${article.author}`}
+        subtitle={`${article.published} · ${article.read} · by ${article.author}`}
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'News', to: '/news' },
@@ -129,51 +183,62 @@ export function NewsArticlePage() {
       />
       <SubNav items={newsSubnav} />
       <article className="section">
-        <div className="container prose">
-          <p className="meta">
-            {article.category} · Share · watch video
-          </p>
-          <p>{article.excerpt}</p>
-          <p>
-            Brands keep turning cultural momentum into product launches. This story follows how the
-            campaign was framed, what assets went live, and what marketers can borrow for their own
-            pipeline — from creator casting to proof points after a rebrand.
-          </p>
-          <h2>Key Findings</h2>
-          <ul>
-            <li>Fandom can outperform cold casting when the creator already loves the product.</li>
-            <li>Rebrands need a tangible product proof point, not just new visual systems.</li>
-            <li>Humor travels farther than polished brand messaging alone.</li>
-          </ul>
-          <h2>Our Take</h2>
-          <p>
-            The strongest refreshes usually start with something people already feel when they use
-            the product. Look at who is already saying your message before you hire a celebrity to
-            invent one.
-          </p>
-          <p>
-            Explore these top branding agencies in our{' '}
-            <Link to="/agency/logo-branding">directory</Link>.
-          </p>
-          <div style={{ display: 'flex', gap: '0.5rem', fontSize: '1.25rem' }}>
-            <button className="icon-btn">👍</button>
-            <button className="icon-btn">👎</button>
-            <button className="icon-btn">💗</button>
-            <button className="icon-btn">🤯</button>
-          </div>
-          <h3 style={{ marginTop: '2rem' }}>Latest Brands News</h3>
-          <div className="news-ticker">
-            {newsArticles
-              .filter((n) => n.slug !== article.slug)
-              .slice(0, 4)
-              .map((n) => (
-                <Link key={n.slug} to={`/news/${n.slug}`} className="news-card">
-                  <div className="news-thumb" />
-                  <div>
-                    <h3>{n.title}</h3>
-                  </div>
-                </Link>
+        <div className="container article-layout">
+          <div className="prose article-prose">
+            <p className="meta">
+              {article.category} · Share · {article.heroCredit}
+            </p>
+            <figure className="article-hero">
+              <img src={article.hero} alt={article.heroAlt} />
+              <figcaption>{article.heroAlt}. {article.heroCredit}</figcaption>
+            </figure>
+            <p className="article-deck">{article.excerpt}</p>
+            <ArticleBody blocks={article.body} />
+            <h2>Key Findings</h2>
+            <ul>
+              {article.keyFindings.map((f) => (
+                <li key={f}>{f}</li>
               ))}
+            </ul>
+            <h2>Our Take</h2>
+            <p>{article.ourTake}</p>
+            <p>
+              <Link to={article.agencyCta.to}>{article.agencyCta.label}</Link> in our directory.
+            </p>
+            <div className="author-card">
+              <strong>{article.author}</strong>
+              <p className="meta">{article.authorBio}</p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.5rem', fontSize: '1.25rem' }}>
+              <button className="icon-btn" type="button">
+                👍
+              </button>
+              <button className="icon-btn" type="button">
+                👎
+              </button>
+              <button className="icon-btn" type="button">
+                💗
+              </button>
+              <button className="icon-btn" type="button">
+                🤯
+              </button>
+            </div>
+            <h3 style={{ marginTop: '2rem' }}>Latest Brands News</h3>
+            <div className="news-ticker">
+              {newsArticles
+                .filter((n) => n.slug !== article.slug)
+                .slice(0, 4)
+                .map((n) => (
+                  <NewsCard
+                    key={n.slug}
+                    slug={n.slug}
+                    title={n.title}
+                    meta={`${n.ago} · ${n.read}`}
+                    image={n.hero}
+                    imageAlt={n.heroAlt}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       </article>

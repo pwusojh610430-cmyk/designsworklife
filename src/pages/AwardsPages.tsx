@@ -16,7 +16,10 @@ function AwardGrid({ items }: { items: typeof awardDesigns }) {
     <div className="award-grid">
       {items.map((d) => (
         <article className="award-card" key={d.title}>
-          <div className="award-media">
+          <div
+            className="award-media"
+            style={{ backgroundImage: `url(${d.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
             <span className={`badge ${d.badge === 'Winner' ? 'winner' : ''}`}>{d.badge}</span>
           </div>
           <div className="award-body">
@@ -116,8 +119,8 @@ export function BestDesignsPage() {
           <h2>Latest Design News & Trends</h2>
           <div className="news-ticker" style={{ marginTop: '1rem' }}>
             {newsArticles.slice(0, 6).map((n) => (
-              <Link key={n.slug} to={`/news/${n.slug}`} className="news-card">
-                <div className="news-thumb" />
+              <Link key={n.slug} to={`/news/${n.slug}`} className="news-card news-card-rich">
+                <img className="news-thumb-img" src={n.hero} alt={n.heroAlt} loading="lazy" />
                 <div>
                   <h3>{n.title}</h3>
                   <div className="meta">{n.ago}</div>

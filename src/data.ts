@@ -22,9 +22,13 @@ export type Agency = {
   clients: string[]
   overview: string
   website: string
-  portfolio: { title: string; type: string; year?: number }[]
+  cover: string
+  portfolio: { title: string; type: string; year?: number; image?: string }[]
   team: { name: string; role: string }[]
 }
+
+export { newsArticles, partnerArticles } from './content/articles'
+export type { NewsArticle } from './content/articles'
 
 export const categories = [
   {
@@ -130,13 +134,14 @@ export const agencies: Agency[] = [
     overview:
       'Digital Silk creates custom websites to drive higher conversions and greater SEO value to grow brands online. From start-ups to Fortune 500, we have an outstanding track record on delivering on results. Our clients include SONY, Northwestern University, P&G, EV Universe, SNP Therapeutics, Xerox, NYU and others.',
     website: 'https://www.digitalsilk.com',
+    cover: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
     portfolio: [
-      { title: 'Dognomics', type: 'B2B Branding', year: 2025 },
-      { title: 'EV Universe', type: 'Web Design', year: 2025 },
-      { title: 'Northwestern University', type: 'Web Design' },
-      { title: 'G2 eSports', type: 'eCommerce Development' },
-      { title: 'Fly Sports (AllRecruit)', type: 'Web Design', year: 2025 },
-      { title: 'SONY Rewards', type: 'Web Design' },
+      { title: 'Dognomics', type: 'B2B Branding', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg' },
+      { title: 'EV Universe', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_640.jpg' },
+      { title: 'Northwestern University', type: 'Web Design', image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_640.jpg' },
+      { title: 'G2 eSports', type: 'eCommerce Development', image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg' },
+      { title: 'Fly Sports (AllRecruit)', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_640.jpg' },
+      { title: 'SONY Rewards', type: 'Web Design', image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_640.jpg' },
     ],
     team: [
       { name: 'Gabriel Shaoolian', role: 'CEO and Founder' },
@@ -169,9 +174,10 @@ export const agencies: Agency[] = [
     overview:
       'Design In DC builds future-ready digital experiences for organizations that need clarity, accessibility, and conversion-focused design across web and product interfaces.',
     website: '#',
+    cover: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
     portfolio: [
-      { title: 'BioAstra', type: 'Web Design', year: 2026 },
-      { title: 'Civic Portal Redesign', type: 'UI/UX Design', year: 2025 },
+      { title: 'BioAstra', type: 'Web Design', year: 2026, image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_640.jpg' },
+      { title: 'Civic Portal Redesign', type: 'UI/UX Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg' },
     ],
     team: [
       { name: 'Alex Rivera', role: 'Creative Director' },
@@ -203,9 +209,10 @@ export const agencies: Agency[] = [
     overview:
       'Lounge Lizard has helped brands grow online since 1998 with web design, development, and performance marketing built around measurable business outcomes.',
     website: '#',
+    cover: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
     portfolio: [
-      { title: 'Retail Flagship Site', type: 'Web Development', year: 2025 },
-      { title: 'Hospitality Rebrand', type: 'Branding', year: 2024 },
+      { title: 'Retail Flagship Site', type: 'Web Development', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_640.jpg' },
+      { title: 'Hospitality Rebrand', type: 'Branding', year: 2024, image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_640.jpg' },
     ],
     team: [
       { name: 'Jordan Blake', role: 'Managing Partner' },
@@ -236,7 +243,8 @@ export const agencies: Agency[] = [
     clients: ['Sky', 'MakerDAO'],
     overview: 'Clay designs brands and digital products for companies that need distinctive identity systems and high-craft web experiences.',
     website: '#',
-    portfolio: [{ title: 'Sky', type: 'Web Design', year: 2025 }],
+    cover: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
+    portfolio: [{ title: 'Sky', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_640.jpg' }],
     team: [{ name: 'Studio Lead', role: 'Creative Director' }],
   },
   {
@@ -263,7 +271,8 @@ export const agencies: Agency[] = [
     clients: ['Cazena'],
     overview: 'GoingClear specializes in quiet-confidence SaaS marketing sites for technical buyers who distrust overproduced marketing.',
     website: '#',
-    portfolio: [{ title: 'Cazena', type: 'Web Design', year: 2025 }],
+    cover: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+    portfolio: [{ title: 'Cazena', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_640.jpg' }],
     team: [{ name: 'Product Designer', role: 'Design Lead' }],
   },
   {
@@ -290,74 +299,9 @@ export const agencies: Agency[] = [
     clients: ['Pop Up Signatures'],
     overview: 'Toby Ng Design creates culturally rich print and packaging systems recognized by international design juries.',
     website: '#',
-    portfolio: [{ title: 'Pop Up Signatures: Fashion Unfolded', type: 'Print Design', year: 2026 }],
+    cover: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+    portfolio: [{ title: 'Pop Up Signatures: Fashion Unfolded', type: 'Print Design', year: 2026, image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_640.jpg' }],
     team: [{ name: 'Toby Ng', role: 'Founder' }],
-  },
-]
-
-export const newsArticles = [
-  {
-    slug: 'kfc-hot-ranch-big-dip-ishowspeed-campaign',
-    title: "KFC Casts Superfan IShowSpeed for Post-Rebrand Sauce Push",
-    excerpt: 'The chain converted years of free shoutouts into a 60-second spot and a 4-ounce Hot Ranch Big Dip.',
-    read: '4 min read',
-    ago: '12 hours ago',
-    author: 'Roberto Orosa',
-    category: 'Brands',
-  },
-  {
-    slug: 'fanta-original-monsters-horror-campaign',
-    title: 'Fanta Answers 2 Years of Borrowed Horror With 4 Original Monsters',
-    excerpt: 'After licensing spooky IP, Fanta builds its own monster mythology for Halloween season.',
-    read: '3 min read',
-    ago: '14 hours ago',
-    author: 'Coral Cripps',
-    category: 'Advertising',
-  },
-  {
-    slug: 'duolingo-owl-sick-boy-streak',
-    title: "Duolingo's Owl Drops the Sass to Save Sick Boy's 301-Day Streak",
-    excerpt: 'The brand pauses its usual menace for a softer campaign about learning continuity.',
-    read: '4 min read',
-    ago: '16 hours ago',
-    author: 'Ru Reid',
-    category: 'Brands',
-  },
-  {
-    slug: 'pizza-hut-yum-brands-name-change',
-    title: 'Pizza Hut Spends Its Last Week With Yum Brands on a Name Change',
-    excerpt: 'A corporate restructuring story told through brand identity and franchise optics.',
-    read: '3 min read',
-    ago: '16 hours ago',
-    author: 'Roberto Orosa',
-    category: 'Brands',
-  },
-  {
-    slug: 'dunkin-bark-drive-thru-dogs',
-    title: "Dunkin' Gives Dogs Their Own Drive-Thru in Year 7 of BARK Partnership",
-    excerpt: 'Pet treats meet QSR loyalty as Dunkin extends its longest-running collab.',
-    read: '3 min read',
-    ago: '19 hours ago',
-    author: 'Katherine Maclang',
-    category: 'Marketing',
-  },
-  {
-    slug: 'ipsy-beauty-product-testers',
-    title: 'IPSY Sells Brands Access to 16 Million Beauty Product Testers',
-    excerpt: 'A beauty marketplace productizes its subscriber base as a testing network.',
-    read: '3 min read',
-    ago: '20 hours ago',
-    author: 'Coral Cripps',
-    category: 'Brands',
-  },
-  {
-    slug: 'starbucks-psl-martha-stewart-unicorn',
-    title: "Starbucks Stacks PSL Return With Martha Stewart On Unicorn Weekend",
-    excerpt: 'Seasonal nostalgia meets celebrity partnership in a single launch window.',
-    read: '3 min read',
-    ago: '21 hours ago',
-    author: 'Ru Reid',
-    category: 'Advertising',
   },
 ]
 
@@ -408,6 +352,7 @@ export const awardDesigns = [
       { initials: 'LS', score: 9.0 },
     ],
     agency: 'Sato Mateus',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
   },
   {
     title: 'ANML Studio Website Design',
@@ -420,6 +365,7 @@ export const awardDesigns = [
       { initials: 'JP', score: 8.0 },
     ],
     agency: 'ANML Studio',
+    image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
   },
   {
     title: 'Kitchen Stage App Design',
@@ -432,6 +378,7 @@ export const awardDesigns = [
       { initials: 'SB', score: 9.0 },
     ],
     agency: 'Independent',
+    image: 'https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg',
   },
   {
     title: 'Pop Up Signatures: Fashion Unfolded Print Design',
@@ -444,6 +391,7 @@ export const awardDesigns = [
       { initials: 'LS', score: 8.4 },
     ],
     agency: 'Toby Ng Design',
+    image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
   },
   {
     title: 'Hummey Honey Packaging Design',
@@ -456,6 +404,7 @@ export const awardDesigns = [
       { initials: 'GS', score: 9.3 },
     ],
     agency: 'Studio',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
   },
   {
     title: 'Roku Theater – TV Is Better Here Video Design',
@@ -468,6 +417,7 @@ export const awardDesigns = [
       { initials: 'OI', score: 9.0 },
     ],
     agency: 'Agency',
+    image: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
   },
   {
     title: 'F-Prime Website Design',
@@ -476,6 +426,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Studio',
+    image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
   },
   {
     title: 'Athena App Design',
@@ -484,6 +435,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Studio',
+    image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
   },
   {
     title: 'Transform FitAI App Design',
@@ -492,6 +444,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Suffescom Solutions Inc',
+    image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg',
   },
 ]
 

@@ -43,8 +43,8 @@ export function HomePage() {
             <div className="eyebrow">Trending Brand News</div>
             <div className="news-ticker">
               {newsArticles.slice(0, 5).map((n) => (
-                <Link key={n.slug} to={`/news/${n.slug}`} className="news-card">
-                  <div className="news-thumb" />
+                <Link key={n.slug} to={`/news/${n.slug}`} className="news-card news-card-rich">
+                  <img className="news-thumb-img" src={n.hero} alt={n.heroAlt} loading="lazy" />
                   <div>
                     <h3>{n.title}</h3>
                     <div className="meta">
@@ -183,7 +183,10 @@ export function HomePage() {
           <div className="award-grid">
             {awardDesigns.slice(0, 4).map((d) => (
               <Link key={d.title} to="/best-designs" className="award-card">
-                <div className="award-media">
+                <div
+                  className="award-media"
+                  style={{ backgroundImage: `url(${d.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                >
                   <span className={`badge ${d.badge === 'Winner' ? 'winner' : ''}`}>{d.badge}</span>
                 </div>
                 <div className="award-body">
