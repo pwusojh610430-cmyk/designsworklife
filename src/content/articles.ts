@@ -474,7 +474,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1507679799987-4e7b3f1b0b0b?auto=format&fit=crop&w=1280&q=80',
+        src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1280&q=80',
         alt: 'Code on a screen representing AI tooling in creative workflows',
         caption: 'Disclosure without detection is policy theater. Image: Pixabay',
       },
@@ -558,7 +558,7 @@ export const partnerArticles = [
     title: 'Live Nation Designs New Venues Around Local Music Culture',
     excerpt: 'Design and programming choices that keep arenas feeling local.',
     category: 'Partner Content',
-    image: 'https://images.unsplash.com/photo-1432888498266-38ffec0f9d7a?auto=format&fit=crop&w=1280&q=80',
+    image: 'https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=1280&q=80',
     imageAlt: 'Architectural exterior of a large public venue',
   },
   {

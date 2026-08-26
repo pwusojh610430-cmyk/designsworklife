@@ -81,10 +81,7 @@ function agencyInitials(name: string) {
 }
 
 function picksForCategory(category: string) {
-  const matched = awardDesigns.filter((d) => d.category === category)
-  if (matched.length >= 3) return matched.slice(0, 3)
-  const rest = awardDesigns.filter((d) => d.category !== category)
-  return [...matched, ...rest].slice(0, 3)
+  return awardDesigns.filter((d) => d.category === category).slice(0, 3)
 }
 
 export function AwardsShowcaseBlock() {

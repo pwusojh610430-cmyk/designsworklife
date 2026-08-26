@@ -67,7 +67,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Nikola hosts agency and brand conversations for DesignsWorkLife.',
     category: 'Podcast',
     topics: ['podcast', 'marketing', 'advertising', 'ecommerce', 'business'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/29/06/18/audio-1867744_1280.jpg',
+    hero: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Studio microphone for a podcast recording',
     heroCredit: 'Photo via Pixabay',
     body: [

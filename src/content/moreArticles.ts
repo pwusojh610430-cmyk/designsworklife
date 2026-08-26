@@ -66,7 +66,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Advertising',
     topics: ['advertising', 'creative', 'tech'],
-    hero: 'https://images.unsplash.com/photo-1626785774573-4b7993143465?auto=format&fit=crop&w=1280&q=80',
+    hero: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'People enjoying music together',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -76,7 +76,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1609921212029-bb5a28e410df?auto=format&fit=crop&w=1280&q=80',
+        src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1280&q=80',
         alt: 'Starry sky suggesting personal music universes',
         caption: 'Personalization theater still needs scarcity. Image: Pixabay',
       },
@@ -124,7 +124,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1611162617474-5b21e11e55d0?auto=format&fit=crop&w=1280&q=80',
+        src: 'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1280&q=80',
         alt: 'Laptop on a desk for product design work',
         caption: 'Speed without systems just ships inconsistency faster. Image: Pixabay',
       },
@@ -176,7 +176,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fdf1?auto=format&fit=crop&w=1280&q=80',
+        src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1280&q=80',
         alt: 'People gathered in a collaborative setting',
         caption: 'Public repair becomes a community event, not a warranty FAQ. Image: Pixabay',
       },
@@ -527,7 +527,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Business',
     topics: ['business', 'tech', 'advertising', 'agencies'],
-    hero: 'https://images.unsplash.com/photo-1456513080800-b6a7b1e3e9d0?auto=format&fit=crop&w=1280&q=80',
+    hero: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'AI abstract visual for brand safety governance',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -651,7 +651,7 @@ export const moreNewsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Advertising',
     topics: ['advertising', 'marketing', 'tech'],
-    hero: 'https://images.unsplash.com/photo-1500000000000-1787757006349-80?auto=format&fit=crop&w=1280&q=80',
+    hero: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1280&q=80',
     heroAlt: 'Person with phone representing social ad creative',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -661,7 +661,7 @@ export const moreNewsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://images.unsplash.com/photo-1500000000000-1787757006349-81?auto=format&fit=crop&w=1280&q=80',
+        src: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1280&q=80',
         alt: 'Creative team collaborating',
         caption: 'Automation needs a pipeline of difference. Image: Pixabay',
       },

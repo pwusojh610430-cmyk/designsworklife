@@ -505,7 +505,7 @@ export const awardDesigns = [
       { initials: 'KL', score: 8.9 },
     ],
     agency: 'Marka Network',
-    image: 'https://images.unsplash.com/photo-1542744173-8e2bd585f2fc?auto=format&fit=crop&w=1280&q=80',
+    image: 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=1280&q=80',
   },
   {
     title: 'Lumen Health Patient Portal Website',
@@ -598,6 +598,32 @@ export const awardDesigns = [
     judges: [],
     agency: 'Shelf Studio',
     image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1280&q=80',
+  },
+  {
+    title: 'Meridian Coffee Roasters Identity',
+    category: 'Logo',
+    score: 8.1,
+    badge: 'Winner',
+    judges: [
+      { initials: 'CH', score: 8.4 },
+      { initials: 'MS', score: 7.8 },
+      { initials: 'KL', score: 8.1 },
+    ],
+    agency: 'Fieldnote Studio',
+    image: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?auto=format&fit=crop&w=1280&q=80',
+  },
+  {
+    title: 'Aurora Festival Title Sequence',
+    category: 'Video',
+    score: 8.9,
+    badge: 'Winner',
+    judges: [
+      { initials: 'IS', score: 9.2 },
+      { initials: 'NS', score: 8.6 },
+      { initials: 'LS', score: 8.9 },
+    ],
+    agency: 'Northlight Motion',
+    image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1280&q=80',
   },
 ]
 
