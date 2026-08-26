@@ -1,91 +1,53 @@
 import { Link, useParams } from 'react-router-dom'
-import { useMemo, useState } from 'react'
-import { agencies, categories, getCategoryLabel } from '../data'
-import { PageHero, Stars } from '../components/Layout'
+import { agencies, getCategoryLabel } from '../data'
+import { AgencyDirectoryBlock, FeaturedAgencyCard } from '../components/AgencyDirectoryBlock'
+import { PageHero } from '../components/Layout'
 
 export function AgencyIndexPage() {
-  const [q, setQ] = useState('')
-  const filtered = useMemo(() => {
-    const query = q.trim().toLowerCase()
-    if (query.length > 0 && query.length < 3) return agencies
-    if (!query) return agencies
-    return agencies.filter(
-      (a) =>
-        a.name.toLowerCase().includes(query) ||
-        a.services.some((s) => s.toLowerCase().includes(query)) ||
-        a.city.toLowerCase().includes(query),
-    )
-  }, [q])
-
   return (
     <>
-      <PageHero
-        title="Agency Directory Listing & Reviews"
-        subtitle="Compare Over 30,000 Top Agencies by Categories, Locations, Expertise, Clients & Reviews"
-        crumbs={[{ label: 'Home', to: '/' }, { label: 'Agency Directory' }]}
-      />
-      <div className="container layout-2">
-        <aside className="filters">
-          <h3>Verified Agencies by Service Categories</h3>
-          {categories.map((group) => (
-            <div className="filter-group" key={group.name}>
-              <strong>{group.name}</strong>
-              {group.items.map((item) => (
-                <Link key={item.slug} to={`/agency/${item.slug}`}>
-                  {item.label}
-                </Link>
-              ))}
+      <section className="stats-banner">
+        <div className="container stats-banner-inner">
+          <div className="stats-banner-items">
+            <div className="stats-banner-item">
+              <strong>1,000,000+</strong>
+              <span>Monthly B2B Visitors</span>
             </div>
-          ))}
-        </aside>
-        <div>
-          <div className="search-bar">
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Search agencies (min 3 characters)"
-            />
+            <div className="stats-banner-item">
+              <strong>150,000+</strong>
+              <span>Followers on Social</span>
+            </div>
+            <div className="stats-banner-item">
+              <strong>70,000+</strong>
+              <span>B2B Newsletter Subscribers</span>
+            </div>
+          </div>
+          <Link to="/benefits" className="btn btn-green">
+            Get Featured <span aria-hidden="true">›</span>
+          </Link>
+        </div>
+      </section>
+
+      <AgencyDirectoryBlock agencyLimit={3} showViewAll={false} />
+
+      <section className="section alt">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <h2>All Verified Agencies</h2>
+              <p>Browse more providers ranked by reviews, expertise, and recent client work.</p>
+            </div>
             <Link className="btn btn-primary" to="/marketplace/project-brief">
               Receive Proposals
             </Link>
           </div>
-          {q.trim().length > 0 && q.trim().length < 3 && (
-            <p className="meta">Your search query is too short, please try typing at least 3 characters.</p>
-          )}
-          <div className="listing">
-            {filtered.map((a) => (
-              <div className="listing-card" key={a.id}>
-                <div className="agency-logo">{a.name.slice(0, 2).toUpperCase()}</div>
-                <div>
-                  <Link to={`/agency/profile/${a.slug}`}>
-                    <h3>{a.name}</h3>
-                  </Link>
-                  <div className="meta">
-                    <Stars value={a.rating} /> {a.rating} ({a.reviews}) · {a.city}
-                    {a.state ? `, ${a.state}` : ''}
-                  </div>
-                  <p>{a.tagline}</p>
-                  <div className="chip-row">
-                    {a.services.slice(0, 4).map((s) => (
-                      <span className="chip" key={s}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="profile-actions">
-                  <Link className="btn btn-outline" to={`/agency/profile/${a.slug}`}>
-                    View Profile
-                  </Link>
-                  <Link className="btn btn-primary" to="/marketplace/project-brief">
-                    Contact
-                  </Link>
-                </div>
-              </div>
+          <div className="feat-agency-stack feat-agency-stack-wide">
+            {agencies.map((a) => (
+              <FeaturedAgencyCard key={a.id} agency={a} />
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }
@@ -135,25 +97,9 @@ export function AgencyCategoryPage() {
             </div>
           </div>
         </div>
-        <div className="listing">
+        <div className="feat-agency-stack feat-agency-stack-wide">
           {list.map((a) => (
-            <div className="listing-card" key={a.id}>
-              <div className="agency-logo">{a.name.slice(0, 2).toUpperCase()}</div>
-              <div>
-                <Link to={`/agency/profile/${a.slug}`}>
-                  <h3>{a.name}</h3>
-                </Link>
-                <div className="meta">
-                  <Stars value={a.rating} /> {a.rating} · {a.hourly} · {a.employees} employees
-                </div>
-                <p>{a.overview.slice(0, 160)}…</p>
-              </div>
-              <div className="profile-actions">
-                <Link className="btn btn-primary" to={`/agency/profile/${a.slug}`}>
-                  View
-                </Link>
-              </div>
-            </div>
+            <FeaturedAgencyCard key={a.id} agency={a} />
           ))}
         </div>
       </div>

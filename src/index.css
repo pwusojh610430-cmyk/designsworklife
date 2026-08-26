@@ -1170,12 +1170,12 @@ p {
   padding: 1.2rem;
   display: grid;
   gap: 0.7rem;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
 }
 
 .agency-card:hover {
   box-shadow: var(--shadow);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .agency-logo {
@@ -1187,10 +1187,277 @@ p {
   color: #fff;
   font-weight: 700;
   background: linear-gradient(145deg, #4b01ff, #0053ff);
+  flex-shrink: 0;
 }
 
 .agency-card h3 {
   font-size: 1.15rem;
+}
+
+/* Agency Directory — DesignRush-style 3-col */
+.agency-directory-block {
+  padding: 2.75rem 0 3.25rem;
+  background: #fff;
+}
+
+.dir-title {
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #1b2559;
+  margin: 0 0 1.75rem;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.dir-title span {
+  color: var(--purple);
+}
+
+.dir-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.85fr) minmax(220px, 1fr) minmax(280px, 1.25fr);
+  gap: 1.75rem 2rem;
+  align-items: start;
+}
+
+.dir-cats h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1b2559;
+  margin: 0 0 1rem;
+  line-height: 1.35;
+}
+
+.dir-cat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.dir-cat-list button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: #1b2559;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7rem 0.75rem;
+  min-height: 44px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.dir-cat-list button:hover {
+  background: #f4f5f7;
+  color: var(--purple);
+}
+
+.dir-cat-list button.active {
+  background: #f0f1f4;
+  border-left-color: var(--purple);
+  color: var(--purple);
+}
+
+.dir-cat-icon {
+  width: 1.25rem;
+  color: var(--purple);
+  font-size: 0.95rem;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.dir-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.15rem 0 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.dir-links a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  padding: 0.55rem 0.25rem;
+  min-height: 40px;
+  color: #1b2559;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: color 0.15s ease-out;
+}
+
+.dir-links a:hover {
+  color: var(--purple);
+}
+
+.dir-link-arrow {
+  color: var(--purple);
+  font-weight: 700;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.dir-featured-lead {
+  color: #1b2559;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 1.15rem;
+  max-width: 40rem;
+  text-wrap: pretty;
+}
+
+.dir-featured-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dir-featured-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1b2559;
+}
+
+.dir-view-all {
+  color: var(--purple);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dir-view-all:hover {
+  text-decoration: underline;
+}
+
+.feat-agency-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.feat-agency-stack-wide {
+  gap: 1.1rem;
+}
+
+.feat-agency-card {
+  background: #fff;
+  border: 1px solid #e8e8ee;
+  border-radius: 12px;
+  padding: 1.15rem 1.2rem;
+  box-shadow: 0 8px 24px rgba(27, 37, 89, 0.06);
+  display: grid;
+  gap: 0.85rem;
+  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.feat-agency-card:hover {
+  box-shadow: 0 12px 28px rgba(27, 37, 89, 0.1);
+  transform: translateY(-2px);
+}
+
+.feat-agency-top {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.feat-agency-identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.feat-agency-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.feat-agency-title-row h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1b2559;
+}
+
+.feat-agency-title-row h3 a:hover {
+  color: var(--purple);
+}
+
+.feat-agency-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1b2559;
+  font-variant-numeric: tabular-nums;
+}
+
+.feat-agency-tagline {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.feat-agency-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.feat-agency-meta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  color: #4b5168;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.feat-agency-icon {
+  color: var(--purple);
+  display: inline-flex;
+  margin-top: 0.1rem;
+}
+
+.feat-agency-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-profile {
+  background: #fff;
+  color: #1b2559;
+  border: 1.5px solid #d9dbe3;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  min-height: 40px;
+  transition: border-color 0.15s ease-out, color 0.15s ease-out, background 0.15s ease-out;
+}
+
+.btn-profile:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  background: var(--purple-soft);
 }
 
 .chip-row {
@@ -1736,8 +2003,15 @@ textarea {
   .layout-2,
   .login-grid,
   .footer-grid,
-  .profile-hero {
+  .profile-hero,
+  .dir-layout {
     grid-template-columns: 1fr;
+  }
+
+  .dir-links ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1rem 1rem;
   }
 
   .news-home-grid {
@@ -1854,7 +2128,8 @@ textarea {
   .portfolio-grid,
   .kv,
   .form-row,
-  .stat-row {
+  .stat-row,
+  .dir-links ul {
     grid-template-columns: 1fr;
   }
 

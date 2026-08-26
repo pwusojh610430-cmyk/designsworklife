@@ -1,7 +1,8 @@
 import { useState, type KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { agencies, awardDesigns, marketplaceProjects, newsArticles } from '../data'
-import { Stars, openNewsletter } from '../components/Layout'
+import { awardDesigns, marketplaceProjects, newsArticles } from '../data'
+import { AgencyDirectoryBlock } from '../components/AgencyDirectoryBlock'
+import { openNewsletter } from '../components/Layout'
 
 const newsTabs = [
   { id: 'latest', label: 'Latest' },
@@ -166,46 +167,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <h2>Featured Agencies</h2>
-              <p>
-                Looking for a reliable digital agency to grow your presence and revenue? We ranked
-                the top-rated full service digital agencies.
-              </p>
-            </div>
-            <Link className="btn btn-outline" to="/agency">
-              View Agency Directory
-            </Link>
-          </div>
-          <div className="agency-grid">
-            {agencies.slice(0, 3).map((a) => (
-              <Link key={a.id} to={`/agency/profile/${a.slug}`} className="agency-card">
-                <div className="agency-logo">{a.name.slice(0, 2).toUpperCase()}</div>
-                <div>
-                  <h3>{a.name}</h3>
-                  <div className="meta">
-                    <Stars value={a.rating} /> {a.rating}
-                  </div>
-                </div>
-                <p>{a.tagline}</p>
-                <div className="meta">
-                  {a.city}, {a.state || a.country}
-                </div>
-                <div className="chip-row">
-                  {a.expertise.slice(0, 3).map((e) => (
-                    <span className="chip" key={e}>
-                      {e}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AgencyDirectoryBlock />
 
       <section className="section alt">
         <div className="container">
