@@ -2,6 +2,7 @@ import { useState, type KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { awardDesigns, marketplaceProjects, newsArticles } from '../data'
 import { AgencyDirectoryBlock } from '../components/AgencyDirectoryBlock'
+import { ReviewsBanner } from '../components/ReviewsBanner'
 import { openNewsletter } from '../components/Layout'
 
 const newsTabs = [
@@ -177,36 +178,42 @@ export function HomePage() {
 
       <AgencyDirectoryBlock />
 
-      <section className="section alt">
-        <div className="container">
-          <div className="hire-panel">
-            <div>
-              <h2>Looking to Hire an Agency?</h2>
-              <p>
-                Receive quotes from vetted service providers. Our experts will curate a list of
-                agencies suitable to your specific needs.
-              </p>
-              <Link className="btn btn-ghost" to="/marketplace/project-brief">
-                Tell Us About Your Project
-              </Link>
-            </div>
-            <div className="hire-steps">
-              <div className="hire-step">
-                <div className="step-num">1</div>
-                <div>Specify your budget, timeline and project requirements</div>
-              </div>
-              <div className="hire-step">
-                <div className="step-num">2</div>
-                <div>Our experts curate a list of up to 5 most qualified candidate agencies</div>
-              </div>
-              <div className="hire-step">
-                <div className="step-num">3</div>
-                <div>We connect you with them so you can choose the most suitable partner</div>
-              </div>
-            </div>
+      <section className="hire-section" aria-labelledby="hire-agency-title">
+        <div className="hire-panel">
+          <div className="hire-copy">
+            <h2 id="hire-agency-title">Looking to Hire an Agency?</h2>
+            <p>
+              Receive quotes from vetted service providers. Our experts will curate a list of
+              agencies suitable to your specific needs.
+            </p>
+            <Link className="btn btn-ghost hire-cta" to="/marketplace/project-brief">
+              Tell Us About Your Project
+            </Link>
           </div>
+          <ol className="hire-steps">
+            <li className="hire-step">
+              <span className="step-num" aria-hidden="true">
+                1
+              </span>
+              <span>Specify your budget, timeline and project requirements</span>
+            </li>
+            <li className="hire-step">
+              <span className="step-num" aria-hidden="true">
+                2
+              </span>
+              <span>Our experts curate a list of up to 5 most qualified candidate agencies</span>
+            </li>
+            <li className="hire-step">
+              <span className="step-num" aria-hidden="true">
+                3
+              </span>
+              <span>We connect you with them so you can choose the most suitable partner</span>
+            </li>
+          </ol>
         </div>
       </section>
+
+      <ReviewsBanner />
 
       <section className="section">
         <div className="container">
