@@ -2492,39 +2492,41 @@ p {
 
 .prefooter-cloud {
   position: relative;
-  min-height: 380px;
+  min-height: 400px;
   display: grid;
   place-items: center;
   margin-top: 0.5rem;
+  overflow: hidden;
 }
 
 .prefooter-glow {
   position: absolute;
-  width: min(420px, 70%);
+  left: 50%;
+  bottom: -18%;
+  width: min(720px, 92%);
   height: min(420px, 70%);
+  transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(120, 170, 235, 0.22) 0%, rgba(120, 170, 235, 0.06) 48%, transparent 72%);
+  background: radial-gradient(ellipse at center, rgba(130, 180, 240, 0.2) 0%, rgba(130, 180, 240, 0.05) 55%, transparent 75%);
   pointer-events: none;
 }
 
 .prefooter-globe {
   position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
+  left: 50%;
+  bottom: -2%;
+  width: min(980px, 118%);
+  transform: translateX(-50%);
+  display: block;
   pointer-events: none;
+  line-height: 0;
 }
 
 .prefooter-globe svg {
-  width: min(380px, 72vw);
+  width: 100%;
   height: auto;
-  opacity: 0.85;
-  animation: prefooter-globe-spin 80s linear infinite;
-  transform-origin: center;
-}
-
-.prefooter-globe-nodes {
-  animation: prefooter-nodes-pulse 4.5s ease-in-out infinite;
+  display: block;
+  opacity: 0.92;
 }
 
 .prefooter-logos {
@@ -3612,7 +3614,6 @@ textarea {
   }
 
   .prefooter-globe svg,
-  .prefooter-globe-nodes,
   .prefooter-float-1,
   .prefooter-float-2,
   .prefooter-float-3,
