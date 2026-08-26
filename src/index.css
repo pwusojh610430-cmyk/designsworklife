@@ -312,6 +312,17 @@ p {
   transition: font-size 0.22s ease;
 }
 
+.brand-mark {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  flex-shrink: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
 .logo-mark {
   width: auto;
   height: 30px;
@@ -324,12 +335,9 @@ p {
   transition: transform 0.22s ease;
 }
 
-.logo-mark img {
-  display: block;
+.logo-mark .brand-mark {
   height: 30px;
   width: auto;
-  aspect-ratio: 174 / 148;
-  object-fit: contain;
 }
 
 .main-nav {
@@ -792,9 +800,14 @@ p {
 }
 
 .news-flame {
-  color: var(--purple);
   display: grid;
   place-items: center;
+  line-height: 0;
+}
+
+.news-flame .brand-mark {
+  height: 20px;
+  width: auto;
 }
 
 .news-tabs {
@@ -1860,20 +1873,13 @@ p {
   display: grid;
   justify-items: center;
   gap: 0.15rem;
-  color: #fff;
   flex-shrink: 0;
 }
 
-.reviews-torch svg {
-  width: 44px;
-  height: 52px;
-}
-
-.reviews-torch-stars {
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  line-height: 1;
-  color: #fff;
+.reviews-torch .brand-mark {
+  height: 44px;
+  width: auto;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
 }
 
 .reviews-banner-brand h2 {
@@ -2052,14 +2058,15 @@ p {
 .awards-mark {
   display: grid;
   justify-items: center;
-  gap: 0.2rem;
+  gap: 0.35rem;
   margin-bottom: 1rem;
   color: #fff;
 }
 
-.awards-mark svg {
-  width: 42px;
-  height: 48px;
+.awards-mark .brand-mark {
+  height: 52px;
+  width: auto;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
 }
 
 .awards-mark strong {
@@ -2248,16 +2255,16 @@ p {
 }
 
 .prefooter-mail-icon {
-  width: 48px;
-  height: 48px;
+  width: auto;
+  height: 40px;
   flex-shrink: 0;
   display: grid;
   place-items: center;
 }
 
-.prefooter-mail-icon svg {
-  width: 42px;
-  height: 42px;
+.prefooter-mail-icon .brand-mark {
+  height: 40px;
+  width: auto;
 }
 
 .prefooter-newsletter-copy h2 {

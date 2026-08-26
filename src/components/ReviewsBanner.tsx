@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrandMark } from './BrandMark'
 
 const reviews = [
   {
@@ -45,25 +46,7 @@ export function ReviewsBanner() {
       <div className="reviews-banner-inner">
         <div className="reviews-banner-brand">
           <div className="reviews-torch" aria-hidden="true">
-            <svg viewBox="0 0 48 56" fill="none">
-              <path
-                d="M24 4c-6 8-14 12-14 24a14 14 0 0 0 28 0c0-12-8-16-14-24Z"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                fill="rgba(255,255,255,0.08)"
-              />
-              <path
-                d="M24 18c-2.5 3.5-5.5 5.5-5.5 10a5.5 5.5 0 1 0 11 0c0-4.5-3-6.5-5.5-10Z"
-                fill="currentColor"
-              />
-              <path
-                d="M16 48h16M19 52h10"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span className="reviews-torch-stars">★★★</span>
+            <BrandMark size={44} />
           </div>
           <div>
             <h2 id="reviews-banner-title">DesignsWorkLife Reviews</h2>

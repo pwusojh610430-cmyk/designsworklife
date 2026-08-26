@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { marketplaceProjects, newsArticles } from '../data'
 import { AgencyDirectoryBlock } from '../components/AgencyDirectoryBlock'
 import { AwardsShowcaseBlock } from '../components/AwardsShowcaseBlock'
+import { BrandMark } from '../components/BrandMark'
 import { ReviewsBanner } from '../components/ReviewsBanner'
 import { openNewsletter } from '../components/Layout'
 
@@ -103,12 +104,7 @@ export function HomePage() {
           <div className="news-toolbar">
             <div className="news-toolbar-brand" id="trending-news-heading">
               <span className="news-flame" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" focusable="false">
-                  <path
-                    fill="currentColor"
-                    d="M12 2c1.8 2.8 5.5 4.8 5.5 9 0 4.2-2.7 7.5-5.5 9-2.8-1.5-5.5-4.8-5.5-9C6.5 6.8 10.2 4.8 12 2z"
-                  />
-                </svg>
+                <BrandMark size={20} />
               </span>
               <span>Trending Brand News</span>
             </div>

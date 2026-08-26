@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { BrandMark } from './BrandMark'
 
 const partnerLogos = [
   { name: 'BIGHORN', accent: '#1a2748' },
@@ -33,15 +34,7 @@ export function PreFooterBlock() {
         <div className="prefooter-newsletter">
           <div className="prefooter-newsletter-copy">
             <span className="prefooter-mail-icon" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none">
-                <rect x="4" y="10" width="32" height="22" rx="3" stroke="#4b01ff" strokeWidth="2" />
-                <path d="M6 12l14 11L34 12" stroke="#4b01ff" strokeWidth="2" strokeLinejoin="round" />
-                <circle cx="28" cy="12" r="7" fill="#4b01ff" />
-                <path
-                  d="M28 8c-1.8 2.4-4 3.5-4 6.2a4 4 0 1 0 8 0c0-2.7-2.2-3.8-4-6.2z"
-                  fill="#fff"
-                />
-              </svg>
+              <BrandMark size={40} />
             </span>
             <div>
               <h2>

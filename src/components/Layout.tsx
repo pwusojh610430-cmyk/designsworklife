@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { bestDesignLinks, categories, newsTopics } from '../data'
-import brandLogo from '../assets/brand-logo.png'
+import { BrandMark } from './BrandMark'
 
 export function Logo() {
   return (
     <Link to="/" className="logo">
       <span className="logo-mark" aria-hidden="true">
-        <img src={brandLogo} alt="" width={174} height={148} decoding="async" />
+        <BrandMark size={30} />
       </span>
       <span className="logo-text">DesignsWorkLife</span>
     </Link>
