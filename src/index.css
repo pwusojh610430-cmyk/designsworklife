@@ -1103,12 +1103,15 @@ p {
   object-fit: cover;
 }
 
+/* Fixed ratio + cover: the box never stretches the photo, it crops it. */
 .article-hero img {
-  max-height: 420px;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 
 .article-figure img {
-  max-height: 360px;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 
 .article-hero figcaption,
@@ -1156,13 +1159,13 @@ p {
 
 .article-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 2rem;
   align-items: start;
 }
 
 .article-layout .article-prose {
-  max-width: 46rem;
+  max-width: none;
 }
 
 .article-prose p,
