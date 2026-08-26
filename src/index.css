@@ -125,8 +125,8 @@ p {
 .btn-subscribe {
   background: var(--purple);
   color: #fff;
-  padding: 0.55rem 1.1rem;
-  font-size: 0.78rem;
+  padding: 0.6rem 1.15rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -743,7 +743,7 @@ p {
   align-items: center;
   gap: 0.4rem;
   font-weight: 800;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--navy);
@@ -760,17 +760,17 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.1rem 0.15rem;
+  gap: 0.1rem 0.2rem;
 }
 
 .news-tabs button {
   background: none;
   border: 0;
   border-bottom: 3px solid transparent;
-  padding: 0.4rem 0.65rem;
+  padding: 0.45rem 0.7rem;
   font-weight: 700;
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: #7a8194;
   cursor: pointer;
