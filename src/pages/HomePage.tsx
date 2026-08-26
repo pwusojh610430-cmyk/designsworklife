@@ -1,7 +1,8 @@
 import { useState, type KeyboardEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { awardDesigns, marketplaceProjects, newsArticles } from '../data'
+import { marketplaceProjects, newsArticles } from '../data'
 import { AgencyDirectoryBlock } from '../components/AgencyDirectoryBlock'
+import { AwardsShowcaseBlock } from '../components/AwardsShowcaseBlock'
 import { ReviewsBanner } from '../components/ReviewsBanner'
 import { openNewsletter } from '../components/Layout'
 
@@ -264,43 +265,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section alt">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <h2>Discover Award-Winning Designs</h2>
-              <p>
-                We help businesses elevate their value through great design showcases, meaningful
-                connections and great work.
-              </p>
-            </div>
-            <Link className="btn btn-outline" to="/best-designs">
-              View Best Designs
-            </Link>
-          </div>
-          <div className="award-grid">
-            {awardDesigns.slice(0, 4).map((d) => (
-              <Link key={d.title} to="/best-designs" className="award-card">
-                <div
-                  className="award-media"
-                  style={{
-                    backgroundImage: `url(${d.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                >
-                  <span className={`badge ${d.badge === 'Winner' ? 'winner' : ''}`}>{d.badge}</span>
-                </div>
-                <div className="award-body">
-                  <h3>{d.title}</h3>
-                  <div className="meta">{d.category}</div>
-                  {d.score != null && <div className="score">★ {d.score}/10</div>}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AwardsShowcaseBlock />
     </>
   )
 }
