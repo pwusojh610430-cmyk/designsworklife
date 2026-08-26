@@ -32,7 +32,7 @@ export type NewsArticle = {
 export const newsArticles: NewsArticle[] = [
   {
     slug: 'kfc-hot-ranch-big-dip-ishowspeed-campaign',
-    title: "KFC Brings Superfan IShowSpeed Into Its Post-Rebrand Sauce Push",
+    title: "A Gaming Superfan Becomes the Face of KFC’s New Sauce Line",
     excerpt:
       'The chain converted years of unpaid shoutouts into a 60-second spot and a 4-ounce Hot Ranch Big Dip — a product-led proof point for its global refresh.',
     read: '5 min read',
@@ -108,7 +108,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'fanta-original-monsters-horror-campaign',
-    title: 'Fanta Retires Borrowed Horror Tropes for Four Homegrown Monsters',
+    title: 'Fanta Builds Its Own Halloween Cast After Years of Rented Scares',
     excerpt:
       'After seasons of licensed spooky IP, Fanta builds its own monster mythology — keeping Halloween equity without renting someone else’s characters.',
     read: '4 min read',
@@ -170,7 +170,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'duolingo-owl-sick-boy-streak',
-    title: "Duolingo Softens the Owl's Sass to Protect a Sick Boy's 301-Day Streak",
+    title: "When a 301-Day Streak Was at Risk, Duolingo Dropped the Attitude",
     excerpt:
       'The brand pauses its famous menace for a softer story about learning continuity — proving the owl can still surprise when the tone flips.',
     read: '4 min read',
@@ -226,7 +226,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'pizza-hut-yum-brands-name-change',
-    title: 'Pizza Hut Marks Its Final Week Under Yum Brands With a Name Refresh',
+    title: 'A New Name Lands Just as Pizza Hut Exits the Yum Brands Era',
     excerpt:
       'A corporate restructuring story told through brand identity, franchise optics, and what customers actually notice on the door.',
     read: '4 min read',
@@ -282,7 +282,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'dunkin-bark-drive-thru-dogs',
-    title: "Dunkin's Year-7 BARK Partnership Adds a Dedicated Drive-Thru for Dogs",
+    title: "Seven Years In, Dunkin and BARK Open a Drive-Thru Lane for Dogs",
     excerpt:
       'Pet treats meet QSR loyalty as Dunkin extends its longest-running collab — turning the passenger seat into a second customer.',
     read: '4 min read',
@@ -340,7 +340,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'ipsy-beauty-product-testers',
-    title: 'IPSY Opens Its 16-Million Tester Network to Beauty Brand Partners',
+    title: 'Inside IPSY’s Plan to Rent Out 16 Million Beauty Testers',
     excerpt:
       'A beauty marketplace productizes its subscriber base as a testing network — turning community into a B2B research product.',
     read: '4 min read',
@@ -396,7 +396,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'starbucks-psl-martha-stewart-unicorn',
-    title: "Starbucks Pairs the PSL Comeback With Martha Stewart for Unicorn Weekend",
+    title: "Martha Stewart Joins the PSL Return for a Unicorn Weekend Stunt",
     excerpt:
       'Seasonal nostalgia meets celebrity partnership in one launch window — maximizing calendar density without muddying the Pumpkin Spice Latte myth.',
     read: '4 min read',
@@ -454,7 +454,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'claude-watermark-ai-disclosure',
-    title: "Claude Watermarking Puts Real Pressure on AI Disclosure Clauses",
+    title: "AI Disclosure Clauses Get Harder to Ignore Once Watermarks Arrive",
     excerpt:
       'As AI disclosure language spreads through contracts, visible watermarks turn vague policy into something agencies and brands can actually audit.',
     read: '5 min read',
@@ -494,7 +494,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'ikea-xbox-anniversary-furniture',
-    title: "IKEA Turns Xbox's D-Pad Into a 25th-Anniversary Furniture Capsule",
+    title: "A Console D-Pad Becomes Furniture in IKEA’s Xbox Anniversary Drop",
     excerpt:
       'A furniture × gaming collab that treats controllers as material culture — and living rooms as the real console war.',
     read: '4 min read',
@@ -539,7 +539,7 @@ export const newsArticles: NewsArticle[] = [
 export const partnerArticles = [
   {
     slug: 'campari-live-experiences',
-    title: 'How Campari America Uses Live Experiences to Deepen Brand Loyalty',
+    title: 'Campari America Turns Tasting Rooms Into Loyalty Engines',
     excerpt: 'Hosted events that turn tasting moments into belonging for a heritage spirits brand.',
     category: 'Partner Content',
     image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1280&q=80',
@@ -547,7 +547,7 @@ export const partnerArticles = [
   },
   {
     slug: 'b2b-bounce-rates-infrastructure',
-    title: 'Why Tiny Bounce Rates Still Hide Infrastructure Problems That Stall B2B Pipelines',
+    title: 'A Clean Bounce Rate Can Still Mask the Bugs Killing B2B Pipeline',
     excerpt: 'Site reliability is now a pipeline problem — not just an IT footnote.',
     category: 'Partner Content',
     image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=1280&q=80',
@@ -555,7 +555,7 @@ export const partnerArticles = [
   },
   {
     slug: 'live-nation-local-venues',
-    title: 'Live Nation Designs New Venues Around Local Music Culture',
+    title: 'Local Scenes Shape the Blueprint for Live Nation’s Newest Venues',
     excerpt: 'Design and programming choices that keep arenas feeling local.',
     category: 'Partner Content',
     image: 'https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=1280&q=80',
@@ -563,7 +563,7 @@ export const partnerArticles = [
   },
   {
     slug: 'hubspot-lifecycle-orchestration',
-    title: 'HubSpot Partners Keep Lifecycle Orchestration Without Tool Sprawl',
+    title: 'Lifecycle Marketing Without the Tool Pileup: Notes From HubSpot Partners',
     excerpt: 'A partner playbook for keeping CRM, CMS, and ads on one measurement spine.',
     category: 'Partner Content',
     image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
@@ -571,7 +571,7 @@ export const partnerArticles = [
   },
   {
     slug: 'webflow-enterprise-design-systems',
-    title: 'Enterprise Webflow Teams Are Betting Harder on Design Systems',
+    title: 'Design Systems Become the Real Investment for Enterprise Webflow Teams',
     excerpt: 'Component libraries and CMS models built to survive marketing reorgs.',
     category: 'Partner Content',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1280&q=80',
@@ -579,7 +579,7 @@ export const partnerArticles = [
   },
   {
     slug: 'stripe-checkout-conversion-lessons',
-    title: 'Checkout Patterns Brands Still Misread on Stripe',
+    title: 'The Checkout Details Brands Keep Getting Backwards on Stripe',
     excerpt: 'Friction, trust marks, and mobile keyboards: conversion lessons from payment UX.',
     category: 'Partner Content',
     image: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1280&q=80',

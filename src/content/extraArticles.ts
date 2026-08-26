@@ -4,7 +4,7 @@ import type { NewsArticle } from './articles'
 export const extraNewsArticles: NewsArticle[] = [
   {
     slug: 'pentagram-partner-exit-studio-culture',
-    title: 'Interview: A Pentagram Partner on Why Studio Culture Outlasts Solo Stardom',
+    title: 'Interview: A Pentagram Partner Makes the Case Against Solo Stardom',
     excerpt:
       'A candid conversation on collaboration, client politics, and why the next decade of design will reward institutions over influencers.',
     read: '7 min read',
@@ -57,7 +57,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'cmo-podcast-retail-media-wars',
-    title: 'Podcast: CMOs Ask If Retail Media Has Become the New TV Buy',
+    title: 'Podcast: Is Retail Media Quietly Replacing the TV Budget?',
     excerpt:
       'Episode notes from our B2B show: three marketers on closed-loop attribution, creative constraints inside retailer ecosystems, and when to walk away.',
     read: '6 min read',
@@ -105,7 +105,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'shopify-checkout-extensibility-brands',
-    title: 'Shopify Checkout Extensibility Is Quietly Reshaping DTC Brand Systems',
+    title: 'DTC Brand Systems Are Being Rebuilt Around Shopify Checkout Apps',
     excerpt:
       'Custom thank-you pages and post-purchase upsells are no longer plugin hacks — they are brand theater at the moment of highest intent.',
     read: '5 min read',
@@ -149,7 +149,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'holding-company-ai-lab-reorg',
-    title: 'Holding Companies Are Folding AI Labs Back Into Client Teams',
+    title: 'The Standalone AI Lab Is Disappearing Inside Holding Companies',
     excerpt:
       'After a year of center-of-excellence theater, networks are embedding model ops inside accounts. The pitch: less demo, more delivery.',
     read: '5 min read',
@@ -197,7 +197,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'museum-digital-exhibition-ux',
-    title: 'Museums Hire Product Designers to Rebuild How Exhibitions Work',
+    title: 'Product Designers Are Quietly Redrawing the Museum Visit',
     excerpt:
       'Ticketing, wayfinding, and collection apps are merging into one visitor OS — and cultural institutions are finally budgeting like product orgs.',
     read: '5 min read',
@@ -241,7 +241,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'independent-creative-director-interview',
-    title: 'Interview: An Independent CD on Leaving the Network Without Losing Ambition',
+    title: 'Interview: Going Independent Without Scaling Down the Ambition',
     excerpt:
       'How one creative director rebuilt a practice around fewer clients, sharper craft, and contracts that protect idea ownership.',
     read: '6 min read',
@@ -289,7 +289,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'b2b-podcast-agency-margins',
-    title: 'Podcast Recap: Agency Operators Face Margin Pressure From AI Tooling Costs',
+    title: 'Podcast Recap: What AI Subscriptions Are Doing to Agency Margins',
     excerpt:
       'Software seats, training time, and client expectations are colliding. Operators share what they are cutting — and what they refuse to automate.',
     read: '5 min read',
@@ -333,7 +333,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'luxury-packaging-refill-systems',
-    title: 'Luxury Brands Design Refill Systems That Still Feel Premium',
+    title: 'Refills Are Coming to Luxury — Without Cheapening the Unboxing',
     excerpt:
       'Sustainability briefs used to mean less foil. Now they mean modular vessels, membership refills, and packaging that photographs like heirloom objects.',
     read: '4 min read',
@@ -377,7 +377,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'founder-story-boutique-media-agency',
-    title: 'Interview: How a 12-Person Media Agency Rejects Performance Theater',
+    title: 'Interview: A 12-Person Media Shop That Refuses to Perform Metrics',
     excerpt:
       'A founder on saying no to vanity dashboards, hiring generalists who can write, and why smaller retainers can mean healthier growth.',
     read: '6 min read',
@@ -421,7 +421,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'creator-commerce-storefront-fatigue',
-    title: 'Creator Commerce Hits Storefront Fatigue as Platforms Simplify Selling',
+    title: 'Too Many Storefronts: Creator Commerce Runs Into Its Own Sprawl',
     excerpt:
       'Too many link-in-bio shops, too little brand coherence. Platforms are collapsing checkout into content while creators demand fewer tabs.',
     read: '4 min read',
@@ -465,7 +465,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'city-branding-tourism-boards',
-    title: 'Tourism Boards Hire Brand Strategists the Way Consumer Startups Do',
+    title: 'Tourism Boards Are Recruiting Brand Talent Straight From Startups',
     excerpt:
       'Place branding is no longer a logo and a tagline. Destinations want content systems, resident diplomacy, and year-round demand shaping.',
     read: '5 min read',
@@ -509,7 +509,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'motion-design-brand-guidelines',
-    title: 'Brand Guidelines Finally Added a Motion Chapter — What Good Looks Like',
+    title: 'Motion Finally Earned a Chapter in the Brand Book. Now What?',
     excerpt:
       'Static PDFs cannot govern Reels. Teams are writing tempo, easing, and sound rules so social edits stop improvising the brand.',
     read: '4 min read',
@@ -553,7 +553,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'saas-website-narrative-shift',
-    title: 'B2B SaaS Sites Trade Feature Grids for Narrative Homepages',
+    title: 'The Feature Grid Is Losing Its Place on B2B SaaS Homepages',
     excerpt:
       'Buyers skim. The winning pattern: one sharp problem story, proof modules, and a product tour that feels editorial — not a wallpaper of icons.',
     read: '5 min read',
@@ -597,7 +597,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'agency-new-business-podcast-rfp',
-    title: 'Podcast: New-Business Leads Navigate the Flood of AI-Written RFPs',
+    title: 'Podcast: Sorting Real Opportunities From AI-Generated RFPs',
     excerpt:
       'Procurement teams are generating longer questionnaires overnight. Agency BD leaders share triage rules that protect senior time.',
     read: '5 min read',
@@ -641,7 +641,7 @@ export const extraNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'print-still-matters-direct-mail',
-    title: 'Why Savvy DTC Brands Quietly Revived Dimensional Mail',
+    title: 'Dimensional Mail Made a Comeback While Nobody Was Watching',
     excerpt:
       'Inbox chaos made tactile mail feel premium again. The playbook: small lists, high craft, and QR journeys that respect the object.',
     read: '4 min read',

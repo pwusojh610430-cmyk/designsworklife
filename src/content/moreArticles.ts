@@ -4,7 +4,7 @@ import type { NewsArticle } from './articles'
 export const moreNewsArticles: NewsArticle[] = [
   {
     slug: 'nike-running-club-city-edition',
-    title: 'Nike Transforms City Running Clubs Into a Local Media Network',
+    title: 'Nike Treats Its Run Clubs Like Owned Media Channels',
     excerpt:
       'Local run clubs become owned distribution: product drops, coaching content, and retail nights without buying more social reach.',
     read: '5 min read',
@@ -56,7 +56,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'spotify-wrapped-midyear-brand-play',
-    title: 'Spotify Trials a Mid-Year Wrapped to Hold Onto Cultural Ownership',
+    title: 'Spotify Wants Wrapped Twice a Year to Keep the Culture Moment',
     excerpt:
       'Annual Wrapped made Spotify a December verb. A mid-year version asks whether nostalgia can ship twice without feeling like spam.',
     read: '4 min read',
@@ -104,7 +104,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'figma-ai-design-system-guardrails',
-    title: 'Figma AI Features Push Design Systems to Add Stronger Guardrails',
+    title: 'Design Systems Need Sharper Rules Now That Figma Ships AI',
     excerpt:
       'As generative tools draft components faster, mature teams invest in tokens, naming, and review gates — not in deleting AI from the toolbar.',
     read: '5 min read',
@@ -156,7 +156,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'patagonia-repair-tour-storytelling',
-    title: 'Patagonia Repair Tours Turn Sustainability Into a Road Show',
+    title: 'Patagonia Takes Its Repair Bench on Tour',
     excerpt:
       'Instead of another impact PDF, Patagonia puts technicians on the road — turning mending into brand theater customers can watch.',
     read: '4 min read',
@@ -196,7 +196,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'shopify-sidekick-merchant-copilot',
-    title: 'Shopify Sidekick Nudges Merchants Toward Copilot-Style Commerce',
+    title: 'Merchants Are Learning to Run Stores Alongside Shopify Sidekick',
     excerpt:
       'AI assistants inside admin dashboards change what “marketing agency” means for mid-market eCommerce brands.',
     read: '5 min read',
@@ -248,7 +248,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'agency-pitch-decks-get-shorter',
-    title: 'Why Leading Agencies Are Cutting Pitch Decks Nearly in Half',
+    title: 'The Shrinking Pitch Deck: Why Top Shops Cut the Page Count',
     excerpt:
       'Procurement still wants process, but buyers increasingly reward clarity, case proof, and a point of view — not 80 slides of capability wallpaper.',
     read: '4 min read',
@@ -288,7 +288,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'interview-jkr-rebrands-that-stick',
-    title: 'Interview: What Makes a Rebrand Stick Once the Launch Party Ends',
+    title: 'Interview: The Unglamorous Work That Makes a Rebrand Last',
     excerpt:
       'A creative director walkthrough on systems, franchise training, and why the hardest week is month six — not launch week.',
     read: '7 min read',
@@ -345,7 +345,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'podcast-marketplace-leads-vs-inbound',
-    title: 'Podcast: Marketplace Leads vs Inbound — What Agencies Should Prioritize',
+    title: 'Podcast: Where Agency Growth Budgets Should Actually Go',
     excerpt:
       'A 28-minute conversation on bid floors, sales capacity, and when directory sponsorship beats content SEO.',
     read: '6 min read',
@@ -397,7 +397,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'target-owned-media-retail-networks',
-    title: 'Target Grows Retail Media Without Turning Stores Into Billboard Walls',
+    title: 'Target Expands Retail Media While Keeping Its Aisles Shoppable',
     excerpt:
       'Retail media revenue is easy to chase and easy to ruin. Target’s latest kit tries to keep the aisle shoppable while brands buy attention.',
     read: '5 min read',
@@ -437,7 +437,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'notion-enterprise-design-ops',
-    title: "Notion's Enterprise Push Reads More Like a Design Ops Story",
+    title: "Behind Notion’s Enterprise Play Is a Design Ops Problem",
     excerpt:
       'Templates, permissions, and wiki hygiene — not another feature launch — decide whether knowledge tools survive company scale.',
     read: '4 min read',
@@ -477,7 +477,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'canva-print-renaissance-smb',
-    title: "Canva's Print Push Shows SMBs That Physical Still Converts",
+    title: "Small Businesses Rediscover Print, and Canva Is Selling the Paper",
     excerpt:
       'Menus, packaging inserts, and event signage are back in the funnel — and design platforms are chasing that spend.',
     read: '4 min read',
@@ -517,7 +517,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'openai-brand-safety-playbook',
-    title: 'Brand Safety Playbooks Get a Fresh 2026 Rewrite for the OpenAI Era',
+    title: 'Brand Safety Rules Are Being Rewritten for Generative Search',
     excerpt:
       'Hallucinations, deepfakes, and scraped style concerns push brand safety beyond keyword blocklists into model governance.',
     read: '5 min read',
@@ -561,7 +561,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'airbnb-photo-standards-hosts',
-    title: 'Airbnb Tightens Photo Standards and Accidentally Drafts a Design Brief',
+    title: 'Airbnb’s Stricter Photo Rules Read Like a Design Brief',
     excerpt:
       'Hosting photography rules are becoming a taste curriculum: light, angles, and honesty as conversion features.',
     read: '4 min read',
@@ -601,7 +601,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'duolingo-vs-babbel-brand-voice',
-    title: 'Babbel Doubles Down on Adult Seriousness While Duolingo Owns Chaos',
+    title: 'Two Language Apps, Two Personalities: Babbel Goes Grown-Up',
     excerpt:
       'Two language apps, two brand voices — a case study in choosing a lane and refusing to borrow the competitor’s jokes.',
     read: '4 min read',
@@ -641,7 +641,7 @@ export const moreNewsArticles: NewsArticle[] = [
   },
   {
     slug: 'meta-advantage-plus-creative-fatigue',
-    title: 'Meta Advantage+ Fatigue Pushes Brands Back Toward Creative Testing',
+    title: 'Automation Plateaued, So Brands Went Back to Testing Creative',
     excerpt:
       'Automation promised less busywork. Creative teams are rediscovering that machine allocation still needs human variation.',
     read: '5 min read',
