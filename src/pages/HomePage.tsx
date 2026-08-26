@@ -30,6 +30,36 @@ function filterNews(tab: string) {
   return newsArticles.filter((n) => n.topics.includes(tab))
 }
 
+function projectTypeIcon(type: string) {
+  const t = type.toLowerCase()
+  if (t.includes('marketing') || t.includes('paid') || t.includes('seo')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a3.5 3.5 0 0 0-1.5-2.85v5.7A3.5 3.5 0 0 0 16.5 12zM15 6.06v1.55a5.5 5.5 0 0 1 0 8.78v1.55A7 7 0 0 0 15 6.06z" />
+      </svg>
+    )
+  }
+  if (t.includes('sales') || t.includes('brand')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M10 2h4l1 4h5v2l-2 1.2V20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-10.8L4 8V6h5l1-4zm2 8a3 3 0 1 0 .01 0z" />
+      </svg>
+    )
+  }
+  if (t.includes('website') || t.includes('web') || t.includes('ui') || t.includes('ecommerce')) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-5v2h2v2H7v-2h2v-2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8h14V7H5z" />
+      </svg>
+    )
+  }
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2l2.4 5.7L20.5 9l-4.3 3.8L17.5 19 12 15.8 6.5 19l1.3-6.2L3.5 9l6.1-1.3L12 2z" />
+    </svg>
+  )
+}
+
 export function HomePage() {
   const [tab, setTab] = useState<string>('latest')
   const activeTab = newsTabs.find((t) => t.id === tab) ?? newsTabs[0]
@@ -183,10 +213,10 @@ export function HomePage() {
       <section className="marketplace-section" aria-labelledby="marketplace-projects-title">
         <div className="container marketplace-section-inner">
           <h2 id="marketplace-projects-title" className="marketplace-section-title">
-            Latest Marketplace Projects
+            Latest <span>Marketplace</span> Projects
           </h2>
-          <div className="project-table-wrap">
-            <table className="project-table">
+          <div className="mp-card">
+            <table className="mp-table">
               <thead>
                 <tr>
                   <th scope="col">Project type</th>
@@ -199,14 +229,21 @@ export function HomePage() {
                 {marketplaceProjects.slice(0, 4).map((p) => (
                   <tr key={p.id}>
                     <td>
-                      <Link to="/marketplace" className="project-type-link">
-                        <strong>{p.type}</strong>
-                        <span className="project-id">ID {p.id}</span>
-                      </Link>
+                      <div className="mp-type">
+                        <span className="mp-type-icon" aria-hidden="true">
+                          {projectTypeIcon(p.type)}
+                        </span>
+                        <div className="mp-type-text">
+                          <strong>{p.type}</strong>
+                          <span className="mp-id">ID {p.id}</span>
+                        </div>
+                      </div>
                     </td>
                     <td>{p.industry}</td>
                     <td>{p.description}</td>
-                    <td className="project-budget">{p.budget}</td>
+                    <td>
+                      <span className="mp-budget">{p.budget}</span>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -216,6 +253,11 @@ export function HomePage() {
             <Link className="btn-skew" to="/marketplace/project-brief">
               <span className="btn-skew-inner">
                 Post Your Project <span aria-hidden="true">›</span>
+              </span>
+            </Link>
+            <Link className="btn-skew btn-skew-outline" to="/marketplace">
+              <span className="btn-skew-inner">
+                See All Active Projects <span aria-hidden="true">›</span>
               </span>
             </Link>
           </div>
