@@ -5,41 +5,37 @@ import { AgencyDirectoryBlock } from '../components/AgencyDirectoryBlock'
 import { openNewsletter } from '../components/Layout'
 
 const newsTabs = [
-  { id: 'latest', label: 'Latest' },
-  { id: 'ai', label: 'AI' },
-  { id: 'creative', label: 'Creative' },
-  { id: 'marketing', label: 'Marketing' },
-  { id: 'ecommerce', label: 'Ecommerce' },
-  { id: 'technology', label: 'Technology' },
+  { id: 'latest', label: 'Latest', topicPath: '/news' },
+  { id: 'ai', label: 'AI', topicPath: '/news/topic/tech' },
+  { id: 'creative', label: 'Creative', topicPath: '/news/topic/creative' },
+  { id: 'marketing', label: 'Marketing', topicPath: '/news/topic/marketing' },
+  { id: 'ecommerce', label: 'Ecommerce', topicPath: '/news/topic/ecommerce' },
+  { id: 'technology', label: 'Technology', topicPath: '/news/topic/tech' },
 ] as const
 
 function filterNews(tab: string) {
   if (tab === 'latest') return newsArticles
   if (tab === 'ai') {
-    return newsArticles.filter(
-      (n) =>
-        n.topics.includes('tech') ||
-        /ai|automation|model/i.test(`${n.title} ${n.excerpt}`),
+    return newsArticles.filter((n) =>
+      /\bai\b|artificial intelligence|automation|machine learning|advantage\+|model ops|prompt engineer|generative/i.test(
+        `${n.title} ${n.excerpt} ${n.category} ${n.topics.join(' ')}`,
+      ),
     )
   }
   if (tab === 'technology') return newsArticles.filter((n) => n.topics.includes('tech'))
   if (tab === 'ecommerce') return newsArticles.filter((n) => n.topics.includes('ecommerce'))
+  if (tab === 'creative') return newsArticles.filter((n) => n.topics.includes('creative'))
+  if (tab === 'marketing') return newsArticles.filter((n) => n.topics.includes('marketing'))
   return newsArticles.filter((n) => n.topics.includes(tab))
 }
 
 export function HomePage() {
   const [tab, setTab] = useState<string>('latest')
+  const activeTab = newsTabs.find((t) => t.id === tab) ?? newsTabs[0]
   const filtered = filterNews(tab)
-  const featured = filtered[0] ?? newsArticles[0]
-  const pinSlugs = ['ipsy-beauty-product-testers', 'starbucks-psl-martha-stewart-unicorn']
-  const rest = (filtered.length > 1 ? filtered.slice(1) : newsArticles.slice(1)).filter(
-    (n) => n.slug !== featured.slug,
-  )
-  const pinned = pinSlugs
-    .map((slug) => rest.find((n) => n.slug === slug) ?? newsArticles.find((n) => n.slug === slug))
-    .filter(Boolean) as typeof newsArticles
-  const fillers = rest.filter((n) => !pinSlugs.includes(n.slug))
-  const side = [...pinned, ...fillers].slice(0, 4)
+  const list = filtered.length ? filtered : newsArticles
+  const featured = list[0]
+  const side = list.slice(1, 5)
 
   function onTabKeyDown(e: KeyboardEvent<HTMLDivElement>) {
     const idx = newsTabs.findIndex((t) => t.id === tab)
@@ -111,16 +107,28 @@ export function HomePage() {
             </button>
           </div>
 
-          <div className="news-home-grid" id="news-panel" role="tabpanel" aria-labelledby={`news-tab-${tab}`}>
+          <div
+            className="news-home-grid"
+            id="news-panel"
+            role="tabpanel"
+            aria-labelledby={`news-tab-${tab}`}
+            key={tab}
+          >
             <article className="news-featured">
               <Link to={`/news/${featured.slug}`} className="news-featured-link">
                 <div className="news-media">
-                  <img src={featured.hero} alt={featured.heroAlt} width={800} height={500} decoding="async" />
+                  <img
+                    src={featured.hero}
+                    alt={featured.heroAlt}
+                    width={800}
+                    height={500}
+                    decoding="async"
+                  />
                 </div>
                 <h2>{featured.title}</h2>
               </Link>
-              <Link to="/news" className="news-more-link">
-                View more latest news <span aria-hidden="true">›</span>
+              <Link to={activeTab.topicPath} className="news-more-link">
+                View more {activeTab.label.toLowerCase()} news <span aria-hidden="true">›</span>
               </Link>
             </article>
 
