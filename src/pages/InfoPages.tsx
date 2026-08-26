@@ -8,23 +8,41 @@ export function AboutPage() {
   return (
     <>
       <PageHero
-        title="DesignsWorkLife Is A B2B Marketplace Connecting Businesses With Agencies"
-        subtitle="The leading B2B Marketplace connecting businesses with agencies"
-        crumbs={[{ label: 'Home', to: '/' }, { label: 'About Us' }]}
+        title="Team & Story"
+        subtitle="A B2B marketplace connecting businesses with agencies across software, design, and marketing."
+        crumbs={[{ label: 'Home', to: '/' }, { label: 'Team & Story' }]}
       />
       <section className="section">
         <div className="container prose">
           <h2>What is DesignsWorkLife?</h2>
           <p>
-            We analyze and rank thousands of service providers to help brands connect with the best
-            agencies in marketing, web design, branding, software, & tech.
+            DesignsWorkLife analyzes and ranks thousands of service providers so brands can discover,
+            compare, and connect with the right agencies — spanning digital marketing, web design,
+            branding, software, and tech.
           </p>
-          <h2>Why us?</h2>
+          <h2>Our story</h2>
           <p>
             Since launching in 2017, DesignsWorkLife — directed by digital agency expert Gianluca
-            Ferruggia — has evolved into a global network of over 30,000 professional agencies
-            spanning at least 50 countries.
+            Ferruggia — has grown into a global network of over 30,000 professional agencies across
+            50+ countries. We combine directory rankings, Marketplace matching, Best Designs awards,
+            and daily B2B news into one discovery platform.
           </p>
+          <h2>What we run</h2>
+          <ul>
+            <li>
+              <strong>Agency Directory</strong> — category rankings grounded in a transparent Base
+              Score methodology
+            </li>
+            <li>
+              <strong>Marketplace</strong> — free brand matching with vetted agency introductions
+            </li>
+            <li>
+              <strong>Best Designs</strong> — award showcases that elevate standout creative work
+            </li>
+            <li>
+              <strong>News</strong> — trends and insights for decision-makers growing brands
+            </li>
+          </ul>
           <h2>Meet the team</h2>
           <div className="card-grid">
             {team.map((m) => (
@@ -36,9 +54,10 @@ export function AboutPage() {
           </div>
           <h2>Want to work here?</h2>
           <p>
-            Reach out to <strong>jobs@designsworklife.example</strong>.
+            Reach out to <strong>jobs@designsworklife.example</strong> or{' '}
+            <Link to="/contact-us">Contact Us</Link>.
           </p>
-          <h2>Verified Agencies by Service Categories</h2>
+          <h2>Verified agencies by service</h2>
           {categories.map((g) => (
             <div key={g.name} style={{ marginBottom: '1rem' }}>
               <h3>{g.name}</h3>
@@ -61,33 +80,41 @@ export function MethodologyPage() {
   return (
     <>
       <PageHero
-        title="How Agencies Are Ranked To Optimize User-Agency Fit"
-        subtitle="Organic Rankings Research Methodology"
+        title="Agency Ranking Methodology"
+        subtitle="How we optimize user–agency fit with a transparent Base Score."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Methodology' }]}
       />
       <section className="section">
         <div className="container prose">
           <p>
-            Our Agency Ranking Methodology is established on a Base Score. The five most important
-            factors:
+            Our Agency Ranking Methodology is built on a Base Score. Five signals matter most when
+            brands compare partners:
           </p>
           <ul>
             <li>
-              <strong>Reviews</strong> — Bayesian smoothing with a 3.5-star baseline
+              <strong>Reviews</strong> — Bayesian smoothing with a 3.5-star baseline so tiny sample
+              sizes cannot dominate a category
             </li>
             <li>
-              <strong>Portfolio</strong> — completed projects with samples and case studies
+              <strong>Portfolio</strong> — completed projects with samples and case studies that
+              prove delivery, not just claims
             </li>
             <li>
-              <strong>Awards / Press</strong> — reputation signals
+              <strong>Awards / Press</strong> — independent reputation signals from juries and media
             </li>
             <li>
-              <strong>Team bios</strong> — expertise on display
+              <strong>Team bios</strong> — named expertise, leadership, and delivery capacity
             </li>
             <li>
-              <strong>Top Services</strong> — up to 10 services; order affects specialization
+              <strong>Top Services</strong> — up to 10 services; order communicates specialization
             </li>
           </ul>
+          <h2>How scores are interpreted</h2>
+          <p>
+            Example: one five-star review alone does not equal a perfect listing. With Bayesian
+            smoothing, a single five-star review may surface near 4.3 stars, while twenty-nine
+            five-star reviews approach a full 5.0.
+          </p>
           <h2>Agency badges</h2>
           <div className="chip-row">
             <span className="badge verified">Verified</span>
@@ -96,11 +123,23 @@ export function MethodologyPage() {
             <span className="badge">Thought Leader</span>
           </div>
           <p style={{ marginTop: '1rem' }}>
-            Example: 1 five-star review → Bayesian 4.3 stars. 29 five-star reviews → 5 stars.
+            Badges highlight verification status, specialty leadership, and awards — they never
+            replace the Base Score, and paid placements are labeled separately from organic
+            rankings.
           </p>
-          <Link className="btn btn-primary" to="/benefits">
-            Add top services now
-          </Link>
+          <h2>Keep your profile competitive</h2>
+          <p>
+            Update portfolios, invite authentic reviews, and order top services carefully. Brands
+            filter by category, location, expertise, and budget every day.
+          </p>
+          <div className="info-cta-row" style={{ marginTop: '1.5rem' }}>
+            <Link className="btn btn-primary" to="/submit-agency">
+              Submit your agency
+            </Link>
+            <Link className="btn btn-outline" to="/benefits">
+              See listing benefits
+            </Link>
+          </div>
         </div>
       </section>
     </>

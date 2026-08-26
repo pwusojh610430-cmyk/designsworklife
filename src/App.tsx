@@ -21,6 +21,17 @@ import {
   ProjectBriefPage,
 } from './pages/MarketplacePages'
 import { AboutPage, ContactPage, MethodologyPage } from './pages/InfoPages'
+import {
+  AccessibilityPage,
+  AdvertisePage,
+  FaqsPage,
+  FraudProtectionPage,
+  PrivacyPage,
+  SitemapPage,
+  SponsorshipPage,
+  SubmitAgencyPage,
+  TermsPage,
+} from './pages/LegalPages'
 
 export default function App() {
   return (
@@ -52,6 +63,15 @@ export default function App() {
           <Route path="/about-us" element={<AboutPage />} />
           <Route path="/methodology" element={<MethodologyPage />} />
           <Route path="/contact-us" element={<ContactPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/accessibility" element={<AccessibilityPage />} />
+          <Route path="/fraud-protection" element={<FraudProtectionPage />} />
+          <Route path="/faqs" element={<FaqsPage />} />
+          <Route path="/advertise" element={<AdvertisePage />} />
+          <Route path="/sponsorship" element={<SponsorshipPage />} />
+          <Route path="/submit-agency" element={<SubmitAgencyPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

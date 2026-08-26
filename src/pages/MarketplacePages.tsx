@@ -361,7 +361,7 @@ export function BenefitsPage() {
             and reviews — plus free concierge matching.
           </p>
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-            <Link className="btn btn-primary" to="/contact-us">
+            <Link className="btn btn-primary" to="/submit-agency">
               Submit your agency
             </Link>
             <Link className="btn btn-outline" to="/marketplace/project-brief">

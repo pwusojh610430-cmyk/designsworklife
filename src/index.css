@@ -3235,6 +3235,121 @@ textarea {
   margin-top: 2rem;
 }
 
+.legal-prose ul {
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.legal-prose li {
+  margin: 0.35rem 0;
+}
+
+.footer-accent {
+  color: #4b01ff;
+  font-weight: 700;
+}
+
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.sitemap-col h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  color: #4b01ff;
+}
+
+.sitemap-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.sitemap-col a {
+  color: #1a2748;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sitemap-col a:hover {
+  color: #4b01ff;
+}
+
+.sitemap-categories {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid #eceef4;
+}
+
+.sitemap-categories h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  color: #1a2748;
+}
+
+.sitemap-cat-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.info-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.info-feature-card {
+  background: #fff;
+  border: 1px solid #e6eaf2;
+  border-radius: 14px;
+  padding: 1.35rem 1.4rem;
+  box-shadow: 0 8px 24px rgba(30, 40, 80, 0.04);
+}
+
+.info-feature-card h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.1rem;
+  color: #1a2748;
+}
+
+.info-feature-card p {
+  margin: 0;
+  color: #5b6478;
+  line-height: 1.55;
+}
+
+.info-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.info-faq details {
+  background: #fff;
+  border: 1px solid #e6eaf2;
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #1a2748;
+}
+
+.info-faq details p {
+  margin: 0.65rem 0 0.15rem;
+  color: #5b6478;
+  line-height: 1.55;
+}
+
 .login-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3271,7 +3386,9 @@ textarea {
   .dir-layout,
   .dir-browser-inner,
   .feat-agency-body,
-  .reviews-banner-inner {
+  .reviews-banner-inner,
+  .sitemap-grid,
+  .info-feature-grid {
     grid-template-columns: 1fr;
   }
 

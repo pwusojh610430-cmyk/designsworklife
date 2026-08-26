@@ -291,9 +291,14 @@ export function Footer() {
               <span>DESIGNSWORKLIFE</span>
             </Link>
             <p>
-              DesignsWorkLife is the premier agency directory, awards platform, and media hub
-              connecting brands with top agencies in software, app development, design, and
-              marketing. We deliver vetted reviews, insights, and trends to drive business growth.
+              DesignsWorkLife is the premier{' '}
+              <span className="footer-accent">agency directory</span>,{' '}
+              <span className="footer-accent">awards platform</span>, and media hub connecting brands
+              with top agencies in <span className="footer-accent">software</span>,{' '}
+              <span className="footer-accent">app development</span>,{' '}
+              <span className="footer-accent">design</span>, and{' '}
+              <span className="footer-accent">marketing</span>. We deliver vetted reviews, insights,
+              and trends to drive business growth.
             </p>
           </div>
 
@@ -302,15 +307,15 @@ export function Footer() {
             <Link to="/agency">Agency Categories</Link>
             <Link to="/methodology">Agency Ranking Methodology</Link>
             <Link to="/news">Latest Trends and Insights</Link>
-            <Link to="/marketplace/faqs">FAQs</Link>
-            <Link to="/benefits">Advertise</Link>
+            <Link to="/faqs">FAQs</Link>
+            <Link to="/advertise">Advertise</Link>
           </div>
 
           <div className="footer-col">
             <h4>For Agencies</h4>
             <Link to="/benefits">Benefits Of Listing With Us</Link>
-            <Link to="/benefits">Submit An Agency</Link>
-            <Link to="/marketplace/membership">Sponsorship</Link>
+            <Link to="/submit-agency">Submit An Agency</Link>
+            <Link to="/sponsorship">Sponsorship</Link>
             <Link to="/agency">All Agencies</Link>
           </div>
 
@@ -351,11 +356,11 @@ export function Footer() {
         <div className="footer-bottom">
           <div className="footer-legal">
             <div className="footer-legal-links">
-              <Link to="/">Sitemap</Link>
-              <Link to="/methodology">Terms of Use &amp; IP</Link>
-              <Link to="/methodology">Privacy Policy</Link>
-              <Link to="/contact-us">Accessibility</Link>
-              <Link to="/contact-us">Fraud Protection</Link>
+              <Link to="/sitemap">Sitemap</Link>
+              <Link to="/terms">Terms of Use &amp; IP</Link>
+              <Link to="/privacy">Privacy Policy</Link>
+              <Link to="/accessibility">Accessibility</Link>
+              <Link to="/fraud-protection">Fraud Protection</Link>
             </div>
             <p>© DesignsWorkLife {year}. All Rights Reserved</p>
           </div>
