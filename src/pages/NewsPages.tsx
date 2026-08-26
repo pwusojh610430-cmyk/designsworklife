@@ -347,13 +347,37 @@ export function NewsArticlePage() {
           </div>
 
           <aside className="article-side">
+            <div className="side-card side-promo">
+              <p className="side-promo-title">
+                <strong>Promote</strong> your brand
+                <br />& generate <strong>results</strong>
+              </p>
+              <p className="side-promo-sub">On DesignsWorkLife</p>
+              <Link className="btn btn-primary btn-sm" to="/advertise">
+                Contact us ›
+              </Link>
+            </div>
+
+            <div className="side-card side-card-gradient">
+              <h3>Got a project?</h3>
+              <p>Receive competing quotes from verified agencies.</p>
+              <Link className="btn btn-green btn-sm" to="/marketplace">
+                Get proposals ›
+              </Link>
+            </div>
+
             <div className="side-card">
-              <h3>Latest Brand Stories</h3>
+              <h3>Trending</h3>
               <ul className="side-list">
                 {others.slice(0, 6).map((n) => (
                   <li key={n.slug}>
-                    <Link to={`/news/${n.slug}`}>{n.title}</Link>
-                    <span className="meta">{n.ago}</span>
+                    <Link to={`/news/${n.slug}`}>
+                      <img src={n.hero} alt={n.heroAlt} loading="lazy" />
+                      <span>
+                        {n.title}
+                        <span className="meta">{n.ago}</span>
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -375,7 +399,7 @@ export function NewsArticlePage() {
               <p className="meta">
                 Weekly brand and agency intelligence, read by 68,000+ B2B decision-makers.
               </p>
-              <Link className="btn btn-primary" to="/contact-us">
+              <Link className="btn btn-primary btn-sm" to="/contact-us">
                 Subscribe
               </Link>
             </div>
