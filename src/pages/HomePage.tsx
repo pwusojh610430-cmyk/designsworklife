@@ -178,41 +178,6 @@ export function HomePage() {
 
       <AgencyDirectoryBlock />
 
-      <section className="hire-section" aria-labelledby="hire-agency-title">
-        <div className="hire-panel">
-          <div className="hire-copy">
-            <h2 id="hire-agency-title">Looking to Hire an Agency?</h2>
-            <p>
-              Receive quotes from vetted service providers. Our experts will curate a list of
-              agencies suitable to your specific needs.
-            </p>
-            <Link className="btn btn-ghost hire-cta" to="/marketplace/project-brief">
-              Tell Us About Your Project
-            </Link>
-          </div>
-          <ol className="hire-steps">
-            <li className="hire-step">
-              <span className="step-num" aria-hidden="true">
-                1
-              </span>
-              <span>Specify your budget, timeline and project requirements</span>
-            </li>
-            <li className="hire-step">
-              <span className="step-num" aria-hidden="true">
-                2
-              </span>
-              <span>Our experts curate a list of up to 5 most qualified candidate agencies</span>
-            </li>
-            <li className="hire-step">
-              <span className="step-num" aria-hidden="true">
-                3
-              </span>
-              <span>We connect you with them so you can choose the most suitable partner</span>
-            </li>
-          </ol>
-        </div>
-      </section>
-
       <ReviewsBanner />
 
       <section className="section">
