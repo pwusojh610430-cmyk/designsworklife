@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { bestDesignLinks, categories, newsTopics } from '../data'
 
@@ -6,7 +6,7 @@ export function Logo() {
   return (
     <Link to="/" className="logo">
       <span className="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" width="28" height="28">
+        <svg viewBox="0 0 32 32" width="26" height="26">
           <path
             fill="currentColor"
             d="M16 2c2.8 4.2 8.5 7.2 8.5 13.2C24.5 21.8 20.8 26 16 28c-4.8-2-8.5-6.2-8.5-12.8C7.5 9.2 13.2 6.2 16 2z"
@@ -23,8 +23,15 @@ export function Logo() {
 
 function Chevron() {
   return (
-    <svg className="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
-      <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <svg className="nav-chevron" width="8" height="5" viewBox="0 0 8 5" aria-hidden="true">
+      <path
+        d="M1 1l3 3 3-3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
@@ -33,17 +40,43 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const headerRef = useRef<HTMLElement>(null)
+  const closeTimer = useRef<number | null>(null)
 
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
-      if (!headerRef.current?.contains(e.target as Node)) setOpenMenu(null)
+      if (!headerRef.current?.contains(e.target as Node)) {
+        setOpenMenu(null)
+        setMobileOpen(false)
+      }
     }
     document.addEventListener('click', onDocClick)
     return () => document.removeEventListener('click', onDocClick)
   }, [])
 
+  function clearCloseTimer() {
+    if (closeTimer.current != null) {
+      window.clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+  }
+
+  function openMenuSoon(id: string) {
+    clearCloseTimer()
+    setOpenMenu(id)
+  }
+
+  function closeMenuSoon() {
+    clearCloseTimer()
+    closeTimer.current = window.setTimeout(() => setOpenMenu(null), 140)
+  }
+
   function toggleMenu(id: string) {
     setOpenMenu((cur) => (cur === id ? null : id))
+  }
+
+  function closeAll() {
+    setOpenMenu(null)
+    setMobileOpen(false)
   }
 
   return (
@@ -58,6 +91,7 @@ export function Header() {
             <button
               className="menu-toggle"
               aria-label="Menu"
+              aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
             >
               ☰
@@ -68,197 +102,151 @@ export function Header() {
 
       <div className="header-main">
         <div className="container header-main-inner">
-        <nav className={`main-nav ${mobileOpen ? 'open' : ''}`}>
-          {/* TRENDING BRAND NEWS */}
-          <div className={`nav-item ${openMenu === 'news' ? 'open' : ''}`}>
-            <button
-              type="button"
-              className="nav-trigger"
-              aria-expanded={openMenu === 'news'}
-              onClick={() => toggleMenu('news')}
+          <nav className={`main-nav ${mobileOpen ? 'open' : ''}`}>
+            <div
+              className={`nav-item ${openMenu === 'news' ? 'open' : ''}`}
+              onMouseEnter={() => openMenuSoon('news')}
+              onMouseLeave={closeMenuSoon}
             >
-              <NavLink to="/news" onClick={() => setMobileOpen(false)}>
-                Trending Brand News
-              </NavLink>
-              <Chevron />
-            </button>
-            <div className="mega-panel mega-panel-news">
-              <div className="mega-inner">
-                <div className="mega-col">
-                  <h4>News Topics</h4>
-                  {newsTopics.slice(0, 6).map((t) => (
-                    <Link
-                      key={t.slug}
-                      to={`/news/topic/${t.slug}`}
-                      onClick={() => {
-                        setOpenMenu(null)
-                        setMobileOpen(false)
-                      }}
-                    >
-                      {t.label}
+              <div className="nav-trigger-row">
+                <Link to="/news" className="nav-trigger" onClick={closeAll}>
+                  Trending Brand News
+                </Link>
+                <button
+                  type="button"
+                  className="nav-caret"
+                  aria-label="Trending Brand News menu"
+                  aria-expanded={openMenu === 'news'}
+                  onClick={() => toggleMenu('news')}
+                >
+                  <Chevron />
+                </button>
+              </div>
+              <div className="mega-panel mega-panel-news">
+                <div className="mega-inner">
+                  <div className="mega-col">
+                    <h4>News Topics</h4>
+                    {newsTopics.slice(0, 6).map((t) => (
+                      <Link key={t.slug} to={`/news/topic/${t.slug}`} onClick={closeAll}>
+                        {t.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="mega-col">
+                    <h4>More Coverage</h4>
+                    {newsTopics.slice(6).map((t) => (
+                      <Link key={t.slug} to={`/news/topic/${t.slug}`} onClick={closeAll}>
+                        {t.label}
+                      </Link>
+                    ))}
+                    <Link to="/news" className="mega-view-all" onClick={closeAll}>
+                      View All News →
                     </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={`nav-item ${openMenu === 'agency' ? 'open' : ''}`}
+              onMouseEnter={() => openMenuSoon('agency')}
+              onMouseLeave={closeMenuSoon}
+            >
+              <div className="nav-trigger-row">
+                <Link to="/agency" className="nav-trigger" onClick={closeAll}>
+                  Agency Directory
+                </Link>
+                <button
+                  type="button"
+                  className="nav-caret"
+                  aria-label="Agency Directory menu"
+                  aria-expanded={openMenu === 'agency'}
+                  onClick={() => toggleMenu('agency')}
+                >
+                  <Chevron />
+                </button>
+              </div>
+              <div className="mega-panel mega-panel-agency">
+                <div className="mega-inner mega-agency-grid">
+                  {categories.map((group) => (
+                    <div className="mega-col" key={group.name}>
+                      <h4>{group.name}</h4>
+                      {group.items.map((item) => (
+                        <Link key={item.slug} to={`/agency/${item.slug}`} onClick={closeAll}>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                 </div>
-                <div className="mega-col">
-                  <h4>More Coverage</h4>
-                  {newsTopics.slice(6).map((t) => (
-                    <Link
-                      key={t.slug}
-                      to={`/news/topic/${t.slug}`}
-                      onClick={() => {
-                        setOpenMenu(null)
-                        setMobileOpen(false)
-                      }}
-                    >
-                      {t.label}
-                    </Link>
-                  ))}
-                  <Link
-                    to="/news"
-                    className="mega-view-all"
-                    onClick={() => {
-                      setOpenMenu(null)
-                      setMobileOpen(false)
-                    }}
-                  >
-                    View All News →
+                <div className="mega-footer">
+                  <Link to="/agency" onClick={closeAll}>
+                    View All Service Providers
+                  </Link>
+                  <Link to="/benefits" onClick={closeAll}>
+                    List Your Agency
                   </Link>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* AGENCY DIRECTORY */}
-          <div className={`nav-item ${openMenu === 'agency' ? 'open' : ''}`}>
-            <button
-              type="button"
-              className="nav-trigger"
-              aria-expanded={openMenu === 'agency'}
-              onClick={() => toggleMenu('agency')}
+            <Link to="/marketplace" className="nav-link-plain" onClick={closeAll}>
+              Marketplace
+            </Link>
+
+            <div
+              className={`nav-item ${openMenu === 'awards' ? 'open' : ''}`}
+              onMouseEnter={() => openMenuSoon('awards')}
+              onMouseLeave={closeMenuSoon}
             >
-              <NavLink to="/agency" onClick={() => setMobileOpen(false)}>
-                Agency Directory
-              </NavLink>
-              <Chevron />
-            </button>
-            <div className="mega-panel mega-panel-agency">
-              <div className="mega-inner mega-agency-grid">
-                {categories.map((group) => (
-                  <div className="mega-col" key={group.name}>
-                    <h4>{group.name}</h4>
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.slug}
-                        to={`/agency/${item.slug}`}
-                        onClick={() => {
-                          setOpenMenu(null)
-                          setMobileOpen(false)
-                        }}
-                      >
-                        {item.label}
+              <div className="nav-trigger-row">
+                <Link to="/best-designs" className="nav-trigger" onClick={closeAll}>
+                  Best Designs
+                </Link>
+                <button
+                  type="button"
+                  className="nav-caret"
+                  aria-label="Best Designs menu"
+                  aria-expanded={openMenu === 'awards'}
+                  onClick={() => toggleMenu('awards')}
+                >
+                  <Chevron />
+                </button>
+              </div>
+              <div className="mega-panel mega-panel-awards">
+                <div className="mega-inner">
+                  <div className="mega-col">
+                    <h4>Award Categories</h4>
+                    {bestDesignLinks.slice(0, 7).map((l) => (
+                      <Link key={l.to} to={l.to} onClick={closeAll}>
+                        {l.label}
                       </Link>
                     ))}
                   </div>
-                ))}
-              </div>
-              <div className="mega-footer">
-                <Link
-                  to="/agency"
-                  onClick={() => {
-                    setOpenMenu(null)
-                    setMobileOpen(false)
-                  }}
-                >
-                  View All Service Providers
-                </Link>
-                <Link
-                  to="/benefits"
-                  onClick={() => {
-                    setOpenMenu(null)
-                    setMobileOpen(false)
-                  }}
-                >
-                  List Your Agency
-                </Link>
+                  <div className="mega-col">
+                    <h4>Participate</h4>
+                    {bestDesignLinks.slice(7).map((l) => (
+                      <Link key={l.to} to={l.to} onClick={closeAll}>
+                        {l.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* MARKETPLACE — no dropdown */}
-          <NavLink
-            to="/marketplace"
-            className="nav-link-plain"
-            onClick={() => {
-              setOpenMenu(null)
-              setMobileOpen(false)
-            }}
-          >
-            Marketplace
-          </NavLink>
-
-          {/* BEST DESIGNS */}
-          <div className={`nav-item ${openMenu === 'awards' ? 'open' : ''}`}>
-            <button
-              type="button"
-              className="nav-trigger"
-              aria-expanded={openMenu === 'awards'}
-              onClick={() => toggleMenu('awards')}
+            <Link
+              to="/marketplace/project-brief"
+              className="btn btn-green nav-mobile-find"
+              onClick={closeAll}
             >
-              <NavLink to="/best-designs" onClick={() => setMobileOpen(false)}>
-                Best Designs
-              </NavLink>
-              <Chevron />
-            </button>
-            <div className="mega-panel mega-panel-awards">
-              <div className="mega-inner">
-                <div className="mega-col">
-                  <h4>Award Categories</h4>
-                  {bestDesignLinks.slice(0, 7).map((l) => (
-                    <Link
-                      key={l.to}
-                      to={l.to}
-                      onClick={() => {
-                        setOpenMenu(null)
-                        setMobileOpen(false)
-                      }}
-                    >
-                      {l.label}
-                    </Link>
-                  ))}
-                </div>
-                <div className="mega-col">
-                  <h4>Participate</h4>
-                  {bestDesignLinks.slice(7).map((l) => (
-                    <Link
-                      key={l.to}
-                      to={l.to}
-                      onClick={() => {
-                        setOpenMenu(null)
-                        setMobileOpen(false)
-                      }}
-                    >
-                      {l.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+              Find an Agency
+            </Link>
+          </nav>
 
-          <Link
-            to="/marketplace/project-brief"
-            className="btn btn-green nav-mobile-find"
-            onClick={() => {
-              setOpenMenu(null)
-              setMobileOpen(false)
-            }}
-          >
+          <Link to="/marketplace/project-brief" className="btn btn-green header-find">
             Find an Agency
           </Link>
-        </nav>
-        <Link to="/marketplace/project-brief" className="btn btn-green header-find">
-          Find an Agency
-        </Link>
         </div>
       </div>
     </header>
