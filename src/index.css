@@ -2492,7 +2492,7 @@ p {
 
 .prefooter-cloud {
   position: relative;
-  min-height: clamp(420px, 52vw, 620px);
+  min-height: clamp(460px, 56vw, 680px);
   display: grid;
   place-items: center;
   margin-top: 1rem;
@@ -2512,9 +2512,8 @@ p {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  width: 100%;
-  max-width: 900px;
-  height: 380px;
+  width: min(1180px, calc(100% - 2rem));
+  height: clamp(400px, 48vw, 560px);
 }
 
 .prefooter-logo {
@@ -2523,95 +2522,85 @@ p {
   place-items: center;
 }
 
+/* Wide scattered layout matching reference */
 .prefooter-logo-slot-1 {
-  left: 2%;
-  top: 12%;
+  left: 3%;
+  top: 6%;
 }
 .prefooter-logo-slot-2 {
-  left: 24%;
-  top: 4%;
+  left: 28%;
+  top: 2%;
 }
 .prefooter-logo-slot-3 {
-  left: 48%;
-  top: 8%;
+  left: 58%;
+  top: 5%;
 }
 .prefooter-logo-slot-4 {
-  right: 4%;
-  top: 14%;
+  left: 8%;
+  top: 28%;
 }
 .prefooter-logo-slot-5 {
-  left: 0%;
-  top: 42%;
+  left: 36%;
+  top: 24%;
 }
 .prefooter-logo-slot-6 {
-  left: 22%;
-  top: 36%;
+  left: 62%;
+  top: 30%;
 }
 .prefooter-logo-slot-7 {
-  right: 22%;
-  top: 38%;
+  right: 6%;
+  top: 18%;
 }
 .prefooter-logo-slot-8 {
-  right: 0%;
-  top: 44%;
+  right: 2%;
+  top: 42%;
 }
 .prefooter-logo-slot-9 {
-  left: 6%;
-  bottom: 10%;
+  left: 5%;
+  bottom: 18%;
 }
 .prefooter-logo-slot-10 {
   left: 30%;
-  bottom: 4%;
+  bottom: 10%;
 }
 .prefooter-logo-slot-11 {
-  right: 28%;
-  bottom: 8%;
+  left: 54%;
+  bottom: 16%;
 }
 .prefooter-logo-slot-12 {
-  right: 4%;
-  bottom: 14%;
+  right: 8%;
+  bottom: 12%;
 }
 
-.prefooter-logo-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 1rem 1.45rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(210, 220, 235, 0.95);
-  box-shadow: 0 8px 20px rgba(40, 60, 100, 0.08);
-  line-height: 1;
-  white-space: nowrap;
-  backdrop-filter: blur(6px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.prefooter-logo-chip img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
+.prefooter-logo-mark {
   display: block;
-  flex-shrink: 0;
+  line-height: 0;
+  filter: drop-shadow(0 6px 14px rgba(40, 70, 120, 0.08));
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+  opacity: 0.95;
 }
 
-.prefooter-logo-name {
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: #1a2748;
+.prefooter-logo-mark svg {
+  width: clamp(148px, 14vw, 210px);
+  height: auto;
+  display: block;
 }
 
-.prefooter-logo-chip.is-italic {
-  font-style: italic;
-  font-weight: 700;
+.prefooter-logo-slot-1 .prefooter-logo-mark svg,
+.prefooter-logo-slot-3 .prefooter-logo-mark svg,
+.prefooter-logo-slot-7 .prefooter-logo-mark svg {
+  width: clamp(160px, 15vw, 230px);
 }
 
-.prefooter-logo:hover .prefooter-logo-chip {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 26px rgba(40, 60, 100, 0.14);
-  border-color: #c8b8ff;
+.prefooter-logo-slot-5 .prefooter-logo-mark svg,
+.prefooter-logo-slot-10 .prefooter-logo-mark svg {
+  width: clamp(170px, 16vw, 240px);
+}
+
+.prefooter-logo:hover .prefooter-logo-mark {
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 10px 20px rgba(40, 70, 120, 0.14));
+  opacity: 1;
 }
 
 .prefooter-float-1 {
@@ -3639,21 +3628,21 @@ textarea {
     height: auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    padding: 0.25rem 0 0.5rem;
+    gap: 1.25rem 0.75rem;
+    padding: 1rem 0 1.5rem;
+    place-items: center;
   }
 
   .prefooter-logo {
     position: static;
   }
 
-  .prefooter-logo-chip {
-    width: 100%;
-    justify-content: center;
+  .prefooter-logo-mark svg {
+    width: min(170px, 42vw);
   }
 
   .prefooter-cloud {
-    min-height: clamp(300px, 78vw, 420px);
+    min-height: clamp(340px, 88vw, 480px);
     background-size: 140% auto;
   }
 
@@ -3680,7 +3669,7 @@ textarea {
   .news-featured-link:hover .news-media img,
   .news-side-card:hover .news-media img,
   .awards-showcase-media:hover img,
-  .prefooter-logo:hover .prefooter-logo-chip {
+  .prefooter-logo:hover .prefooter-logo-mark {
     transform: none;
   }
 
