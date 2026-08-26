@@ -34,7 +34,7 @@ export function PreFooterBlock() {
         <div className="prefooter-newsletter">
           <div className="prefooter-newsletter-copy">
             <span className="prefooter-mail-icon" aria-hidden="true">
-              <BrandMark size={40} />
+              <BrandMark size={58} />
             </span>
             <div>
               <h2>
