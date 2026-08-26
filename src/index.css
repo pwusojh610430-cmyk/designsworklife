@@ -3578,12 +3578,12 @@ textarea {
   }
 
   .prefooter-cloud {
-    min-height: 0;
+    min-height: 300px;
   }
 
-  .prefooter-globe,
-  .prefooter-glow {
-    display: none;
+  .prefooter-globe {
+    width: min(980px, 145%);
+    bottom: -10%;
   }
 
   .marketplace-section-cta {
