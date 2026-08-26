@@ -1128,8 +1128,12 @@ p {
 
 .article-quote p {
   margin: 0;
-  font-size: 1.05rem;
   font-style: italic;
+}
+
+.article-prose .article-quote p {
+  font-size: 1.22rem;
+  line-height: 1.6;
 }
 
 .article-quote cite {
@@ -1141,9 +1145,15 @@ p {
 }
 
 .article-deck {
-  font-size: 1.15rem;
+  font-size: 1.32rem;
+  line-height: 1.55;
   color: var(--ink-2);
   font-weight: 500;
+}
+
+.article-prose .article-deck {
+  font-size: 1.32rem;
+  line-height: 1.55;
 }
 
 .author-card {
@@ -1157,12 +1167,42 @@ p {
 .article-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 3rem;
+  gap: 1.75rem;
   align-items: start;
 }
 
 .article-layout .article-prose {
-  max-width: 46rem;
+  max-width: none;
+  font-size: 1.12rem;
+  line-height: 1.72;
+}
+
+.article-prose p,
+.article-prose li {
+  font-size: 1.12rem;
+  line-height: 1.72;
+}
+
+.article-prose h2 {
+  font-size: 1.65rem;
+  margin-top: 2.4rem;
+}
+
+.article-prose ul,
+.article-prose ol {
+  padding-left: 1.3rem;
+}
+
+.article-prose li {
+  margin: 0.5rem 0;
+}
+
+.article-prose .meta,
+.article-prose figcaption,
+.article-prose .article-toc-title,
+.article-prose .tag-chip {
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .article-topline {
