@@ -275,63 +275,132 @@ export function Header() {
 }
 
 export function Footer() {
+  const year = new Date().getFullYear()
+
   return (
     <footer className="site-footer">
-      <div className="container">
-        <div className="footer-grid footer-grid-wide">
-          <div>
-            <Logo />
-            <p style={{ marginTop: '1rem', color: '#b7b5c6' }}>
-              B2B media platform connecting brands with vetted agencies across design, marketing,
-              software, and tech.
+      <div className="container site-footer-inner">
+        <div className="footer-watermark" aria-hidden="true">
+          <BrandMark size={280} />
+        </div>
+
+        <div className="footer-main">
+          <div className="footer-brand">
+            <Link to="/" className="footer-logo">
+              <BrandMark size={36} />
+              <span>DESIGNSWORKLIFE</span>
+            </Link>
+            <p>
+              DesignsWorkLife is the premier agency directory, awards platform, and media hub
+              connecting brands with top agencies in software, app development, design, and
+              marketing. We deliver vetted reviews, insights, and trends to drive business growth.
             </p>
           </div>
-          <div>
-            <h4>Trending Brand News</h4>
-            {newsTopics.slice(0, 6).map((t) => (
-              <Link key={t.slug} to={`/news/topic/${t.slug}`}>
-                {t.label}
-              </Link>
-            ))}
+
+          <div className="footer-col">
+            <h4>For Businesses</h4>
+            <Link to="/agency">Agency Categories</Link>
+            <Link to="/methodology">Agency Ranking Methodology</Link>
+            <Link to="/news">Latest Trends and Insights</Link>
+            <Link to="/marketplace/faqs">FAQs</Link>
+            <Link to="/benefits">Advertise</Link>
           </div>
-          <div>
-            <h4>Agency Directory</h4>
-            {categories.slice(0, 4).map((g) => (
-              <Link key={g.name} to={`/agency/${g.items[0].slug}`}>
-                {g.name}
-              </Link>
-            ))}
-            <Link to="/agency">View All Agencies</Link>
+
+          <div className="footer-col">
+            <h4>For Agencies</h4>
+            <Link to="/benefits">Benefits Of Listing With Us</Link>
+            <Link to="/benefits">Submit An Agency</Link>
+            <Link to="/marketplace/membership">Sponsorship</Link>
+            <Link to="/agency">All Agencies</Link>
           </div>
-          <div>
-            <h4>Best Designs</h4>
-            {bestDesignLinks.slice(0, 8).map((l) => (
-              <Link key={l.to} to={l.to}>
-                {l.label}
-              </Link>
-            ))}
-          </div>
-          <div>
-            <h4>Marketplace</h4>
-            <Link to="/marketplace">Marketplace Home</Link>
-            <Link to="/marketplace/project-brief">Submit Project Brief</Link>
-            <Link to="/marketplace/membership">Agency Membership</Link>
-            <Link to="/marketplace/faqs">Marketplace FAQs</Link>
-            <Link to="/benefits">List Your Agency</Link>
+
+          <div className="footer-col">
+            <h4>About DesignsWorkLife</h4>
+            <Link to="/about-us">Team &amp; Story</Link>
+            <Link to="/contact-us">Contact Us</Link>
+
+            <h4 className="footer-ai-title">Ask AI about DesignsWorkLife</h4>
+            <div className="footer-ai-icons" aria-label="Ask AI shortcuts">
+              <a href="https://chatgpt.com" target="_blank" rel="noreferrer" aria-label="ChatGPT">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l2.4 6.8L22 12l-7.6 3.2L12 22l-2.4-6.8L2 12l7.6-3.2L12 2z" />
+                </svg>
+              </a>
+              <a href="https://gemini.google.com" target="_blank" rel="noreferrer" aria-label="Gemini">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 3l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z" />
+                </svg>
+              </a>
+              <a href="https://claude.ai" target="_blank" rel="noreferrer" aria-label="Claude">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 3.2a1.8 1.8 0 0 1 1.8 1.8v2.4h2.4a1.8 1.8 0 1 1 0 3.6h-2.4v2.4a1.8 1.8 0 1 1-3.6 0v-2.4H7.8a1.8 1.8 0 1 1 0-3.6h2.4V9A1.8 1.8 0 0 1 12 7.2z" />
+                </svg>
+              </a>
+              <a href="https://www.perplexity.ai" target="_blank" rel="noreferrer" aria-label="Perplexity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M4 12a8 8 0 0 1 8-8" />
+                  <path d="M20 12a8 8 0 0 1-8 8" />
+                  <path d="M12 4v16" />
+                  <path d="M4 12h16" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
+
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} DesignsWorkLife. Inspired by DesignRush structure.</span>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link to="/about-us">About</Link>
-            <Link to="/methodology">Methodology</Link>
-            <Link to="/contact-us">Contact</Link>
+          <address className="footer-address">
+            18117 Biscayne Blvd
+            <br />
+            Miami, FL 33160
+            <br />
+            United States
+          </address>
+
+          <div className="footer-legal">
+            <div className="footer-legal-links">
+              <Link to="/">Sitemap</Link>
+              <Link to="/methodology">Terms of Use &amp; IP</Link>
+              <Link to="/methodology">Privacy Policy</Link>
+              <Link to="/contact-us">Accessibility</Link>
+              <Link to="/contact-us">Fraud Protection</Link>
+            </div>
+            <p>© DesignsWorkLife {year}. All Rights Reserved</p>
+          </div>
+
+          <div className="footer-social" aria-label="Social media">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.5 8.5A2 2 0 1 1 6.5 4.5a2 2 0 0 1 0 4zM4.8 20V9.7h3.4V20H4.8zM10.2 20V9.7h3.3v1.4h.05c.46-.87 1.58-1.8 3.26-1.8 3.48 0 4.13 2.3 4.13 5.28V20h-3.4v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V20h-3.38z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9A4.5 4.5 0 0 1 16.5 21h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3zm0 1.8A2.7 2.7 0 0 0 4.8 7.5v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9zM12 8.2A3.8 3.8 0 1 1 12 15.8 3.8 3.8 0 0 1 12 8.2zm0 1.8a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm4.7-2.7a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-7.2h2.4l.36-2.8h-2.76V9.2c0-.8.22-1.35 1.38-1.35H16.5V5.35C16.2 5.3 15.2 5.2 14 5.2c-2.45 0-4.13 1.5-4.13 4.24v2.36H7.5v2.8h2.37V21h3.63z" />
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M4 4h4.2l4.05 5.7L16.9 4H20l-6.15 8.2L20 20h-4.2l-4.3-6.05L7.1 20H4l6.4-8.55L4 4z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.6 8.2a2.7 2.7 0 0 0-1.9-1.9C17.9 5.8 12 5.8 12 5.8s-5.9 0-7.7.5a2.7 2.7 0 0 0-1.9 1.9C2 10 2 12.5 2 12.5s0 2.5.4 4.3a2.7 2.7 0 0 0 1.9 1.9c1.8.5 7.7.5 7.7.5s5.9 0 7.7-.5a2.7 2.7 0 0 0 1.9-1.9c.4-1.8.4-4.3.4-4.3s0-2.5-.4-4.3zM10.2 15.3V9.7l5 2.8-5 2.8z" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </footer>
   )
 }
+
 
 export function openNewsletter() {
   window.dispatchEvent(new CustomEvent('dwl:open-newsletter'))
