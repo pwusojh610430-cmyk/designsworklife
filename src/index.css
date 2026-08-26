@@ -313,19 +313,23 @@ p {
 }
 
 .logo-mark {
-  width: 26px;
-  height: 26px;
+  width: auto;
+  height: 30px;
   border-radius: 0;
   background: transparent;
   display: grid;
   place-items: center;
-  color: var(--purple);
   padding: 0;
+  flex-shrink: 0;
   transition: transform 0.22s ease;
 }
 
-.logo-mark svg {
+.logo-mark img {
   display: block;
+  height: 30px;
+  width: auto;
+  aspect-ratio: 174 / 148;
+  object-fit: contain;
 }
 
 .main-nav {

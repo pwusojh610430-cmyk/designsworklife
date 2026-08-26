@@ -1,20 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { bestDesignLinks, categories, newsTopics } from '../data'
+import brandLogo from '../assets/brand-logo.png'
 
 export function Logo() {
   return (
     <Link to="/" className="logo">
       <span className="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" width="26" height="26">
-          <path
-            fill="currentColor"
-            d="M16 2c2.8 4.2 8.5 7.2 8.5 13.2C24.5 21.8 20.8 26 16 28c-4.8-2-8.5-6.2-8.5-12.8C7.5 9.2 13.2 6.2 16 2z"
-          />
-          <circle fill="#fff" cx="13.2" cy="14" r="1.3" />
-          <circle fill="#fff" cx="16.5" cy="11.2" r="1.1" />
-          <circle fill="#fff" cx="19.2" cy="14.4" r="1.15" />
-        </svg>
+        <img src={brandLogo} alt="" width={174} height={148} decoding="async" />
       </span>
       <span className="logo-text">DesignsWorkLife</span>
     </Link>
