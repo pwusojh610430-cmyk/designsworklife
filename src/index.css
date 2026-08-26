@@ -2207,19 +2207,19 @@ p {
   position: relative;
   width: 100%;
   padding: 0 0 clamp(3rem, 5vw, 4.5rem);
-  background: linear-gradient(180deg, #eef4fb 0%, #f7fafd 42%, #ffffff 100%);
+  background: linear-gradient(180deg, #f3f6fb 0%, #f7fafd 42%, #ffffff 100%);
   overflow: hidden;
 }
 
 .prefooter-top-fade {
-  height: 2.5rem;
-  background: linear-gradient(180deg, #0f0f16 0%, #1a2740 40%, #eef4fb 100%);
+  display: none;
 }
 
 .prefooter-inner {
   position: relative;
   z-index: 1;
-  margin-top: -3.25rem;
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 .prefooter-newsletter {
@@ -2231,8 +2231,8 @@ p {
   background: #fff;
   border-radius: 16px;
   padding: 1.35rem 1.5rem;
-  box-shadow: 0 14px 36px rgba(28, 40, 80, 0.1);
-  border: 1px solid #eceff5;
+  box-shadow: none;
+  border: 1px solid #e8ebf2;
   margin-bottom: 2.75rem;
 }
 
