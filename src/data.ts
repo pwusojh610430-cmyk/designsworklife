@@ -338,6 +338,54 @@ export const marketplaceProjects = [
       'The company needs a modern corporate website with a user-friendly design, SEO, CMS, and ongoing support to showcase its services, leadership, careers, and local brand presence.',
     budget: '$15,000',
   },
+  {
+    id: '26030',
+    type: 'Brand Strategy & Identity',
+    industry: 'Consumer Goods',
+    description:
+      'A CPG startup needs a full brand system — naming validation, visual identity, packaging direction, and a launch site — before a national retail pilot.',
+    budget: '$42,000',
+  },
+  {
+    id: '26031',
+    type: 'UI/UX & Product Design',
+    industry: 'SaaS',
+    description:
+      'B2B SaaS company seeks a product design partner to redesign onboarding, billing, and admin workflows with a measurable activation lift in 90 days.',
+    budget: '$65,000',
+  },
+  {
+    id: '26032',
+    type: 'Ecommerce Development',
+    industry: 'Fashion and Apparel',
+    description:
+      'DTC apparel brand needs a Shopify Plus rebuild with localized storefronts, loyalty, and a content-led PDP system for seasonal drops.',
+    budget: '$55,000',
+  },
+  {
+    id: '26033',
+    type: 'Video Production & Motion',
+    industry: 'Technology',
+    description:
+      'Enterprise software firm wants a product film, motion guidelines, and social cutdowns for a major conference launch window.',
+    budget: '$38,000',
+  },
+  {
+    id: '26034',
+    type: 'SEO & Content',
+    industry: 'Professional Services',
+    description:
+      'Multi-office consultancy seeks SEO, thought-leadership editorial, and landing page redesigns to support partner-led business development.',
+    budget: '$28,000',
+  },
+  {
+    id: '26035',
+    type: 'Paid Media',
+    industry: 'Education',
+    description:
+      'Online learning platform needs paid social and search management with creative testing and enrollment attribution across cohorts.',
+    budget: '$72,000',
+  },
 ]
 
 export const awardDesigns = [
@@ -445,6 +493,111 @@ export const awardDesigns = [
     judges: [],
     agency: 'Suffescom Solutions Inc',
     image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg',
+  },
+  {
+    title: 'Northwind Capital Logo System',
+    category: 'Logo',
+    score: 8.8,
+    badge: 'Winner',
+    judges: [
+      { initials: 'CH', score: 9.0 },
+      { initials: 'MS', score: 8.5 },
+      { initials: 'KL', score: 8.9 },
+    ],
+    agency: 'Marka Network',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+  },
+  {
+    title: 'Lumen Health Patient Portal Website',
+    category: 'Website',
+    score: 8.2,
+    badge: 'Winner',
+    judges: [
+      { initials: 'SB', score: 8.0 },
+      { initials: 'NS', score: 8.4 },
+      { initials: 'IS', score: 8.2 },
+    ],
+    agency: 'GoingClear',
+    image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+  },
+  {
+    title: 'Orbit Transit Wayfinding App',
+    category: 'App',
+    score: 8.7,
+    badge: 'Winner',
+    judges: [
+      { initials: 'AO', score: 8.8 },
+      { initials: 'PP', score: 8.6 },
+      { initials: 'JP', score: 8.7 },
+    ],
+    agency: 'ANML Studio',
+    image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+  },
+  {
+    title: 'Cedar & Co Seasonal Catalog Print',
+    category: 'Print',
+    score: 8.1,
+    badge: 'Winner',
+    judges: [
+      { initials: 'GS', score: 8.0 },
+      { initials: 'JD', score: 8.2 },
+      { initials: 'LS', score: 8.1 },
+    ],
+    agency: 'Toby Ng Design',
+    image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+  },
+  {
+    title: 'Solara Skincare Refill Packaging',
+    category: 'Packaging',
+    score: 9.1,
+    badge: 'Winner',
+    judges: [
+      { initials: 'AO', score: 9.2 },
+      { initials: 'LB', score: 9.0 },
+      { initials: 'CH', score: 9.1 },
+    ],
+    agency: 'Studio Forma',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+  },
+  {
+    title: 'Echo Bank Brand Film Video',
+    category: 'Video',
+    score: 8.9,
+    badge: 'Winner',
+    judges: [
+      { initials: 'MS', score: 9.0 },
+      { initials: 'OI', score: 8.8 },
+      { initials: 'KL', score: 8.9 },
+    ],
+    agency: 'Frame & Field',
+    image: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+  },
+  {
+    title: 'Harbor Museums Membership Website',
+    category: 'Website',
+    score: null,
+    badge: 'Featured',
+    judges: [],
+    agency: 'Public Works Studio',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+  },
+  {
+    title: 'Kinetic Type Specimen Print',
+    category: 'Print',
+    score: null,
+    badge: 'Featured',
+    judges: [],
+    agency: 'Type Foundry Lab',
+    image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
+  },
+  {
+    title: 'Nova Grocery Private Label Packaging',
+    category: 'Packaging',
+    score: null,
+    badge: 'Featured',
+    judges: [],
+    agency: 'Shelf Studio',
+    image: 'https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg',
   },
 ]
 

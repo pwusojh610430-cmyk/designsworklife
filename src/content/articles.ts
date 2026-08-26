@@ -1,3 +1,6 @@
+import { moreNewsArticles } from './moreArticles'
+import { extraNewsArticles } from './extraArticles'
+
 export type ArticleBlock =
   | { type: 'p'; text: string }
   | { type: 'h2'; text: string }
@@ -529,6 +532,8 @@ export const newsArticles: NewsArticle[] = [
       'The console war was never only about hardware. It was about who owns the couch. IKEA just made that literal.',
     agencyCta: { label: 'Browse product design companies', to: '/agency/product-design' },
   },
+  ...moreNewsArticles,
+  ...extraNewsArticles,
 ]
 
 export const partnerArticles = [
@@ -555,5 +560,29 @@ export const partnerArticles = [
     category: 'Partner Content',
     image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
     imageAlt: 'Architectural exterior of a large public venue',
+  },
+  {
+    slug: 'hubspot-lifecycle-orchestration',
+    title: 'How HubSpot Partners Orchestrate Lifecycle Without Tool Sprawl',
+    excerpt: 'A partner playbook for keeping CRM, CMS, and ads in one measurement spine.',
+    category: 'Partner Content',
+    image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+    imageAlt: 'Team meeting about lifecycle marketing',
+  },
+  {
+    slug: 'webflow-enterprise-design-systems',
+    title: 'Webflow Enterprises Are Finally Taking Design Systems Seriously',
+    excerpt: 'Component libraries and CMS models that survive marketing reorgs.',
+    category: 'Partner Content',
+    image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
+    imageAlt: 'Code and design system work on screen',
+  },
+  {
+    slug: 'stripe-checkout-conversion-lessons',
+    title: 'Stripe Checkout Patterns Brands Keep Getting Wrong',
+    excerpt: 'Friction, trust marks, and mobile keyboards — conversion lessons from payment UX.',
+    category: 'Partner Content',
+    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+    imageAlt: 'Product and checkout still life',
   },
 ]

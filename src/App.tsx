@@ -19,7 +19,7 @@ import {
   MembershipPage,
   ProjectBriefPage,
 } from './pages/MarketplacePages'
-import { AboutPage, ContactPage, LoginPage, MethodologyPage } from './pages/InfoPages'
+import { AboutPage, ContactPage, MethodologyPage } from './pages/InfoPages'
 
 export default function App() {
   return (
@@ -48,7 +48,6 @@ export default function App() {
           <Route path="/about-us" element={<AboutPage />} />
           <Route path="/methodology" element={<MethodologyPage />} />
           <Route path="/contact-us" element={<ContactPage />} />
-          <Route path="/account/login" element={<LoginPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

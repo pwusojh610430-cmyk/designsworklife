@@ -124,14 +124,12 @@ export function NewsTopicPage() {
   const { topic = '' } = useParams()
   const meta = newsTopics.find((t) => t.slug === topic)
   const label = meta?.label ?? topic
-  const filtered = newsArticles.filter(
-    (n) =>
-      n.topics.includes(topic) ||
-      n.category.toLowerCase().includes(topic) ||
-      topic === 'latest-news' ||
-      topic === 'podcast' ||
-      topic === 'interviews',
-  )
+  const filtered =
+    topic === 'latest-news'
+      ? newsArticles
+      : newsArticles.filter(
+          (n) => n.topics.includes(topic) || n.category.toLowerCase().includes(topic),
+        )
 
   return (
     <>

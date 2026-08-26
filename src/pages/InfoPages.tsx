@@ -98,7 +98,7 @@ export function MethodologyPage() {
           <p style={{ marginTop: '1rem' }}>
             Example: 1 five-star review → Bayesian 4.3 stars. 29 five-star reviews → 5 stars.
           </p>
-          <Link className="btn btn-primary" to="/account/login">
+          <Link className="btn btn-primary" to="/benefits">
             Add top services now
           </Link>
         </div>
@@ -119,7 +119,7 @@ export function ContactPage() {
     <>
       <PageHero
         title="What Can We Help You With?"
-        subtitle="Finding an agency, listing your business, a story tip, or account help — we'll get back within 1 business day."
+        subtitle="Finding an agency, listing your business, a story tip, or partnership help — we'll get back within 1 business day."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Contact Us' }]}
       />
       <section className="section">
@@ -135,7 +135,6 @@ export function ContactPage() {
                     <option value="" disabled>
                       Select
                     </option>
-                    <option>Account issues</option>
                     <option>List your business or advertise</option>
                     <option>Partnership opportunities</option>
                     <option>Find an agency or get matched</option>
@@ -181,49 +180,6 @@ export function ContactPage() {
           </div>
         </div>
       </section>
-    </>
-  )
-}
-
-export function LoginPage() {
-  return (
-    <>
-      <PageHero title="Login" crumbs={[{ label: 'Home', to: '/' }, { label: 'Login' }]} />
-      <div className="container login-grid">
-        <div className="card">
-          <h2>Login</h2>
-          <form
-            className="form"
-            onSubmit={(e) => {
-              e.preventDefault()
-              alert('Demo login — connect a real auth backend later.')
-            }}
-          >
-            <label>
-              Email
-              <input type="email" required />
-            </label>
-            <label>
-              Password
-              <input type="password" required />
-            </label>
-            <button className="btn btn-primary" type="submit">
-              Login
-            </button>
-          </form>
-        </div>
-        <div className="card">
-          <h2>Meanwhile...</h2>
-          <h3>Need Help Selecting The Right Agency For Your Project?</h3>
-          <p>
-            We can help you find agencies that fit your budget and other requirements within just a
-            few days and free of charge.
-          </p>
-          <Link className="btn btn-outline" to="/marketplace/project-brief">
-            Get matched
-          </Link>
-        </div>
-      </div>
     </>
   )
 }

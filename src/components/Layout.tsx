@@ -230,8 +230,8 @@ export function Header() {
           <Link to="/marketplace/project-brief" className="btn btn-primary">
             Hire an Agency
           </Link>
-          <Link to="/account/login" className="icon-btn" aria-label="Login" title="Login">
-            👤
+          <Link to="/benefits" className="btn btn-outline">
+            List Your Agency
           </Link>
         </div>
       </div>
