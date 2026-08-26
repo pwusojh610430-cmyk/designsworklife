@@ -256,7 +256,6 @@ export function Header() {
             Find an Agency
           </Link>
         </nav>
-
         <Link to="/marketplace/project-brief" className="btn btn-green header-find">
           Find an Agency
         </Link>

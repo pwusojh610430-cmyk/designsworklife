@@ -30,7 +30,15 @@ export function HomePage() {
   const [tab, setTab] = useState<string>('latest')
   const filtered = filterNews(tab)
   const featured = filtered[0] ?? newsArticles[0]
-  const side = (filtered.length > 1 ? filtered.slice(1) : newsArticles.slice(1)).slice(0, 6)
+  const pinSlugs = ['ipsy-beauty-product-testers', 'starbucks-psl-martha-stewart-unicorn']
+  const rest = (filtered.length > 1 ? filtered.slice(1) : newsArticles.slice(1)).filter(
+    (n) => n.slug !== featured.slug,
+  )
+  const pinned = pinSlugs
+    .map((slug) => rest.find((n) => n.slug === slug) ?? newsArticles.find((n) => n.slug === slug))
+    .filter(Boolean) as typeof newsArticles
+  const fillers = rest.filter((n) => !pinSlugs.includes(n.slug))
+  const side = [...pinned, ...fillers].slice(0, 4)
 
   return (
     <>
