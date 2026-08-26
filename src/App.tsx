@@ -1,5 +1,6 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Footer, Header, Newsletter } from './components/Layout'
+import { PreFooterBlock } from './components/PreFooterBlock'
 import { HomePage } from './pages/HomePage'
 import { AgencyCategoryPage, AgencyIndexPage } from './pages/AgencyPages'
 import { AgencyProfilePage } from './pages/ProfilePage'
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <PreFooterBlock />
       <Footer />
       <Newsletter />
     </HashRouter>

@@ -1,4 +1,3 @@
-import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { awardDesigns } from '../data'
 
@@ -18,14 +17,6 @@ function agencyInitials(name: string) {
 }
 
 export function AwardsShowcaseBlock() {
-  const [email, setEmail] = useState('')
-  const [done, setDone] = useState(false)
-
-  function onSubscribe(e: FormEvent) {
-    e.preventDefault()
-    setDone(true)
-  }
-
   return (
     <section className="awards-showcase" aria-labelledby="awards-showcase-title">
       <div className="awards-showcase-bg" aria-hidden="true" />
@@ -90,42 +81,6 @@ export function AwardsShowcaseBlock() {
               View More Best Designs <span aria-hidden="true">›</span>
             </span>
           </Link>
-        </div>
-
-        <div className="awards-newsletter">
-          <div className="awards-newsletter-copy">
-            <span className="awards-newsletter-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2c-3 4-7 6-7 12a7 7 0 0 0 14 0c0-6-4-8-7-12zm0 8c-1.2 1.7-2.6 2.7-2.6 4.8a2.6 2.6 0 1 0 5.2 0c0-2.1-1.4-3.1-2.6-4.8z" />
-              </svg>
-            </span>
-            <div>
-              <strong>Receive our Newsletter</strong>
-              <p>
-                Join over <b>70,000 B2B</b> decision-makers growing their brands
-              </p>
-            </div>
-          </div>
-          {done ? (
-            <p className="awards-newsletter-done">Thanks — you&apos;re on the list.</p>
-          ) : (
-            <form className="awards-newsletter-form" onSubmit={onSubscribe}>
-              <label className="sr-only" htmlFor="awards-newsletter-email">
-                Email
-              </label>
-              <input
-                id="awards-newsletter-email"
-                type="email"
-                required
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button type="submit">
-                Subscribe <span aria-hidden="true">›</span>
-              </button>
-            </form>
-          )}
         </div>
       </div>
     </section>
