@@ -100,26 +100,34 @@ function BriefcaseIcon() {
   )
 }
 
+const categoryFeaturedSlugs: Record<string, string[]> = {
+  featured: ['digital-silk', 'design-in-dc', 'lounge-lizard'],
+  'Branding & Creative': ['clay', 'toby-ng-design', 'lounge-lizard'],
+  'Website & Interface': ['digital-silk', 'goingclear', 'design-in-dc'],
+  Marketing: ['lounge-lizard', 'digital-silk', 'clay'],
+  'Software & App': ['goingclear', 'design-in-dc', 'digital-silk'],
+  'IT Services': ['goingclear', 'digital-silk', 'lounge-lizard'],
+  'Business Services': ['clay', 'lounge-lizard', 'goingclear'],
+}
+
 function filterAgencies(active: string, limit: number): Agency[] {
-  if (active === 'featured') return agencies.slice(0, limit)
-  const group = categories.find((g) => g.name === active)
-  if (!group) return agencies.slice(0, limit)
-  const keywords = group.items.flatMap((i) =>
-    i.label
-      .toLowerCase()
-      .replace(/companies|agencies|agency|firms|services/g, '')
-      .split(/\s+/)
-      .filter((w) => w.length > 2),
-  )
-  const matched = agencies.filter((a) =>
-    keywords.some(
-      (k) =>
-        a.services.some((s) => s.toLowerCase().includes(k)) ||
-        a.expertise.some((e) => e.toLowerCase().includes(k)) ||
-        a.tagline.toLowerCase().includes(k),
-    ),
-  )
-  return (matched.length ? matched : agencies).slice(0, limit)
+  const preferred = categoryFeaturedSlugs[active] ?? categoryFeaturedSlugs.featured
+  const bySlug = new Map(agencies.map((a) => [a.slug, a]))
+  const picked: Agency[] = []
+
+  for (const slug of preferred) {
+    const hit = bySlug.get(slug)
+    if (hit) picked.push(hit)
+    if (picked.length >= limit) return picked
+  }
+
+  for (const agency of agencies) {
+    if (picked.some((p) => p.id === agency.id)) continue
+    picked.push(agency)
+    if (picked.length >= limit) break
+  }
+
+  return picked
 }
 
 export function FeaturedAgencyCard({ agency }: { agency: Agency }) {
