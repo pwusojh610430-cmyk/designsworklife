@@ -1103,15 +1103,11 @@ p {
   object-fit: cover;
 }
 
-/* Fixed ratio + cover: the box never stretches the photo, it crops it. */
-.article-hero img {
-  aspect-ratio: 16 / 9;
-  height: auto;
-}
-
+.article-hero img,
 .article-figure img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
   height: auto;
+  object-fit: contain;
 }
 
 .article-hero figcaption,
@@ -1159,19 +1155,25 @@ p {
 
 .article-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 330px;
-  gap: 2rem;
+  width: min(100% - 3rem, 1210px);
+  grid-template-columns: minmax(0, 732px) minmax(330px, 422px);
+  gap: clamp(2rem, 4.375vw, 3.5rem);
   align-items: start;
 }
 
 .article-layout .article-prose {
-  max-width: none;
+  max-width: 732px;
+}
+
+.article-prose > :not(.article-hero) {
+  width: min(100%, 608px);
+  margin-left: auto;
 }
 
 .article-prose p,
 .article-prose li {
-  font-size: 1.09rem;
-  line-height: 1.7;
+  font-size: 1.5rem;
+  line-height: 1.5833;
 }
 
 .article-prose h2 {
