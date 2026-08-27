@@ -6,36 +6,23 @@ import { PageHero } from '../components/Layout'
 export function AgencyIndexPage() {
   return (
     <>
-      <section className="stats-banner">
-        <div className="container stats-banner-inner">
-          <div className="stats-banner-items">
-            <div className="stats-banner-item">
-              <strong>950,000+</strong>
-              <span>Monthly B2B Visitors</span>
-            </div>
-            <div className="stats-banner-item">
-              <strong>140,000+</strong>
-              <span>Followers on Social</span>
-            </div>
-            <div className="stats-banner-item">
-              <strong>68,000+</strong>
-              <span>B2B Newsletter Subscribers</span>
-            </div>
-          </div>
-          <Link to="/benefits" className="btn btn-green">
-            Get Featured <span aria-hidden="true">›</span>
-          </Link>
+      <header className="agency-index-hero">
+        <div className="container agency-index-hero-inner">
+          <div><span className="agency-index-kicker">AGENCY DIRECTORY</span><h1>Find the right agency for your next project</h1><p>Compare verified partners by service, expertise, location, reviews, and proven client work.</p></div>
+          <form className="agency-index-search" onSubmit={(event) => event.preventDefault()}><label><span>What do you need?</span><input type="search" placeholder="Web design, branding, SEO…" /></label><label><span>Where?</span><input type="search" placeholder="City, state, or country" /></label><Link className="btn btn-green" to="/marketplace/project-brief">Find Agencies ›</Link></form>
         </div>
-      </section>
+      </header>
 
-      <AgencyDirectoryBlock agencyLimit={3} />
+      <section className="agency-trust-strip"><div className="container"><div><strong>9,300+</strong><span>Verified agencies</span></div><div><strong>35,000+</strong><span>Client reviews</span></div><div><strong>50+</strong><span>Service categories</span></div><Link to="/marketplace/project-brief">Get matched for free ›</Link></div></section>
+
+      <AgencyDirectoryBlock agencyLimit={4} />
 
       <section className="section alt">
         <div className="container">
           <div className="section-head">
             <div>
-              <h2>All Verified Agencies</h2>
-              <p>Browse more providers ranked by reviews, expertise, and recent client work.</p>
+              <span className="agency-index-kicker">RECOMMENDED PARTNERS</span><h2>Explore verified agencies</h2>
+              <p>A focused shortlist ranked by expertise, client feedback, and relevant work.</p>
             </div>
             <Link className="btn btn-primary" to="/marketplace/project-brief">
               Receive Proposals

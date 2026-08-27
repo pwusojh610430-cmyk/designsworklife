@@ -3588,6 +3588,31 @@ p {
   border-bottom: 1px solid var(--line);
 }
 
+.agency-index-hero { padding: 4.5rem 0; background: #f7f8fc; border-bottom: 1px solid var(--line); }
+.agency-index-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 5rem; align-items: center; max-width: 1240px; }
+.agency-index-kicker { color: var(--purple); font-size: .75rem; font-weight: 800; letter-spacing: .05em; }
+.agency-index-hero h1 { max-width: 650px; margin: .7rem 0 1rem; color: #0b2a67; font-size: clamp(2.7rem, 4vw, 4rem); line-height: 1.06; text-wrap: balance; }
+.agency-index-hero p { max-width: 620px; color: var(--muted); font-size: 1.1rem; line-height: 1.65; }
+.agency-index-search { display: grid; gap: .8rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 12px 30px rgba(21,36,72,.08); }
+.agency-index-search label { display: grid; gap: .35rem; color: #24385f; font-size: .78rem; font-weight: 800; }
+.agency-index-search input { width: 100%; padding: .9rem 1rem; border: 1px solid #dfe3ec; border-radius: 8px; font: inherit; font-size: .95rem; }
+.agency-trust-strip { border-bottom: 1px solid var(--line); background: #fff; }
+.agency-trust-strip .container { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 2rem; align-items: center; max-width: 1240px; padding-block: 1.25rem; }
+.agency-trust-strip div div { display: grid; gap: .15rem; }
+.agency-trust-strip strong { color: #102e65; font-size: 1.25rem; }
+.agency-trust-strip span { color: var(--muted); font-size: .8rem; }
+.agency-trust-strip a { color: var(--purple); font-weight: 800; text-decoration: none; }
+.agency-directory-block { padding: 4rem 0; background: #fff; }
+.dir-header { max-width: 760px; margin-bottom: 2rem; }
+.dir-layout { gap: 1.5rem; }
+.dir-browser, .dir-featured { border-color: #e4e7ef; box-shadow: none; }
+.feat-agency-card { box-shadow: none; border-color: #e4e7ef; }
+
+@media (max-width: 960px) {
+  .agency-index-hero-inner, .agency-trust-strip .container { grid-template-columns: 1fr; gap: 1.5rem; }
+  .agency-index-hero { padding: 3rem 0; }
+}
+
 @media (max-width: 960px) {
   .design-detail {
     grid-template-columns: 1fr;
