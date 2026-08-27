@@ -3286,6 +3286,93 @@ p {
   transition: transform 0.2s ease;
 }
 
+.award-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.award-card-link:focus-visible {
+  outline: 3px solid #1769ff;
+  outline-offset: 4px;
+}
+
+.design-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 3rem;
+  align-items: start;
+  max-width: 1240px;
+}
+
+.design-detail-hero {
+  margin: 0 0 2rem;
+}
+
+.design-detail-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 680px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.design-detail-copy {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.design-detail-copy p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.design-detail-copy h2 {
+  margin-top: 2.25rem;
+  font-size: 1.65rem;
+  text-wrap: balance;
+}
+
+.design-detail-copy .design-detail-lead {
+  color: var(--ink-2);
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.design-detail-side {
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: 120px;
+}
+
+.design-detail-score {
+  margin-top: 0.75rem;
+  color: var(--purple);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.design-judge-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 960px) {
+  .design-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .design-detail-side {
+    position: static;
+  }
+}
+
 .award-card:hover {
   transform: translateY(-3px);
 }

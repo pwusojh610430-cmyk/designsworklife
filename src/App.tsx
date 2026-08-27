@@ -7,6 +7,7 @@ import { AgencyProfilePage } from './pages/ProfilePage'
 import {
   BecomeJudgePage,
   BestDesignCategoryPage,
+  BestDesignDetailPage,
   BestDesignsPage,
   HowItWorksPage,
   JuryPage,
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="/best-designs/jury" element={<JuryPage />} />
           <Route path="/best-designs/jury/become-a-judge" element={<BecomeJudgePage />} />
           <Route path="/best-designs/submit" element={<SubmitDesignPage />} />
+          <Route path="/best-designs/project/:slug" element={<BestDesignDetailPage />} />
           <Route path="/best-designs/:category" element={<BestDesignCategoryPage />} />
           <Route path="/news" element={<NewsIndexPage />} />
           <Route path="/news/topic/:topic" element={<NewsTopicPage />} />

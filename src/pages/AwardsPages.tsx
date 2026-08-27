@@ -10,12 +10,16 @@ import { PageHero, SubNav } from '../components/Layout'
 
 const awardSubnav = bestDesignLinks.slice(0, 9).map((l) => ({ label: l.label, to: l.to }))
 
+function designSlug(title: string) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
 function AwardGrid({ items }: { items: typeof awardDesigns }) {
   if (!items.length) return <div className="empty">No designs in this category yet.</div>
   return (
     <div className="award-grid">
       {items.map((d) => (
-        <article className="award-card" key={d.title}>
+        <Link className="award-card award-card-link" key={d.title} to={`/best-designs/project/${designSlug(d.title)}`}>
           <div
             className="award-media"
             style={{ backgroundImage: `url(${d.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -39,7 +43,7 @@ function AwardGrid({ items }: { items: typeof awardDesigns }) {
               </>
             )}
           </div>
-        </article>
+        </Link>
       ))}
     </div>
   )
@@ -183,6 +187,80 @@ export function BestDesignCategoryPage() {
           </div>
         </div>
       </section>
+    </>
+  )
+}
+
+const categoryNarratives: Record<string, { challenge: string; strategy: string; execution: string }> = {
+  Website: {
+    challenge: 'The team needed to turn a complex offer into a clear digital journey without flattening the personality of the brand.',
+    strategy: 'A modular visual system pairs decisive typography with a restrained interface hierarchy, helping visitors understand the offer before asking them to act.',
+    execution: 'Responsive page templates, repeatable content blocks, accessible contrast, and focused conversion paths keep the experience coherent across desktop and mobile.',
+  },
+  Logo: {
+    challenge: 'The identity had to feel distinctive at campaign scale while remaining legible on small digital surfaces and practical everyday applications.',
+    strategy: 'The concept reduces the organization’s character to a recognizable silhouette, supported by a flexible typographic and color system.',
+    execution: 'The final family includes primary and compact marks, monochrome variants, spacing rules, and applications designed to remain consistent across print and screens.',
+  },
+  App: {
+    challenge: 'The product had to make a multi-step task feel simple for first-time users without removing the depth expected by experienced users.',
+    strategy: 'The interface prioritizes progressive disclosure, plain-language navigation, and strong visual feedback at every important decision point.',
+    execution: 'Reusable components, clear states, accessible controls, and a responsive interaction model create a product that feels dependable rather than decorative.',
+  },
+  Packaging: {
+    challenge: 'The package needed to stand out at shelf distance, communicate essential information quickly, and still feel credible when examined up close.',
+    strategy: 'A bold hierarchy gives the brand one memorable visual cue while material choices and secondary details build trust and tactility.',
+    execution: 'Color coding, structured labels, production-aware artwork, and scalable variants allow the system to grow across formats without losing recognition.',
+  },
+  Print: {
+    challenge: 'The printed piece had to organize dense information while preserving rhythm, surprise, and a strong physical presence.',
+    strategy: 'Editorial pacing, expressive scale changes, and deliberate white space turn each spread into part of a continuous visual narrative.',
+    execution: 'A disciplined grid, calibrated typography, image sequencing, and production-conscious finishing create clarity from cover to final page.',
+  },
+  Video: {
+    challenge: 'The film needed to communicate its idea quickly while remaining recognizable with or without sound across different placements.',
+    strategy: 'A simple visual premise anchors the story, with motion, framing, and typography reinforcing the same message rather than competing for attention.',
+    execution: 'The sequence was designed around clear beats, adaptable edits, readable supers, and a final brand moment that works across long and short formats.',
+  },
+}
+
+export function BestDesignDetailPage() {
+  const { slug = '' } = useParams()
+  const design = awardDesigns.find((item) => designSlug(item.title) === slug) ?? awardDesigns[0]
+  const narrative = categoryNarratives[design.category] ?? categoryNarratives.Website
+  const related = awardDesigns.filter((item) => item.title !== design.title && item.category === design.category).slice(0, 3)
+
+  return (
+    <>
+      <PageHero
+        title={design.title}
+        subtitle={`${design.category} design by ${design.agency}`}
+        crumbs={[{ label: 'Home', to: '/' }, { label: 'Best Designs', to: '/best-designs' }, { label: design.title }]}
+      />
+      <SubNav items={awardSubnav} />
+      <main className="section">
+        <div className="container design-detail">
+          <div className="design-detail-main">
+            <figure className="design-detail-hero"><img src={design.image} alt={`${design.title} by ${design.agency}`} /></figure>
+            <section className="design-detail-copy">
+              <p className="design-detail-lead">{design.title} is a {design.badge.toLowerCase()} {design.category.toLowerCase()} project recognized for turning a practical communication problem into a focused, memorable design system.</p>
+              <h2>Project Overview</h2>
+              <p>Created by {design.agency}, the work balances a clear central idea with the details required for real-world use. The result feels specific to its audience and category while remaining flexible enough to support future content, formats, and campaigns.</p>
+              <h2>The Design Challenge</h2><p>{narrative.challenge}</p>
+              <h2>Creative Strategy</h2><p>{narrative.strategy}</p>
+              <h2>Execution</h2><p>{narrative.execution}</p>
+              <h2>Why It Stood Out</h2>
+              <p>The jury recognized the project for clarity, consistency, and the way its visual choices support the underlying idea. Rather than relying on decoration, the design builds distinction through hierarchy, pacing, and disciplined use of its core elements.</p>
+            </section>
+          </div>
+          <aside className="design-detail-side">
+            <div className="side-card"><span className={`badge ${design.badge === 'Winner' ? 'winner' : ''}`}>{design.badge}</span><h3>{design.category}</h3><p className="meta">Designed by {design.agency}</p>{design.score != null && <div className="design-detail-score">★ {design.score}/10</div>}</div>
+            {design.judges.length > 0 && <div className="side-card"><h3>Jury Scores</h3>{design.judges.map((judge) => <div className="design-judge-row" key={judge.initials}><span>{judge.initials}</span><strong>{judge.score}/10</strong></div>)}</div>}
+            <div className="side-card"><h3>Submit Your Work</h3><p className="meta">Enter your strongest design for consideration in the next monthly awards.</p><Link className="btn btn-primary btn-sm" to="/best-designs/submit">Submit a Design</Link></div>
+          </aside>
+        </div>
+      </main>
+      <section className="section alt"><div className="container"><h2>Related {design.category} Projects</h2><div style={{ marginTop: '1rem' }}><AwardGrid items={related.length ? related : awardDesigns.slice(0, 3)} /></div></div></section>
     </>
   )
 }
