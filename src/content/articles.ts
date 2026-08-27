@@ -1,6 +1,7 @@
 import { moreNewsArticles } from './moreArticles'
 import { extraNewsArticles } from './extraArticles'
 import { expandedNewsArticles } from './expandedArticles'
+import { currentNewsArticles } from './currentArticles'
 
 export type ArticleBlock =
   | { type: 'p'; text: string }
@@ -31,6 +32,7 @@ export type NewsArticle = {
 
 /** All images: Pixabay CDN, free under Pixabay Content License */
 export const newsArticles: NewsArticle[] = [
+  ...currentNewsArticles,
   {
     slug: 'kfc-hot-ranch-big-dip-ishowspeed-campaign',
     title: "A Gaming Superfan Becomes the Face of KFC’s New Sauce Line",
