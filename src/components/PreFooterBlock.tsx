@@ -18,18 +18,18 @@ type LogoConfig = {
 
 const logoEditorStorageKey = 'designsworklife-logo-layout-v1'
 const defaultLogoConfig: LogoConfig[] = [
-  { x: 7.31, y: 8.77, scale: 1, amplitude: 8, duration: 7.6 },
-  { x: 31, y: 1, scale: 1, amplitude: 7, duration: 8.8 },
-  { x: 51.47, y: 10.1, scale: 1, amplitude: 6, duration: 9.4 },
-  { x: 20.92, y: 36.8, scale: 1, amplitude: 9, duration: 8.2 },
-  { x: 44.3, y: 42.65, scale: 1, amplitude: 8, duration: 7.6 },
-  { x: 67.33, y: 45.47, scale: 1, amplitude: 7, duration: 8.8 },
+  { x: 11.15, y: 16.84, scale: 1, amplitude: 10, duration: 10 },
+  { x: 30.71, y: 0, scale: 1, amplitude: 11, duration: 10 },
+  { x: 51.47, y: 10.1, scale: 1, amplitude: 12, duration: 9.4 },
+  { x: 23.09, y: 37.57, scale: 1, amplitude: 9, duration: 8.2 },
+  { x: 44.34, y: 42.36, scale: 1.14, amplitude: 12, duration: 7.6 },
+  { x: 67.46, y: 51.03, scale: 1, amplitude: 7, duration: 8.8 },
   { x: 76.96, y: 5.93, scale: 1, amplitude: 6, duration: 9.4 },
-  { x: 87.93, y: 43.4, scale: 1, amplitude: 9, duration: 8.2 },
-  { x: 10.16, y: 69.53, scale: 1, amplitude: 8, duration: 7.6 },
-  { x: 27.7, y: 84.54, scale: 1, amplitude: 7, duration: 8.8 },
-  { x: 50.98, y: 71.29, scale: 1, amplitude: 6, duration: 9.4 },
-  { x: 74.71, y: 85.78, scale: 1, amplitude: 9, duration: 8.2 },
+  { x: 87.88, y: 38.59, scale: 1.08, amplitude: 10, duration: 9 },
+  { x: 8.42, y: 68.94, scale: 1, amplitude: 8, duration: 7.6 },
+  { x: 27.52, y: 85.78, scale: 1, amplitude: 7, duration: 8.8 },
+  { x: 51, y: 71.11, scale: 1.26, amplitude: 14, duration: 9.4 },
+  { x: 74.87, y: 86.52, scale: 1, amplitude: 9, duration: 8.2 },
 ]
 
 function loadLogoConfig() {
