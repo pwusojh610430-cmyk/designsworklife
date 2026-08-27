@@ -29,13 +29,53 @@ function Chevron() {
   )
 }
 
-const agencyMenuIcons: Record<string, string> = {
-  Featured: '☆',
-  'Branding & Creative': '◉',
-  'Website & Interface': '▤',
-  Marketing: '◎',
-  'Software & App': '▣',
-  'IT Services': '□',
+function AgencyMenuIcon({ name }: { name: string }) {
+  const common = {
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.7,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+  }
+
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      {name === 'Featured' && (
+        <path {...common} d="m16 3.5 3.7 7.6 8.3 1.2-6 5.8 1.4 8.2-7.4-3.9-7.4 3.9 1.4-8.2-6-5.8 8.3-1.2L16 3.5Z" />
+      )}
+      {name === 'Branding & Creative' && (
+        <>
+          <path {...common} d="M10.2 20.4c-2.2-1.7-3.7-4.4-3.7-7.4a9.5 9.5 0 0 1 19 0c0 3-1.4 5.7-3.7 7.4-1.1.9-1.8 2.1-1.8 3.5v.6h-8v-.6c0-1.4-.7-2.7-1.8-3.5Z" />
+          <path {...common} d="M12 27h8M13.2 24.5h5.6M16 7.3V18" />
+        </>
+      )}
+      {name === 'Website & Interface' && (
+        <>
+          <rect {...common} x="4.5" y="6" width="23" height="15" rx="1.5" />
+          <path {...common} d="M8 10h16M9 24h14M16 21v3M8.5 13h5v5h-5zM16 13h7.5M16 16h7.5" />
+        </>
+      )}
+      {name === 'Marketing' && (
+        <>
+          <path {...common} d="m5 17 14-6v12L5 17Zm14-4.5c3.2 1.2 5.3 3.2 7 5.5M19 21.5c3.2-1.2 5.3-3.2 7-5.5M8.5 18.5l1.2 7h4.8l-2.1-8.7" />
+        </>
+      )}
+      {name === 'Software & App' && (
+        <>
+          <rect {...common} x="3.5" y="6" width="17" height="13" rx="1.5" />
+          <path {...common} d="M8 23h8M12 19v4" />
+          <rect {...common} x="20.5" y="12" width="8" height="14" rx="1.5" />
+          <path {...common} d="M23.5 23.5h2" />
+        </>
+      )}
+      {name === 'IT Services' && (
+        <>
+          <rect {...common} x="4" y="5" width="24" height="17" rx="2" />
+          <path {...common} d="M10 26h12M16 22v4M8 17h5l2-6 3 8 2-4h4" />
+        </>
+      )}
+    </svg>
+  )
 }
 
 const featuredAgencyLinks = [
@@ -236,7 +276,7 @@ export function Header() {
                         onClick={() => setAgencyMenuCategory(group.name)}
                         key={group.name}
                       >
-                        <span className="agency-mega-icon" aria-hidden="true">{agencyMenuIcons[group.name]}</span>
+                        <span className="agency-mega-icon"><AgencyMenuIcon name={group.name} /></span>
                         <span>{group.name}</span>
                       </button>
                     ))}

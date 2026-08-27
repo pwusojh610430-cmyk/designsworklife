@@ -1145,11 +1145,17 @@ p {
 
 .agency-mega-icon {
   width: 28px;
+  height: 28px;
   flex: 0 0 28px;
   color: #6037ff;
-  font-size: 1.7rem;
-  line-height: 1;
-  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.agency-mega-icon svg {
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .agency-mega-category.is-active .agency-mega-icon {
@@ -4682,8 +4688,13 @@ textarea {
 
   .agency-mega-icon {
     width: 22px;
+    height: 22px;
     flex-basis: 22px;
-    font-size: 1.25rem;
+  }
+
+  .agency-mega-icon svg {
+    width: 22px;
+    height: 22px;
   }
 
   .agency-mega-content {
