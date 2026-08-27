@@ -1,15 +1,46 @@
+import { useState, type FormEvent } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { agencies, getCategoryLabel } from '../data'
 import { AgencyDirectoryBlock, FeaturedAgencyCard } from '../components/AgencyDirectoryBlock'
 import { PageHero } from '../components/Layout'
 
 export function AgencyIndexPage() {
+  const [serviceQuery, setServiceQuery] = useState('')
+  const [locationQuery, setLocationQuery] = useState('')
+  const normalizedService = serviceQuery.trim().toLowerCase()
+  const normalizedLocation = locationQuery.trim().toLowerCase()
+  const filteredAgencies = agencies.filter((agency) => {
+    const serviceText = [agency.name, agency.tagline, ...agency.services, ...agency.expertise, ...agency.industries]
+      .join(' ')
+      .toLowerCase()
+    const locationText = [agency.city, agency.state, agency.country].join(' ').toLowerCase()
+    return (!normalizedService || serviceText.includes(normalizedService)) &&
+      (!normalizedLocation || locationText.includes(normalizedLocation))
+  })
+
+  function submitSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    document.getElementById('agency-search-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  function clearSearch() {
+    setServiceQuery('')
+    setLocationQuery('')
+  }
+
   return (
     <>
       <header className="agency-index-hero">
         <div className="container agency-index-hero-inner">
           <div><span className="agency-index-kicker">AGENCY DIRECTORY</span><h1>Find the right agency for your next project</h1><p>Compare verified partners by service, expertise, location, reviews, and proven client work.</p></div>
-          <form className="agency-index-search" onSubmit={(event) => event.preventDefault()}><label><span>What do you need?</span><input type="search" placeholder="Web design, branding, SEO…" /></label><label><span>Where?</span><input type="search" placeholder="City, state, or country" /></label><Link className="btn btn-green" to="/marketplace/project-brief">Find Agencies ›</Link></form>
+          <form className="agency-index-search" role="search" onSubmit={submitSearch}>
+            <label><span>What do you need?</span><input type="search" value={serviceQuery} onChange={(event) => setServiceQuery(event.target.value)} placeholder="Web design, branding, SEO…" /></label>
+            <label><span>Where?</span><input type="search" value={locationQuery} onChange={(event) => setLocationQuery(event.target.value)} placeholder="City, state, or country" /></label>
+            <div className="agency-search-actions">
+              <button className="btn btn-green" type="submit">Find Agencies ›</button>
+              {(serviceQuery || locationQuery) && <button className="agency-search-clear" type="button" onClick={clearSearch}>Clear</button>}
+            </div>
+          </form>
         </div>
       </header>
 
@@ -17,21 +48,22 @@ export function AgencyIndexPage() {
 
       <AgencyDirectoryBlock agencyLimit={4} />
 
-      <section className="section alt">
+      <section className="section alt" id="agency-search-results">
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="agency-index-kicker">RECOMMENDED PARTNERS</span><h2>Explore verified agencies</h2>
-              <p>A focused shortlist ranked by expertise, client feedback, and relevant work.</p>
+              <span className="agency-index-kicker">RECOMMENDED PARTNERS</span><h2>{normalizedService || normalizedLocation ? 'Matching agencies' : 'Explore verified agencies'}</h2>
+              <p className="agency-results-count" aria-live="polite">{filteredAgencies.length} {filteredAgencies.length === 1 ? 'agency' : 'agencies'} found{normalizedService || normalizedLocation ? ' for your search.' : '.'}</p>
             </div>
             <Link className="btn btn-primary" to="/marketplace/project-brief">
               Receive Proposals
             </Link>
           </div>
           <div className="feat-agency-stack feat-agency-stack-wide">
-            {agencies.map((a) => (
+            {filteredAgencies.map((a) => (
               <FeaturedAgencyCard key={a.id} agency={a} />
             ))}
+            {filteredAgencies.length === 0 && <div className="empty agency-search-empty"><h3>No matching agencies yet</h3><p>Try a broader service or location, or send us your brief for a curated shortlist.</p><div><button className="btn btn-ghost" type="button" onClick={clearSearch}>Clear search</button><Link className="btn btn-primary" to="/marketplace/project-brief">Get matched</Link></div></div>}
           </div>
         </div>
       </section>
@@ -42,12 +74,15 @@ export function AgencyIndexPage() {
 export function AgencyCategoryPage() {
   const { '*': slug = '' } = useParams()
   const label = getCategoryLabel(slug)
-  const list = agencies.filter(
-    (a) =>
-      a.services.some((s) => s.toLowerCase().includes(label.split(' ')[0].toLowerCase())) ||
-      a.expertise.some((e) => label.toLowerCase().includes(e.toLowerCase())) ||
-      true,
-  )
+  const categoryKeywords = label
+    .toLowerCase()
+    .replace(/companies|company|agencies|agency|firms|services|development/g, '')
+    .split(/[^a-z0-9+]+/)
+    .filter((word) => word.length >= 3 || word === 'ai' || word === 'it')
+  const list = agencies.filter((agency) => {
+    const agencyText = [...agency.services, ...agency.expertise, ...agency.industries].join(' ').toLowerCase()
+    return categoryKeywords.some((keyword) => agencyText.includes(keyword))
+  })
 
   return (
     <>
@@ -88,6 +123,7 @@ export function AgencyCategoryPage() {
           {list.map((a) => (
             <FeaturedAgencyCard key={a.id} agency={a} />
           ))}
+          {list.length === 0 && <div className="empty agency-search-empty"><h3>No exact matches in this category yet</h3><p>Send us your project brief and we will find a suitable specialist.</p><Link className="btn btn-primary" to="/marketplace/project-brief">Get matched</Link></div>}
         </div>
       </div>
     </>

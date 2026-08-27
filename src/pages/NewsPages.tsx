@@ -99,10 +99,42 @@ function NewsCard({
   )
 }
 
+function matchesNewsSearch(article: NewsArticle, query: string) {
+  const normalized = query.trim().toLowerCase()
+  if (!normalized) return true
+  return [article.title, article.excerpt, article.category, article.author, ...article.topics]
+    .join(' ')
+    .toLowerCase()
+    .includes(normalized)
+}
+
+function NewsArchive({ articles, title, defaultSkip = 0 }: { articles: NewsArticle[]; title: string; defaultSkip?: number }) {
+  const [query, setQuery] = useState('')
+  const [visibleCount, setVisibleCount] = useState(8)
+  const searched = query.trim()
+    ? articles.filter((article) => matchesNewsSearch(article, query))
+    : articles.slice(defaultSkip)
+  const visible = searched.slice(0, visibleCount)
+  const remaining = searched.length - visible.length
+
+  return (
+    <div className="news-archive">
+      <div className="news-archive-head">
+        <div><h2 className="news-index-section-title">{title}</h2><p className="news-results-count" aria-live="polite">{searched.length} {searched.length === 1 ? 'article' : 'articles'}</p></div>
+        <label className="news-search-field"><span>Search news</span><span className="news-search-control"><input type="search" value={query} onChange={(event) => { setQuery(event.target.value); setVisibleCount(8) }} placeholder="Brands, AI, campaigns…" />{query && <button type="button" onClick={() => setQuery('')} aria-label="Clear news search">×</button>}</span></label>
+      </div>
+      <div className="news-latest-list">
+        {visible.map((item) => <Link className="news-latest-item" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><div><span className="news-category">{item.category}</span><h3>{item.title}</h3><p>{item.excerpt}</p><span className="meta">By {item.author} · {item.ago} · {item.read}</span></div></Link>)}
+      </div>
+      {visible.length === 0 && <div className="empty news-search-empty"><h3>No articles found</h3><p>Try another brand, topic, or campaign keyword.</p><button className="btn btn-ghost" type="button" onClick={() => setQuery('')}>Clear search</button></div>}
+      {remaining > 0 && <button className="btn btn-ghost news-load-more" type="button" onClick={() => setVisibleCount((count) => count + 8)}>Load more <span aria-hidden="true">({remaining})</span></button>}
+    </div>
+  )
+}
+
 export function NewsIndexPage() {
   const lead = newsArticles[0]
   const featured = newsArticles.slice(1, 7)
-  const latest = newsArticles.slice(7, 19)
   return (
     <>
       <SubNav items={newsLandingNav} active="/news" />
@@ -117,7 +149,7 @@ export function NewsIndexPage() {
           </section>
           <div className="news-index-divider" />
           <section className="news-latest-layout">
-            <div><h2 className="news-index-section-title">Latest News &amp; Trends</h2><div className="news-latest-list">{latest.map((item) => <Link className="news-latest-item" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><div><span className="news-category">{item.category}</span><h3>{item.title}</h3><p>{item.excerpt}</p><span className="meta">By {item.author} · {item.ago} · {item.read}</span></div></Link>)}</div></div>
+            <NewsArchive articles={newsArticles} title="Latest News & Trends" defaultSkip={7} />
             <aside className="news-index-side"><div className="side-card side-promo"><p className="side-promo-title"><strong>Promote</strong> your brand<br />&amp; generate <strong>results</strong></p><p className="side-promo-sub">On DesignsWorkLife</p><Link className="btn btn-primary btn-sm" to="/advertise">Contact us ›</Link></div><div className="side-card"><h3>Trending</h3><ul className="side-list">{newsArticles.slice(0, 6).map((item) => <li key={item.slug}><Link to={`/news/${item.slug}`}><img src={item.hero} alt="" /><span>{item.title}<span className="meta">{item.ago}</span></span></Link></li>)}</ul></div></aside>
           </section>
         </div>
@@ -141,7 +173,6 @@ export function NewsTopicPage() {
   const pool = [...categoryArticles, ...newsArticles.filter((item) => !categoryArticles.some((match) => match.slug === item.slug))]
   const lead = pool[0]
   const featured = pool.slice(1, 7)
-  const latest = categoryArticles.slice(1, 13)
 
   return (
     <>
@@ -155,7 +186,7 @@ export function NewsTopicPage() {
           <div className="news-feature-minor-grid">{featured.map((item) => <Link className="news-feature-minor" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><span className="news-category">{item.category}</span><h3>{item.title}</h3></Link>)}</div>
         </section>
         <div className="news-index-divider" />
-        <section className="news-latest-layout"><div><h2 className="news-index-section-title">Latest {label}</h2><div className="news-latest-list">{latest.map((item) => <Link className="news-latest-item" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><div><span className="news-category">{item.category}</span><h3>{item.title}</h3><p>{item.excerpt}</p><span className="meta">By {item.author} · {item.ago} · {item.read}</span></div></Link>)}</div></div>
+        <section className="news-latest-layout"><NewsArchive key={topic} articles={categoryArticles} title={`Latest ${label}`} defaultSkip={1} />
           <aside className="news-index-side"><div className="side-card side-promo"><p className="side-promo-title"><strong>Promote</strong> your brand<br />&amp; generate <strong>results</strong></p><p className="side-promo-sub">On DesignsWorkLife</p><Link className="btn btn-primary btn-sm" to="/advertise">Contact us ›</Link></div><div className="side-card"><h3>Trending in {label}</h3><ul className="side-list">{categoryArticles.slice(0, 6).map((item) => <li key={item.slug}><Link to={`/news/${item.slug}`}><img src={item.hero} alt="" /><span>{item.title}<span className="meta">{item.ago}</span></span></Link></li>)}</ul></div></aside>
         </section>
       </div></main>
