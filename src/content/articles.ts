@@ -1,5 +1,6 @@
 import { moreNewsArticles } from './moreArticles'
 import { extraNewsArticles } from './extraArticles'
+import { expandedNewsArticles } from './expandedArticles'
 
 export type ArticleBlock =
   | { type: 'p'; text: string }
@@ -575,6 +576,7 @@ export const newsArticles: NewsArticle[] = [
   },
   ...moreNewsArticles,
   ...extraNewsArticles,
+  ...expandedNewsArticles,
 ]
 
 export const partnerArticles = [
