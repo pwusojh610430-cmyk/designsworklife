@@ -1183,8 +1183,8 @@ p {
 }
 
 .article-header h1 {
-  max-width: 717px;
-  margin: 0 0 1.5rem;
+  max-width: 1049px;
+  margin: 0 0 1.75rem;
   color: #0b2a67;
   font-size: clamp(2.75rem, 4.3vw, 3.4375rem);
   line-height: 1.15;
@@ -1192,7 +1192,7 @@ p {
 }
 
 .article-header .article-deck {
-  max-width: 717px;
+  max-width: 960px;
   margin: 0;
   font-size: 1.5rem;
   line-height: 1.45;
