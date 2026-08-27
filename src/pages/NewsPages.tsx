@@ -189,26 +189,20 @@ export function NewsArticlePage() {
 
   return (
     <>
-      <PageHero
-        title={article.title}
-        subtitle={`${article.published} · ${article.read} · by ${article.author}`}
-        crumbs={[
-          { label: 'Home', to: '/' },
-          { label: 'News', to: '/news' },
-          { label: article.title.slice(0, 28) + '…' },
-        ]}
-      />
       <SubNav items={newsSubnav} />
       <article className="section">
         <div className="container article-layout">
           <div className="prose article-prose">
+            <header className="article-header">
+              <h1>{article.title}</h1>
+              <p className="article-deck">{article.excerpt}</p>
+            </header>
+
             <div className="article-topline">
               <Link className="article-eyebrow" to="/news">
                 {article.category}
               </Link>
-              <span className="meta">
-                {article.published} · {article.read}
-              </span>
+              <span className="meta">{article.read}</span>
             </div>
 
             <figure className="article-hero">
@@ -218,8 +212,6 @@ export function NewsArticlePage() {
               </figcaption>
             </figure>
 
-            <p className="article-deck">{article.excerpt}</p>
-
             <div className="article-byline">
               <span className="article-avatar" aria-hidden="true">
                 {article.author
@@ -228,6 +220,7 @@ export function NewsArticlePage() {
                   .join('')}
               </span>
               <div>
+                <span className="meta">Article by </span>
                 <strong>{article.author}</strong>
                 <p className="meta">
                   Published {article.published} · Updated {article.ago}

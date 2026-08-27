@@ -1110,6 +1110,14 @@ p {
   object-fit: contain;
 }
 
+.article-hero img {
+  border-radius: 0;
+}
+
+.article-hero figcaption {
+  display: none;
+}
+
 .article-hero figcaption,
 .article-figure figcaption {
   margin-top: 0.55rem;
@@ -1156,18 +1164,40 @@ p {
 .article-layout {
   display: grid;
   width: min(100% - 3rem, 1210px);
-  grid-template-columns: minmax(0, 732px) minmax(330px, 422px);
+  grid-template-columns: minmax(0, 717px) minmax(330px, 422px);
   gap: clamp(2rem, 4.375vw, 3.5rem);
   align-items: start;
 }
 
 .article-layout .article-prose {
-  max-width: 732px;
+  max-width: 717px;
 }
 
-.article-prose > :not(.article-hero) {
-  width: min(100%, 608px);
+.article-prose > :not(.article-header):not(.article-topline):not(.article-hero):not(.article-byline) {
+  width: min(100%, 593px);
   margin-left: auto;
+}
+
+.article-header {
+  margin-bottom: 2.75rem;
+}
+
+.article-header h1 {
+  max-width: 717px;
+  margin: 0 0 1.5rem;
+  color: #0b2a67;
+  font-size: clamp(2.75rem, 4.3vw, 3.4375rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.article-header .article-deck {
+  max-width: 717px;
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  font-weight: 400;
+  text-wrap: pretty;
 }
 
 .article-prose p,
@@ -1187,8 +1217,9 @@ p {
 }
 
 .article-prose .article-deck {
-  font-size: 1.24rem;
-  line-height: 1.55;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  font-weight: 400;
 }
 
 .article-prose .article-quote p {
@@ -1198,6 +1229,7 @@ p {
 .article-topline {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
@@ -1213,6 +1245,13 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.article-prose .article-eyebrow {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #1769ff;
 }
 
 .article-byline {
