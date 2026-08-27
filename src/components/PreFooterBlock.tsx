@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { BrandMark } from './BrandMark'
 
@@ -6,6 +6,41 @@ type PartnerLogo = {
   name: string
   to: string
   mark: ReactNode
+}
+
+type LogoConfig = {
+  x: number
+  y: number
+  scale: number
+  amplitude: number
+  duration: number
+}
+
+const logoEditorStorageKey = 'designsworklife-logo-layout-v1'
+const defaultLogoConfig: LogoConfig[] = [
+  { x: 15, y: 7, scale: 1, amplitude: 8, duration: 7.6 },
+  { x: 31, y: 1, scale: 1, amplitude: 7, duration: 8.8 },
+  { x: 49, y: 8, scale: 1, amplitude: 6, duration: 9.4 },
+  { x: 5, y: 35, scale: 1, amplitude: 9, duration: 8.2 },
+  { x: 31, y: 38, scale: 1, amplitude: 8, duration: 7.6 },
+  { x: 50, y: 39, scale: 1, amplitude: 7, duration: 8.8 },
+  { x: 67, y: 16, scale: 1, amplitude: 6, duration: 9.4 },
+  { x: 82, y: 37, scale: 1, amplitude: 9, duration: 8.2 },
+  { x: 8, y: 72, scale: 1, amplitude: 8, duration: 7.6 },
+  { x: 29, y: 78, scale: 1, amplitude: 7, duration: 8.8 },
+  { x: 51, y: 71, scale: 1, amplitude: 6, duration: 9.4 },
+  { x: 73, y: 77, scale: 1, amplitude: 9, duration: 8.2 },
+]
+
+function loadLogoConfig() {
+  try {
+    const saved = localStorage.getItem(logoEditorStorageKey)
+    if (!saved) return defaultLogoConfig
+    const parsed = JSON.parse(saved) as LogoConfig[]
+    return parsed.length === defaultLogoConfig.length ? parsed : defaultLogoConfig
+  } catch {
+    return defaultLogoConfig
+  }
 }
 
 const partnerLogos: PartnerLogo[] = [
@@ -191,6 +226,71 @@ const partnerLogos: PartnerLogo[] = [
 export function PreFooterBlock() {
   const [email, setEmail] = useState('')
   const [done, setDone] = useState(false)
+  const [editorOpen, setEditorOpen] = useState(() => new URLSearchParams(window.location.search).get('logo-editor') === '1')
+  const [selectedLogo, setSelectedLogo] = useState(0)
+  const [logoConfig, setLogoConfig] = useState<LogoConfig[]>(loadLogoConfig)
+  const logoAreaRef = useRef<HTMLUListElement>(null)
+  const dragRef = useRef<{ index: number; offsetX: number; offsetY: number } | null>(null)
+
+  useEffect(() => {
+    const toggleEditor = (event: globalThis.KeyboardEvent) => {
+      if (event.altKey && event.shiftKey && event.key.toLowerCase() === 'e') {
+        event.preventDefault()
+        setEditorOpen((open) => !open)
+      }
+    }
+    window.addEventListener('keydown', toggleEditor)
+    return () => window.removeEventListener('keydown', toggleEditor)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(logoEditorStorageKey, JSON.stringify(logoConfig))
+  }, [logoConfig])
+
+  function updateLogo(index: number, patch: Partial<LogoConfig>) {
+    setLogoConfig((current) => current.map((item, i) => (i === index ? { ...item, ...patch } : item)))
+  }
+
+  function beginLogoDrag(event: PointerEvent<HTMLLIElement>, index: number) {
+    if (!editorOpen || !logoAreaRef.current) return
+    event.preventDefault()
+    const itemRect = event.currentTarget.getBoundingClientRect()
+    dragRef.current = { index, offsetX: event.clientX - itemRect.left, offsetY: event.clientY - itemRect.top }
+    event.currentTarget.setPointerCapture(event.pointerId)
+    setSelectedLogo(index)
+  }
+
+  function moveLogo(event: PointerEvent<HTMLLIElement>) {
+    if (!editorOpen || !dragRef.current || !logoAreaRef.current) return
+    const area = logoAreaRef.current.getBoundingClientRect()
+    const x = ((event.clientX - area.left - dragRef.current.offsetX) / area.width) * 100
+    const y = ((event.clientY - area.top - dragRef.current.offsetY) / area.height) * 100
+    updateLogo(dragRef.current.index, {
+      x: Math.max(0, Math.min(90, Number(x.toFixed(2)))),
+      y: Math.max(0, Math.min(88, Number(y.toFixed(2)))),
+    })
+  }
+
+  function nudgeLogo(event: KeyboardEvent<HTMLLIElement>, index: number) {
+    if (!editorOpen || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return
+    event.preventDefault()
+    const amount = event.shiftKey ? 1 : 0.25
+    const current = logoConfig[index]
+    updateLogo(index, {
+      x: Math.max(0, Math.min(90, current.x + (event.key === 'ArrowLeft' ? -amount : event.key === 'ArrowRight' ? amount : 0))),
+      y: Math.max(0, Math.min(88, current.y + (event.key === 'ArrowUp' ? -amount : event.key === 'ArrowDown' ? amount : 0))),
+    })
+  }
+
+  function exportLogoConfig() {
+    const blob = new Blob([JSON.stringify(logoConfig, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = 'designsworklife-logo-layout.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
 
   function onSubscribe(e: FormEvent) {
     e.preventDefault()
@@ -260,23 +360,85 @@ export function PreFooterBlock() {
         </div>
 
         <div
-          className="prefooter-cloud"
+          className={`prefooter-cloud${editorOpen ? ' is-editing' : ''}`}
           style={{
             backgroundImage: `url(${import.meta.env.BASE_URL}prefooter/representation-bg.webp)`,
           }}
         >
-          <ul className="prefooter-logos">
+          <ul className="prefooter-logos" ref={logoAreaRef}>
             {partnerLogos.map((logo, i) => (
               <li
                 key={logo.name}
-                className={`prefooter-logo prefooter-logo-slot-${i + 1} prefooter-float-${(i % 4) + 1}`}
+                className={`prefooter-logo prefooter-logo-slot-${i + 1} prefooter-float-${(i % 4) + 1}${selectedLogo === i && editorOpen ? ' is-selected' : ''}`}
+                style={{
+                  left: `${logoConfig[i].x}%`,
+                  top: `${logoConfig[i].y}%`,
+                  right: 'auto',
+                  bottom: 'auto',
+                  '--logo-scale': logoConfig[i].scale,
+                  '--float-x': `${(i % 2 ? -1 : 1) * logoConfig[i].amplitude * 0.55}px`,
+                  '--float-y': `${(i % 3 ? -1 : 1) * logoConfig[i].amplitude}px`,
+                  animationDuration: `${logoConfig[i].duration}s`,
+                  animationDelay: `${-(i + 1) * 0.61}s`,
+                } as CSSProperties}
+                tabIndex={editorOpen ? 0 : -1}
+                aria-label={editorOpen ? `Edit ${logo.name} position` : undefined}
+                onPointerDown={(event) => beginLogoDrag(event, i)}
+                onPointerMove={moveLogo}
+                onPointerUp={() => { dragRef.current = null }}
+                onKeyDown={(event) => nudgeLogo(event, i)}
               >
-                <Link to={logo.to} className="prefooter-logo-mark" aria-label={logo.name}>
+                <Link
+                  to={logo.to}
+                  className="prefooter-logo-mark"
+                  aria-label={logo.name}
+                  onClick={(event) => {
+                    if (editorOpen) {
+                      event.preventDefault()
+                      setSelectedLogo(i)
+                    }
+                  }}
+                >
                   {logo.mark}
                 </Link>
               </li>
             ))}
           </ul>
+          {editorOpen && (
+            <aside className="logo-editor" aria-label="Floating logo editor">
+              <div className="logo-editor-head">
+                <div>
+                  <strong>Logo 编辑模式</strong>
+                  <span>{partnerLogos[selectedLogo].name}</span>
+                </div>
+                <button type="button" onClick={() => setEditorOpen(false)} aria-label="Close logo editor">×</button>
+              </div>
+              {([
+                ['x', '横向位置', 0, 90, 0.25],
+                ['y', '纵向位置', 0, 88, 0.25],
+                ['scale', 'Logo 大小', 0.6, 1.6, 0.02],
+                ['amplitude', '漂浮幅度', 0, 18, 1],
+                ['duration', '漂浮速度', 4, 16, 0.2],
+              ] as const).map(([key, label, min, max, step]) => (
+                <label className="logo-editor-control" key={key}>
+                  <span>{label}<output>{logoConfig[selectedLogo][key]}</output></span>
+                  <input
+                    type="range"
+                    min={min}
+                    max={max}
+                    step={step}
+                    value={logoConfig[selectedLogo][key]}
+                    onChange={(event) => updateLogo(selectedLogo, { [key]: Number(event.target.value) })}
+                  />
+                </label>
+              ))}
+              <p>直接拖动 Logo；方向键精调，Shift + 方向键快速移动。</p>
+              <div className="logo-editor-actions">
+                <button type="button" onClick={exportLogoConfig}>导出配置</button>
+                <button type="button" onClick={() => setLogoConfig(defaultLogoConfig.map((item) => ({ ...item })))}>恢复默认</button>
+              </div>
+            </aside>
+          )}
         </div>
       </div>
     </section>

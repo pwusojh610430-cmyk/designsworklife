@@ -2970,6 +2970,7 @@ p {
   line-height: 0;
   filter: drop-shadow(0 6px 14px rgba(40, 70, 120, 0.08));
   transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+  transform: scale(var(--logo-scale, 1));
   opacity: 0.95;
 }
 
@@ -2991,7 +2992,7 @@ p {
 }
 
 .prefooter-logo:hover .prefooter-logo-mark {
-  transform: translateY(-4px) scale(1.04);
+  transform: translateY(-4px) scale(calc(var(--logo-scale, 1) * 1.04));
   filter: drop-shadow(0 10px 20px rgba(40, 70, 120, 0.14));
   opacity: 1;
 }
@@ -3007,6 +3008,146 @@ p {
 }
 .prefooter-float-4 {
   animation: prefooter-float-d 8.2s ease-in-out infinite -6.3s;
+}
+
+.prefooter-logo {
+  animation-name: prefooter-float-custom;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes prefooter-float-custom {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--float-x, 4px), var(--float-y, -8px), 0);
+  }
+}
+
+.prefooter-cloud.is-editing .prefooter-logo {
+  animation-play-state: paused;
+  cursor: grab;
+  touch-action: none;
+}
+
+.prefooter-cloud.is-editing .prefooter-logo:active {
+  cursor: grabbing;
+}
+
+.prefooter-cloud.is-editing .prefooter-logo-mark {
+  border-radius: 8px;
+  outline: 1px dashed rgba(75, 1, 255, 0.42);
+  outline-offset: 8px;
+}
+
+.prefooter-cloud.is-editing .prefooter-logo.is-selected .prefooter-logo-mark {
+  outline: 3px solid #4b01ff;
+  outline-offset: 10px;
+}
+
+.logo-editor {
+  position: absolute;
+  z-index: 4;
+  top: 1rem;
+  right: 1rem;
+  width: min(320px, calc(100% - 2rem));
+  padding: 1rem;
+  border: 1px solid #d9ddea;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 30px rgba(24, 39, 75, 0.14);
+  color: #17213b;
+}
+
+.logo-editor-head,
+.logo-editor-head > div,
+.logo-editor-control,
+.logo-editor-control > span {
+  display: flex;
+}
+
+.logo-editor-head {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.logo-editor-head > div,
+.logo-editor-control {
+  flex-direction: column;
+}
+
+.logo-editor-head strong {
+  font-size: 1rem;
+}
+
+.logo-editor-head span,
+.logo-editor p {
+  color: #687086;
+  font-size: 0.75rem;
+}
+
+.logo-editor-head button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: #eef0f5;
+  color: #17213b;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.logo-editor-control {
+  gap: 0.35rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.logo-editor-control > span {
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo-editor-control output {
+  color: #4b01ff;
+  font-variant-numeric: tabular-nums;
+}
+
+.logo-editor-control input {
+  width: 100%;
+  accent-color: #4b01ff;
+}
+
+.logo-editor p {
+  margin: 0.25rem 0 0.85rem;
+  line-height: 1.5;
+}
+
+.logo-editor-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.logo-editor-actions button {
+  min-height: 38px;
+  border: 1px solid #d9ddea;
+  border-radius: 8px;
+  background: #fff;
+  color: #17213b;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.logo-editor button:focus-visible,
+.prefooter-cloud.is-editing .prefooter-logo:focus-visible .prefooter-logo-mark {
+  outline: 3px solid #1769ff;
+  outline-offset: 3px;
 }
 
 @keyframes prefooter-float-a {
