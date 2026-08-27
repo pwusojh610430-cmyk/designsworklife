@@ -9,6 +9,14 @@ const newsSubnav = [
   ...newsTopics.map((t) => ({ label: t.label.replace(' News', ''), to: `/news/topic/${t.slug}` })),
 ]
 
+const newsLandingNav = [
+  { label: 'Latest', to: '/news' }, { label: 'Brands', to: '/news/topic/branding' },
+  { label: 'Agencies', to: '/news/topic/agencies' }, { label: 'Influencers', to: '/news/topic/interviews' },
+  { label: 'AI', to: '/news/topic/tech' }, { label: 'Creative', to: '/news/topic/creative' },
+  { label: 'Marketing', to: '/news/topic/marketing' }, { label: 'Ecommerce', to: '/news/topic/ecommerce' },
+  { label: 'Tech', to: '/news/topic/tech' },
+]
+
 function EditableText({ as: Tag, children, editing, className, id, onSave }: {
   as: 'p' | 'h1' | 'h2' | 'li' | 'cite'
   children: ReactNode
@@ -92,54 +100,29 @@ function NewsCard({
 }
 
 export function NewsIndexPage() {
+  const lead = newsArticles[0]
+  const featured = newsArticles.slice(1, 7)
+  const latest = newsArticles.slice(7, 19)
   return (
     <>
-      <PageHero
-        title="Trending Brand Stories"
-        subtitle="Daily B2B and marketing news covering technology, branding, advertising, and design."
-        crumbs={[{ label: 'Home', to: '/' }, { label: 'News' }]}
-      />
-      <SubNav items={newsSubnav} active="/news" />
-      <section className="section">
+      <SubNav items={newsLandingNav} active="/news" />
+      <header className="news-index-intro"><div className="container news-index-intro-inner"><h1>Trending Brand News</h1><p>Daily reporting on the ideas, campaigns, technology, and creative decisions shaping modern brands — written for marketers, founders, and agency leaders.</p></div></header>
+      <main className="news-index-main">
         <div className="container">
-          <h2>News Topics</h2>
-          <div className="card-grid" style={{ margin: '1rem 0 2rem' }}>
-            {newsTopics.map((t) => (
-              <Link key={t.slug} to={`/news/topic/${t.slug}`} className="card">
-                <h3>{t.label}</h3>
-                <p className="meta">Browse {t.label.toLowerCase()}</p>
-              </Link>
-            ))}
-          </div>
-
-          <h2>Latest News & Trends</h2>
-          <div className="news-ticker" style={{ marginTop: '1rem' }}>
-            {newsArticles.map((n) => (
-              <NewsCard
-                key={n.slug}
-                slug={n.slug}
-                title={n.title}
-                excerpt={n.excerpt}
-                meta={`${n.category} · ${n.ago} · ${n.read}`}
-                image={n.hero}
-                imageAlt={n.heroAlt}
-              />
-            ))}
-          </div>
-
-          <h2 style={{ marginTop: '2.5rem' }}>Partner Content</h2>
-          <div className="card-grid" style={{ marginTop: '1rem' }}>
-            {partnerArticles.map((p) => (
-              <article className="card partner-card" key={p.slug}>
-                <img src={p.image} alt={p.imageAlt} loading="lazy" />
-                <div className="meta">{p.category}</div>
-                <h3>{p.title}</h3>
-                <p>{p.excerpt}</p>
-              </article>
-            ))}
-          </div>
+          <div className="news-index-crumb">TRENDING BRAND NEWS <span>›</span> LATEST NEWS AND INSIGHTS</div>
+          <Link className="news-index-banner" to="/advertise"><strong>BUILD A MORE VISIBLE BRAND</strong><span>Research, refine, and grow with smarter creative intelligence</span><b>EXPLORE OPPORTUNITIES ›</b></Link>
+          <section className="news-feature-matrix" aria-label="Featured news">
+            <Link className="news-feature-lead" to={`/news/${lead.slug}`}><img src={lead.hero} alt={lead.heroAlt} /><span className="news-category">{lead.category}</span><h2>{lead.title}</h2><p>{lead.excerpt}</p></Link>
+            <div className="news-feature-minor-grid">{featured.map((item) => <Link className="news-feature-minor" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><span className="news-category">{item.category}</span><h3>{item.title}</h3></Link>)}</div>
+          </section>
+          <div className="news-index-divider" />
+          <section className="news-latest-layout">
+            <div><h2 className="news-index-section-title">Latest News &amp; Trends</h2><div className="news-latest-list">{latest.map((item) => <Link className="news-latest-item" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><div><span className="news-category">{item.category}</span><h3>{item.title}</h3><p>{item.excerpt}</p><span className="meta">By {item.author} · {item.ago} · {item.read}</span></div></Link>)}</div></div>
+            <aside className="news-index-side"><div className="side-card side-promo"><p className="side-promo-title"><strong>Promote</strong> your brand<br />&amp; generate <strong>results</strong></p><p className="side-promo-sub">On DesignsWorkLife</p><Link className="btn btn-primary btn-sm" to="/advertise">Contact us ›</Link></div><div className="side-card"><h3>Trending</h3><ul className="side-list">{newsArticles.slice(0, 6).map((item) => <li key={item.slug}><Link to={`/news/${item.slug}`}><img src={item.hero} alt="" /><span>{item.title}<span className="meta">{item.ago}</span></span></Link></li>)}</ul></div></aside>
+          </section>
         </div>
-      </section>
+      </main>
+      <section className="section alt"><div className="container"><h2>Partner Content</h2><div className="card-grid" style={{ marginTop: '1rem' }}>{partnerArticles.map((p) => <article className="card partner-card" key={p.slug}><img src={p.image} alt={p.imageAlt} loading="lazy" /><div className="meta">{p.category}</div><h3>{p.title}</h3><p>{p.excerpt}</p></article>)}</div></div></section>
     </>
   )
 }
