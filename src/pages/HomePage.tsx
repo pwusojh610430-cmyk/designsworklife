@@ -185,16 +185,16 @@ export function HomePage() {
         <div className="container stats-banner-inner">
           <div className="stats-banner-items">
             <div className="stats-banner-item">
-              <strong>950,000+</strong>
-              <span>Monthly B2B Visitors</span>
+              <strong>Independent</strong>
+              <span>Editorial analysis</span>
             </div>
             <div className="stats-banner-item">
-              <strong>140,000+</strong>
-              <span>Followers on Social</span>
+              <strong>Cross-sector</strong>
+              <span>Creative coverage</span>
             </div>
             <div className="stats-banner-item">
-              <strong>68,000+</strong>
-              <span>B2B Newsletter Subscribers</span>
+              <strong>Weekly</strong>
+              <span>Strategy briefings</span>
             </div>
           </div>
           <Link to="/benefits" className="btn btn-green">

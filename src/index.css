@@ -3649,6 +3649,13 @@ p {
 
 .article-verification.is-analysis strong { color: #8a5b00; }
 
+.icon-btn.is-selected {
+  border-color: #5625e8;
+  background: #f1ecff;
+  color: #421cff;
+  box-shadow: 0 0 0 2px rgba(86, 37, 232, .12);
+}
+
 .article-sources {
   margin-top: 38px;
   padding: 24px 26px;

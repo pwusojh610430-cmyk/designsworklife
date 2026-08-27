@@ -206,6 +206,8 @@ export function NewsArticlePage() {
   const article = newsArticles.find((n) => n.slug === slug) ?? newsArticles[0]
   const storageKey = `designsworklife-article-draft-${article.slug}`
   const [editorOpen, setEditorOpen] = useState(() => new URLSearchParams(window.location.search).get('article-editor') === '1')
+  const [interactionStatus, setInteractionStatus] = useState('')
+  const [reaction, setReaction] = useState('')
   const [draft, setDraft] = useState<NewsArticle>(() => {
     try { return JSON.parse(localStorage.getItem(storageKey) || '') as NewsArticle } catch { return structuredClone(article) }
   })
@@ -236,6 +238,41 @@ export function NewsArticlePage() {
     link.download = `${draft.slug}-article.json`
     link.click()
     URL.revokeObjectURL(url)
+  }
+
+  const shareArticle = (network: 'linkedin' | 'x') => {
+    const url = encodeURIComponent(window.location.href)
+    const title = encodeURIComponent(draft.title)
+    const shareUrl = network === 'linkedin'
+      ? `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
+      : `https://x.com/intent/post?url=${url}&text=${title}`
+    window.open(shareUrl, '_blank', 'noopener,noreferrer,width=720,height=620')
+    setInteractionStatus(`Opened ${network === 'linkedin' ? 'LinkedIn' : 'X'} sharing.`)
+  }
+
+  const copyArticleLink = async () => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(window.location.href)
+      } else {
+        const field = document.createElement('textarea')
+        field.value = window.location.href
+        field.style.position = 'fixed'
+        field.style.opacity = '0'
+        document.body.appendChild(field)
+        field.select()
+        document.execCommand('copy')
+        field.remove()
+      }
+      setInteractionStatus('Article link copied.')
+    } catch {
+      setInteractionStatus('Copy was blocked by the browser. Select the address from the address bar instead.')
+    }
+  }
+
+  const chooseReaction = (value: string) => {
+    setReaction(value)
+    setInteractionStatus('Thanks — your feedback selection has been noted.')
   }
 
   const sections = draft.body.filter((b) => b.type === 'h2') as { type: 'h2'; text: string }[]
@@ -283,13 +320,13 @@ export function NewsArticlePage() {
               </div>
               <div className="article-share">
                 <span className="meta">Share</span>
-                <button className="icon-btn" type="button" aria-label="Share on LinkedIn">
+                <button className="icon-btn" type="button" aria-label="Share on LinkedIn" onClick={() => shareArticle('linkedin')}>
                   in
                 </button>
-                <button className="icon-btn" type="button" aria-label="Share on X">
+                <button className="icon-btn" type="button" aria-label="Share on X" onClick={() => shareArticle('x')}>
                   X
                 </button>
-                <button className="icon-btn" type="button" aria-label="Copy link">
+                <button className="icon-btn" type="button" aria-label="Copy article link" onClick={copyArticleLink}>
                   ↗
                 </button>
               </div>
@@ -381,19 +418,20 @@ export function NewsArticlePage() {
 
             <div className="article-reactions">
               <span className="meta">Was this useful?</span>
-              <button className="icon-btn" type="button" aria-label="Helpful">
+              <button className={`icon-btn${reaction === 'helpful' ? ' is-selected' : ''}`} type="button" aria-label="Helpful" aria-pressed={reaction === 'helpful'} onClick={() => chooseReaction('helpful')}>
                 👍
               </button>
-              <button className="icon-btn" type="button" aria-label="Not helpful">
+              <button className={`icon-btn${reaction === 'not-helpful' ? ' is-selected' : ''}`} type="button" aria-label="Not helpful" aria-pressed={reaction === 'not-helpful'} onClick={() => chooseReaction('not-helpful')}>
                 👎
               </button>
-              <button className="icon-btn" type="button" aria-label="Love it">
+              <button className={`icon-btn${reaction === 'love' ? ' is-selected' : ''}`} type="button" aria-label="Love it" aria-pressed={reaction === 'love'} onClick={() => chooseReaction('love')}>
                 💗
               </button>
-              <button className="icon-btn" type="button" aria-label="Mind blown">
+              <button className={`icon-btn${reaction === 'surprised' ? ' is-selected' : ''}`} type="button" aria-label="Mind blown" aria-pressed={reaction === 'surprised'} onClick={() => chooseReaction('surprised')}>
                 🤯
               </button>
             </div>
+            <p className="sr-only" role="status" aria-live="polite">{interactionStatus}</p>
 
             <div className="author-card author-card-rich">
               <span className="article-avatar" aria-hidden="true">
@@ -476,7 +514,7 @@ export function NewsArticlePage() {
             <div className="side-card side-card-accent">
               <h3>Get the Newsletter</h3>
               <p className="meta">
-                Weekly brand and agency intelligence, read by 68,000+ B2B decision-makers.
+                A weekly briefing on brand strategy, agency work, and creative-industry shifts.
               </p>
               <Link className="btn btn-primary btn-sm" to="/contact-us">
                 Subscribe

@@ -312,7 +312,7 @@ export function PreFooterBlock() {
                 Receive our <span>Newsletter</span>
               </h2>
               <p>
-                Join over <strong>68,000 B2B</strong> marketers growing their brands
+                Join marketers and creative leaders building <strong>clearer, stronger brands</strong>
               </p>
             </div>
           </div>

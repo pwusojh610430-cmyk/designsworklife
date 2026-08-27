@@ -60,9 +60,9 @@ export function AgencyProfilePage() {
           </div>
         </div>
 
-        <div className="tabs">
+        <div className="tabs" role="tablist" aria-label="Agency profile sections">
           {['Overview', 'Services', 'Portfolio', 'Reviews', 'Team', 'Clients'].map((t) => (
-            <button key={t} className={tab === t ? 'active' : ''} onClick={() => setTab(t)}>
+            <button key={t} type="button" role="tab" aria-selected={tab === t} className={tab === t ? 'active' : ''} onClick={() => setTab(t)}>
               {t}
             </button>
           ))}
@@ -142,9 +142,9 @@ export function AgencyProfilePage() {
 
         {tab === 'Reviews' && (
           <div style={{ paddingBottom: '3rem' }}>
-            <button className="btn btn-outline" style={{ marginBottom: '1rem' }}>
+            <Link className="btn btn-outline" to="/contact-us" style={{ marginBottom: '1rem' }}>
               Submit a review
-            </button>
+            </Link>
             <div className="review">
               <div className="meta">
                 <Stars value={5} /> 5.0 · Verified by DesignsWorkLife

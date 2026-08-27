@@ -359,7 +359,7 @@ export function AdvertisePage() {
             {[
               {
                 title: 'Newsletter sponsorships',
-                body: 'Place your brand in front of 68,000+ subscribers who follow agency and creative trends.',
+                body: 'Place your brand alongside focused agency research and creative-industry analysis.',
               },
               {
                 title: 'Category placements',
@@ -443,7 +443,7 @@ export function SubmitAgencyPage() {
     <>
       <PageHero
         title="Submit Your Agency"
-        subtitle="Join 28,500+ agencies ranked for brands searching software, design, and marketing partners."
+        subtitle="Add your agency for review by brands searching for software, design, and marketing partners."
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Submit An Agency' }]}
       />
       <section className="section">

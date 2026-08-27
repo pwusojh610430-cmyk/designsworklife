@@ -22,10 +22,9 @@ export function AboutPage() {
           </p>
           <h2>Our story</h2>
           <p>
-            Since launching in 2018, DesignsWorkLife — led by marketplace operator Avery Lang — has
-            grown into a network of more than 28,500 professional agencies across 45+ countries. We
-            combine directory rankings, Marketplace matching, Best Designs awards, and daily B2B
-            coverage into one discovery platform.
+            DesignsWorkLife is building an independent discovery platform for creative and digital
+            services. We combine curated directory profiles, Marketplace matching, Best Designs
+            selections, and practical B2B analysis in one consistent research experience.
           </p>
           <h2>What we run</h2>
           <ul>

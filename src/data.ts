@@ -319,7 +319,7 @@ export const marketplaceProjects = [
     type: 'Digital Marketing',
     industry: 'Marketing and Advertising',
     description:
-      'A growth-stage firm is rolling out 70+ lead-gen plays and wants a long-term agency for launch support, ongoing marketing, creative, and scale.',
+      'A growth-stage firm is expanding its lead-generation program and wants a long-term agency for launch support, ongoing marketing, creative, and scale.',
     budget: '$116,000',
   },
   {

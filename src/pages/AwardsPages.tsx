@@ -63,7 +63,7 @@ export function BestDesignsPage() {
           <div className="section-head">
             <div>
               <h2>Best Designs August 2026</h2>
-              <p>4,200+ submitted designs · winners announced on the 10th</p>
+              <p>New entries reviewed monthly · selected work published throughout the season</p>
             </div>
             <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
               <Link className="btn btn-primary" to="/best-designs/submit">
@@ -292,7 +292,7 @@ export function HowItWorksPage() {
               <strong>Internal Jury Evaluation</strong> — scored out of 10 and displayed live.
             </li>
             <li>
-              <strong>Finalists Shortlisted</strong> — scores 7.5+ reach external judges.
+              <strong>Finalists Shortlisted</strong> — the strongest entries advance to external judges.
             </li>
             <li>
               <strong>Winner Announcement</strong> — announced on the 10th; monthly winners enter
@@ -302,16 +302,16 @@ export function HowItWorksPage() {
           <h2>Evaluation Criteria</h2>
           <div className="kv">
             <div>
-              <strong>Design</strong>30%
+              <strong>Design</strong>Visual clarity and craft
             </div>
             <div>
-              <strong>Usability</strong>30%
+              <strong>Usability</strong>Ease, accessibility, and purpose
             </div>
             <div>
-              <strong>Creativity</strong>30%
+              <strong>Creativity</strong>Originality and relevance
             </div>
             <div>
-              <strong>Content</strong>10%
+              <strong>Content</strong>Structure and communication
             </div>
           </div>
           <h2>Submission Fees</h2>

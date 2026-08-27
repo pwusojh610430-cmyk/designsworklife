@@ -82,7 +82,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'p',
-        text: 'Creator budgets in QSR keep climbing. Influencer Marketing Hub’s 2026 benchmark found most marketers expect influencer spend to jump by at least 50% this year. Speed’s YouTube reach gives KFC access to a younger male audience traditional spot buys struggle to hold. More Speed × KFC activity is planned for fall, stretching one SKU into months of content.',
+        text: 'Creator investment in quick-service restaurant marketing continues to grow. Speed’s online reach gives KFC access to a younger audience traditional spot buys struggle to hold. Extending the partnership across later activations could turn one product launch into a longer stream of recognizable content.',
       },
       {
         type: 'image',
@@ -180,7 +180,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'p',
-        text: 'US Halloween spending hit roughly $13.1 billion last year, up from about $11.6 billion the year before, with candy alone near $3.9 billion and per-person spend at an all-time high. A season expanding at that pace is what justifies building characters instead of licensing them.',
+        text: 'Halloween remains a major seasonal retail event, with candy, costumes, and decorations giving brands multiple reasons to return each year. That recurring demand helps justify building owned characters instead of negotiating a fresh licensing arrangement every season.',
       },
       {
         type: 'p',
@@ -207,7 +207,7 @@ export const newsArticles: NewsArticle[] = [
     keyFindings: [
       'Fanta is replacing two seasons of borrowed Halloween IP with four proprietary monsters, launched across about 50 markets.',
       'Owned characters convert a recurring licensing cost into an asset that gets cheaper and more recognizable each October.',
-      'A record $13.1 billion US Halloween market is the demand signal underwriting the investment.',
+      'Sustained Halloween demand gives the brand room to invest in characters it can reuse over time.',
       'The creative system stays orange-led but moves from slapstick mascot toward cinematic horror.',
       'A licensed cameo still running this season undercuts the "collaborator to creator" narrative.',
     ],
@@ -387,7 +387,7 @@ export const newsArticles: NewsArticle[] = [
   },
   {
     slug: 'ipsy-beauty-product-testers',
-    title: 'Inside IPSY’s Plan to Rent Out 16 Million Beauty Testers',
+    title: 'IPSY Reframes Its Beauty Community as a Product-Testing Network',
     excerpt:
       'A beauty marketplace productizes its subscriber base as a testing network — turning community into a B2B research product.',
     read: '4 min read',
@@ -403,7 +403,7 @@ export const newsArticles: NewsArticle[] = [
     body: [
       {
         type: 'p',
-        text: 'IPSY spent years assembling beauty subscribers who open boxes, try products, and talk online. The next move is obvious in hindsight: sell brands structured access to that testing behavior. Sixteen million potential testers is not a mailing list — it is a living panel.',
+        text: 'IPSY spent years assembling beauty subscribers who open boxes, try products, and talk online. The next move is obvious in hindsight: offer brands structured access to that testing behavior. A large, active member base is not simply a mailing list — it can operate as a living research panel.',
       },
       {
         type: 'image',

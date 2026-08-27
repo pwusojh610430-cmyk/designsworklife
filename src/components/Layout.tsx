@@ -530,7 +530,7 @@ export function Newsletter() {
         ×
       </button>
       <h3>Get the DesignsWorkLife Newsletter</h3>
-      <p className="meta">Join over 68,000 B2B marketers growing their brands</p>
+      <p className="meta">A concise weekly briefing for marketers, founders, and creative teams</p>
       {done ? (
         <p style={{ color: 'var(--ok)', fontWeight: 600 }}>Thanks — you&apos;re on the list.</p>
       ) : (

@@ -44,7 +44,7 @@ export function AgencyIndexPage() {
         </div>
       </header>
 
-      <section className="agency-trust-strip"><div className="container"><div><strong>9,300+</strong><span>Verified agencies</span></div><div><strong>35,000+</strong><span>Client reviews</span></div><div><strong>50+</strong><span>Service categories</span></div><Link to="/marketplace/project-brief">Get matched for free ›</Link></div></section>
+      <section className="agency-trust-strip"><div className="container"><div><strong>Curated</strong><span>Partner profiles</span></div><div><strong>Evidence-led</strong><span>Agency comparisons</span></div><div><strong>Specialist</strong><span>Service categories</span></div><Link to="/marketplace/project-brief">Request a shortlist ›</Link></div></section>
 
       <AgencyDirectoryBlock agencyLimit={4} />
 
