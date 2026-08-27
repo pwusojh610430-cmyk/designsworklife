@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
-import { bestDesignLinks, categories, newsTopics } from '../data'
+import { bestDesignLinks, categories } from '../data'
 import { BrandMark } from './BrandMark'
 
 export function Logo() {
@@ -91,6 +91,16 @@ const featuredAgencyLinks = [
   { label: 'Branding Agencies', slug: 'logo-branding' },
   { label: 'IT Services Companies', slug: 'it-services' },
   { label: 'Cybersecurity Companies', slug: 'cybersecurity' },
+]
+
+const trendingMenuLinks = [
+  { label: 'Latest News', to: '/news' },
+  { label: 'Brand News', to: '/news/topic/branding' },
+  { label: 'AI News', to: '/news/topic/ai' },
+  { label: 'Creative News', to: '/news/topic/creative' },
+  { label: 'Marketing News', to: '/news/topic/marketing' },
+  { label: 'eCommerce News', to: '/news/topic/ecommerce' },
+  { label: 'Technology News', to: '/news/topic/tech' },
 ]
 
 export function Header() {
@@ -219,27 +229,14 @@ export function Header() {
                 </button>
               </div>
               <div className="mega-panel mega-panel-news" id="mega-news" role="region" aria-label="Trending Brand Stories menu">
-                <div className="mega-inner">
-                  <div className="mega-col">
-                    <h4>News Topics</h4>
-                    {newsTopics.slice(0, 6).map((t) => (
-                      <Link key={t.slug} to={`/news/topic/${t.slug}`} onClick={closeAll}>
-                        {t.label}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="mega-col">
-                    <h4>More Coverage</h4>
-                    {newsTopics.slice(6).map((t) => (
-                      <Link key={t.slug} to={`/news/topic/${t.slug}`} onClick={closeAll}>
-                        {t.label}
-                      </Link>
-                    ))}
-                    <Link to="/news" className="mega-view-all" onClick={closeAll}>
-                      View All News →
+                <nav className="trending-menu-list" aria-label="News categories">
+                  {trendingMenuLinks.map((item) => (
+                    <Link key={item.to} to={item.to} onClick={closeAll}>
+                      <span className="trending-menu-arrow" aria-hidden="true">›</span>
+                      <span>{item.label}</span>
                     </Link>
-                  </div>
-                </div>
+                  ))}
+                </nav>
               </div>
             </div>
 
