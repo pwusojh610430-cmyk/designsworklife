@@ -57,7 +57,6 @@ function ArticleBody({ blocks, editing, onChange }: { blocks: ArticleBlock[]; ed
         return (
           <figure className="article-figure" key={i}>
             <img src={block.src} alt={block.alt} loading="lazy" />
-            <figcaption>{block.caption}</figcaption>
           </figure>
         )
       })}
@@ -260,9 +259,6 @@ export function NewsArticlePage() {
 
             <figure className="article-hero">
               <img src={draft.hero} alt={draft.heroAlt} />
-              <figcaption>
-                {article.heroAlt}. {article.heroCredit}
-              </figcaption>
             </figure>
 
             <div className="article-byline">
