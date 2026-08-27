@@ -1,36 +1,56 @@
+import { useEffect, useState, type FocusEvent, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { newsArticles, newsTopics, partnerArticles } from '../data'
 import { PageHero, SubNav } from '../components/Layout'
-import type { ArticleBlock } from '../content/articles'
+import type { ArticleBlock, NewsArticle } from '../content/articles'
 
 const newsSubnav = [
   { label: 'All News', to: '/news' },
   ...newsTopics.map((t) => ({ label: t.label.replace(' News', ''), to: `/news/topic/${t.slug}` })),
 ]
 
-function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
+function EditableText({ as: Tag, children, editing, className, id, onSave }: {
+  as: 'p' | 'h1' | 'h2' | 'li' | 'cite'
+  children: ReactNode
+  editing: boolean
+  className?: string
+  id?: string
+  onSave: (value: string) => void
+}) {
+  return (
+    <Tag
+      className={className}
+      id={id}
+      contentEditable={editing}
+      suppressContentEditableWarning
+      onBlur={(event: FocusEvent<HTMLElement>) => onSave(event.currentTarget.innerText.trim())}
+    >
+      {children}
+    </Tag>
+  )
+}
+
+function ArticleBody({ blocks, editing, onChange }: { blocks: ArticleBlock[]; editing: boolean; onChange: (index: number, block: ArticleBlock) => void }) {
   return (
     <>
       {blocks.map((block, i) => {
-        if (block.type === 'p') return <p key={i}>{block.text}</p>
+        if (block.type === 'p') return <EditableText as="p" key={i} editing={editing} onSave={(text) => onChange(i, { ...block, text })}>{block.text}</EditableText>
         if (block.type === 'h2')
           return (
-            <h2 key={i} id={slugifyHeading(block.text)}>
-              {block.text}
-            </h2>
+            <EditableText as="h2" key={i} id={slugifyHeading(block.text)} editing={editing} onSave={(text) => onChange(i, { ...block, text })}>{block.text}</EditableText>
           )
         if (block.type === 'quote')
           return (
             <blockquote className="article-quote" key={i}>
-              <p>“{block.text}”</p>
-              {block.cite && <cite>— {block.cite}</cite>}
+              <EditableText as="p" editing={editing} onSave={(text) => onChange(i, { ...block, text: text.replace(/^“|”$/g, '') })}>“{block.text}”</EditableText>
+              {block.cite && <EditableText as="cite" editing={editing} onSave={(cite) => onChange(i, { ...block, cite: cite.replace(/^—\s*/, '') })}>— {block.cite}</EditableText>}
             </blockquote>
           )
         if (block.type === 'ul')
           return (
             <ul key={i}>
-              {block.items.map((item) => (
-                <li key={item}>{item}</li>
+              {block.items.map((item, itemIndex) => (
+                <EditableText as="li" key={itemIndex} editing={editing} onSave={(text) => onChange(i, { ...block, items: block.items.map((value, index) => index === itemIndex ? text : value) })}>{item}</EditableText>
               ))}
             </ul>
           )
@@ -179,8 +199,41 @@ function slugifyHeading(text: string) {
 export function NewsArticlePage() {
   const { slug = '' } = useParams()
   const article = newsArticles.find((n) => n.slug === slug) ?? newsArticles[0]
+  const storageKey = `designsworklife-article-draft-${article.slug}`
+  const [editorOpen, setEditorOpen] = useState(() => new URLSearchParams(window.location.search).get('article-editor') === '1')
+  const [draft, setDraft] = useState<NewsArticle>(() => {
+    try { return JSON.parse(localStorage.getItem(storageKey) || '') as NewsArticle } catch { return structuredClone(article) }
+  })
 
-  const sections = article.body.filter((b) => b.type === 'h2') as { type: 'h2'; text: string }[]
+  useEffect(() => {
+    // oxlint-disable-next-line react/set-state-in-effect -- route changes must load the matching saved draft
+    try { setDraft(JSON.parse(localStorage.getItem(storageKey) || '') as NewsArticle) } catch { setDraft(structuredClone(article)) }
+  }, [article, storageKey])
+
+  useEffect(() => {
+    const toggle = (event: globalThis.KeyboardEvent) => {
+      if (event.altKey && event.shiftKey && event.key.toLowerCase() === 'a') {
+        event.preventDefault()
+        setEditorOpen((open) => !open)
+      }
+    }
+    window.addEventListener('keydown', toggle)
+    return () => window.removeEventListener('keydown', toggle)
+  }, [])
+
+  useEffect(() => { localStorage.setItem(storageKey, JSON.stringify(draft)) }, [draft, storageKey])
+
+  const updateBlock = (index: number, block: ArticleBlock) => setDraft((current) => ({ ...current, body: current.body.map((item, i) => i === index ? block : item) }))
+  const exportDraft = () => {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(draft, null, 2)], { type: 'application/json' }))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${draft.slug}-article.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const sections = draft.body.filter((b) => b.type === 'h2') as { type: 'h2'; text: string }[]
   const others = newsArticles.filter((n) => n.slug !== article.slug)
   const related = others
     .filter((n) => n.topics.some((t) => article.topics.includes(t)))
@@ -190,23 +243,23 @@ export function NewsArticlePage() {
   return (
     <>
       <SubNav items={newsSubnav} />
-      <article className="section">
+      <article className={`section${editorOpen ? ' article-editing' : ''}`}>
         <div className="container article-layout">
           <div className="prose article-prose">
             <header className="article-header">
-              <h1>{article.title}</h1>
-              <p className="article-deck">{article.excerpt}</p>
+              <EditableText as="h1" editing={editorOpen} onSave={(title) => setDraft((current) => ({ ...current, title }))}>{draft.title}</EditableText>
+              <EditableText as="p" className="article-deck" editing={editorOpen} onSave={(excerpt) => setDraft((current) => ({ ...current, excerpt }))}>{draft.excerpt}</EditableText>
             </header>
 
             <div className="article-topline">
               <Link className="article-eyebrow" to="/news">
-                {article.category}
+                {draft.category}
               </Link>
-              <span className="meta">{article.read}</span>
+              <span className="meta">{draft.read}</span>
             </div>
 
             <figure className="article-hero">
-              <img src={article.hero} alt={article.heroAlt} />
+              <img src={draft.hero} alt={draft.heroAlt} />
               <figcaption>
                 {article.heroAlt}. {article.heroCredit}
               </figcaption>
@@ -259,7 +312,7 @@ export function NewsArticlePage() {
               </nav>
             )}
 
-            <ArticleBody blocks={article.body} />
+            <ArticleBody blocks={draft.body} editing={editorOpen} onChange={updateBlock} />
 
             <div className="article-callout" id="key-findings">
               <h2>Key Findings</h2>
@@ -398,6 +451,17 @@ export function NewsArticlePage() {
             </div>
           </aside>
         </div>
+        {editorOpen && (
+          <aside className="article-editor" aria-label="Article editor">
+            <div className="article-editor-head"><strong>文章编辑模式</strong><button type="button" onClick={() => setEditorOpen(false)} aria-label="Close article editor">×</button></div>
+            <label>主图地址<input value={draft.hero} onChange={(event) => setDraft((current) => ({ ...current, hero: event.target.value }))} /></label>
+            <label>图片说明<input value={draft.heroAlt} onChange={(event) => setDraft((current) => ({ ...current, heroAlt: event.target.value }))} /></label>
+            <label>分类<input value={draft.category} onChange={(event) => setDraft((current) => ({ ...current, category: event.target.value }))} /></label>
+            <label>阅读时间<input value={draft.read} onChange={(event) => setDraft((current) => ({ ...current, read: event.target.value }))} /></label>
+            <p>直接点击标题、摘要、正文或小标题修改，离开文本框后自动保存。</p>
+            <div className="article-editor-actions"><button type="button" onClick={exportDraft}>导出文章</button><button type="button" onClick={() => setDraft(structuredClone(article))}>恢复原文</button></div>
+          </aside>
+        )}
       </article>
     </>
   )
