@@ -1,7 +1,7 @@
 import { useEffect, useState, type FocusEvent, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { newsArticles, newsTopics, partnerArticles } from '../data'
-import { PageHero, SubNav } from '../components/Layout'
+import { SubNav } from '../components/Layout'
 import type { ArticleBlock, NewsArticle } from '../content/articles'
 
 const newsSubnav = [
@@ -137,36 +137,28 @@ export function NewsTopicPage() {
       : newsArticles.filter(
           (n) => n.topics.includes(topic) || n.category.toLowerCase().includes(topic),
         )
+  const categoryArticles = filtered.length ? filtered : newsArticles
+  const pool = [...categoryArticles, ...newsArticles.filter((item) => !categoryArticles.some((match) => match.slug === item.slug))]
+  const lead = pool[0]
+  const featured = pool.slice(1, 7)
+  const latest = categoryArticles.slice(1, 13)
 
   return (
     <>
-      <PageHero
-        title={label}
-        subtitle={`Coverage and analysis in ${label.toLowerCase()}.`}
-        crumbs={[
-          { label: 'Home', to: '/' },
-          { label: 'News', to: '/news' },
-          { label },
-        ]}
-      />
-      <SubNav items={newsSubnav} active={`/news/topic/${topic}`} />
-      <section className="section">
-        <div className="container">
-          <div className="news-ticker">
-            {(filtered.length ? filtered : newsArticles).map((n) => (
-              <NewsCard
-                key={n.slug}
-                slug={n.slug}
-                title={n.title}
-                excerpt={n.excerpt}
-                meta={`${n.category} · ${n.ago} · ${n.read}`}
-                image={n.hero}
-                imageAlt={n.heroAlt}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <SubNav items={newsLandingNav} active={`/news/topic/${topic}`} />
+      <header className="news-index-intro"><div className="container news-index-intro-inner"><h1>{label}</h1><p>Focused reporting, campaign analysis, and practical industry insight across {label.toLowerCase()} — selected for brand, marketing, and agency leaders.</p></div></header>
+      <main className="news-index-main"><div className="container">
+        <div className="news-index-crumb">TRENDING BRAND NEWS <span>›</span> {label.toUpperCase()}</div>
+        <Link className="news-index-banner" to="/advertise"><strong>TURN INSIGHT INTO MOMENTUM</strong><span>Connect strategy, creative thinking, and measurable brand growth</span><b>EXPLORE OPPORTUNITIES ›</b></Link>
+        <section className="news-feature-matrix" aria-label={`Featured ${label}`}>
+          <Link className="news-feature-lead" to={`/news/${lead.slug}`}><img src={lead.hero} alt={lead.heroAlt} /><span className="news-category">{lead.category}</span><h2>{lead.title}</h2><p>{lead.excerpt}</p></Link>
+          <div className="news-feature-minor-grid">{featured.map((item) => <Link className="news-feature-minor" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><span className="news-category">{item.category}</span><h3>{item.title}</h3></Link>)}</div>
+        </section>
+        <div className="news-index-divider" />
+        <section className="news-latest-layout"><div><h2 className="news-index-section-title">Latest {label}</h2><div className="news-latest-list">{latest.map((item) => <Link className="news-latest-item" key={item.slug} to={`/news/${item.slug}`}><img src={item.hero} alt={item.heroAlt} loading="lazy" /><div><span className="news-category">{item.category}</span><h3>{item.title}</h3><p>{item.excerpt}</p><span className="meta">By {item.author} · {item.ago} · {item.read}</span></div></Link>)}</div></div>
+          <aside className="news-index-side"><div className="side-card side-promo"><p className="side-promo-title"><strong>Promote</strong> your brand<br />&amp; generate <strong>results</strong></p><p className="side-promo-sub">On DesignsWorkLife</p><Link className="btn btn-primary btn-sm" to="/advertise">Contact us ›</Link></div><div className="side-card"><h3>Trending in {label}</h3><ul className="side-list">{categoryArticles.slice(0, 6).map((item) => <li key={item.slug}><Link to={`/news/${item.slug}`}><img src={item.hero} alt="" /><span>{item.title}<span className="meta">{item.ago}</span></span></Link></li>)}</ul></div></aside>
+        </section>
+      </div></main>
     </>
   )
 }
