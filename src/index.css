@@ -1163,19 +1163,19 @@ p {
 
 .article-layout {
   display: grid;
-  width: min(100% - 3rem, 1210px);
-  grid-template-columns: minmax(0, 717px) minmax(330px, 422px);
-  gap: clamp(2rem, 4.375vw, 3.5rem);
+  width: min(100% - 5rem, 1609px);
+  grid-template-columns: minmax(0, 1049px) minmax(422px, 496px);
+  gap: clamp(3.5rem, 3.65vw, 4rem);
   align-items: start;
 }
 
 .article-layout .article-prose {
-  max-width: 717px;
+  max-width: 1049px;
 }
 
 .article-prose > :not(.article-header):not(.article-topline):not(.article-hero):not(.article-byline) {
-  width: min(100%, 593px);
-  margin-left: auto;
+  width: 100%;
+  margin-left: 0;
 }
 
 .article-header {
