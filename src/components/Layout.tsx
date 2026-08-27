@@ -29,10 +29,36 @@ function Chevron() {
   )
 }
 
+const agencyMenuIcons: Record<string, string> = {
+  Featured: '☆',
+  'Branding & Creative': '◉',
+  'Website & Interface': '▤',
+  Marketing: '◎',
+  'Software & App': '▣',
+  'IT Services': '□',
+}
+
+const featuredAgencyLinks = [
+  { label: 'Web Design Companies', slug: 'website-design-development' },
+  { label: 'Digital Marketing Agencies', slug: 'digital-marketing' },
+  { label: 'Software Development Companies', slug: 'software-development' },
+  { label: 'Mobile App Development Companies', slug: 'mobile-app-design-development' },
+  { label: 'Web Development Companies', slug: 'web-development-companies' },
+  { label: 'SEO Agencies', slug: 'search-engine-optimization' },
+  { label: 'AI Companies', slug: 'ai-companies' },
+  { label: 'UI/UX Design Agencies', slug: 'ui-ux-design' },
+  { label: 'PPC Agencies', slug: 'paid-media-pay-per-click' },
+  { label: 'Branding Agencies', slug: 'logo-branding' },
+  { label: 'IT Services Companies', slug: 'it-services' },
+  { label: 'Cybersecurity Companies', slug: 'cybersecurity' },
+]
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
+  const [agencyMenuCategory, setAgencyMenuCategory] = useState('Featured')
+  const [agencyRegion, setAgencyRegion] = useState<'us' | 'global'>('us')
   const headerRef = useRef<HTMLElement>(null)
   const closeTimer = useRef<number | null>(null)
 
@@ -92,6 +118,17 @@ export function Header() {
     setOpenMenu(null)
     setMobileOpen(false)
   }
+
+  const agencyMenuCategories = [
+    { name: 'Featured', items: featuredAgencyLinks },
+    ...categories.slice(0, 5),
+  ]
+  const activeAgencyCategory =
+    agencyMenuCategories.find((group) => group.name === agencyMenuCategory) ?? agencyMenuCategories[0]
+  const activeAgencyLinks =
+    agencyRegion === 'global' && agencyMenuCategory === 'Featured'
+      ? featuredAgencyLinks.slice().reverse()
+      : activeAgencyCategory.items
 
   return (
     <header
@@ -187,25 +224,53 @@ export function Header() {
                 </button>
               </div>
               <div className="mega-panel mega-panel-agency" id="mega-agency" role="region" aria-label="Agency Directory menu">
-                <div className="mega-inner mega-agency-grid">
-                  {categories.map((group) => (
-                    <div className="mega-col" key={group.name}>
-                      <h4>{group.name}</h4>
-                      {group.items.map((item) => (
+                <div className="agency-mega-shell">
+                  <div className="agency-mega-categories" aria-label="Agency service categories">
+                    {agencyMenuCategories.map((group) => (
+                      <button
+                        type="button"
+                        className={`agency-mega-category${agencyMenuCategory === group.name ? ' is-active' : ''}`}
+                        aria-pressed={agencyMenuCategory === group.name}
+                        onMouseEnter={() => setAgencyMenuCategory(group.name)}
+                        onFocus={() => setAgencyMenuCategory(group.name)}
+                        onClick={() => setAgencyMenuCategory(group.name)}
+                        key={group.name}
+                      >
+                        <span className="agency-mega-icon" aria-hidden="true">{agencyMenuIcons[group.name]}</span>
+                        <span>{group.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <div className="agency-mega-content">
+                    <div className="agency-region-tabs" role="tablist" aria-label="Agency region">
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={agencyRegion === 'us'}
+                        className={agencyRegion === 'us' ? 'is-active' : ''}
+                        onClick={() => setAgencyRegion('us')}
+                      >
+                        <span aria-hidden="true">🇺🇸</span> US Agencies
+                      </button>
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={agencyRegion === 'global'}
+                        className={agencyRegion === 'global' ? 'is-active' : ''}
+                        onClick={() => setAgencyRegion('global')}
+                      >
+                        Global Agencies
+                      </button>
+                    </div>
+                    <div className="agency-mega-links" aria-live="polite">
+                      {activeAgencyLinks.map((item) => (
                         <Link key={item.slug} to={`/agency/${item.slug}`} onClick={closeAll}>
+                          <span aria-hidden="true">›</span>
                           {item.label}
                         </Link>
                       ))}
                     </div>
-                  ))}
-                </div>
-                <div className="mega-footer">
-                  <Link to="/agency" onClick={closeAll}>
-                    View All Service Providers
-                  </Link>
-                  <Link to="/benefits" onClick={closeAll}>
-                    List Your Agency
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
