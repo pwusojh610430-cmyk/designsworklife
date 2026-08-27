@@ -1163,14 +1163,14 @@ p {
 
 .article-layout {
   display: grid;
-  width: min(100% - 5rem, 1490px);
-  grid-template-columns: minmax(0, 930px) minmax(422px, 496px);
+  width: min(100% - 5rem, 1420px);
+  grid-template-columns: minmax(0, 870px) minmax(422px, 486px);
   gap: clamp(3.5rem, 3.65vw, 4rem);
   align-items: start;
 }
 
 .article-layout .article-prose {
-  max-width: 930px;
+  max-width: 870px;
 }
 
 .article-prose > :not(.article-header):not(.article-topline):not(.article-hero):not(.article-byline) {
@@ -1183,7 +1183,7 @@ p {
 }
 
 .article-header h1 {
-  max-width: 930px;
+  max-width: 870px;
   margin: 0 0 1.75rem;
   color: #0b2a67;
   font-size: clamp(2.75rem, 4.3vw, 3.4375rem);
