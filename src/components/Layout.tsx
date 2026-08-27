@@ -337,20 +337,24 @@ export function Header() {
                 </button>
               </div>
               <div className="mega-panel mega-panel-awards" id="mega-awards" role="region" aria-label="Best Designs menu">
-                <div className="mega-inner">
-                  <div className="mega-col">
-                    <h4>Award Categories</h4>
-                    {bestDesignLinks.slice(0, 7).map((l) => (
-                      <Link key={l.to} to={l.to} onClick={closeAll}>
-                        {l.label}
-                      </Link>
-                    ))}
+                <div className="awards-mega-shell">
+                  <div className="awards-mega-explore">
+                    <p className="awards-mega-heading">Explore Best Designs</p>
+                    <div className="awards-mega-links">
+                      {bestDesignLinks.slice(0, 7).map((link, index) => (
+                        <Link className={index === 0 ? 'is-featured' : ''} key={link.to} to={link.to} onClick={closeAll}>
+                          <span className="awards-mega-arrow" aria-hidden="true">›</span>
+                          <span>{link.label}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <div className="mega-col">
-                    <h4>Participate</h4>
-                    {bestDesignLinks.slice(7).map((l) => (
-                      <Link key={l.to} to={l.to} onClick={closeAll}>
-                        {l.label}
+                  <div className="awards-mega-participate">
+                    <p className="awards-mega-heading">Participate</p>
+                    {bestDesignLinks.slice(7).map((link, index) => (
+                      <Link className={index === 2 ? 'is-primary' : ''} key={link.to} to={link.to} onClick={closeAll}>
+                        <span>{link.label}</span>
+                        <span aria-hidden="true">›</span>
                       </Link>
                     ))}
                   </div>
