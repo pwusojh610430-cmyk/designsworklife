@@ -295,6 +295,15 @@ export function NewsArticlePage() {
               </div>
             </div>
 
+            <div className={`article-verification ${draft.verificationStatus === 'source-reviewed' ? 'is-reviewed' : 'is-analysis'}`}>
+              <strong>{draft.verificationStatus === 'source-reviewed' ? 'Source-Reviewed' : 'Editorial Analysis'}</strong>
+              <span>
+                {draft.verificationStatus === 'source-reviewed'
+                  ? `Checked against linked public reporting${draft.factChecked ? ` on ${draft.factChecked}` : ''}.`
+                  : 'Interpretive editorial content; not presented as independently reported breaking news.'}
+              </span>
+            </div>
+
             {sections.length > 1 && (
               <nav className="article-toc" aria-label="In this article">
                 <p className="article-toc-title">In this article</p>
@@ -309,6 +318,9 @@ export function NewsArticlePage() {
                   </li>
                   <li>
                     <a href="#our-take">Our Take</a>
+                  </li>
+                  <li>
+                    <a href="#sources-methodology">Sources &amp; Methodology</a>
                   </li>
                 </ol>
               </nav>
@@ -327,6 +339,25 @@ export function NewsArticlePage() {
 
             <h2 id="our-take">Our Take</h2>
             <p>{article.ourTake}</p>
+
+            <section className="article-sources" id="sources-methodology" aria-labelledby="sources-methodology-title">
+              <h2 id="sources-methodology-title">Sources &amp; Methodology</h2>
+              {draft.sources?.length ? (
+                <>
+                  <p>Our editors compared the campaign details in this analysis with the public reporting below. Commentary and strategic conclusions are our own.</p>
+                  <ol>
+                    {draft.sources.map((source) => (
+                      <li key={source.url}>
+                        <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+                        <span> — {source.publisher}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </>
+              ) : (
+                <p>This page is an editorial analysis draft assembled from publicly available campaign context. It has not completed source-by-source verification and should not be treated as independently reported news.</p>
+              )}
+            </section>
 
             <div className="article-cta">
               <div>

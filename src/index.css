@@ -3619,6 +3619,54 @@ p {
   left: 15%;
   top: 7%;
 }
+
+.article-verification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 28px;
+  padding: 10px 14px;
+  border: 1px solid #eadfff;
+  border-radius: 10px;
+  background: #faf8ff;
+  color: #4b5568;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.article-verification strong {
+  flex: 0 0 auto;
+  color: #5625e8;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.article-verification.is-analysis {
+  border-color: #f0dfbd;
+  background: #fffaf0;
+}
+
+.article-verification.is-analysis strong { color: #8a5b00; }
+
+.article-sources {
+  margin-top: 38px;
+  padding: 24px 26px;
+  border: 1px solid #e4e7ee;
+  border-radius: 12px;
+  background: #fafbfe;
+}
+
+.article-sources h2 { margin-top: 0; }
+.article-sources p { color: #4f596c; }
+.article-sources ol { margin-bottom: 0; padding-left: 22px; }
+.article-sources li + li { margin-top: 9px; }
+.article-sources a { color: #421cff; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .article-verification { align-items: flex-start; flex-direction: column; }
+  .article-sources { padding: 20px; }
+}
 .prefooter-logo-slot-2 {
   left: 31%;
   top: 1%;

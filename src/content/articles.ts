@@ -28,6 +28,9 @@ export type NewsArticle = {
   keyFindings: string[]
   ourTake: string
   agencyCta: { label: string; to: string }
+  verificationStatus?: 'source-reviewed' | 'editorial-analysis'
+  factChecked?: string
+  sources?: { title: string; publisher: string; url: string }[]
 }
 
 /** All images: Pixabay CDN, free under Pixabay Content License */
