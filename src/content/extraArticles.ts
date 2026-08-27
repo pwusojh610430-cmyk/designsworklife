@@ -14,7 +14,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Karen leads editorial interviews with agency founders and creative directors.',
     category: 'Interviews',
     topics: ['interviews', 'agencies', 'design', 'creative'],
-    hero: 'https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg',
+    hero: '/designsworklife/images/pixabay/student-849825_1280.jpg',
     heroAlt: 'Designer reviewing work at a desk',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -115,7 +115,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'eCommerce',
     topics: ['ecommerce', 'design', 'tech', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/22/19/25/adult-1850177_1280.jpg',
+    hero: '/designsworklife/images/pixabay/adult-1850177_1280.jpg',
     heroAlt: 'Person shopping with a credit card',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -251,7 +251,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Karen leads editorial interviews with agency founders and creative directors.',
     category: 'Interviews',
     topics: ['interviews', 'creative', 'agencies', 'advertising'],
-    hero: 'https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_1280.jpg',
+    hero: '/designsworklife/images/pixabay/woman-2564660_1280.jpg',
     heroAlt: 'Creative professional with phone',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -299,7 +299,7 @@ export const extraNewsArticles: NewsArticle[] = [
     authorBio: 'Nikola hosts agency and brand conversations for DesignsWorkLife.',
     category: 'Podcast',
     topics: ['podcast', 'agencies', 'business', 'tech'],
-    hero: 'https://cdn.pixabay.com/photo/2015/01/08/18/27/startup-593341_1280.jpg',
+    hero: '/designsworklife/images/pixabay/startup-593341_1280.jpg',
     heroAlt: 'Laptop and notebook for business planning',
     heroCredit: 'Photo via Pixabay',
     body: [

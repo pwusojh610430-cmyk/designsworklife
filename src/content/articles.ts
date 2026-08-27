@@ -46,7 +46,7 @@ export const newsArticles: NewsArticle[] = [
       'Roberto covers brand launches and QSR marketing. He previously wrote for trade titles on retail media and franchise growth.',
     category: 'Brands',
     topics: ['branding', 'marketing', 'advertising'],
-    hero: 'https://cdn.pixabay.com/photo/2014/01/16/01/48/chicken-nuggets-246180_1280.jpg',
+    hero: '/designsworklife/images/pixabay/chicken-nuggets-246180_1280.jpg',
     heroAlt: 'Crispy fried chicken pieces with dipping sauce',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -60,7 +60,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
+        src: '/designsworklife/images/pixabay/hamburger-1238246_1280.jpg',
         alt: 'Fast-food burger meal with fries on a tray',
         caption: 'QSR launches still win when the product is the punchline, not the fine print. Image: Pixabay',
       },
@@ -224,7 +224,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'Brands',
     topics: ['branding', 'tech', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2012/06/19/10/32/owl-50267_1280.jpg',
+    hero: '/designsworklife/images/pixabay/owl-50267_1280.jpg',
     heroAlt: 'Close-up of an owl, echoing Duolingo’s mascot energy',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -280,7 +280,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Roberto covers brand launches and QSR marketing.',
     category: 'Brands',
     topics: ['branding', 'business', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg',
+    hero: '/designsworklife/images/pixabay/pizza-3007395_1280.jpg',
     heroAlt: 'Fresh pizza with melted cheese and toppings',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -294,7 +294,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg',
+        src: '/designsworklife/images/pixabay/hamburger-494706_1280.jpg',
         alt: 'Casual dining meal representing QSR brand familiarity',
         caption: 'Franchise brands survive ownership changes when the meal stays recognizable. Image: Pixabay',
       },
@@ -336,7 +336,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Katherine reports on retail partnerships and loyalty programs.',
     category: 'Marketing',
     topics: ['marketing', 'branding', 'advertising'],
-    hero: 'https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277414_1280.jpg',
+    hero: '/designsworklife/images/pixabay/dog-3277414_1280.jpg',
     heroAlt: 'Happy dog looking toward the camera',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -346,7 +346,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2019/11/11/15/32/coffee-4618705_1280.jpg',
+        src: '/designsworklife/images/pixabay/coffee-4618705_1280.jpg',
         alt: 'Coffee cup on a cafe table',
         caption: 'Coffee runs already include a silent second customer in the back seat. Image: Pixabay',
       },
@@ -360,7 +360,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg',
+        src: '/designsworklife/images/pixabay/puppy-1903313_1280.jpg',
         alt: 'Puppy outdoors, representing pet-focused retail moments',
         caption: 'Pet retail works when it feels like hospitality, not a gimmick aisle. Image: Pixabay',
       },
@@ -394,7 +394,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Coral writes about advertising creative systems and brand IP strategy.',
     category: 'Brands',
     topics: ['business', 'ecommerce', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383_1280.jpg',
+    hero: '/designsworklife/images/pixabay/woman-3083383_1280.jpg',
     heroAlt: 'Woman applying makeup, representing beauty product testing',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -450,7 +450,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'Advertising',
     topics: ['advertising', 'branding', 'marketing'],
-    hero: 'https://cdn.pixabay.com/photo/2018/01/31/09/57/coffee-3120750_1280.jpg',
+    hero: '/designsworklife/images/pixabay/coffee-3120750_1280.jpg',
     heroAlt: 'Latte art coffee in a ceramic cup',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -460,7 +460,7 @@ export const newsArticles: NewsArticle[] = [
       },
       {
         type: 'image',
-        src: 'https://cdn.pixabay.com/photo/2015/07/02/20/37/cup-829527_1280.jpg',
+        src: '/designsworklife/images/pixabay/cup-829527_1280.jpg',
         alt: 'Coffee cup with warm drink, seasonal cafe mood',
         caption: 'PSL works because it is ritual first, beverage second. Image: Pixabay',
       },
@@ -548,7 +548,7 @@ export const newsArticles: NewsArticle[] = [
     authorBio: 'Ru covers consumer tech brands and product-led marketing.',
     category: 'Design',
     topics: ['design', 'creative', 'branding'],
-    hero: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg',
+    hero: '/designsworklife/images/pixabay/living-room-1835923_1280.jpg',
     heroAlt: 'Modern living room interior ready for gaming furniture',
     heroCredit: 'Photo via Pixabay',
     body: [
@@ -611,7 +611,7 @@ export const partnerArticles = [
     title: 'Lifecycle Marketing Without the Tool Pileup: Notes From HubSpot Partners',
     excerpt: 'A partner playbook for keeping CRM, CMS, and ads on one measurement spine.',
     category: 'Partner Content',
-    image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg',
+    image: '/designsworklife/images/pixabay/meeting-2284501_1280.jpg',
     imageAlt: 'Team meeting about lifecycle marketing',
   },
   {

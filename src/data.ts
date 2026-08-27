@@ -134,14 +134,14 @@ export const agencies: Agency[] = [
     overview:
       'Digital Silk creates custom websites to drive higher conversions and greater SEO value to grow brands online. From start-ups to Fortune 500, we have an outstanding track record on delivering on results. Our clients include SONY, Northwestern University, P&G, EV Universe, SNP Therapeutics, Xerox, NYU and others.',
     website: 'https://www.digitalsilk.com',
-    cover: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
+    cover: '/designsworklife/images/pixabay/startup-594090_1280.jpg',
     portfolio: [
-      { title: 'Dognomics', type: 'B2B Branding', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg' },
-      { title: 'EV Universe', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_640.jpg' },
-      { title: 'Northwestern University', type: 'Web Design', image: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_640.jpg' },
-      { title: 'G2 eSports', type: 'eCommerce Development', image: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_640.jpg' },
-      { title: 'Fly Sports (AllRecruit)', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_640.jpg' },
-      { title: 'SONY Rewards', type: 'Web Design', image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_640.jpg' },
+      { title: 'Dognomics', type: 'B2B Branding', year: 2025, image: '/designsworklife/images/pixabay/puppy-1903313_640.jpg' },
+      { title: 'EV Universe', type: 'Web Design', year: 2025, image: '/designsworklife/images/pixabay/road-1072823_640.jpg' },
+      { title: 'Northwestern University', type: 'Web Design', image: '/designsworklife/images/pixabay/architecture-1868667_640.jpg' },
+      { title: 'G2 eSports', type: 'eCommerce Development', image: '/designsworklife/images/pixabay/code-1839406_640.jpg' },
+      { title: 'Fly Sports (AllRecruit)', type: 'Web Design', year: 2025, image: '/designsworklife/images/pixabay/meeting-2284501_640.jpg' },
+      { title: 'SONY Rewards', type: 'Web Design', image: '/designsworklife/images/pixabay/apple-1867461_640.jpg' },
     ],
     team: [
       { name: 'Gabriel Shaoolian', role: 'CEO and Founder' },
@@ -174,9 +174,9 @@ export const agencies: Agency[] = [
     overview:
       'Design In DC builds future-ready digital experiences for organizations that need clarity, accessibility, and conversion-focused design across web and product interfaces.',
     website: '#',
-    cover: 'https://cdn.pixabay.com/photo/2016/11/29/09/16/architecture-1868667_1280.jpg',
+    cover: '/designsworklife/images/pixabay/architecture-1868667_1280.jpg',
     portfolio: [
-      { title: 'BioAstra', type: 'Web Design', year: 2026, image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_640.jpg' },
+      { title: 'BioAstra', type: 'Web Design', year: 2026, image: '/designsworklife/images/pixabay/artificial-intelligence-3382507_640.jpg' },
       { title: 'Civic Portal Redesign', type: 'UI/UX Design', year: 2025, image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1280&q=80' },
     ],
     team: [
@@ -209,9 +209,9 @@ export const agencies: Agency[] = [
     overview:
       'Lounge Lizard has helped brands grow online since 1998 with web design, development, and performance marketing built around measurable business outcomes.',
     website: '#',
-    cover: 'https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg',
+    cover: '/designsworklife/images/pixabay/teamwork-3213924_1280.jpg',
     portfolio: [
-      { title: 'Retail Flagship Site', type: 'Web Development', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_640.jpg' },
+      { title: 'Retail Flagship Site', type: 'Web Development', year: 2025, image: '/designsworklife/images/pixabay/living-room-1835923_640.jpg' },
       { title: 'Hospitality Rebrand', type: 'Branding', year: 2024, image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1280&q=80' },
     ],
     team: [
@@ -243,8 +243,8 @@ export const agencies: Agency[] = [
     clients: ['Sky', 'MakerDAO'],
     overview: 'Clay designs brands and digital products for companies that need distinctive identity systems and high-craft web experiences.',
     website: '#',
-    cover: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg',
-    portfolio: [{ title: 'Sky', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_640.jpg' }],
+    cover: '/designsworklife/images/pixabay/astronomy-1867616_1280.jpg',
+    portfolio: [{ title: 'Sky', type: 'Web Design', year: 2025, image: '/designsworklife/images/pixabay/astronomy-1867616_640.jpg' }],
     team: [{ name: 'Studio Lead', role: 'Creative Director' }],
   },
   {
@@ -271,8 +271,8 @@ export const agencies: Agency[] = [
     clients: ['Cazena'],
     overview: 'GoingClear specializes in quiet-confidence SaaS marketing sites for technical buyers who distrust overproduced marketing.',
     website: '#',
-    cover: 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg',
-    portfolio: [{ title: 'Cazena', type: 'Web Design', year: 2025, image: 'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_640.jpg' }],
+    cover: '/designsworklife/images/pixabay/code-1839406_1280.jpg',
+    portfolio: [{ title: 'Cazena', type: 'Web Design', year: 2025, image: '/designsworklife/images/pixabay/startup-594090_640.jpg' }],
     team: [{ name: 'Product Designer', role: 'Design Lead' }],
   },
   {
@@ -299,8 +299,8 @@ export const agencies: Agency[] = [
     clients: ['Pop Up Signatures'],
     overview: 'Toby Ng Design creates culturally rich print and packaging systems recognized by international design juries.',
     website: '#',
-    cover: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg',
-    portfolio: [{ title: 'Pop Up Signatures: Fashion Unfolded', type: 'Print Design', year: 2026, image: 'https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_640.jpg' }],
+    cover: '/designsworklife/images/pixabay/books-2596809_1280.jpg',
+    portfolio: [{ title: 'Pop Up Signatures: Fashion Unfolded', type: 'Print Design', year: 2026, image: '/designsworklife/images/pixabay/books-2596809_640.jpg' }],
     team: [{ name: 'Toby Ng', role: 'Founder' }],
   },
 ]
@@ -426,7 +426,7 @@ export const awardDesigns = [
       { initials: 'SB', score: 9.0 },
     ],
     agency: 'Independent',
-    image: 'https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_1280.jpg',
+    image: '/designsworklife/images/pixabay/salad-2756467_1280.jpg',
   },
   {
     title: 'Pop Up Signatures: Fashion Unfolded Print Design',
@@ -452,7 +452,7 @@ export const awardDesigns = [
       { initials: 'GS', score: 9.3 },
     ],
     agency: 'Studio',
-    image: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/apple-1867461_1280.jpg',
+    image: '/designsworklife/images/pixabay/apple-1867461_1280.jpg',
   },
   {
     title: 'Roku Theater – TV Is Better Here Video Design',
@@ -465,7 +465,7 @@ export const awardDesigns = [
       { initials: 'OI', score: 9.0 },
     ],
     agency: 'Agency',
-    image: 'https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg',
+    image: '/designsworklife/images/pixabay/people-2591874_1280.jpg',
   },
   {
     title: 'F-Prime Website Design',
@@ -483,7 +483,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Studio',
-    image: 'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+    image: '/designsworklife/images/pixabay/artificial-intelligence-3382507_1280.jpg',
   },
   {
     title: 'Transform FitAI App Design',
@@ -492,7 +492,7 @@ export const awardDesigns = [
     badge: 'Featured',
     judges: [],
     agency: 'Suffescom Solutions Inc',
-    image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg',
+    image: '/designsworklife/images/pixabay/road-1072823_1280.jpg',
   },
   {
     title: 'Northwind Capital Logo System',
