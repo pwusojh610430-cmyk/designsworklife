@@ -1194,7 +1194,7 @@ p {
 .article-header .article-deck {
   max-width: 960px;
   margin: 0;
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   font-weight: 400;
   text-wrap: pretty;
@@ -1202,8 +1202,8 @@ p {
 
 .article-prose p,
 .article-prose li {
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: 1.125rem;
+  line-height: 1.75;
 }
 
 .article-prose h2 {
@@ -1217,7 +1217,7 @@ p {
 }
 
 .article-prose .article-deck {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   font-weight: 400;
 }
