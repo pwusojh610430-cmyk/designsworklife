@@ -217,6 +217,7 @@ function loadArticleDraft(storageKey: string, article: NewsArticle): NewsArticle
         read: article.read,
         keyFindings: structuredClone(article.keyFindings),
         ourTake: article.ourTake,
+        contentRevision: article.contentRevision,
       }
     }
 
@@ -229,7 +230,7 @@ function loadArticleDraft(storageKey: string, article: NewsArticle): NewsArticle
 export function NewsArticlePage() {
   const { slug = '' } = useParams()
   const article = newsArticles.find((n) => n.slug === slug) ?? newsArticles[0]
-  const storageKey = `designsworklife-article-draft-${article.slug}`
+  const storageKey = `designsworklife-article-draft-v3-${article.slug}`
   const [editorOpen, setEditorOpen] = useState(() => new URLSearchParams(window.location.search).get('article-editor') === '1')
   const [interactionStatus, setInteractionStatus] = useState('')
   const [reaction, setReaction] = useState('')
