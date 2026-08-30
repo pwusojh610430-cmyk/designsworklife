@@ -9,6 +9,7 @@ type CurrentArticle = Pick<NewsArticle, 'slug' | 'title' | 'excerpt' | 'category
   implications: string[]
   source: NonNullable<NewsArticle['sources']>[number]
   read?: string
+  body?: NewsArticle['body']
 }
 
 function article(data: CurrentArticle): NewsArticle {
@@ -29,7 +30,7 @@ function article(data: CurrentArticle): NewsArticle {
     factChecked: 'Aug 30, 2026',
     sources: [data.source],
     heroCredit: 'Photo via Pixabay',
-    body: [
+    body: data.body ?? [
       { type: 'p', text: data.opening },
       { type: 'p', text: data.context },
       { type: 'h2', text: 'What the work is really doing' },
@@ -58,6 +59,24 @@ export const currentNewsArticles: NewsArticle[] = [
     implications: ['Turn technical specifications into one visual metaphor a viewer can understand before reading the copy.', 'Use production craft to create contrast with the conventions of the category.', 'Let the product remain visually recognizable even while the surrounding world becomes playful.'],
     keyFindings: ['The film was produced as handcrafted claymation rather than generated with AI tools.', 'Physical comedy translates a compact-device performance claim into a memorable image.', 'A distinctive production method helps a familiar product launch earn cultural attention.'],
     ourTake: 'The smartest part of the campaign is its restraint: one small computer, one oversized-strength metaphor, and a material treatment that makes every frame recognizably its own.',
+    read: '7 min read',
+    body: [
+      { type: 'p', text: 'The Mac mini has always had a slightly awkward advertising problem. Put it on a desk and it can disappear beneath a monitor; list its specifications and the story quickly turns into a row of numbers. Apple’s new film sidesteps both problems by giving the little aluminum box an absurdly muscular clay body.' },
+      { type: 'p', text: 'That joke does most of the selling before anyone has to explain a processor. The computer is still recognizably small, but everything around it behaves as if a heavyweight has entered the room. It is a simple visual argument: do not confuse size with strength.' },
+      { type: 'h2', text: 'A performance claim you can understand without a benchmark chart' },
+      { type: 'p', text: 'Technology campaigns often assume that more detail creates more conviction. For people already comparing chips, memory bandwidth, and export times, that detail matters. For everyone else, it can turn a launch into homework. “The Mighty Mac Mini” begins with the feeling Apple wants attached to the machine and leaves the technical evidence to the product page.' },
+      { type: 'p', text: 'The clay figure flexes, races, thinks, and moves with deliberately exaggerated force. Each scene translates a different kind of computing power into an action anyone can read at a glance. The metaphor is not especially subtle, but subtlety would work against it. This is a product demonstration recast as a physical gag.' },
+      { type: 'h2', text: 'The handmade look is more than decoration' },
+      { type: 'p', text: 'The campaign was developed by TBWA\\Media Arts Lab with Blinkink and Stoopid Buddy Stoodios, with Nicos Livesey directing. That production choice gives the film its most useful tension: Apple is talking about a machine built for the AI era through imagery that visibly bears the marks of human handling.' },
+      { type: 'p', text: 'Clay bends, fingerprints show, and movement has a faintly uneven rhythm. Those imperfections give the spot warmth that a polished field of glowing interfaces would struggle to create. At a moment when almost every technology brand can generate spectacular synthetic imagery, the tactile surface becomes the distinctive thing.' },
+      { type: 'quote', text: 'The memorable contrast is not simply small versus powerful. It is advanced computing presented through an old, slow, unmistakably physical craft.' },
+      { type: 'h2', text: 'Apple keeps the product inside the joke' },
+      { type: 'p', text: 'There is another disciplined choice here. The claymation does not build an elaborate fictional world that overwhelms the computer. The Mac mini remains the recognizable center of each setup. The bodybuilder idea gives it personality, but the silhouette, scale, and role of the product stay clear.' },
+      { type: 'p', text: 'That balance is easy to lose in craft-led advertising. A beautifully made film can earn attention while leaving viewers unsure what was being sold. Here, the visual treatment and the sales claim are the same idea. Remove the Mac mini and the gag falls apart; remove the clay muscles and the performance promise becomes ordinary.' },
+      { type: 'h2', text: 'What other product teams should notice' },
+      { type: 'p', text: 'The useful lesson is not that every AI product needs stop-motion. It is that technical advantages become easier to remember when a campaign chooses one human-scale metaphor and commits to it. The metaphor should clarify the product, not merely decorate an announcement.' },
+      { type: 'p', text: 'For Apple, “small but mighty” is familiar territory, but the execution makes the phrase feel newly specific. The film gives the claim a body, a texture, and a sense of humor. That is far more likely to survive in memory than another sequence of benchmark numbers flying across a screen.' },
+    ],
     source: { title: 'Apple Sells AI Muscle With Claymation in New Mac Mini M6 Ad', publisher: 'DesignRush', url: 'https://news.designrush.com/apple-mighty-mac-mini-m6-claymation-tbwa' },
   }),
   article({
