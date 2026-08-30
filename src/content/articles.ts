@@ -31,6 +31,7 @@ export type NewsArticle = {
   verificationStatus?: 'source-reviewed' | 'editorial-analysis'
   factChecked?: string
   sources?: { title: string; publisher: string; url: string }[]
+  contentRevision?: number
 }
 
 type EditorialLens = {
@@ -43,39 +44,39 @@ type EditorialLens = {
 
 const editorialLenses: Record<string, EditorialLens> = {
   brand: {
-    context: 'Brand value is built when a recognizable idea survives repeated contact across packaging, service, media, and culture. A campaign can create attention, but the durable advantage comes from connecting that attention to memory structures customers can recognize later at the point of choice.',
-    value: 'The commercial mechanism is familiarity with meaning. Distinctive assets help people identify the brand quickly, while a credible product or origin story explains why that recognition should matter. The strongest work protects both: it introduces novelty without erasing the cues that already carry trust.',
+    context: 'Launch week is the easy part. The harder job is making sure someone can still recognize the idea months later—on a crowded shelf, in a short video, or without the campaign headline sitting beside it. That is where packaging, service and media either start reinforcing one another or drift into separate stories.',
+    value: 'Familiarity helps, but familiarity without a reason to care is just wallpaper. A useful brand asset does two jobs at once: it identifies who is speaking and reminds the buyer why this option is different. Newness can sit on top of that system; it should not wipe the system clean every season.',
     execution: ['Identify the one brand asset that must remain recognizable in every format.', 'Separate short-lived campaign novelty from the identity elements that should compound over time.', 'Give packaging, retail, social, and partnerships distinct roles inside one connected story.', 'Check whether the idea is understandable without relying on celebrity reach or paid-media repetition.'],
-    measurement: 'Reach and engagement describe distribution, not brand effect. Teams should also watch unaided recall, recognition of distinctive assets, branded search, consideration, earned conversation, and whether customers repeat the intended story in their own language.',
-    risk: 'The strategy weakens when cultural relevance becomes disconnected from the product. A collaboration can generate visibility while teaching the audience nothing durable about the brand. The safeguard is a clear bridge between the creative device, the reason to believe, and the buying situation.',
+    measurement: 'Reach tells the team how far the work travelled. It does not say what stuck. Recall, branded search, consideration and the words customers use when they describe the product are more revealing. If people remember the guest star but not the brand, the campaign bought attention for somebody else.',
+    risk: 'Cultural relevance can become a side project with a logo attached. Collaborations are especially prone to this: plenty of conversation, very little that survives at the buying moment. The product needs a real part in the story, not a cameo at the end.',
   },
   marketing: {
-    context: 'Modern campaigns compete in fragmented journeys where the same audience may discover an idea in social video, investigate it through search, and convert somewhere else entirely. The useful strategic question is therefore not which channel deserves all the credit, but what job each contact performs.',
-    value: 'Marketing creates value when it reduces distance between attention and action. A strong idea earns the first look; relevance keeps the audience engaged; proof lowers uncertainty; and a clear next step turns interest into measurable behavior. Missing any one layer makes the campaign more expensive to sustain.',
+    context: 'People rarely move through a campaign in the order shown on a media plan. They may see a clip, forget it, search the brand two days later and buy somewhere the original campaign cannot track. Arguing over which channel “won” misses the more practical question: did each contact help the next one happen?',
+    value: 'Attention is only the opening. The work still has to feel relevant, offer proof and make the next step obvious. When one of those pieces is missing, media has to keep paying to recover the interest the idea already earned once.',
     execution: ['Define the audience behavior the campaign is trying to start, change, or reinforce.', 'Assign every channel one primary job instead of publishing the same asset everywhere.', 'Build proof and product demonstration into the idea rather than adding them after launch.', 'Plan follow-up experiences for people who show interest but are not ready to convert immediately.'],
-    measurement: 'A balanced scorecard should connect creative signals with business movement. That means tracking attention quality, qualified visits, completion or participation, assisted conversion, incremental demand, and repeat behavior—not only impressions, likes, or the cheapest last click.',
-    risk: 'The common failure is optimizing each channel in isolation. A high-performing short video can still send people into a weak landing page, and efficient retargeting can disguise a campaign that created no new demand. Teams need journey-level evidence before declaring the idea successful.',
+    measurement: 'Impressions and likes are useful delivery checks, not a verdict. Qualified visits, participation, assisted conversion, incremental demand and repeat behaviour get closer to the business question. The numbers do not need to be forced into one dashboard score; they do need to tell a coherent story.',
+    risk: 'Channel teams can each hit their targets while the customer journey still falls apart. A good video may lead to a bad page. Cheap retargeting may harvest demand the campaign never created. Someone has to look across the handoffs rather than celebrate each report separately.',
   },
   design: {
-    context: 'Design quality is not limited to visual finish. It determines what people notice first, what they understand, how confidently they act, and whether a system can remain coherent when more teams and channels begin using it. The visible artifact is only one layer of the operating model.',
-    value: 'Good design creates value by reducing ambiguity while increasing recognition. It gives important information hierarchy, makes actions predictable, and establishes reusable rules that allow variation without inconsistency. This is why a clear system often outperforms a collection of individually impressive screens or assets.',
+    context: 'A polished screen can still leave people unsure what to do. Design has to survive the ordinary moments: a small phone, rushed copy, a missing image, a new team member building the next version. The launch mock-up is only the most controlled version of the problem.',
+    value: 'The value is often mundane and measurable. People find the important thing faster. They make fewer mistakes. Teams stop rebuilding the same pattern from scratch. A clear system leaves room for variation because the basic decisions have already been made.',
     execution: ['Write the hierarchy and user decision before polishing the visual treatment.', 'Test the concept in its smallest, busiest, and least-controlled real-world formats.', 'Document reusable rules for type, spacing, motion, imagery, and interaction.', 'Include accessibility, content behavior, and error states in the definition of finished work.'],
-    measurement: 'Teams should measure comprehension, task confidence, error rate, time to complete, accessibility outcomes, reuse of system components, and consistency across touchpoints. Preference scores matter, but they are not a substitute for evidence that the design helps people understand and act.',
-    risk: 'The approach breaks when the hero execution cannot survive production reality. If the system depends on perfect photography, unlimited space, or constant agency supervision, it will drift quickly. Resilience under ordinary use is a more meaningful test than launch-day polish.',
+    measurement: 'Ask whether people understood the hierarchy, completed the task and felt sure about the result. Error rates, accessibility findings and component reuse expose problems that preference surveys miss. “Users liked it” is encouraging; it is not the same as “users could use it.”',
+    risk: 'Some systems only look coherent while the original agency is watching. If the work needs perfect photography, generous space and expert supervision, it will unravel in daily production. The less glamorous templates are often the better stress test.',
   },
   technology: {
-    context: 'Technology stories often lead with capability, while adoption depends on workflow. People evaluate a new tool through the time it saves, the uncertainty it removes, the systems it connects to, and the consequences when it makes a mistake. Feature volume alone does not answer those questions.',
-    value: 'The practical value comes from converting technical capacity into a reliable user outcome. That requires clear defaults, understandable controls, credible proof, and a path for human judgment where automation reaches its limits. Products earn trust when users can predict both what they do and what they will not do.',
+    context: 'Product demos begin with capability because capability photographs well. Daily use is less dramatic. A tool has to fit the existing workflow, save enough time to justify the switch and make its mistakes recoverable. A longer feature list does not settle any of those questions.',
+    value: 'Technical power becomes useful only when the outcome is dependable. Clear defaults and understandable controls matter more than another button. So does knowing where automation stops and a person is expected to decide.',
     execution: ['Describe the user decision improved by the technology, not only the underlying feature.', 'Make permissions, provenance, reversibility, and failure states visible.', 'Integrate with the existing workflow before asking users to adopt a new one.', 'Use progressive disclosure so advanced capability does not overwhelm routine tasks.'],
-    measurement: 'Adoption should be read alongside successful task completion, retained use, correction rate, support demand, time saved, and confidence. A feature that attracts trials but increases errors or abandonment may be generating curiosity rather than durable product value.',
-    risk: 'The largest risk is a gap between demonstration and daily use. Carefully staged examples can hide unclear inputs, brittle integrations, or review work transferred to the customer. Teams should evaluate the full operating cost, including oversight and recovery, before treating automation as efficiency.',
+    measurement: 'Trial numbers can make a launch look healthy while retained use tells a different story. Completion, correction rate, support demand and time saved show whether the feature became part of the job. Curiosity is not adoption.',
+    risk: 'The demo may hide unclear inputs, brittle integrations or hours of review pushed onto the customer. Automation is not efficient if the saved work returns as supervision and cleanup. The full cost appears after the launch team leaves.',
   },
   agency: {
-    context: 'Agency value is increasingly judged by the connection between specialist expertise and client outcomes. Buyers can find capabilities easily; what remains difficult is diagnosing the right problem, assembling the right team, and producing work that survives stakeholder, budget, and implementation constraints.',
-    value: 'The differentiator is not access to talent alone, but a repeatable way of applying judgment. Strong firms turn experience into clearer decisions, faster alignment, and fewer expensive revisions. Their process creates confidence without becoming bureaucracy that slows the work it was meant to protect.',
+    context: 'Clients can find a list of capabilities in minutes. The scarce part is diagnosis: deciding what problem is worth solving, which people need to solve it and what can actually ship inside the budget. That work is less visible than a case-study reel, but it is usually where the fee earns its keep.',
+    value: 'Talent matters. A repeatable way of using that talent matters more. Good agencies shorten arguments, surface difficult decisions early and prevent expensive revisions later. Process should make judgment easier to access, not wrap it in meetings.',
     execution: ['Define the client decision the engagement must improve before listing deliverables.', 'Make senior ownership, specialist roles, and escalation paths explicit.', 'Connect creative recommendations to implementation requirements and commercial constraints.', 'Transfer enough knowledge that the client can sustain the work after launch.'],
-    measurement: 'Useful measures include speed to alignment, quality of approved work, revision cycles, adoption by client teams, implementation consistency, and the business indicators named in the brief. Utilization and output volume describe agency activity, not necessarily client value.',
-    risk: 'The model fails when positioning promises integration but delivery remains fragmented. Handoffs, unclear ownership, and senior talent disappearing after the pitch can erase the advantage of a strong idea. Operating clarity is therefore part of the creative product.',
+    measurement: 'Revision cycles, speed to alignment, adoption by the client team and implementation quality say more than the number of files delivered. The commercial measures should come from the brief. Utilisation belongs in the agency’s operating report, not the client’s definition of success.',
+    risk: 'Integrated positioning means little if delivery is a chain of awkward handoffs. Unclear ownership and senior people vanishing after the pitch can undo a strong idea quickly. Clients experience the operating model whether or not it appears in the case study.',
   },
 }
 
@@ -90,21 +91,31 @@ function lensFor(article: NewsArticle): EditorialLens {
 
 function deepenArticle(article: NewsArticle): NewsArticle {
   const lens = lensFor(article)
+  const headingSets = [
+    ['The Part That Is Easy to Miss', 'What Has to Work in Practice', 'What We Would Watch Next'],
+    ['Why This Is More Than a Launch Story', 'The Questions Behind the Execution', 'The Test Comes After Attention'],
+    ['Look Past the Headline', 'What the Team Still Has to Get Right', 'Where the Idea Meets Reality'],
+    ['The Decision Underneath the Creative', 'Before Other Teams Copy the Tactic', 'The Result That Actually Matters'],
+    ['What Changes Once the Campaign Is Live', 'A Short Checklist for the Team', 'The Weak Point in the Plan'],
+  ]
+  const hash = [...article.slug].reduce((total, character) => total + character.charCodeAt(0), 0)
+  const headings = headingSets[hash % headingSets.length]
+  const listOffset = hash % lens.execution.length
+  const execution = [...lens.execution.slice(listOffset), ...lens.execution.slice(0, listOffset)].slice(0, 3)
+
   return {
     ...article,
     read: `${Math.max(7, Number.parseInt(article.read, 10) || 7)} min read`,
+    contentRevision: 3,
     body: [
       ...article.body,
-      { type: 'h2', text: 'The Wider Business Context' },
-      { type: 'p', text: `${article.excerpt} ${lens.context}` },
-      { type: 'h2', text: 'How the Idea Creates Value' },
+      { type: 'h2', text: headings[0] },
+      { type: 'p', text: lens.context },
       { type: 'p', text: lens.value },
-      { type: 'h2', text: 'Execution Questions Teams Should Answer' },
-      { type: 'ul', items: lens.execution },
-      { type: 'h2', text: 'What Meaningful Measurement Looks Like' },
-      { type: 'p', text: lens.measurement },
-      { type: 'h2', text: 'Where the Strategy Could Break' },
-      { type: 'p', text: lens.risk },
+      { type: 'h2', text: headings[1] },
+      { type: 'ul', items: execution },
+      { type: 'h2', text: headings[2] },
+      { type: 'p', text: `${lens.risk} ${lens.measurement}` },
     ],
   }
 }

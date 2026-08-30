@@ -209,7 +209,7 @@ function loadArticleDraft(storageKey: string, article: NewsArticle): NewsArticle
     // Content releases may add substantive sections after a local editor draft was
     // created. Keep user-controlled presentation fields, but migrate editorial copy
     // whenever the published article has a newer, longer body.
-    if (saved.body.length < article.body.length) {
+    if (saved.contentRevision !== article.contentRevision || saved.body.length < article.body.length) {
       return {
         ...article,
         ...saved,
