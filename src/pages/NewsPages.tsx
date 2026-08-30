@@ -201,6 +201,31 @@ function slugifyHeading(text: string) {
     .replace(/^-|-$/g, '')
 }
 
+function loadArticleDraft(storageKey: string, article: NewsArticle): NewsArticle {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '') as NewsArticle
+    if (!Array.isArray(saved.body)) return structuredClone(article)
+
+    // Content releases may add substantive sections after a local editor draft was
+    // created. Keep user-controlled presentation fields, but migrate editorial copy
+    // whenever the published article has a newer, longer body.
+    if (saved.body.length < article.body.length) {
+      return {
+        ...article,
+        ...saved,
+        body: structuredClone(article.body),
+        read: article.read,
+        keyFindings: structuredClone(article.keyFindings),
+        ourTake: article.ourTake,
+      }
+    }
+
+    return saved
+  } catch {
+    return structuredClone(article)
+  }
+}
+
 export function NewsArticlePage() {
   const { slug = '' } = useParams()
   const article = newsArticles.find((n) => n.slug === slug) ?? newsArticles[0]
@@ -208,13 +233,11 @@ export function NewsArticlePage() {
   const [editorOpen, setEditorOpen] = useState(() => new URLSearchParams(window.location.search).get('article-editor') === '1')
   const [interactionStatus, setInteractionStatus] = useState('')
   const [reaction, setReaction] = useState('')
-  const [draft, setDraft] = useState<NewsArticle>(() => {
-    try { return JSON.parse(localStorage.getItem(storageKey) || '') as NewsArticle } catch { return structuredClone(article) }
-  })
+  const [draft, setDraft] = useState<NewsArticle>(() => loadArticleDraft(storageKey, article))
 
   useEffect(() => {
     // oxlint-disable-next-line react/set-state-in-effect -- route changes must load the matching saved draft
-    try { setDraft(JSON.parse(localStorage.getItem(storageKey) || '') as NewsArticle) } catch { setDraft(structuredClone(article)) }
+    setDraft(loadArticleDraft(storageKey, article))
   }, [article, storageKey])
 
   useEffect(() => {
